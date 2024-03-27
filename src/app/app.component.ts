@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'inseparables-sportapp-web2';
+  title = 'inseparables-sportapp-web';
 }
