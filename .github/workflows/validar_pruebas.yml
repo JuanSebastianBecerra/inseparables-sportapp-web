@@ -9,8 +9,8 @@
             - opened
             - edited
     jobs:
-        correr-pruebas-personas:
-            name: Correr pruebas personas
+        correr-pruebas-unitarias-web:
+            name: correr-pruebas-unitarias-web
             runs-on: ubuntu-latest
             steps:
             - uses: actions/checkout@v1
