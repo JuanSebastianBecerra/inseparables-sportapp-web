@@ -2,3 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root{
+    --BlueGreen-1: #F0FFFC;
+    --BlueGreen-2: #E4F7F4;
+    --BlueGreen-3: #B2EBE4;
+    --BlueGreen-4: #85DED6;
+    --BlueGreen-5: #5CD1CB;
+    --BlueGreen-6: #36C4C1;
+    --BlueGreen-7: #249C9E;
+    --BlueGreen-8: #167378;
+    --BlueGreen-9: #0B4C52;
+    --BlueGreen-10: #167378;
+}

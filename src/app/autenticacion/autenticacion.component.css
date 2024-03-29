@@ -1,3 +1,26 @@
-.backgorund-test-color{
-    background-color: red;
+.btn-ingresar{
+    background-color: var(--BlueGreen-7);
+    color: var(--BlueGreen-1);
+    width: 100%;
 }
+
+.btn-ingresar:hover{
+    background-color: var(--BlueGreen-4);
+    color: var(--BlueGreen-10);
+}
+
+.link-color-sportapp{
+    color: var(--BlueGreen-10);
+}
+
+.center-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  .form-size{
+    min-width: 40%;
+  }
