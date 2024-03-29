@@ -1,7 +1,26 @@
-<mat-grid-list cols="4" rowHeight="5:1">
-    <mat-grid-tile colspan="2">1</mat-grid-tile>
-    <mat-grid-tile colspan="1">2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-  </mat-grid-list>
-  
+<mat-grid-list cols="4" rowHeight="1:1">
+  <mat-grid-tile />
+  <mat-grid-tile colspan="2">
+    <mat-card>
+      <mat-card-content>
+        <form>
+          <h1>SportApp</h1>
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Usuario">
+              <label for="floatingInputGroup1">Usuario</label>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInputGroup1" placeholder="password">
+              <label for="floatingInputGroup1">Contraseña</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+          <p>¿No tienes una cuenta?<a class="link-opacity-100" href="#">Creala aquí</a></p>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
