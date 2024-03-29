@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AutenticacionComponent } from './autenticacion/autenticacion.component';
+import { DesconocidoComponent } from './comunes/componentes/desconocido/desconocido.component';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -14,10 +16,12 @@ export function HttpLoaderFactory(http: HttpClient){
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DesconocidoComponent
   ],
   imports: [
     BrowserModule,
+    AutenticacionComponent,
     AppRoutingModule,
     HttpClientModule, 
     TranslateModule.forRoot({
@@ -29,6 +33,7 @@ export function HttpLoaderFactory(http: HttpClient){
     })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
