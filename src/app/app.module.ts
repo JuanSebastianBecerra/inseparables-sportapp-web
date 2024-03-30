@@ -17,11 +17,11 @@ export function HttpLoaderFactory(http: HttpClient){
 @NgModule({
   declarations: [
     AppComponent,
+    AutenticacionComponent,
     DesconocidoComponent
   ],
   imports: [
     BrowserModule,
-    AutenticacionComponent,
     AppRoutingModule,
     HttpClientModule, 
     TranslateModule.forRoot({
