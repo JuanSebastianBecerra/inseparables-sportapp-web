@@ -23,7 +23,7 @@
             - name: Build
               run: npm run build
             - name: Test
-              run: npm test
+              run: npm test -- --watch=false --browsers=ChromeHeadless
             - name: Validar resultado con errores
               if: ${{ failure() }}
               env:
