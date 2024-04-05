@@ -1,0 +1,62 @@
+<div class="center-element">
+  <form
+    class="form-size"
+    [formGroup]="ingresarForm"
+    (ngSubmit)="!ingresarForm.invalid && validateUser(ingresarForm.value)"
+  >
+    <h1>SportApp</h1>
+    <div class="input-group mb-3 mt-5">
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="email-input"
+          placeholder="Correo"
+          formControlName="email"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            ingresarForm.get('email')!.hasError('required') &&
+            ingresarForm.get('email')!.touched
+          "
+        >
+          Se requiere el usuario
+        </div>
+        <div
+       class="alert alert-danger alert-dismissible fade show"
+       *ngIf="f['email']?.errors?.['email']"
+     >
+       Debe ser un correo
+     </div>
+        <label for="email-input">Usuario</label>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="password-input"
+          placeholder="Contraseña"
+          formControlName="password"
+        />
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="
+            ingresarForm.get('password')!.hasError('required') &&
+            ingresarForm.get('password')!.touched
+          "
+        >
+          Se requiere la contraseña
+        </div>
+        <label for="password-input">Contraseña</label>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!ingresarForm.valid" class="btn btn-ingresar mt-5">Ingresar</button>
+    <p class="mt-2">
+      ¿No tienes una cuenta?
+      <a class="link-color-sportapp" href="#">Creala aquí</a>
+    </p>
+  </form>
+</div>
