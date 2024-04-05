@@ -1,2 +1,15 @@
-# inseparables-sportapp-web
-Este es la parte web para el proyecto SportApp, el cual busca ayudar a potenciar a los atletas amateur ayudandolos en sus entrenamientos.
+# SportApp web
+
+## Ejecutar servidor
+Para ejecutar la aplicación se ejecuta el comando
+```
+ng serve
+```
+
+## Ejecutar servicios mock
+Para ejecutar los servicios mock se debe ejecutar el siguiente comando
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+```
+npm run server:mock
+```
