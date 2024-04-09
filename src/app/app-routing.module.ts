@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: '', component: AutenticacionComponent },
   { path: 'autenticacion', component: AutenticacionComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: '**', component: DesconocidoComponent },
   { path: 'home', component: HomeComponent},
   { path: '**', component: DesconocidoComponent },
 ];
