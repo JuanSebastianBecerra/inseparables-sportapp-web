@@ -5,10 +5,10 @@ const server = jsonServer.create();
 server.use(middleware);
 server.use(jsonServer.bodyParser);
 
-const loginData = require('../mock-server/data/login');
+const respuestaIngresar = require('../mock-server/data/personas/ingresar');
 
-server.post('/login', (request, response, next) => {
-    response.status(200).send(loginData.postLogin);
+server.post('/personas/ingresar', (request, response, next) => {
+    response.status(200).send(respuestaIngresar.postIngreso);
 });
 
 server.listen(8080, () => {

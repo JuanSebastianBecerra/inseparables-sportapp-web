@@ -1,10 +1,14 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AutenticacionComponent } from './autenticacion/autenticacion.component';
+import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.component';
 import { DesconocidoComponent } from './comunes/componentes/desconocido/desconocido.component';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from './secciones/home/home.component';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -18,14 +22,21 @@ export function HttpLoaderFactory(http: HttpClient){
 @NgModule({
   declarations: [
     AppComponent,
-    AutenticacionComponent,
     DesconocidoComponent,
+    HomeComponent
+    AutenticacionComponent,
     RegistroComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    AutenticacionComponent,
     AppRoutingModule,
-    HttpClientModule, 
+    HttpClientModule,
+      ],
+  providers: [CookieService],
+    AppRoutingModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -36,6 +47,6 @@ export function HttpLoaderFactory(http: HttpClient){
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: []
 })
 export class AppModule { }
