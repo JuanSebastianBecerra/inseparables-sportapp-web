@@ -42,7 +42,6 @@ export class RegistroComponent implements OnInit {
   }
 
   registrarUsuario(bodyRequest:any) {
-    console.log(bodyRequest)
     this.personasService.registrarUsuario(bodyRequest).subscribe(response => {
         //TODO -> need to validate the status 201
         this.router.navigate(['/home'])
