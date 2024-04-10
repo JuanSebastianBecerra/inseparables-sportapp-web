@@ -11,7 +11,7 @@ import { HomeComponent } from './secciones/home/home.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { RegistroComponent } from './usuarios/registro/registro.component';
+import { RegistroComponent } from './secciones/usuarios/registro/registro.component';
 import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.component';
 
 export function HttpLoaderFactory(http: HttpClient){
@@ -22,8 +22,7 @@ export function HttpLoaderFactory(http: HttpClient){
   declarations: [
     AppComponent,
     DesconocidoComponent,
-    HomeComponent,
-    RegistroComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +30,7 @@ export function HttpLoaderFactory(http: HttpClient){
     AppRoutingModule,
     HttpClientModule,
     AutenticacionComponent,
+    RegistroComponent,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

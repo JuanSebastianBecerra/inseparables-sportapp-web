@@ -11,6 +11,10 @@ server.post('/personas/ingresar', (request, response, next) => {
     response.status(200).send(respuestaIngresar.postIngreso);
 });
 
+server.post('/personas/usuario', (request, response, next) => {
+    response.status(201).send(respuestaIngresar.postIngreso);
+});
+
 server.listen(8080, () => {
     console.log('JSON server listening on port 8080');
 });
