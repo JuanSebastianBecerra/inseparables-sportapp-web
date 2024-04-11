@@ -4,11 +4,13 @@ import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.
 import { HomeComponent } from './secciones/home/home.component';
 import { DesconocidoComponent } from './comunes/componentes/desconocido/desconocido.component';
 import { RegistroComponent } from './secciones/usuarios/registro/registro.component';
+import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
   { path: 'autenticacion', component: AutenticacionComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'suscripciones', component: SuscripcionesComponent},
   { path: 'home', component: HomeComponent},
   { path: '**', component: DesconocidoComponent },
 ];

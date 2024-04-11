@@ -13,6 +13,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RegistroComponent } from './secciones/usuarios/registro/registro.component';
 import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.component';
+import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,7 +23,8 @@ export function HttpLoaderFactory(http: HttpClient){
   declarations: [
     AppComponent,
     DesconocidoComponent,
-    HomeComponent
+    HomeComponent,
+    SuscripcionesComponent
   ],
   imports: [
     BrowserModule,
