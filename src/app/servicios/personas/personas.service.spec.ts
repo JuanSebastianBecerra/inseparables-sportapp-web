@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AutorizacionService } from './autorizacion.service';
+import { PersonasService } from './personas.service';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 
-describe('AutorizacionService', () => {
-  let service: AutorizacionService;
+describe('PersonasService', () => {
+  let service: PersonasService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [AutorizacionService]
+      providers: [PersonasService]
     });
-    service = TestBed.inject(AutorizacionService);
+    service = TestBed.inject(PersonasService);
   });
 
   it('should be created', () => {

@@ -1,17 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-:root{
-    --BlueGreen-1: #F0FFFC;
-    --BlueGreen-2: #E4F7F4;
-    --BlueGreen-3: #B2EBE4;
-    --BlueGreen-4: #85DED6;
-    --BlueGreen-5: #5CD1CB;
-    --BlueGreen-6: #36C4C1;
-    --BlueGreen-7: #249C9E;
-    --BlueGreen-8: #167378;
-    --BlueGreen-9: #0B4C52;
-    --BlueGreen-10: #167378;
+html,
+body {
+  height: 100%;
 }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --BlueGreen-1: #f0fffc;
+  --BlueGreen-2: #e4f7f4;
+  --BlueGreen-3: #b2ebe4;
+  --BlueGreen-4: #85ded6;
+  --BlueGreen-5: #5cd1cb;
+  --BlueGreen-6: #36c4c1;
+  --BlueGreen-7: #249c9e;
+  --BlueGreen-8: #167378;
+  --BlueGreen-9: #0b4c52;
+  --BlueGreen-10: #167378;
+}
+
+.center-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.btn-guardar {
+  background-color: var(--BlueGreen-7);
+  color: var(--BlueGreen-1);
+  width: 100%;
+}
+
+.btn-guardar:hover {
+  background-color: var(--BlueGreen-4);
+  color: var(--BlueGreen-10);
+}
+
+.btn-cancelar {
+  background-color: var(--BlueGreen-1);
+  color: var(--BlueGreen-7);
+  width: 100%;
+}
+
+.btn-cancelar:hover {
+  background-color: var(--BlueGreen-10);
+  color: var(--BlueGreen-4);
+}
+
+.link-color-sportapp {
+    color: var(--BlueGreen-10);
+  }

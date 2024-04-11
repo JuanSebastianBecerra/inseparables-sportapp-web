@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router"
+import { Router, RouterModule } from "@angular/router"
 import { AutorizacionService } from '../../servicios/autorizacion/autorizacion.service';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './autenticacion.component.html',
   styleUrls: ['./autenticacion.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule]
+  imports: [ReactiveFormsModule, CommonModule, RouterModule]
 })
 export class AutenticacionComponent implements OnInit {
 

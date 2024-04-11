@@ -1,0 +1,37 @@
+---
+    name: Validar pruebas unitarias
+    on:
+        pull_request:
+          branches:
+            - main
+            - develop
+          types: 
+            - synchronize
+            - opened
+            - edited
+    jobs:
+        correr-pruebas-unitarias-web:
+            name: correr-pruebas-unitarias-web
+            runs-on: ubuntu-latest
+            steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js 16.18
+              uses: actions/setup-node@v1
+              with:
+                node-version: 16.18
+            - name: Install dependencies
+              run: npm install
+            - name: Build
+              run: npm run build
+            - name: Test
+              run: npm test -- --watch=false --browsers=ChromeHeadless
+            - name: Validar resultado con errores
+              if: ${{ failure() }}
+              env:
+                MENSAJE_ERROR: Algunas pruebas fallaron
+              run: echo "::set-output name=respuesta::${MENSAJE_ERROR}"
+            - name: Validar resultado sin errores
+              if: ${{ success() }}
+              env:
+                MENSAJE_EXITO: Todas las pruebas fueron exitosas
+              run: echo "::set-output name=respuesta::${MENSAJE_EXITO}"

@@ -1,0 +1,243 @@
+<div class="center-element">
+  <form
+    class="form-size size-form-register"
+    [formGroup]="registroForm"
+    (ngSubmit)="!registroForm.invalid && registrarUsuario(registroForm.value)"
+  >
+    <div class="container text-center">
+      <h1>Registro</h1>
+      <div class="row mb-3 mt-5">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Nombres"
+              formControlName="nombre"
+            />
+            <label for="name">Nombres</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('nombre')!.hasError('required') &&
+                registroForm.get('nombre')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="lastname"
+              placeholder="Apellidos"
+              formControlName="apellido"
+            />
+            <label for="lastname">Apellidos</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('apellido')!.hasError('required') &&
+                registroForm.get('apellido')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="lastname"
+              placeholder="Usuario"
+              formControlName="username"
+            />
+            <label for="lastname">Usuario</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('username')!.hasError('required') &&
+                registroForm.get('username')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              placeholder="E-mail"
+              formControlName="email"
+            />
+            <label for="email">E-mail</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('email')!.hasError('required') &&
+                registroForm.get('email')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="f['email']?.errors?.['email']"
+            >
+              Debe ser un correo
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <div class="form-group col">
+            <label for="documentType">Tipo de identificación</label>
+            <select
+              id="documentType"
+              class="form-control"
+              formControlName="tipo_identificacion"
+            >
+              <option selected disabled>Seleccione...</option>
+              <option>CC</option>
+              <option>TI</option>
+            </select>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('tipo_identificacion')!.hasError('required') &&
+                registroForm.get('tipo_identificacion')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="identification"
+              placeholder="Número de identificación"
+              formControlName="numero_identificacion"
+            />
+            <label for="identification">Número de identificación</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('numero_identificacion')!.hasError('required') &&
+                registroForm.get('numero_identificacion')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Contraseña"
+              formControlName="password"
+            />
+            <label for="password">Contraseña</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('password')!.hasError('required') &&
+                registroForm.get('password')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPwd"
+              placeholder="Confirmar contraseña"
+            />
+            <label for="confirmPwd">Confirmar contraseña</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('password')!.hasError('required') &&
+                registroForm.get('password')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <div class="form-group col">
+            <label for="suscription">Suscripción</label>
+            <select
+              id="suscription"
+              class="form-control"
+              formControlName="suscripcion"
+            >
+              <option selected disabled>Seleccione...</option>
+              <option>1</option>
+              <option>2</option>
+            </select>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('suscripcion')!.hasError('required') &&
+                registroForm.get('suscripcion')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-guardar mt-3">
+            Perfil deportivo
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <a class="link-color-sportapp" href="#"
+            >Ver detalles y recomendaciones de suscripción
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit" [disabled]="!registroForm.valid" class="btn btn-guardar mt-5">
+            Crear cuenta
+          </button>
+        </div>
+        <div class="col">
+          <button type="button" routerLink="/" class="btn btn-cancelar mt-5">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
