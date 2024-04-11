@@ -44,7 +44,6 @@ export class RegistroComponent implements OnInit {
 
   registrarUsuario(bodyRequest: any) {
     this.personasService.registrarUsuario(bodyRequest).subscribe(response => {
-      console.log(response)
       response.status === SATUS_CODE_CREATED && this.router.navigate(['/home'])
     },
       error => {
