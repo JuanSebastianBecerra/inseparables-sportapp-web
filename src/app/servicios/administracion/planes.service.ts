@@ -6,14 +6,13 @@ import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-export class PersonasService {
+export class PlanesService {
 
-  private registroUrl = environment.baseUrlPersonas + '/usuario';
+  private planesUrl = environment.baseUrlAdministracion + '/plan';
 
   constructor(private http: HttpClient) { }
 
-  registrarUsuario(bodyRequest:any): Observable<any> {
-    return this.http.post<any>(this.registroUrl, bodyRequest, {withCredentials: true, observe: 'response'});
+  obtener_planes(): Observable<any> {
+    return this.http.get<any>(this.planesUrl, {withCredentials: true, observe: 'response'});
   }
-
 }

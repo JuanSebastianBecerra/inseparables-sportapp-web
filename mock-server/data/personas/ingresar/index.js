@@ -1,5 +1,5 @@
-const respuestaRegistro = require('./post.json');
+const respuestaIngresar = require('./post.json');
 
 module.exports = {
-    postRegistro: respuestaRegistro
+    postIngreso: respuestaIngresar
 };

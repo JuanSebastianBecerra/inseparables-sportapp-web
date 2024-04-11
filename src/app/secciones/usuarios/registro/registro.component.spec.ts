@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistroComponent } from './registro.component';
-import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "../../../app-routing.module";
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RegistroComponent', () => {
   let component: RegistroComponent;
@@ -10,7 +10,7 @@ describe('RegistroComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RegistroComponent, HttpClientModule, AppRoutingModule],
+      imports: [RegistroComponent, HttpClientTestingModule, AppRoutingModule],
       declarations: []
     });
     fixture = TestBed.createComponent(RegistroComponent);
