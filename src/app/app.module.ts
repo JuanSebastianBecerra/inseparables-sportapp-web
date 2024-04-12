@@ -13,7 +13,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RegistroComponent } from './secciones/usuarios/registro/registro.component';
 import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.component';
-
+import { SocioComponent } from './secciones/socios/socio/socio.component';
+import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
+import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -31,6 +33,9 @@ export function HttpLoaderFactory(http: HttpClient){
     HttpClientModule,
     AutenticacionComponent,
     RegistroComponent,
+    SocioComponent,
+    ConsultaSocioComponent,
+    DetalleSocioComponent,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
