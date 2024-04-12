@@ -9,6 +9,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 :root {
   --BlueGreen-1: #f0fffc;
   --BlueGreen-2: #e4f7f4;
