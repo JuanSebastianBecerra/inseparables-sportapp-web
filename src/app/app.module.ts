@@ -14,6 +14,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RegistroComponent } from './secciones/usuarios/registro/registro.component';
 import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.component';
 import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
+import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,7 +25,8 @@ export function HttpLoaderFactory(http: HttpClient){
     AppComponent,
     DesconocidoComponent,
     HomeComponent,
-    SuscripcionesComponent
+    SuscripcionesComponent,
+    PerfilDeportistaComponent
   ],
   imports: [
     BrowserModule,
