@@ -16,6 +16,8 @@ import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.
 import { SocioComponent } from './secciones/socios/socio/socio.component';
 import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
 import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
+import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
+
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -24,7 +26,8 @@ export function HttpLoaderFactory(http: HttpClient){
   declarations: [
     AppComponent,
     DesconocidoComponent,
-    HomeComponent
+    HomeComponent,
+    SuscripcionesComponent
   ],
   imports: [
     BrowserModule,

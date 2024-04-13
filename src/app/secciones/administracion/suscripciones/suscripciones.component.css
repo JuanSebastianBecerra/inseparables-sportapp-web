@@ -1,0 +1,13 @@
+.centrar-boton{
+    display: flex;
+    justify-content: center;
+}
+
+.titulo-suscripcion{
+    font-size: xx-large;
+    color: var(--BlueGreen-10);
+}
+
+.descripcion-suscripcion{
+    text-align: justify;
+}

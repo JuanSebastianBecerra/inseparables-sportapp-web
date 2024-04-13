@@ -7,11 +7,13 @@ import { RegistroComponent } from './secciones/usuarios/registro/registro.compon
 import { SocioComponent } from './secciones/socios/socio/socio.component';
 import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
 import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
+import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
   { path: 'autenticacion', component: AutenticacionComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'suscripciones', component: SuscripcionesComponent},
   { path: 'home', component: HomeComponent},
   { path: 'socios', component: ConsultaSocioComponent},
   { path: 'socio', component: SocioComponent },

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { PersonasService } from 'src/app/servicios/personas/personas.service';
+import { SATUS_CODE_CREATED } from 'src/app/utils/constants';
 
 @Component({
   selector: 'app-registro',
@@ -41,19 +42,17 @@ export class RegistroComponent implements OnInit {
     })
   }
 
-  registrarUsuario(bodyRequest:any) {
-    console.log(bodyRequest)
+  registrarUsuario(bodyRequest: any) {
     this.personasService.registrarUsuario(bodyRequest).subscribe(response => {
-        //TODO -> need to validate the status 201
-        this.router.navigate(['/home'])
+      response.status === SATUS_CODE_CREATED && this.router.navigate(['/home'])
     },
-    error => {
-      this.responseError = true
-      if(error.error.description)
-        this.responseMessage = error.error.description
-      else
-        this.responseMessage = "Ocurrió un error al realizar la petición";
-    });
+      error => {
+        this.responseError = true
+        if (error.error.description)
+          this.responseMessage = error.error.description
+        else
+          this.responseMessage = "Ocurrió un error al realizar la petición";
+      });
   }
 
 
