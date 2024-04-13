@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ConsultaSocioComponent } from './consultaSocio.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {AppRoutingModule} from "../../../app-routing.module";
 
 describe('ConsultaSocioComponent', () => {
   let component: ConsultaSocioComponent;
@@ -11,7 +13,8 @@ describe('ConsultaSocioComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConsultaSocioComponent ]
+      imports: [ConsultaSocioComponent, HttpClientTestingModule, AppRoutingModule],
+      declarations: [  ]
     })
     .compileComponents();
   }));

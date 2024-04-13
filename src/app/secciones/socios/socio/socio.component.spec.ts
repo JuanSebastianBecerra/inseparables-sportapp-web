@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SocioComponent } from './socio.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {AppRoutingModule} from "../../../app-routing.module";
 
 describe('SocioComponent', () => {
   let component: SocioComponent;
@@ -8,7 +10,8 @@ describe('SocioComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SocioComponent]
+      imports: [SocioComponent, HttpClientTestingModule, AppRoutingModule],
+      declarations: []
     });
     fixture = TestBed.createComponent(SocioComponent);
     component = fixture.componentInstance;
