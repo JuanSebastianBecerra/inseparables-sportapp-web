@@ -1,0 +1,25 @@
+.size-form-register{
+    min-width: 70%;
+    min-height: 80%;
+}
+
+.size-card{
+    width: 305px;
+    height: 242px;
+}
+
+.btn-add {
+    background-color: var(--BlueGreen-7);
+    color: var(--BlueGreen-1);
+    width: 110px;
+    width: 106px;
+    float: right;
+}
+
+#socio-buscar{
+    width: 50%;
+    height: 56px;
+    background-color: var(--BlueGreen-2);
+    color: black;
+    border-color: var(--BlueGreen-2);
+}

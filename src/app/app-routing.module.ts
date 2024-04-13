@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.component';
-import { HomeComponent } from './secciones/home/home.component';
 import { DesconocidoComponent } from './comunes/componentes/desconocido/desconocido.component';
 import { RegistroComponent } from './secciones/usuarios/registro/registro.component';
 import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
 import { SociosComponent } from './secciones/administracion/socios/socios.component';
+import { SocioComponent } from './secciones/socios/socio/socio.component';
+import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
+import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
+import { CreacionServiciosComponent } from './secciones/servicios/creacion-servicios/creacion-servicios.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -13,8 +16,10 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'suscripciones', component: SuscripcionesComponent},
   { path: 'socios', component: SociosComponent},
-  { path: '**', component: DesconocidoComponent },
-];
+  { path: 'socio', component: SocioComponent },
+  { path: 'socio/:idSocio', component: DetalleSocioComponent},
+  { path: 'crear-servicio', component: CreacionServiciosComponent},
+  { path: '**', component: DesconocidoComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
