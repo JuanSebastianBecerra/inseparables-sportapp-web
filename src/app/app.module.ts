@@ -14,6 +14,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RegistroComponent } from './secciones/usuarios/registro/registro.component';
 import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.component';
 import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
+import { MenuComponent } from './comunes/componentes/menu/menu.component';
+import { SociosComponent } from './secciones/administracion/socios/socios.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,7 +26,9 @@ export function HttpLoaderFactory(http: HttpClient){
     AppComponent,
     DesconocidoComponent,
     HomeComponent,
-    SuscripcionesComponent
+    SuscripcionesComponent,
+    MenuComponent,
+    SociosComponent
   ],
   imports: [
     BrowserModule,
