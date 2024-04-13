@@ -16,6 +16,9 @@ import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.
 import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
 import { MenuComponent } from './comunes/componentes/menu/menu.component';
 import { SociosComponent } from './secciones/administracion/socios/socios.component';
+import { SocioComponent } from './secciones/socios/socio/socio.component';
+import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
+import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,6 +40,9 @@ export function HttpLoaderFactory(http: HttpClient){
     HttpClientModule,
     AutenticacionComponent,
     RegistroComponent,
+    SocioComponent,
+    ConsultaSocioComponent,
+    DetalleSocioComponent,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
