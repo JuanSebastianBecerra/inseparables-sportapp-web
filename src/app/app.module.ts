@@ -25,8 +25,7 @@ export function HttpLoaderFactory(http: HttpClient){
     AppComponent,
     DesconocidoComponent,
     HomeComponent,
-    SuscripcionesComponent,
-    PerfilDeportistaComponent
+    SuscripcionesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient){
     HttpClientModule,
     AutenticacionComponent,
     RegistroComponent,
+    PerfilDeportistaComponent,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

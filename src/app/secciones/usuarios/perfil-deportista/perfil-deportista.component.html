@@ -1,283 +1,414 @@
 <div class="center-element">
-  <form class="form-size size-form-perfil-deportivo">
-    <div class="container text-center">
-      <h1>Perfil deportivo</h1>
-      <div class="row mb-3 mt-5">
-        <div class="col-3">
-          <div class="form-group col">
-            <label for="documentType">Género</label>
-            <select
-              id="documentType"
-              class="form-control"
-              formControlName="tipo_identificacion"
-            >
-              <option selected disabled>Seleccione...</option>
-              <option>Masculino</option>
-              <option>Femenino</option>
-              <option>Otro</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="lastname"
-              placeholder="Apellidos"
-              formControlName="apellido"
-            />
-            <label for="lastname">Edad (años)</label>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="lastname"
-              placeholder="Apellidos"
-              formControlName="apellido"
-            />
-            <label for="lastname">Peso (kg)</label>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="lastname"
-              placeholder="Apellidos"
-              formControlName="apellido"
-            />
-            <label for="lastname">Altura (cm)</label>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3 mt-3">
-        <div class="col">
-          <div class="form-group col">
-            <label for="documentType">País de nacimiento</label>
-            <select
-              id="documentType"
-              class="form-control"
-              formControlName="tipo_identificacion"
-            >
-              <option selected disabled>Seleccione...</option>
-              <option>Colombia</option>
-              <option>Venezuela</option>
-              <option>Argentina</option>
-              <option>Brasil</option>
-              <option>Uruguay</option>
-              <option>Paraguay</option>
-              <option>Chile</option>
-              <option>Ecuador</option>
-              <option>Peru</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group col">
-            <label for="documentType">Ciudad de nacimiento</label>
-            <select
-              id="documentType"
-              class="form-control"
-              formControlName="tipo_identificacion"
-            >
-              <option selected disabled>Seleccione...</option>
-              <option>Bogota</option>
-              <option>Lima</option>
-              <option>La paz</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3 mt-3">
-        <div class="col">
-          <div class="form-group col">
-            <label for="documentType">País de residencia</label>
-            <select
-              id="documentType"
-              class="form-control"
-              formControlName="tipo_identificacion"
-            >
-            <option selected disabled>Seleccione...</option>
-            <option>Colombia</option>
-            <option>Venezuela</option>
-            <option>Argentina</option>
-            <option>Brasil</option>
-            <option>Uruguay</option>
-            <option>Paraguay</option>
-            <option>Chile</option>
-            <option>Ecuador</option>
-            <option>Peru</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group col">
-            <label for="documentType">Ciudad de residencia</label>
-            <select
-              id="documentType"
-              class="form-control"
-              formControlName="tipo_identificacion"
-            >
-              <option selected disabled>Seleccione...</option>
-              <option>Bogota</option>
-              <option>Lima</option>
-              <option>La paz</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3 mt-3">
-        <div class="col-6">
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="lastname"
-              placeholder="Apellidos"
-              formControlName="apellido"
-            />
-            <label for="lastname">Antigüedad de residencia</label>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3 mt-5">
-        <div class="col-3">
-          <div class="form-group col">
-            <label for="documentType">Tipo de sangre</label>
-            <select
-              id="documentType"
-              class="form-control"
-              formControlName="tipo_identificacion"
-            >
-              <option selected disabled>Seleccione...</option>
-              <option>O+</option>
-              <option>O-</option>
-              <option>A+</option>
-              <option>A-</option>
-              <option>AB+</option>
-              <option>AB-</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="lastname"
-              placeholder="Apellidos"
-              formControlName="apellido"
-            />
-            <label for="lastname">IMC</label>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="lastname"
-              placeholder="Apellidos"
-              formControlName="apellido"
-            />
-            <label for="lastname">Ejercicio por semana (Horas)</label>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="lastname"
-              placeholder="Apellidos"
-              formControlName="apellido"
-            />
-            <label for="lastname">Peso objetivo</label>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3 mt-3">
-        <div class="col">
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="lastname"
-              placeholder="Usuario"
-              formControlName="username"
-            />
-            <label for="lastname">Alergías</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group col">
-            <label for="documentType">Deporte</label>
-            <select
-              id="documentType"
-              class="form-control"
-              formControlName="tipo_identificacion"
-            >
-              <option selected disabled>Seleccione...</option>
-              <option>Ciclismo</option>
-              <option>Atletismo</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="form-floating">
+    <form class="form-size size-form-perfil-deportivo"
+          [formGroup]="perfilForm"
+          (ngSubmit)="!perfilForm.invalid && guardarPerfil(perfilForm.value)">
+        <div class="container text-center">
+            <h1>Perfil deportivo</h1>
+            <div class="row mb-3 mt-5">
+                <div class="col-3">
+                    <div class="form-group col">
+                        <label for="genero">Género</label>
+                        <select
+                                id="genero"
+                                class="form-control"
+                                formControlName="genero"
+                        >
+                            <option selected disabled>Seleccione...</option>
+                            <option>Masculino</option>
+                            <option>Femenino</option>
+                            <option>Otro</option>
+                        </select>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('genero')!.hasError('required') &&
+                perfilForm.get('genero')!.touched">
+                            Se requiere el genero
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-floating">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="edad"
+                                placeholder="Edad"
+                                formControlName="edad"
+                        />
+                        <label for="edad">Edad (años)</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('edad')!.hasError('required') &&
+                perfilForm.get('edad')!.touched">
+                            Se requiere la edad
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-floating">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="peso"
+                                placeholder="Peso"
+                                formControlName="peso"
+                        />
+                        <label for="peso">Peso (kg)</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('peso')!.hasError('required') &&
+                perfilForm.get('peso')!.touched">
+                            Se requiere el peso
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-floating">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="altura"
+                                placeholder="Altura"
+                                formControlName="altura"
+                        />
+                        <label for="altura">Altura (cm)</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('altura')!.hasError('required') &&
+                perfilForm.get('altura')!.touched">
+                            Se requiere la altura
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3 mt-3">
+                <div class="col">
+                    <div class="form-group col">
+                        <label for="paisNacimiento">País de nacimiento</label>
+                        <select
+                                id="paisNacimiento"
+                                class="form-control"
+                                formControlName="paisNacimiento"
+                        >
+                            <option selected disabled>Seleccione...</option>
+                            <option>Colombia</option>
+                            <option>Venezuela</option>
+                            <option>Argentina</option>
+                            <option>Brasil</option>
+                            <option>Uruguay</option>
+                            <option>Paraguay</option>
+                            <option>Chile</option>
+                            <option>Ecuador</option>
+                            <option>Peru</option>
+                        </select>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('paisNacimiento')!.hasError('required') &&
+                perfilForm.get('paisNacimiento')!.touched">
+                            Se requiere el país de nacimiento
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group col">
+                        <label for="ciudadNacimiento">Ciudad de nacimiento</label>
+                        <select
+                                id="ciudadNacimiento"
+                                class="form-control"
+                                formControlName="ciudadNacimiento"
+                        >
+                            <option selected disabled>Seleccione...</option>
+                            <option>Bogota</option>
+                            <option>Lima</option>
+                            <option>La paz</option>
+                        </select>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('ciudadNacimiento')!.hasError('required') &&
+                perfilForm.get('ciudadNacimiento')!.touched">
+                            Se requiere la ciudad de nacimiento
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3 mt-3">
+                <div class="col">
+                    <div class="form-group col">
+                        <label for="paisResidencia">País de residencia</label>
+                        <select
+                                id="paisResidencia"
+                                class="form-control"
+                                formControlName="paisResidencia"
+                        >
+                            <option selected disabled>Seleccione...</option>
+                            <option>Colombia</option>
+                            <option>Venezuela</option>
+                            <option>Argentina</option>
+                            <option>Brasil</option>
+                            <option>Uruguay</option>
+                            <option>Paraguay</option>
+                            <option>Chile</option>
+                            <option>Ecuador</option>
+                            <option>Peru</option>
+                        </select>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('paisResidencia')!.hasError('required') &&
+                perfilForm.get('paisResidencia')!.touched">
+                            Se requiere el país de residencia
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group col">
+                        <label for="ciudadResidencia">Ciudad de residencia</label>
+                        <select
+                                id="ciudadResidencia"
+                                class="form-control"
+                                formControlName="ciudadResidencia"
+                        >
+                            <option selected disabled>Seleccione...</option>
+                            <option>Bogota</option>
+                            <option>Lima</option>
+                            <option>La paz</option>
+                        </select>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('ciudadResidencia')!.hasError('required') &&
+                perfilForm.get('ciudadResidencia')!.touched">
+                            Se requiere la ciudad de residencia
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3 mt-3">
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="antiguedad"
+                                placeholder="Antigüedad"
+                                formControlName="antiguedad"
+                        />
+                        <label for="antiguedad">Antigüedad de residencia</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('antiguedad')!.hasError('required') &&
+                perfilForm.get('antiguedad')!.touched">
+                            Se requiere la antigüedad de residencia
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3 mt-5">
+                <div class="col-3">
+                    <div class="form-group col">
+                        <label for="tipoSangre">Tipo de sangre</label>
+                        <select
+                                id="tipoSangre"
+                                class="form-control"
+                                formControlName="tipoSangre"
+                        >
+                            <option selected disabled>Seleccione...</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                        </select>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('tipoSangre')!.hasError('required') &&
+                perfilForm.get('tipoSangre')!.touched">
+                            Se requiere el tipo de sangre
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-floating">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="imc"
+                                placeholder="IMC"
+                                formControlName="imc"
+                        />
+                        <label for="imc">IMC</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('imc')!.hasError('required') &&
+                perfilForm.get('imc')!.touched">
+                            Se requiere el IMC
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-floating">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="horasEjercicio"
+                                placeholder="Horas ejercicio por semana"
+                                formControlName="horasEjercicio"
+                        />
+                        <label for="horasEjercicio">Ejercicio por semana (Horas)</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('horasEjercicio')!.hasError('required') &&
+                perfilForm.get('horasEjercicio')!.touched">
+                            Se requiere las horas ejercitadas por semana
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-floating">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="pesoObjetivo"
+                                placeholder="Peso objetivo"
+                                formControlName="pesoObjetivo"
+                        />
+                        <label for="pesoObjetivo">Peso objetivo</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('pesoObjetivo')!.hasError('required') &&
+                perfilForm.get('pesoObjetivo')!.touched">
+                            Se requiere el peso objetivo
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3 mt-3">
+                <div class="col">
+                    <div class="form-floating">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="alergias"
+                                placeholder="Alergias"
+                                formControlName="alergias"
+                        />
+                        <label for="alergias">Alergías</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('alergias')!.hasError('required') &&
+                perfilForm.get('alergias')!.touched">
+                            Se requiere las alergias
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group col">
+                        <label for="deporte">Deporte</label>
+                        <select
+                                id="deporte"
+                                class="form-control"
+                                formControlName="deporte"
+                        >
+                            <option selected disabled>Seleccione...</option>
+                            <option>Ciclismo</option>
+                            <option>Atletismo</option>
+                        </select>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('deporte')!.hasError('required') &&
+                perfilForm.get('deporte')!.touched">
+                            Se requiere el deporte
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating">
             <textarea
-              class="form-control"
-              placeholder="Leave a comment here"
-              id="floatingTextarea"
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    id="preferenciaAlimenticia"
+                    formControlName="preferenciaAlimenticia"
             ></textarea>
-            <label for="floatingTextarea">Preferencia alimenticia</label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="form-floating">
+                        <label for="preferenciaAlimenticia">Preferencia alimenticia</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('preferenciaAlimenticia')!.hasError('required') &&
+                perfilForm.get('preferenciaAlimenticia')!.touched">
+                            Se requiere la preferencia alimenticia
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating">
             <textarea
-              class="form-control"
-              placeholder="Leave a comment here"
-              id="floatingTextarea"
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    id="planNutricional"
+                    formControlName="planNutricional"
             ></textarea>
-            <label for="floatingTextarea">Plan nutricional</label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="form-floating">
+                        <label for="planNutricional">Plan nutricional</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('planNutricional')!.hasError('required') &&
+                perfilForm.get('planNutricional')!.touched">
+                            Se requiere el plan nutricional
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating">
             <textarea
-              class="form-control"
-              placeholder="Leave a comment here"
-              id="floatingTextarea"
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    id="historiaClinica"
+                    formControlName="historiaClinica"
             ></textarea>
-            <label for="floatingTextarea">Historia clínica deportiva</label>
-          </div>
+                        <label for="historiaClinica">Historia clínica deportiva</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('historiaClinica')!.hasError('required') &&
+                perfilForm.get('historiaClinica')!.touched">
+                            Se requiere la historia clinica deportiva
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-guardar mt-5">
+                        Guardar
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" routerLink="/" class="btn btn-cancelar mt-5">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-3"></div>
-          <div class="col-3">
-          <button type="submit" class="btn btn-guardar mt-5">
-            Guardar
-          </button>
-        </div>
-        <div class="col-3">
-          <button type="button" routerLink="/" class="btn btn-cancelar mt-5">
-            Cancelar
-          </button>
-        </div>
-      </div>
-    </div>
-  </form>
+    </form>
 </div>
