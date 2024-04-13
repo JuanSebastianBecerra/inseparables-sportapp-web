@@ -2,14 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {PersonasService} from "../../../servicios/personas/personas.service";
 import {CommonModule} from "@angular/common";
-import {RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-perfil-deportista',
   templateUrl: './perfil-deportista.component.html',
   styleUrls: ['./perfil-deportista.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule]
+  imports: [ReactiveFormsModule, CommonModule]
 })
 export class PerfilDeportistaComponent implements OnInit {
 
