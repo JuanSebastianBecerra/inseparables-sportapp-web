@@ -27,6 +27,8 @@
                 project_id: ${{env.PROJECT_ID}}
             - name: Instalar angular cli
               run: npm i -g @angular/cli
+            - name: Habilitar dependencias peer 
+              run: npm config set legacy-peer-deps true
             - name: Instalar paquetes y librerias
               run: npm install
             - name: Hacer build del proyecto
