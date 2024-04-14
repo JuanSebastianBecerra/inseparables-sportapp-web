@@ -59,7 +59,6 @@ export class RegistroComponent implements OnInit {
 
     savePerfilDeportivoBody(idUsuario: string) {
         let bodyRequest = {};
-        alert(idUsuario)
         this.perfilDeportista$.subscribe(response => {
             bodyRequest = {
                 "id_usuario": idUsuario,
