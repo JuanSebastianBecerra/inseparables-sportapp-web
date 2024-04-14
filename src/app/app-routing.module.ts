@@ -7,6 +7,7 @@ import { SuscripcionesComponent } from './secciones/administracion/suscripciones
 import { SociosComponent } from './secciones/administracion/socios/socios.component';
 import { SocioComponent } from './secciones/socios/socio/socio.component';
 import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
+import { CreacionServiciosComponent } from './secciones/servicios/creacion-servicios/creacion-servicios.component';
 import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
 
 const routes: Routes = [
@@ -17,8 +18,9 @@ const routes: Routes = [
   { path: 'socios', component: SociosComponent},
   { path: 'socio', component: SocioComponent },
   { path: 'socio/:idSocio', component: DetalleSocioComponent},
+  { path: 'crear-servicio', component: CreacionServiciosComponent},
   { path: 'perfil-deportista', component: PerfilDeportistaComponent},
-  { path: '**', component: DesconocidoComponent },
+  { path: '**', component: DesconocidoComponent }
 ];
 
 @NgModule({

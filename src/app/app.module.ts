@@ -19,6 +19,7 @@ import { SociosComponent } from './secciones/administracion/socios/socios.compon
 import { SocioComponent } from './secciones/socios/socio/socio.component';
 import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
 import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
+import { CreacionServiciosComponent } from './secciones/servicios/creacion-servicios/creacion-servicios.component';
 import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
 import { StoreModule } from '@ngrx/store';
 import {perfilDeportivoReducer} from "./store/secciones/usuarios/perfil-deportivo.reducer";
@@ -47,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient){
     SocioComponent,
     ConsultaSocioComponent,
     DetalleSocioComponent,
+    CreacionServiciosComponent,
     PerfilDeportistaComponent,
     TranslateModule.forRoot({
       loader: {
