@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { DetalleSocio } from 'src/app/secciones/socios/detalle-socio';
 import { ActivatedRoute } from '@angular/router';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-detalle-socio',
@@ -13,18 +14,25 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, RouterModule]
 })
-export class DetalleSocioComponent implements OnInit {
+export class DetalleSocioComponent implements OnInit, AfterViewInit{
 
   socioForm!: FormGroup;
   responseError: boolean = false;
   responseMessage: String = ""
   socioId!: string;
   detalleSocio: DetalleSocio = {} as DetalleSocio;
+  exitoso: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private socioService: SocioService, private router: Router,private route: ActivatedRoute) { }
+
+  constructor(private formBuilder: FormBuilder, private socioService: SocioService, private router: Router,private route: ActivatedRoute) {
+   }
 
   ngOnInit(): void {
     this.inicarFormulario()
+    
+  }
+
+  ngAfterViewInit(){
   }
 
   get f(): { [key: string]: AbstractControl } {
@@ -42,23 +50,47 @@ export class DetalleSocioComponent implements OnInit {
     this.socioId = this.route.snapshot.paramMap.get('idSocio')!;
     this.getSocioId()
     this.socioForm = this.formBuilder.group({
-      email: [this.detalleSocio.email, [Validators.required, Validators.email]],
-      nombre: [this.detalleSocio.nombre, Validators.required],
-      apellido: [this.detalleSocio.apellido, Validators.required],
-      tipo_identificacion: [this.detalleSocio.tipo_identificacion, Validators.required],
-      numero_identificacion: [this.detalleSocio.numero_identificacion, Validators.required],
-      username: [this.detalleSocio.username, Validators.required],
-      password: [this.detalleSocio.password, Validators.required],
-      detalle: [this.detalleSocio.detalle],
+      email: ["", [Validators.required, Validators.email]],
+      nombre: ["", Validators.required],
+      apellido: ["", Validators.required],
+      tipo_identificacion: ["", Validators.required],
+      numero_identificacion: ["", Validators.required],
+      username: ["", Validators.required],
+      password: ["", Validators.required],
+      detalle: ["", Validators.required],
     })
+       
   }
 
-  actualizarSocio(bodyRequest:any,socioId:any) {
+  /**public validateAreEqual(c: AbstractControl): { notSame: boolean } | null { 
+    return c.value.password === c.value.confirmationPassword ? { notSame: false }: { notSame: true };
+  }
+
+  public validateEmpty(c: AbstractControl): { empty: boolean } | null {
     
+    if(this.detalleSocio!=undefined){
+      return (this.detalleSocio.nombre === "" ||
+           this.detalleSocio.apellido === "" ||
+           this.detalleSocio.email === "" ||
+           this.detalleSocio.tipo_identificacion === "" ||
+           this.detalleSocio.username === "" ||
+           this.detalleSocio.password === "" ||
+           this.detalleSocio.detalle === "")? { empty: true }: { empty: false };
+    }else{
+      return { empty: false }
+    }
+    
+  }**/
+
+  actualizarSocio(bodyRequest:any,socioId:any) {
     this.socioService.actualizarSocio(bodyRequest,socioId).subscribe(response => {
-        this.router.navigate(['/home'])
+        this.exitoso = true
+        setTimeout(() => {
+          this.router.navigate(['/socios'])
+        }, 2000);
     },
     error => {
+      this.exitoso=false
       this.responseError = true
       if(error.error.description)
         this.responseMessage = error.error.description
