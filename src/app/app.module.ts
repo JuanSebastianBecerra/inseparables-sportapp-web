@@ -15,6 +15,8 @@ import { RegistroComponent } from './secciones/usuarios/registro/registro.compon
 import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.component';
 import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
 import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
+import { StoreModule } from '@ngrx/store';
+import {perfilDeportivoReducer} from "./store/secciones/usuarios/perfil-deportivo.reducer";
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,7 +43,10 @@ export function HttpLoaderFactory(http: HttpClient){
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    StoreModule.forRoot({
+      perfil: perfilDeportivoReducer
+    }, {})
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
