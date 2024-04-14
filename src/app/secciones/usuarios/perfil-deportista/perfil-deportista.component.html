@@ -93,17 +93,10 @@
                                 id="paisNacimiento"
                                 class="form-control"
                                 formControlName="paisNacimiento"
+                                (change)="obtenerCiudadesNacimiento($any($event.target)?.value)"
                         >
                             <option selected disabled>Seleccione...</option>
-                            <option>Colombia</option>
-                            <option>Venezuela</option>
-                            <option>Argentina</option>
-                            <option>Brasil</option>
-                            <option>Uruguay</option>
-                            <option>Paraguay</option>
-                            <option>Chile</option>
-                            <option>Ecuador</option>
-                            <option>Peru</option>
+                            <option *ngFor="let pais of paises; index as i" [value]="pais['codigo']">{{pais["nombre"]}}</option>
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
@@ -123,9 +116,7 @@
                                 formControlName="ciudadNacimiento"
                         >
                             <option selected disabled>Seleccione...</option>
-                            <option>Bogota</option>
-                            <option>Lima</option>
-                            <option>La paz</option>
+                            <option *ngFor="let ciudad of ciudadesNacimiento; index as i" [value]="ciudad['codigo']">{{ciudad["nombre"]}}</option>
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
@@ -145,17 +136,10 @@
                                 id="paisResidencia"
                                 class="form-control"
                                 formControlName="paisResidencia"
+                                (change)="obtenerCiudadesResidencia($any($event.target)?.value)"
                         >
                             <option selected disabled>Seleccione...</option>
-                            <option>Colombia</option>
-                            <option>Venezuela</option>
-                            <option>Argentina</option>
-                            <option>Brasil</option>
-                            <option>Uruguay</option>
-                            <option>Paraguay</option>
-                            <option>Chile</option>
-                            <option>Ecuador</option>
-                            <option>Peru</option>
+                            <option *ngFor="let pais of paises; index as i" [value]="pais['codigo']">{{pais["nombre"]}}</option>
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
@@ -175,9 +159,7 @@
                                 formControlName="ciudadResidencia"
                         >
                             <option selected disabled>Seleccione...</option>
-                            <option>Bogota</option>
-                            <option>Lima</option>
-                            <option>La paz</option>
+                            <option *ngFor="let ciudad of ciudadesResidencia; index as i" [value]="ciudad['codigo']">{{ciudad["nombre"]}}</option>
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"

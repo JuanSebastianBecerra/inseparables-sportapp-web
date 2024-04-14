@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PlanesService } from 'src/app/servicios/administracion/planes.service';
+import { AdministracionService } from 'src/app/servicios/administracion/administracion.service';
 
 @Component({
   selector: 'app-suscripciones',
@@ -13,7 +13,7 @@ export class SuscripcionesComponent implements OnInit {
   responseError: boolean = false;
   responseMessage: String = ""
 
-  constructor(private http: HttpClient, private planesService: PlanesService){
+  constructor(private http: HttpClient, private administracionService: AdministracionService){
 
   }
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class SuscripcionesComponent implements OnInit {
   }
 
   obtenerPlanes():void{
-    this.planesService.obtener_planes().subscribe(response => {
+    this.administracionService.obtenerPlanes().subscribe(response => {
       this.planes = response.body;
     },
     error => {

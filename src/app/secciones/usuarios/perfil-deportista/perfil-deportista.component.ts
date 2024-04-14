@@ -6,6 +6,7 @@ import {Store} from "@ngrx/store";
 import {guardarPerfilDeportivo} from "../../../store/secciones/usuarios/perfil-deportista.action";
 import {Router, RouterModule} from "@angular/router";
 import {IPerfilDeportista} from "../../../interfaces/IPerfilDeportista";
+import {AdministracionService} from "../../../servicios/administracion/administracion.service";
 
 @Component({
     selector: 'app-perfil-deportista',
@@ -18,13 +19,18 @@ export class PerfilDeportistaComponent implements OnInit {
 
     perfilForm!: FormGroup;
     responseError: boolean = false;
-    responseMessage: String = ""
+    responseMessage: String = "";
+    paises: any;
+    ciudadesNacimiento: any;
+    ciudadesResidencia: any;
 
-    constructor(private formBuilder: FormBuilder, private personasService: PersonasService, private store: Store<any>, private router: Router) {
+    constructor(private formBuilder: FormBuilder, private personasService: PersonasService, private store: Store<any>,
+                private router: Router, private administracionService: AdministracionService) {
     }
 
     ngOnInit(): void {
-        this.iniciarFormularioPerfil()
+        this.iniciarFormularioPerfil();
+        this.obtenerPaises();
     }
 
     iniciarFormularioPerfil() {
@@ -48,6 +54,45 @@ export class PerfilDeportistaComponent implements OnInit {
             planNutricional: ["", Validators.required],
             historiaClinica: ["", Validators.required]
         })
+    }
+
+    obtenerPaises(){
+        this.administracionService.obtenerPaises().subscribe(response => {
+                this.paises = response;
+            },
+            error => {
+                this.responseError = true
+                if (error.error.description)
+                    this.responseMessage = error.error.description
+                else
+                    this.responseMessage = "Ocurrió un error al realizar la petición";
+            });
+    }
+
+    obtenerCiudadesNacimiento(codigoPais: any){
+        this.administracionService.obtenerCiudades(codigoPais).subscribe(response => {
+                this.ciudadesNacimiento = response;
+            },
+            error => {
+                this.responseError = true
+                if (error.error.description)
+                    this.responseMessage = error.error.description
+                else
+                    this.responseMessage = "Ocurrió un error al realizar la petición";
+            });
+    }
+
+    obtenerCiudadesResidencia(codigoPais: any){
+        this.administracionService.obtenerCiudades(codigoPais).subscribe(response => {
+                this.ciudadesResidencia = response;
+            },
+            error => {
+                this.responseError = true
+                if (error.error.description)
+                    this.responseMessage = error.error.description
+                else
+                    this.responseMessage = "Ocurrió un error al realizar la petición";
+            });
     }
 
 

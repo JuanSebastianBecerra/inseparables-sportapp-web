@@ -1,0 +1,187 @@
+[
+  {
+    "codigo": "AA",
+    "nombre": "Bahía Blanca",
+    "pais": "AR"
+  },
+  {
+    "codigo": "AB",
+    "nombre": "Banfield",
+    "pais": "AR"
+  },
+  {
+    "codigo": "BE",
+    "nombre": "Berazategui",
+    "pais": "AR"
+  },
+  {
+    "codigo": "BU",
+    "nombre": "Buenos Aires",
+    "pais": "AR"
+  },
+  {
+    "codigo": "CR",
+    "nombre": "Comodoro Rivadavia",
+    "pais": "AR"
+  },
+  {
+    "codigo": "CO",
+    "nombre": "Córdoba",
+    "pais": "AR"
+  },
+  {
+    "codigo": "CI",
+    "nombre": "Corrientes",
+    "pais": "AR"
+  },
+  {
+    "codigo": "FO",
+    "nombre": "Formosa",
+    "pais": "AR"
+  },
+  {
+    "codigo": "GC",
+    "nombre": "Godoy Cruz",
+    "pais": "AR"
+  },
+  {
+    "codigo": "GO",
+    "nombre": "González Catán",
+    "pais": "AR"
+  },
+  {
+    "codigo": "GL",
+    "nombre": "Gregorio de Laferrere",
+    "pais": "AR"
+  },
+  {
+    "codigo": "GU",
+    "nombre": "Guaymallén",
+    "pais": "AR"
+  },
+  {
+    "codigo": "IS",
+    "nombre": "Isidro Casanova",
+    "pais": "AR"
+  },
+  {
+    "codigo": "JO",
+    "nombre": "José C. Paz",
+    "pais": "AR"
+  },
+  {
+    "codigo": "LP",
+    "nombre": "La Plata",
+    "pais": "AR"
+  },
+  {
+    "codigo": "LR",
+    "nombre": "La Rioja",
+    "pais": "AR"
+  },
+  {
+    "codigo": "LN",
+    "nombre": "Lanús",
+    "pais": "AR"
+  },
+  {
+    "codigo": "LH",
+    "nombre": "Las Heras",
+    "pais": "AR"
+  },
+  {
+    "codigo": "MP",
+    "nombre": "Mar del Plata",
+    "pais": "AR"
+  },
+  {
+    "codigo": "ME",
+    "nombre": "Merlo",
+    "pais": "AR"
+  },
+  {
+    "codigo": "MO",
+    "nombre": "Moreno",
+    "pais": "AR"
+  },
+  {
+    "codigo": "NE",
+    "nombre": "Neuquén",
+    "pais": "AR"
+  },
+  {
+    "codigo": "PA",
+    "nombre": "Paraná",
+    "pais": "AR"
+  },
+  {
+    "codigo": "PO",
+    "nombre": "Posadas",
+    "pais": "AR"
+  },
+  {
+    "codigo": "QU",
+    "nombre": "Quilmes",
+    "pais": "AR"
+  },
+  {
+    "codigo": "RE",
+    "nombre": "Resistencia",
+    "pais": "AR"
+  },
+  {
+    "codigo": "RC",
+    "nombre": "Río Cuarto",
+    "pais": "AR"
+  },
+  {
+    "codigo": "RO",
+    "nombre": "Rosario",
+    "pais": "AR"
+  },
+  {
+    "codigo": "SA",
+    "nombre": "Salta",
+    "pais": "AR"
+  },
+  {
+    "codigo": "SF",
+    "nombre": "San Fernando del Valle de Catamarca",
+    "pais": "AR"
+  },
+  {
+    "codigo": "SL",
+    "nombre": "San Luis",
+    "pais": "AR"
+  },
+  {
+    "codigo": "SM",
+    "nombre": "San Miguel",
+    "pais": "AR"
+  },
+  {
+    "codigo": "ST",
+    "nombre": "San Miguel de Tucumán",
+    "pais": "AR"
+  },
+  {
+    "codigo": "SS",
+    "nombre": "San Salvador de Jujuy",
+    "pais": "AR"
+  },
+  {
+    "codigo": "SN",
+    "nombre": "Santa Fe",
+    "pais": "AR"
+  },
+  {
+    "codigo": "SE",
+    "nombre": "Santiago del Estero",
+    "pais": "AR"
+  },
+  {
+    "codigo": "VP",
+    "nombre": "Virrey del Pino",
+    "pais": "AR"
+  }
+]
