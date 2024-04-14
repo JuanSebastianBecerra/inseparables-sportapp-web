@@ -19,6 +19,7 @@ import { SociosComponent } from './secciones/administracion/socios/socios.compon
 import { SocioComponent } from './secciones/socios/socio/socio.component';
 import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
 import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
+import { CreacionServiciosComponent } from './secciones/servicios/creacion-servicios/creacion-servicios.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient){
     SocioComponent,
     ConsultaSocioComponent,
     DetalleSocioComponent,
+    CreacionServiciosComponent,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

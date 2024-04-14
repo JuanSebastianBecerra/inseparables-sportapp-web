@@ -1,0 +1,16 @@
+.contenedor-registro{
+    padding-top: 100px;
+}
+
+.row{
+    padding-bottom: 20px;
+}
+
+textarea {
+    resize: none;
+}
+
+.alert-success{
+    text-align: center;
+    margin: 0;
+}

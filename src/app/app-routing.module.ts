@@ -8,6 +8,7 @@ import { SociosComponent } from './secciones/administracion/socios/socios.compon
 import { SocioComponent } from './secciones/socios/socio/socio.component';
 import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
 import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
+import { CreacionServiciosComponent } from './secciones/servicios/creacion-servicios/creacion-servicios.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'socios', component: SociosComponent},
   { path: 'socio', component: SocioComponent },
   { path: 'socio/:idSocio', component: DetalleSocioComponent},
+  { path: 'crear-servicio', component: CreacionServiciosComponent},
   { path: '**', component: DesconocidoComponent }];
 
 @NgModule({
