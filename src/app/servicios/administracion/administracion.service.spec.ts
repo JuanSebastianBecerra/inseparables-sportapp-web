@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PlanesService } from './planes.service';
+import { AdministracionService } from './administracion.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('PlanesService', () => {
-  let service: PlanesService;
+  let service: AdministracionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [PlanesService]
+      providers: [AdministracionService]
     });
-    service = TestBed.inject(PlanesService);
+    service = TestBed.inject(AdministracionService);
   });
 
   it('should be created', () => {

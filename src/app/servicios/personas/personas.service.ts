@@ -9,11 +9,16 @@ import { environment } from 'src/environments/environment';
 export class PersonasService {
 
   private registroUrl = environment.baseUrlPersonas + '/usuario';
+  private registroPerfilDeportivoUrl = environment.baseUrlPersonas + '/perfildeportivo';
 
   constructor(private http: HttpClient) { }
 
   registrarUsuario(bodyRequest:any): Observable<any> {
     return this.http.post<any>(this.registroUrl, bodyRequest, {observe: 'response'});
+  }
+
+  registrarPerfilDeportivo(bodyRequest:any): Observable<any> {
+    return this.http.post<any>(this.registroPerfilDeportivoUrl, bodyRequest, {observe: 'response'});
   }
 
 }

@@ -2,18 +2,21 @@
     {
       "id": "01b926c6-9970-4925-9ad7-6382101c150f",
       "nombre": "Plan Básico",
+      "llave": "BASICO",
       "funciones": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.",
       "valor": 20000
     },
     {
       "id": "be32887d-e9bc-45f8-bd35-3f423d3b9963",
       "nombre": "Plan Intermedio (Recomendado)",
+      "llave": "INTERMEDIO",
       "funciones": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.",
       "valor": 50000
     },
     {
       "id": "e8f2c90a-9c66-4e96-b890-e3a6cd721f6d",
       "nombre": "Plan Premium",
+      "llave": "PREMIUM",
       "funciones": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.",
       "valor": 100000
     }

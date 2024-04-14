@@ -199,8 +199,7 @@
               formControlName="suscripcion"
             >
               <option selected disabled>Seleccione...</option>
-              <option>1</option>
-              <option>2</option>
+              <option *ngFor="let plan of planes; index as i" [value] = "plan['id']">{{plan['nombre']}}</option>
             </select>
             <div
               class="alert alert-danger alert-dismissible fade show"
@@ -214,7 +213,7 @@
           </div>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-guardar mt-3">
+          <button type="button" class="btn btn-guardar mt-3" routerLink="/perfil-deportista">
             Perfil deportivo
           </button>
         </div>

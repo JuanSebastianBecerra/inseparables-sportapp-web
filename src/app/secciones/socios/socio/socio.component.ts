@@ -44,7 +44,7 @@ export class SocioComponent implements OnInit {
   registrarSocio(bodyRequest:any) {
     
     this.socioService.registrarSocio(bodyRequest).subscribe(response => {
-        this.router.navigate(['/home'])
+        this.router.navigate(['/socios'])
     },
     error => {
       this.responseError = true

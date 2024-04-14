@@ -1,0 +1,20 @@
+export interface IPerfilDeportista{
+    genero: string,
+    edad: string,
+    peso: string,
+    altura: string,
+    paisNacimiento: string,
+    ciudadNacimiento: string,
+    paisResidencia: string,
+    ciudadResidencia: string,
+    antiguedad: string,
+    tipoSangre: string,
+    imc: string,
+    horasEjercicio: string,
+    pesoObjetivo: string,
+    alergias: string,
+    deporte: string,
+    preferenciaAlimenticia: string,
+    planNutricional: string,
+    historiaClinica: string
+}
