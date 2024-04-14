@@ -1,0 +1,220 @@
+<div class="center-element">
+  <form
+    class="form-size size-form-register"
+    [formGroup]="socioForm"
+    (ngSubmit)="!socioForm.invalid && registrarSocio(socioForm.value)"
+  >
+    <div class="container text-center">
+      <h1>Socio</h1>
+      <div class="row mb-3 mt-5">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Nombres"
+              formControlName="nombre"
+            />
+            <label for="name">Nombres</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                socioForm.get('nombre')!.hasError('required') &&
+                socioForm.get('nombre')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="lastname"
+              placeholder="Apellidos"
+              formControlName="apellido"
+            />
+            <label for="lastname">Apellidos</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                socioForm.get('apellido')!.hasError('required') &&
+                socioForm.get('apellido')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Usuario"
+              formControlName="username"
+            />
+            <label for="username">Username</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                socioForm.get('username')!.hasError('required') &&
+                socioForm.get('username')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              placeholder="E-mail"
+              formControlName="email"
+            />
+            <label for="email">E-mail</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                socioForm.get('email')!.hasError('required') &&
+                socioForm.get('email')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="f['email']?.errors?.['email']"
+            >
+              Debe ser un correo
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <div class="form-group col">
+            <label for="documentType">Tipo de identificación</label>
+            <select
+              id="documentType"
+              class="form-control"
+              formControlName="tipo_identificacion"
+            >
+              <option selected disabled>Seleccione...</option>
+              <option>CC</option>
+              <option>TI</option>
+            </select>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                socioForm.get('tipo_identificacion')!.hasError('required') &&
+                socioForm.get('tipo_identificacion')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="identification"
+              placeholder="Número de identificación"
+              formControlName="numero_identificacion"
+            />
+            <label for="identification">Número de identificación</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                socioForm.get('numero_identificacion')!.hasError('required') &&
+                socioForm.get('numero_identificacion')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Contraseña"
+              formControlName="password"
+            />
+            <label for="password">Contraseña</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                socioForm.get('password')!.hasError('required') &&
+                socioForm.get('password')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPwd"
+              placeholder="Confirmar contraseña"
+            />
+            <label for="confirmPwd">Confirmar contraseña</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                socioForm.get('password')!.hasError('required') &&
+                socioForm.get('password')!.touched
+              "
+            >
+              Se requiere el usuario
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="detalle"
+              placeholder="Detalle"
+              formControlName="detalle"
+            />
+            <label for="name">Detalle</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit" [disabled]="!socioForm.valid" class="btn btn-guardar mt-5">
+            Guardar
+          </button>
+        </div>
+        <div class="col">
+          <button type="button" routerLink="/" class="btn btn-cancelar mt-5">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

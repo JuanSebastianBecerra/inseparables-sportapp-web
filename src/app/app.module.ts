@@ -14,6 +14,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RegistroComponent } from './secciones/usuarios/registro/registro.component';
 import { AutenticacionComponent } from './secciones/autenticacion/autenticacion.component';
 import { SuscripcionesComponent } from './secciones/administracion/suscripciones/suscripciones.component';
+import { MenuComponent } from './comunes/componentes/menu/menu.component';
+import { SociosComponent } from './secciones/administracion/socios/socios.component';
+import { SocioComponent } from './secciones/socios/socio/socio.component';
+import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
+import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
 import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
 import { StoreModule } from '@ngrx/store';
 import {perfilDeportivoReducer} from "./store/secciones/usuarios/perfil-deportivo.reducer";
@@ -27,7 +32,9 @@ export function HttpLoaderFactory(http: HttpClient){
     AppComponent,
     DesconocidoComponent,
     HomeComponent,
-    SuscripcionesComponent
+    SuscripcionesComponent,
+    MenuComponent,
+    SociosComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +43,9 @@ export function HttpLoaderFactory(http: HttpClient){
     HttpClientModule,
     AutenticacionComponent,
     RegistroComponent,
+    SocioComponent,
+    ConsultaSocioComponent,
+    DetalleSocioComponent,
     PerfilDeportistaComponent,
     TranslateModule.forRoot({
       loader: {

@@ -1,0 +1,31 @@
+<div >
+
+    <div class="input row texto-search">
+        <input
+          type="text"
+          id="socio-buscar"
+          placeholder="Buscar socio de negocio ..."
+        />
+    </div>
+
+
+    <div class="row" >
+      <div class="col" >
+        <div class="row card size-card" *ngFor="let socio of socios">
+          <div tabindex="0" class="card-body">
+            <p tabindex="0" class="card-title h5">{{socio.nombre}}</p>
+            <p tabindex="0" class="card-subtitle mb-2 text-muted h6">{{socio.apellido}}</p>
+            <p tabindex="0" class="card-text">{{socio.detalle}}</p>
+            <a href="#" class="btn btn-guardar mt-5" routerLink="/socio/{{socio.id}}">Ver detalle</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <button type="submit" routerLink="/socio" class="row btn btn-add mt-5">+</button>
+
+</div>
+
+
+

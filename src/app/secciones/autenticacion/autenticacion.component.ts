@@ -43,7 +43,7 @@ export class AutenticacionComponent implements OnInit {
       this.validacion = response
       this.cookieService.set("token", response.token)
       this.cookieService.set("rol", response.rol)
-      this.router.navigate(['/home'])
+      this.router.navigate(['/socios'])
     },
     error => {
       this.responseError = true
