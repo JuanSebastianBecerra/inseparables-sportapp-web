@@ -14,11 +14,11 @@ export class SocioService {
   constructor(private http: HttpClient) { }
 
   registrarSocio(bodyRequest:any): Observable<any> {
-    return this.http.post<any>(this.socioUrl, bodyRequest, {withCredentials: true});
+    return this.http.post<any>(this.socioUrl, bodyRequest);
   }
 
   actualizarSocio(bodyRequest:any,socioId:any): Observable<any> {
-    return this.http.post<any>(`${this.socioUrl}/${socioId}`, bodyRequest, {withCredentials: true});
+    return this.http.post<any>(`${this.socioUrl}/${socioId}`, bodyRequest);
   }
 
   getSocioId(socioId: string): Observable<DetalleSocio>{
