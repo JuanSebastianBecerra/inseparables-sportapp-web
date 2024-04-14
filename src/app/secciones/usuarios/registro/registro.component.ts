@@ -9,6 +9,7 @@ import {Observable, Subscription} from "rxjs";
 import {selectPerfilDeportista} from "../../../store/secciones/usuarios/perfil-deportista.selectors";
 import {IPerfilDeportista} from "../../../interfaces/IPerfilDeportista";
 import {AppState} from "../../../store/app.state";
+import {AdministracionService} from "../../../servicios/administracion/administracion.service";
 
 @Component({
     selector: 'app-registro',
@@ -23,16 +24,19 @@ export class RegistroComponent implements OnInit {
     responseError: boolean = false;
     responseMessage: String = ""
 
-    perfilDeportista$!: Observable<IPerfilDeportista> ;
+    perfilDeportista$!: Observable<IPerfilDeportista>;
+    planes!:any;
 
-    constructor(private formBuilder: FormBuilder, private personasService: PersonasService, private router: Router, private store: Store<AppState>) {
+    constructor(private formBuilder: FormBuilder, private personasService: PersonasService, private router: Router,
+                private store: Store<AppState>, private administracionService: AdministracionService) {
 
     }
 
     ngOnInit(): void {
-        this.inicarFormulario()
+        this.inicarFormulario();
+        this.obtenerPlanes();
         this.perfilDeportista$ = this.store.select(selectPerfilDeportista)
-        this.perfilDeportista$.subscribe(response => console.log("perfil del deportista",response))
+
     }
 
     get f(): { [key: string]: AbstractControl } {
@@ -53,9 +57,41 @@ export class RegistroComponent implements OnInit {
         })
     }
 
+    savePerfilDeportivoBody(idUsuario: string) {
+        let bodyRequest = {};
+        alert(idUsuario)
+        this.perfilDeportista$.subscribe(response => {
+            bodyRequest = {
+                "id_usuario": idUsuario,
+                "genero": response.genero,
+                "edad": response.edad,
+                "peso": response.peso,
+                "altura": response.altura,
+                "pais_nacimiento": response.paisNacimiento,
+                "ciudad_nacimiento": response.ciudadNacimiento,
+                "pais_residencia": response.paisResidencia,
+                "ciudad_residencia": response.ciudadResidencia,
+                "antiguedad_residencia": response.antiguedad,
+                "imc": response.imc,
+                "horas_semanal": response.horasEjercicio,
+                "peso_objetivo": response.pesoObjetivo,
+                "alergias": response.alergias,
+                "preferencia_alimenticia": response.preferenciaAlimenticia,
+                "plan_nutricional": response.planNutricional,
+                "url_historia_clinica": response.historiaClinica,
+                "vo2max": 0,
+                "ftp": 0
+            }
+            this.personasService.registrarPerfilDeportivo(bodyRequest).subscribe(response => {
+                response.status === SATUS_CODE_CREATED && this.router.navigate(['/'])
+            })
+        })
+    }
+
     registrarUsuario(bodyRequest: any) {
         this.personasService.registrarUsuario(bodyRequest).subscribe(response => {
-                response.status === SATUS_CODE_CREATED && this.router.navigate(['/home'])
+                const res = response?.body;
+                res?.id && this.savePerfilDeportivoBody(res?.id)
             },
             error => {
                 this.responseError = true
@@ -66,6 +102,18 @@ export class RegistroComponent implements OnInit {
             });
     }
 
+    obtenerPlanes():void{
+        this.administracionService.obtenerPlanes().subscribe(response => {
+                this.planes = response.body;
+            },
+            error => {
+                this.responseError = true
+                if (error.error.description)
+                    this.responseMessage = error.error.description
+                else
+                    this.responseMessage = "Ocurrió un error al realizar la petición";
+            });
+    }
 
 
 }

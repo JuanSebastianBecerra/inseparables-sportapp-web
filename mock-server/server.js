@@ -7,6 +7,7 @@ server.use(jsonServer.bodyParser);
 
 const respuestaIngresar = require('../mock-server/data/personas/ingresar');
 const respuestaRegistro = require('../mock-server/data/personas/usuario');
+const respuestaPerfil = require('../mock-server/data/personas/perfildeportivo');
 const respuestaPlanes = require('../mock-server/data/administracion/plan');
 const respuestaPaises = require('../mock-server/data/administracion/paises');
 const respuestaCiudades = require('../mock-server/data/administracion/paises/__param__/ciudades');
@@ -16,9 +17,12 @@ server.post('/personas/ingresar', (request, response, next) => {
 });
 
 server.post('/personas/usuario', (request, response, next) => {
-    response.status(201).send(respuestaRegistro.postIngreso);
+    response.status(201).send(respuestaRegistro.postRegistro);
 });
 
+server.post('/personas/perfildeportivo', (request, response, next) => {
+    response.status(201).send(respuestaPerfil.postPerfil);
+});
 server.get('/administracion/plan', (request, response, next) => {
     response.status(200).send(respuestaPlanes.obtenerPlanes);
 });
