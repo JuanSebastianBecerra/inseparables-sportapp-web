@@ -399,12 +399,12 @@
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-3">
-                    <button type="submit" class="btn btn-guardar mt-5">
+                    <button type="submit" [disabled]="!perfilForm.valid" class="btn btn-guardar mt-5">
                         Guardar
                     </button>
                 </div>
                 <div class="col-3">
-                    <button type="button" routerLink="/" class="btn btn-cancelar mt-5">
+                    <button type="button" routerLink="/registro" class="btn btn-cancelar mt-5">
                         Cancelar
                     </button>
                 </div>

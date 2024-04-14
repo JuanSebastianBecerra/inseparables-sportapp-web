@@ -5,7 +5,10 @@ import {Router, RouterModule} from '@angular/router';
 import {PersonasService} from 'src/app/servicios/personas/personas.service';
 import {SATUS_CODE_CREATED} from 'src/app/utils/constants';
 import {Store} from "@ngrx/store";
-import {Subscription} from "rxjs";
+import {Observable, Subscription} from "rxjs";
+import {selectPerfilDeportista} from "../../../store/secciones/usuarios/perfil-deportista.selectors";
+import {IPerfilDeportista} from "../../../interfaces/IPerfilDeportista";
+import {AppState} from "../../../store/app.state";
 
 @Component({
     selector: 'app-registro',
@@ -20,19 +23,16 @@ export class RegistroComponent implements OnInit {
     responseError: boolean = false;
     responseMessage: String = ""
 
-    perfilDeportivo: Object = {};
-    perfilSubscribe!: Subscription;
+    perfilDeportista$!: Observable<IPerfilDeportista> ;
 
-    constructor(private formBuilder: FormBuilder, private personasService: PersonasService, private router: Router, private store: Store<{ perfilDeportivo: Object }>) {
+    constructor(private formBuilder: FormBuilder, private personasService: PersonasService, private router: Router, private store: Store<AppState>) {
 
     }
 
     ngOnInit(): void {
         this.inicarFormulario()
-        this.perfilDeportivo = this.store.select('perfilDeportivo')
-            .subscribe(data => {
-                console.log(data)
-            })
+        this.perfilDeportista$ = this.store.select(selectPerfilDeportista)
+        this.perfilDeportista$.subscribe(response => console.log("perfil del deportista",response))
     }
 
     get f(): { [key: string]: AbstractControl } {
@@ -66,11 +66,6 @@ export class RegistroComponent implements OnInit {
             });
     }
 
-    ngOnDestroy(): void {
-        if(this.perfilSubscribe){
-            this.perfilSubscribe.unsubscribe();
-        }
-    }
 
 
 }

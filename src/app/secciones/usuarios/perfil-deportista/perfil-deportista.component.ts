@@ -4,14 +4,15 @@ import {PersonasService} from "../../../servicios/personas/personas.service";
 import {CommonModule} from "@angular/common";
 import {Store} from "@ngrx/store";
 import {guardarPerfilDeportivo} from "../../../store/secciones/usuarios/perfil-deportista.action";
-import {Router} from "@angular/router";
+import {Router, RouterModule} from "@angular/router";
+import {IPerfilDeportista} from "../../../interfaces/IPerfilDeportista";
 
 @Component({
     selector: 'app-perfil-deportista',
     templateUrl: './perfil-deportista.component.html',
     styleUrls: ['./perfil-deportista.component.css'],
     standalone: true,
-    imports: [ReactiveFormsModule, CommonModule]
+    imports: [ReactiveFormsModule, CommonModule, RouterModule]
 })
 export class PerfilDeportistaComponent implements OnInit {
 
@@ -19,7 +20,7 @@ export class PerfilDeportistaComponent implements OnInit {
     responseError: boolean = false;
     responseMessage: String = ""
 
-    constructor(private formBuilder: FormBuilder, private personasService: PersonasService, private store: Store<Object>, private router: Router) {
+    constructor(private formBuilder: FormBuilder, private personasService: PersonasService, private store: Store<any>, private router: Router) {
     }
 
     ngOnInit(): void {
@@ -50,8 +51,8 @@ export class PerfilDeportistaComponent implements OnInit {
     }
 
 
-    guardarPerfil(bodyPerfil: Object) {
-        this.store.dispatch(guardarPerfilDeportivo({perfilDeportivo: bodyPerfil}))
+    guardarPerfil(bodyPerfil: IPerfilDeportista) {
+        this.store.dispatch(guardarPerfilDeportivo({perfilDeportista: bodyPerfil}))
         this.router.navigate(['/registro'])
     }
 
