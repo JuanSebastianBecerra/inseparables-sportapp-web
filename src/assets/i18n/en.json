@@ -1,3 +1,16 @@
 {
-    "already.account.label": "You have already an account?"
+    "already.account.label": "You have already an account?",
+    "search.bussiness partner": "Search business partner ...",
+    "view.details": "View details",
+    "partner": "Partner",
+    "socio.name": "Name",
+    "socio.apellidos": "Last name",
+    "socio.username": "Username",
+    "socio.email": "e-mail",
+    "socio.tipo_id": "ID type",
+    "socio.id": "Id number",
+    "socio.contrasenia": "Password",
+    "socio.confirmar.contrasenia": "Confirm password",
+    "socio.save": "Save",
+    "socio.cancel": "Cancel"
 }

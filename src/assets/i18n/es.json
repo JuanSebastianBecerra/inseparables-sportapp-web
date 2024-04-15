@@ -1,3 +1,16 @@
 {
-    "already.account.label": "Ya tienes una cuenta?"
+    "already.account.label": "Ya tienes una cuenta?",
+    "search.bussiness partner": "Buscar socio de negocio ...",
+    "view.details": "Ver detalles",
+    "partner": "Socio",
+    "socio.name": "Nombres",
+    "socio.apellidos": "Apellidos",
+    "socio.username": "Username",
+    "socio.email": "e-mail",
+    "socio.tipo_id": "Tipo de identificación",
+    "socio.id": "Número de identificación",
+    "socio.contrasenia": "Contraseña",
+    "socio.confirmar.contrasenia": "Confirmar contraseña",
+    "socio.save": "Guardar",
+    "socio.cancel": "Cancelar"
 }

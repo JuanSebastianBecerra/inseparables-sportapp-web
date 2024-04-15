@@ -20,6 +20,16 @@ export class ConsultaSocioComponent implements OnInit {
   selected: boolean = false;
   selectedSociok!: DetalleSocio;
 
+  loadScript(url:any) {
+    const body = <HTMLDivElement> document.body;
+    const script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = url;
+    script.async = false;
+    script.defer = true;
+    body.appendChild(script);
+  }
+
   constructor(
     private socioService: SocioService,
     private route: ActivatedRoute,
@@ -33,6 +43,7 @@ export class ConsultaSocioComponent implements OnInit {
   }
 
   ngOnInit() {
-        this.getSocios();
+    this.loadScript('../assets/scripts/filter.js');
+    this.getSocios();
   }
 }

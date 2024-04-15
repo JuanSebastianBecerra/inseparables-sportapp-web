@@ -16,6 +16,7 @@ export class SocioComponent implements OnInit {
   socioForm!: FormGroup;
   responseError: boolean = false;
   responseMessage: String = ""
+  exitoso = false
 
   constructor(private formBuilder: FormBuilder, private socioService: SocioService, private router: Router) { }
 
@@ -27,7 +28,6 @@ export class SocioComponent implements OnInit {
     return this.socioForm.controls;
   }
 
-
   inicarFormulario() {
     this.socioForm = this.formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
@@ -37,14 +37,17 @@ export class SocioComponent implements OnInit {
       numero_identificacion: ["", Validators.required],
       username: ["", Validators.required],
       password: ["", Validators.required],
+      confirmPwd: ["", Validators.required],
       detalle: [""],
     })
   }
 
   registrarSocio(bodyRequest:any) {
-    
     this.socioService.registrarSocio(bodyRequest).subscribe(response => {
-        this.router.navigate(['/socios'])
+      this.exitoso = true
+        setTimeout(() => {
+          this.router.navigate(['/socios'])
+        }, 2000);
     },
     error => {
       this.responseError = true

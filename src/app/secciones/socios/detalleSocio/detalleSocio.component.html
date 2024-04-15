@@ -2,7 +2,7 @@
   <form
     class="form-size size-form-register"
     [formGroup]="socioForm"
-    (ngSubmit)="!socioForm.invalid && actualizarSocio(socioForm.value,socioId)"
+    (ngSubmit)="actualizarSocio(socioForm.value,socioId)"
   >
     <div class="container text-center">
       <h1>Socio</h1>
@@ -18,15 +18,6 @@
               value="{{ detalleSocio.nombre }}"
             />
             <label for="name">Nombres</label>
-            <div
-              class="alert alert-danger alert-dismissible fade show"
-              *ngIf="
-                socioForm.get('nombre')!.hasError('required') &&
-                socioForm.get('nombre')!.touched
-              "
-            >
-              Se requiere el usuario
-            </div>
           </div>
         </div>
         <div class="col">
@@ -40,15 +31,6 @@
               value="{{ detalleSocio.apellido }}"
             />
             <label for="lastname">Apellidos</label>
-            <div
-              class="alert alert-danger alert-dismissible fade show"
-              *ngIf="
-                socioForm.get('apellido')!.hasError('required') &&
-                socioForm.get('apellido')!.touched
-              "
-            >
-              Se requiere el usuario
-            </div>
           </div>
         </div>
       </div>
@@ -64,15 +46,6 @@
               value="{{ detalleSocio.username }}"
             />
             <label for="username">Username</label>
-            <div
-              class="alert alert-danger alert-dismissible fade show"
-              *ngIf="
-                socioForm.get('username')!.hasError('required') &&
-                socioForm.get('username')!.touched
-              "
-            >
-              Se requiere el usuario
-            </div>
           </div>
         </div>
         <div class="col">
@@ -86,25 +59,10 @@
               value="{{ detalleSocio.email }}"
             />
             <label for="email">E-mail</label>
-            <div
-              class="alert alert-danger alert-dismissible fade show"
-              *ngIf="
-                socioForm.get('email')!.hasError('required') &&
-                socioForm.get('email')!.touched
-              "
-            >
-              Se requiere el usuario
-            </div>
-            <div
-              class="alert alert-danger alert-dismissible fade show"
-              *ngIf="f['email']?.errors?.['email']"
-            >
-              Debe ser un correo
-            </div>
           </div>
         </div>
       </div>
-      <div class="row mb-3 mt-3">
+      <div class="row mb-3 mt-3" hidden>
         <div class="col">
           <div class="form-group col">
             <label for="documentType">Seleccione...</label>
@@ -121,11 +79,11 @@
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
-                socioForm.get('tipo_identificacion')!.hasError('required') &&
+                socioForm.get('tipo_identificacion')!.value=='' &&
                 socioForm.get('tipo_identificacion')!.touched
               "
             >
-              Se requiere el usuario
+            Se requiere el tipo de identificación
             </div>
           </div>
         </div>
@@ -143,16 +101,16 @@
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
-                socioForm.get('numero_identificacion')!.hasError('required') &&
+                socioForm.get('numero_identificacion')!.value=='' &&
                 socioForm.get('numero_identificacion')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere el numero de identificación
             </div>
           </div>
         </div>
       </div>
-      <div class="row mb-3 mt-3">
+      <div class="row mb-3 mt-3" hidden>
         <div class="col">
           <div class="form-floating">
             <input
@@ -167,11 +125,11 @@
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
-                socioForm.get('password')!.hasError('required') &&
+                socioForm.get('password')!.value=='' &&
                 socioForm.get('password')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere la contraseña
             </div>
           </div>
         </div>
@@ -188,11 +146,18 @@
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
-                socioForm.get('password')!.hasError('required') &&
-                socioForm.get('password')!.touched
+              
               "
             >
-              Se requiere el usuario
+              Se requiere el confirmar el password
+            </div>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                
+              "
+            >
+              Las contraseñas deben coincidir
             </div>
           </div>
         </div>
@@ -212,15 +177,18 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <button type="submit" [disabled]="!socioForm.valid" class="btn btn-guardar mt-5">
+      <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
+        Socio actualizado exitosamente
+      </div>
+      <div class="row" >
+        <div class="col" hidden>
+          <button id="guardar" type="submit" [disabled]="!socioForm.valid" class="btn btn-guardar mt-5">
             Guardar
           </button>
         </div>
         <div class="col">
-          <button type="button" routerLink="/" class="btn btn-cancelar mt-5">
-            Cancelar
+          <button type="button" routerLink="/socios" class="btn btn-cancelar mt-5">
+            Volver
           </button>
         </div>
       </div>

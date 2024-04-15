@@ -24,7 +24,7 @@
                 socioForm.get('nombre')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere el nombre
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
                 socioForm.get('apellido')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere el apellido
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@
                 socioForm.get('username')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere el username
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@
                 socioForm.get('email')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere el email
             </div>
             <div
               class="alert alert-danger alert-dismissible fade show"
@@ -120,7 +120,7 @@
                 socioForm.get('tipo_identificacion')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere el tipo de identificación
             </div>
           </div>
         </div>
@@ -141,7 +141,7 @@
                 socioForm.get('numero_identificacion')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere el número de identificación
             </div>
           </div>
         </div>
@@ -164,7 +164,7 @@
                 socioForm.get('password')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere el password
             </div>
           </div>
         </div>
@@ -175,16 +175,17 @@
               class="form-control"
               id="confirmPwd"
               placeholder="Confirmar contraseña"
+              formControlName="confirmPwd"
             />
             <label for="confirmPwd">Confirmar contraseña</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
-                socioForm.get('password')!.hasError('required') &&
-                socioForm.get('password')!.touched
+                socioForm.get('confirmPwd')!.hasError('required') &&
+                socioForm.get('confirmPwd')!.touched
               "
             >
-              Se requiere el usuario
+              Se requiere el confirmar el password
             </div>
           </div>
         </div>
@@ -202,6 +203,9 @@
             <label for="name">Detalle</label>
           </div>
         </div>
+      </div>
+      <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
+        Socio creado exitosamente
       </div>
       <div class="row">
         <div class="col">
