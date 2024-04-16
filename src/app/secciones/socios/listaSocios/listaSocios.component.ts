@@ -2,15 +2,16 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { DetalleSocio } from 'src/app/secciones/socios/detalle-socio';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule} from '@angular/router';
+import { Router, RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 
 @Component({
   selector: 'app-lista-socios',
   templateUrl: './listaSocios.component.html',
   styleUrls: ['./listaSocios.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule]
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent]
 })
 
 export class ListaSociosComponent implements OnInit {
@@ -21,15 +22,28 @@ export class ListaSociosComponent implements OnInit {
   socios_inicial: Array<DetalleSocio> = [];
   selected: boolean = false;
   selectedSocio!: DetalleSocio;
+  mostrarErrorGetSocios: boolean = false;
+  errorGetSocios: string = ""
 
   constructor(
     private socioService: SocioService,
+    private router: Router
   ) { }
 
   getSocios() : void {
     this.socioService.getSocios().subscribe((socios) => {
       this.socios = socios;
       this.socios_inicial = socios;
+    }, error => {
+      if(error.status === 401){
+        this.router.navigate(['/'])
+      }else{
+        this.mostrarErrorGetSocios = true
+        if (error.error.description)
+          this.errorGetSocios = error.error.description
+        else
+          this.errorGetSocios = "Error al consultar la lista de socios, intente más tarde";
+        }
     });
   }
   

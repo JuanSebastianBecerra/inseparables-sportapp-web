@@ -6,7 +6,6 @@ interface MenuNavToggle{
   collapsed: boolean;
 }
 
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
