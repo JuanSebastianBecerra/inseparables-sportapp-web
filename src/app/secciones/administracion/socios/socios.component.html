@@ -1,7 +1,11 @@
-<div class="container-fluid no-padding-margin">
-    <div class="row">
-      <div class="col-9">
-          <app-consulta-socios></app-consulta-socios>
-      </div>
-    </div>
+<div class="container">
+  <div class="row buscar-socio-container">
+    <app-buscar-socio (onBuscarSocio)="onChangeTextoBuscarSocio($event)"></app-buscar-socio>
   </div>
+  <div class="row lista-socio-container">
+    <app-lista-socios [textoBuscar]="textoBuscarSocio"></app-lista-socios>
+  </div>
+  <div class="row agregar-socio-container">
+    <app-menu-agregar-socio></app-menu-agregar-socio>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="d-flex">
+  <div class="card" style="width: 18rem;" *ngFor="let socio of socios">
+    <div class="card-body">
+      <h6 class="card-title">{{socio.nombre}} {{socio.apellido}}</h6>
+      <div class="card-subtitle mb-2 text-muted detail">{{socio.email}}</div>
+      <p class="card-text">{{socio.detalle}}</p>
+      <p class="position-absolute bottom-0 end-0">
+        <a href="#" class="btn btn-details mt-5 rounded-pill" routerLink="/socio/{{socio.id}}">Ver detalle</a>
+      </p>
+    </div>
+  </div> 
+</div>

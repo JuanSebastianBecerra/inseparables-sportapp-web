@@ -9,7 +9,6 @@ import { SocioComponent } from './secciones/socios/socio/socio.component';
 import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
 import { CreacionServiciosComponent } from './secciones/servicios/creacion-servicios/creacion-servicios.component';
 import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
-import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },

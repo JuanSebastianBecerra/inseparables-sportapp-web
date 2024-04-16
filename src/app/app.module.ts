@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,14 +18,15 @@ import { SuscripcionesComponent } from './secciones/administracion/suscripciones
 import { MenuComponent } from './comunes/componentes/menu/menu.component';
 import { SociosComponent } from './secciones/administracion/socios/socios.component';
 import { SocioComponent } from './secciones/socios/socio/socio.component';
-import { ConsultaSocioComponent } from './secciones/socios/consultaSocio/consultaSocio.component';
+import { ListaSociosComponent } from './secciones/socios/listaSocios/listaSocios.component';
 import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
 import { CreacionServiciosComponent } from './secciones/servicios/creacion-servicios/creacion-servicios.component';
 import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
 import { StoreModule } from '@ngrx/store';
-import {perfilDeportivoReducer} from "./store/secciones/usuarios/perfil-deportivo.reducer";
-import {ROOT_REDUCERS} from "./store/app.state";
+import { ROOT_REDUCERS } from "./store/app.state";
 import { BodyComponent } from './secciones/body/body.component';
+import { BuscarSocioComponent } from './secciones/socios/buscar-socio/buscar-socio.component';
+import { MenuAgregarSocioComponent } from './secciones/socios/menu-agregar-socio/menu-agregar-socio.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,17 +40,20 @@ export function HttpLoaderFactory(http: HttpClient){
     SuscripcionesComponent,
     MenuComponent,
     SociosComponent,
-    BodyComponent
+    BodyComponent,
+    BuscarSocioComponent,
+    MenuAgregarSocioComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     AutenticacionComponent,
     RegistroComponent,
     SocioComponent,
-    ConsultaSocioComponent,
+    ListaSociosComponent,
     DetalleSocioComponent,
     CreacionServiciosComponent,
     PerfilDeportistaComponent,

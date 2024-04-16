@@ -12,7 +12,6 @@ export class BodyComponent {
 
   getBodyClass(): string {
     let styleClass = "";
-
     if (this.hideMenu){
       return "";
     }
