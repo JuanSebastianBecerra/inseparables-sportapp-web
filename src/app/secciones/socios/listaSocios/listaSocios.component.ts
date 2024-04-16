@@ -1,10 +1,11 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { DetalleSocio } from 'src/app/secciones/socios/detalle-socio';
+import { DetalleSocio, RespuestaSocios } from 'src/app/clases/detalle-socio';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-lista-socios',
@@ -27,15 +28,21 @@ export class ListaSociosComponent implements OnInit {
 
   constructor(
     private socioService: SocioService,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) { }
 
   getSocios() : void {
-    this.socioService.getSocios().subscribe((socios) => {
-      this.socios = socios;
-      this.socios_inicial = socios;
-    }, error => {
+    this.socioService.getSocios().subscribe((respuesta) => {
+      let respuestaSocios = new RespuestaSocios(respuesta.respuesta, respuesta.token)
+      respuestaSocios.setNuevoToken(this.cookieService)
+
+      this.socios = respuestaSocios.respuesta;
+      this.socios_inicial = respuestaSocios.respuesta;
+    }, error => { 
       if(error.status === 401){
+        this.cookieService.delete("token")
+        this.cookieService.delete("rol")
         this.router.navigate(['/'])
       }else{
         this.mostrarErrorGetSocios = true

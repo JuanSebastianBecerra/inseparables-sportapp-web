@@ -3,16 +3,17 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
-import { DetalleSocio } from 'src/app/secciones/socios/detalle-socio';
+import { DetalleSocio, RespuestaSocio } from 'src/app/clases/detalle-socio';
 import { ActivatedRoute } from '@angular/router';
-import { timer } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 
 @Component({
   selector: 'app-detalle-socio',
   templateUrl: './detalleSocio.component.html',
   styleUrls: ['./detalleSocio.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule]
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent]
 })
 export class DetalleSocioComponent implements OnInit, AfterViewInit{
 
@@ -24,7 +25,8 @@ export class DetalleSocioComponent implements OnInit, AfterViewInit{
   exitoso: boolean = false;
 
 
-  constructor(private formBuilder: FormBuilder, private socioService: SocioService, private router: Router,private route: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder, private socioService: SocioService, 
+    private router: Router,private route: ActivatedRoute, private cookieService: CookieService) {
    }
 
   ngOnInit(): void {
@@ -40,8 +42,23 @@ export class DetalleSocioComponent implements OnInit, AfterViewInit{
   }
 
   getSocioId(): void{
-    this.socioService.getSocioId(this.socioId).subscribe((detalleSocio) => {
-      this.detalleSocio = detalleSocio;
+    this.socioService.getSocioId(this.socioId).subscribe((respuesta) => {
+      let respuestaSocio = new RespuestaSocio(respuesta.respuesta, respuesta.token)
+      respuestaSocio.setNuevoToken(this.cookieService)
+
+      this.detalleSocio = respuestaSocio.respuesta;
+    }, error => { 
+      if(error.status === 401){
+        this.cookieService.delete("token")
+        this.cookieService.delete("rol")
+        this.router.navigate(['/'])
+      }else{
+        this.responseError = true
+        if (error.error.description)
+          this.responseMessage = error.error.description
+        else
+          this.responseMessage = "Error al consultar la lista de socios, intente más tarde";
+        }
     });
   }
 
@@ -61,26 +78,6 @@ export class DetalleSocioComponent implements OnInit, AfterViewInit{
     })
        
   }
-
-  /**public validateAreEqual(c: AbstractControl): { notSame: boolean } | null { 
-    return c.value.password === c.value.confirmationPassword ? { notSame: false }: { notSame: true };
-  }
-
-  public validateEmpty(c: AbstractControl): { empty: boolean } | null {
-    
-    if(this.detalleSocio!=undefined){
-      return (this.detalleSocio.nombre === "" ||
-           this.detalleSocio.apellido === "" ||
-           this.detalleSocio.email === "" ||
-           this.detalleSocio.tipo_identificacion === "" ||
-           this.detalleSocio.username === "" ||
-           this.detalleSocio.password === "" ||
-           this.detalleSocio.detalle === "")? { empty: true }: { empty: false };
-    }else{
-      return { empty: false }
-    }
-    
-  }**/
 
   actualizarSocio(bodyRequest:any,socioId:any) {
     this.socioService.actualizarSocio(bodyRequest,socioId).subscribe(response => {

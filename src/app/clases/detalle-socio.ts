@@ -1,4 +1,27 @@
 
+import { Authentication } from "./authentication";
+
+
+export class RespuestaSocio extends Authentication{
+  respuesta: DetalleSocio
+
+  constructor(respuesta: DetalleSocio, token: string){
+    super(token);
+    this.respuesta = respuesta
+  }
+}
+
+
+export class RespuestaSocios extends Authentication{
+  respuesta: DetalleSocio[]
+  
+  constructor(respuesta: DetalleSocio[], token: string){
+    super(token);
+    this.respuesta = respuesta
+  }
+
+}
+
 export class DetalleSocio{
     nombre: string;
     apellido: string;
