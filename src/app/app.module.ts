@@ -24,6 +24,7 @@ import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportist
 import { StoreModule } from '@ngrx/store';
 import {perfilDeportivoReducer} from "./store/secciones/usuarios/perfil-deportivo.reducer";
 import {ROOT_REDUCERS} from "./store/app.state";
+import { BodyComponent } from './secciones/body/body.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient){
     HomeComponent,
     SuscripcionesComponent,
     MenuComponent,
-    SociosComponent
+    SociosComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
