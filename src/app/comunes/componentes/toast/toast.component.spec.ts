@@ -8,7 +8,8 @@ describe('ToastComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ToastComponent]
+      declarations: [],
+      imports: [ToastComponent]
     });
     fixture = TestBed.createComponent(ToastComponent);
     component = fixture.componentInstance;

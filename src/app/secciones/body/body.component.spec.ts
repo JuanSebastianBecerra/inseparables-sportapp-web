@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BodyComponent } from './body.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 describe('BodyComponent', () => {
   let component: BodyComponent;
@@ -8,7 +9,8 @@ describe('BodyComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BodyComponent]
+      declarations: [BodyComponent],
+      imports: [AppRoutingModule]
     });
     fixture = TestBed.createComponent(BodyComponent);
     component = fixture.componentInstance;

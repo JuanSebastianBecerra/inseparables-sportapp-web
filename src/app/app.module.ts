@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { BodyComponent } from './secciones/body/body.component';
 import { BuscarSocioComponent } from './secciones/socios/buscar-socio/buscar-socio.component';
 import { MenuAgregarSocioComponent } from './secciones/socios/menu-agregar-socio/menu-agregar-socio.component';
 import { ToastComponent } from './comunes/componentes/toast/toast.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,10 +46,11 @@ export function HttpLoaderFactory(http: HttpClient){
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     AutenticacionComponent,
     RegistroComponent,
     SocioComponent,
@@ -67,6 +69,6 @@ export function HttpLoaderFactory(http: HttpClient){
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
-  schemas: []
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
