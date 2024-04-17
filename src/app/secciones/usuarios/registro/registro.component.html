@@ -1,3 +1,4 @@
+<app-toast mensajeError="{{responseMessage}}" [mostrarToast]=responseError class="d-flex justify-content-end"></app-toast>
 <div class="center-element">
   <form
     class="form-size size-form-register"
@@ -56,7 +57,7 @@
             <input
               type="text"
               class="form-control"
-              id="lastname"
+              id="username"
               placeholder="Usuario"
               formControlName="username"
             />
@@ -213,7 +214,7 @@
           </div>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-guardar mt-3" routerLink="/perfil-deportista">
+          <button type="button" class="btn btn-guardar mt-3" (click) = abrirPerfilDeportivo()>
             Perfil deportivo
           </button>
         </div>
@@ -224,6 +225,20 @@
             >Ver detalles y recomendaciones de suscripción
           </a>
         </div>
+      </div>
+      <div class="row">
+        <div class="alert alert-danger alert-dismissible fade show"
+              *ngIf="mostrarErrorPerfilDeportivo"
+            >
+              Falta completar el perfil deportivo
+            </div>
+      </div>
+      <div class="row">
+        <div class="alert alert-success alert-dismissible fade show"
+              *ngIf="mostrarUsuarioRegistrado"
+            >
+              Usuario registrado exitosamente
+            </div>
       </div>
       <div class="row">
         <div class="col">

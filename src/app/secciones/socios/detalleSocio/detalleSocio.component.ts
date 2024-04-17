@@ -30,7 +30,7 @@ export class DetalleSocioComponent implements OnInit, AfterViewInit{
    }
 
   ngOnInit(): void {
-    this.inicarFormulario()
+    this.iniciarFormulario()
     
   }
 
@@ -62,7 +62,7 @@ export class DetalleSocioComponent implements OnInit, AfterViewInit{
     });
   }
 
-  inicarFormulario() {
+  iniciarFormulario() {
     
     this.socioId = this.route.snapshot.paramMap.get('idSocio')!;
     this.getSocioId()

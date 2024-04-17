@@ -2,3 +2,11 @@
     min-width: 70%;
     min-height: 80%;
 }
+
+app-toast{
+    margin-top: 1rem;
+    margin-right: 1rem;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+}

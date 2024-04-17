@@ -21,13 +21,16 @@ export class AppComponent {
     this.translateService.use(languageCode);
 
     router.events.subscribe((val) => {
-      this.hideMenu = this.router.url == "/"
+      this.hideMenu = this.router.url == "/" || 
+                    this.router.url == "/registro" || 
+                    this.router.url == "/suscripciones" || 
+                    this.router.url == "/perfil-deportista"
     })
   }
 
   isMenuNavCollapsed = false;
   screenWidth = 0;
-  hideMenu = this.router.url == "/"
+  hideMenu = this.router.url == "/" 
 
   onToggleMenuNav(data: MenuNavToggle): void {
     this.screenWidth = data.screenWidth;

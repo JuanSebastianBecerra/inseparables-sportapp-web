@@ -92,7 +92,7 @@
                         <select
                                 id="paisNacimiento"
                                 class="form-control"
-                                formControlName="paisNacimiento"
+                                formControlName="pais_nacimiento"
                                 (change)="obtenerCiudadesNacimiento($any($event.target)?.value)"
                         >
                             <option selected disabled>Seleccione...</option>
@@ -101,8 +101,8 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('paisNacimiento')!.hasError('required') &&
-                perfilForm.get('paisNacimiento')!.touched">
+                perfilForm.get('pais_nacimiento')!.hasError('required') &&
+                perfilForm.get('pais_nacimiento')!.touched">
                             Se requiere el país de nacimiento
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                         <select
                                 id="ciudadNacimiento"
                                 class="form-control"
-                                formControlName="ciudadNacimiento"
+                                formControlName="ciudad_nacimiento"
                         >
                             <option selected disabled>Seleccione...</option>
                             <option *ngFor="let ciudad of ciudadesNacimiento; index as i" [value]="ciudad['codigo']">{{ciudad["nombre"]}}</option>
@@ -121,8 +121,8 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('ciudadNacimiento')!.hasError('required') &&
-                perfilForm.get('ciudadNacimiento')!.touched">
+                perfilForm.get('ciudad_nacimiento')!.hasError('required') &&
+                perfilForm.get('ciudad_nacimiento')!.touched">
                             Se requiere la ciudad de nacimiento
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                         <select
                                 id="paisResidencia"
                                 class="form-control"
-                                formControlName="paisResidencia"
+                                formControlName="pais_residencia"
                                 (change)="obtenerCiudadesResidencia($any($event.target)?.value)"
                         >
                             <option selected disabled>Seleccione...</option>
@@ -144,8 +144,8 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('paisResidencia')!.hasError('required') &&
-                perfilForm.get('paisResidencia')!.touched">
+                perfilForm.get('pais_residencia')!.hasError('required') &&
+                perfilForm.get('pais_residencia')!.touched">
                             Se requiere el país de residencia
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                         <select
                                 id="ciudadResidencia"
                                 class="form-control"
-                                formControlName="ciudadResidencia"
+                                formControlName="ciudad_residencia"
                         >
                             <option selected disabled>Seleccione...</option>
                             <option *ngFor="let ciudad of ciudadesResidencia; index as i" [value]="ciudad['codigo']">{{ciudad["nombre"]}}</option>
@@ -164,8 +164,8 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('ciudadResidencia')!.hasError('required') &&
-                perfilForm.get('ciudadResidencia')!.touched">
+                perfilForm.get('ciudad_residencia')!.hasError('required') &&
+                perfilForm.get('ciudad_residencia')!.touched">
                             Se requiere la ciudad de residencia
                         </div>
                     </div>
@@ -179,14 +179,14 @@
                                 class="form-control"
                                 id="antiguedad"
                                 placeholder="Antigüedad"
-                                formControlName="antiguedad"
+                                formControlName="antiguedad_residencia"
                         />
                         <label for="antiguedad">Antigüedad de residencia</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('antiguedad')!.hasError('required') &&
-                perfilForm.get('antiguedad')!.touched">
+                perfilForm.get('antiguedad_residencia')!.hasError('required') &&
+                perfilForm.get('antiguedad_residencia')!.touched">
                             Se requiere la antigüedad de residencia
                         </div>
                     </div>
@@ -244,14 +244,14 @@
                                 class="form-control"
                                 id="horasEjercicio"
                                 placeholder="Horas ejercicio por semana"
-                                formControlName="horasEjercicio"
+                                formControlName="horas_semanal"
                         />
                         <label for="horasEjercicio">Ejercicio por semana (Horas)</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('horasEjercicio')!.hasError('required') &&
-                perfilForm.get('horasEjercicio')!.touched">
+                perfilForm.get('horas_semanal')!.hasError('required') &&
+                perfilForm.get('horas_semanal')!.touched">
                             Se requiere las horas ejercitadas por semana
                         </div>
                     </div>
@@ -263,14 +263,14 @@
                                 class="form-control"
                                 id="pesoObjetivo"
                                 placeholder="Peso objetivo"
-                                formControlName="pesoObjetivo"
+                                formControlName="peso_objetivo"
                         />
                         <label for="pesoObjetivo">Peso objetivo</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('pesoObjetivo')!.hasError('required') &&
-                perfilForm.get('pesoObjetivo')!.touched">
+                perfilForm.get('peso_objetivo')!.hasError('required') &&
+                perfilForm.get('peso_objetivo')!.touched">
                             Se requiere el peso objetivo
                         </div>
                     </div>
@@ -325,14 +325,14 @@
                     class="form-control"
                     placeholder="Leave a comment here"
                     id="preferenciaAlimenticia"
-                    formControlName="preferenciaAlimenticia"
+                    formControlName="preferencia_alimenticia"
             ></textarea>
                         <label for="preferenciaAlimenticia">Preferencia alimenticia</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('preferenciaAlimenticia')!.hasError('required') &&
-                perfilForm.get('preferenciaAlimenticia')!.touched">
+                perfilForm.get('preferencia_alimenticia')!.hasError('required') &&
+                perfilForm.get('preferencia_alimenticia')!.touched">
                             Se requiere la preferencia alimenticia
                         </div>
                     </div>
@@ -345,14 +345,14 @@
                     class="form-control"
                     placeholder="Leave a comment here"
                     id="planNutricional"
-                    formControlName="planNutricional"
+                    formControlName="plan_nutricional"
             ></textarea>
                         <label for="planNutricional">Plan nutricional</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('planNutricional')!.hasError('required') &&
-                perfilForm.get('planNutricional')!.touched">
+                perfilForm.get('plan_nutricional')!.hasError('required') &&
+                perfilForm.get('plan_nutricional')!.touched">
                             Se requiere el plan nutricional
                         </div>
                     </div>
@@ -365,14 +365,14 @@
                     class="form-control"
                     placeholder="Leave a comment here"
                     id="historiaClinica"
-                    formControlName="historiaClinica"
+                    formControlName="url_historia_clinica"
             ></textarea>
                         <label for="historiaClinica">Historia clínica deportiva</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('historiaClinica')!.hasError('required') &&
-                perfilForm.get('historiaClinica')!.touched">
+                perfilForm.get('url_historia_clinica')!.hasError('required') &&
+                perfilForm.get('url_historia_clinica')!.touched">
                             Se requiere la historia clinica deportiva
                         </div>
                     </div>
@@ -386,7 +386,7 @@
                     </button>
                 </div>
                 <div class="col-3">
-                    <button type="button" routerLink="/registro" class="btn btn-cancelar mt-5">
+                    <button type="button" (click)="cancelarPerfil()" class="btn btn-cancelar mt-5">
                         Cancelar
                     </button>
                 </div>

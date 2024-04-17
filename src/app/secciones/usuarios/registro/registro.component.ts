@@ -3,48 +3,77 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterModule} from '@angular/router';
 import {PersonasService} from 'src/app/servicios/personas/personas.service';
-import {SATUS_CODE_CREATED} from 'src/app/utils/constants';
-import {Store} from "@ngrx/store";
-import {Observable, Subscription} from "rxjs";
-import {selectPerfilDeportista} from "../../../store/secciones/usuarios/perfil-deportista.selectors";
-import {IPerfilDeportista} from "../../../interfaces/IPerfilDeportista";
-import {AppState} from "../../../store/app.state";
+import { PREFIJO_REGISTRO, PREFIJO_PERFIL_DEPORTIVO } from 'src/app/utils/constants';
 import {AdministracionService} from "../../../servicios/administracion/administracion.service";
+import { CacheService } from 'src/app/servicios/administracion/cache.service';
+import { PerfilDeportista } from 'src/app/clases/perfil-deportista';
+import { v4 as uuidv4 } from 'uuid';
+import { timer } from 'rxjs';
+import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
+
 
 @Component({
     selector: 'app-registro',
     templateUrl: './registro.component.html',
     styleUrls: ['./registro.component.css'],
     standalone: true,
-    imports: [ReactiveFormsModule, CommonModule, RouterModule]
+    imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent]
 })
 export class RegistroComponent implements OnInit {
 
     registroForm!: FormGroup;
     responseError: boolean = false;
-    responseMessage: String = ""
+    responseMessage: string = ""
+    dataPerfilDeportista!: PerfilDeportista
+    idRegistro: string = ""
+    mostrarErrorPerfilDeportivo : boolean = false
+    mostrarUsuarioRegistrado: boolean = false
 
-    perfilDeportista$!: Observable<IPerfilDeportista>;
     planes!:any;
 
-    constructor(private formBuilder: FormBuilder, private personasService: PersonasService, private router: Router,
-                private store: Store<AppState>, private administracionService: AdministracionService) {
 
+    constructor(private formBuilder: FormBuilder, private personasService: PersonasService,
+        private router: Router, private administracionService: AdministracionService, private cacheService: CacheService) {
+            if (this.router.getCurrentNavigation()?.extras.state){
+                this.idRegistro = this.router.getCurrentNavigation()?.extras.state!["idRegistro"];
+            }else
+                this.idRegistro = uuidv4()
+    }
+
+    cargarInformacion():void{
+       let formulario = this.cacheService.get(PREFIJO_REGISTRO + this.idRegistro)
+        if(formulario != undefined){
+            this.registroForm.patchValue({
+                nombre: formulario.nombre,
+                apellido: formulario.apellido,
+                username: formulario.username,
+                email: formulario.email,
+                tipo_identificacion: formulario.tipo_identificacion,
+                numero_identificacion: formulario.numero_identificacion,
+                password: formulario.password
+            });
+        }
+        
     }
 
     ngOnInit(): void {
-        this.inicarFormulario();
+        this.iniciarFormulario();
         this.obtenerPlanes();
-        this.perfilDeportista$ = this.store.select(selectPerfilDeportista)
-
+        this.cargarInformacion()
     }
 
     get f(): { [key: string]: AbstractControl } {
         return this.registroForm.controls;
     }
 
+    abrirPerfilDeportivo(): void{
+        this.mostrarErrorPerfilDeportivo = false
+        this.cacheService.put(PREFIJO_REGISTRO + this.idRegistro, this.registroForm.value)
+        this.router.navigate(['perfil-deportista'], { state: { idRegistro: this.idRegistro } });
+    }
 
-    inicarFormulario() {
+
+    iniciarFormulario() {
         this.registroForm = this.formBuilder.group({
             email: ["", [Validators.required, Validators.email]],
             nombre: ["", Validators.required],
@@ -53,52 +82,47 @@ export class RegistroComponent implements OnInit {
             numero_identificacion: ["", Validators.required],
             username: ["", Validators.required],
             password: ["", Validators.required],
-            suscripcion: ["", Validators.required],
-        })
-    }
-
-    savePerfilDeportivoBody(idUsuario: string) {
-        let bodyRequest = {};
-        this.perfilDeportista$.subscribe(response => {
-            bodyRequest = {
-                "id_usuario": idUsuario,
-                "genero": response.genero,
-                "edad": response.edad,
-                "peso": response.peso,
-                "altura": response.altura,
-                "pais_nacimiento": response.paisNacimiento,
-                "ciudad_nacimiento": response.ciudadNacimiento,
-                "pais_residencia": response.paisResidencia,
-                "ciudad_residencia": response.ciudadResidencia,
-                "antiguedad_residencia": response.antiguedad,
-                "imc": response.imc,
-                "horas_semanal": response.horasEjercicio,
-                "peso_objetivo": response.pesoObjetivo,
-                "alergias": response.alergias,
-                "preferencia_alimenticia": response.preferenciaAlimenticia,
-                "plan_nutricional": response.planNutricional,
-                "url_historia_clinica": response.historiaClinica,
-                "vo2max": 0,
-                "ftp": 0
-            }
-            this.personasService.registrarPerfilDeportivo(bodyRequest).subscribe(response => {
-                response.status === SATUS_CODE_CREATED && this.router.navigate(['/'])
-            })
+            suscripcion: ["", Validators.required]
         })
     }
 
     registrarUsuario(bodyRequest: any) {
-        this.personasService.registrarUsuario(bodyRequest).subscribe(response => {
-                const res = response?.body;
-                res?.id && this.savePerfilDeportivoBody(res?.id)
+        let perfilDeportivo : PerfilDeportista = this.cacheService.get(PREFIJO_PERFIL_DEPORTIVO + this.idRegistro)
+        if (perfilDeportivo == undefined){
+            this.mostrarErrorPerfilDeportivo = true
+        }
+        else{
+            this.personasService.registrarUsuario(bodyRequest).subscribe(response => {
+                let respuesta = response?.body;
+                let idUsuarioRegistrado = respuesta.id
+                perfilDeportivo.id_usuario = idUsuarioRegistrado
+                this.personasService.registrarPerfilDeportivo(perfilDeportivo).subscribe(response => {
+                    this.mostrarUsuarioRegistrado = true
+                    this.registroForm.reset()
+                    this.cacheService.clear(PREFIJO_PERFIL_DEPORTIVO + this.idRegistro)
+                    this.cacheService.clear(PREFIJO_REGISTRO + this.idRegistro)
+                    this.idRegistro = uuidv4()
+                    timer(5000).subscribe(x => { 
+                        this.router.navigate(['/'])
+                        this.mostrarUsuarioRegistrado = false
+                    })
+                    
+                }, error => {
+                    this.responseError = true
+                    if (error.error.description)
+                        this.responseMessage = error.error.description
+                    else
+                        this.responseMessage = "Ocurrió un error al guardar el perfil deportivo";
+                })
             },
             error => {
                 this.responseError = true
                 if (error.error.description)
                     this.responseMessage = error.error.description
                 else
-                    this.responseMessage = "Ocurrió un error al realizar la petición";
-            });
+                    this.responseMessage = "Ocurrió un error al guardar el usuario";
+            })
+        }
     }
 
     obtenerPlanes():void{
@@ -116,3 +140,4 @@ export class RegistroComponent implements OnInit {
 
 
 }
+

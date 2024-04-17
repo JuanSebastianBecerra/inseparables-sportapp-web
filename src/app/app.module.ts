@@ -22,8 +22,6 @@ import { ListaSociosComponent } from './secciones/socios/listaSocios/listaSocios
 import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSocio.component';
 import { CreacionServiciosComponent } from './secciones/servicios/creacion-servicios/creacion-servicios.component';
 import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
-import { StoreModule } from '@ngrx/store';
-import { ROOT_REDUCERS } from "./store/app.state";
 import { BodyComponent } from './secciones/body/body.component';
 import { BuscarSocioComponent } from './secciones/socios/buscar-socio/buscar-socio.component';
 import { MenuAgregarSocioComponent } from './secciones/socios/menu-agregar-socio/menu-agregar-socio.component';
@@ -65,8 +63,7 @@ export function HttpLoaderFactory(http: HttpClient){
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
-    StoreModule.forRoot(ROOT_REDUCERS, {})
+    })
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
