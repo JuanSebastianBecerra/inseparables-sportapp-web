@@ -1,20 +1,61 @@
-<div class="background-sportapp-menu">
-  <div class="position-relative">
-    <h1>SportApp Admin</h1>
-    <ul class="list-group list-group-flush">
-      <li
-        *ngFor="let item of menuItems; index as i"
-        [ngClass]="[
-          'list-group-item no-backgorund',
-          item.esSeparador ? 'border-bottom-item' : '',
-          item.esTitulo ? 'titulo-menu' : '',
-          itemSeleccionado === item.llave ? 'item-seleccionado' : ''
-        ]"
-      >
-        <i [class]="item.esTitulo ? '' : item.icon"></i>&nbsp;&nbsp;&nbsp;{{
-          item.descripcion
-        }}
-      </li>
-    </ul>
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+  <div class="logo-container">
+    <button class="logo" (click)="toogleCollapse()">S</button>
+    <div class="logo-text" *ngIf="collapsed">SportApp</div>
+    <button class="btn-close" *ngIf="collapsed" (click)="closeMenunav()">
+      <i class="fal fa-times close-icon"></i>
+    </button>
   </div>
+
+  <ul class="sidenav-nav">
+    <!-- Sección Administración -->
+    <li class="sidenav-nav-item sidenav-subtitle">
+      <span class="sidenav-link-text link-collapsed" *ngIf="!collapsed">A</span>
+      <span class="sidenav-link-text" *ngIf="collapsed">Administración</span>
+    </li>
+    <li class="sidenav-nav-item" *ngFor="let data of menubarAdministracionData">
+      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+      </a>
+    </li>
+    <li class="sidenav-nav-item sidenav-section">
+      <hr>
+    </li>
+    <!-- Sección deporte -->
+    <li class="sidenav-nav-item sidenav-subtitle">
+      <span class="sidenav-link-text link-collapsed" *ngIf="!collapsed">D</span>
+      <span class="sidenav-link-text" *ngIf="collapsed">Deporte</span>
+    </li>
+    <li class="sidenav-nav-item" *ngFor="let data of menubarDeporteData">
+      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+      </a>
+    </li>
+    <li class="sidenav-nav-item sidenav-section">
+      <hr>
+    </li>
+    <!-- Sección Configuración -->
+    <li class="sidenav-nav-item sidenav-subtitle">
+      <span class="sidenav-link-text link-collapsed" *ngIf="!collapsed">C</span>
+      <span class="sidenav-link-text" *ngIf="collapsed">Configuración</span>
+    </li>
+    <li class="sidenav-nav-item" *ngFor="let data of menubarConfiguracionData">
+      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+      </a>
+    </li>
+  </ul>
+
 </div>

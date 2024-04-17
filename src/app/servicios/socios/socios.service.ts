@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { DetalleSocio } from 'src/app/secciones/socios/detalle-socio';
+import { RespuestaSocio, RespuestaSocios } from 'src/app/clases/detalle-socio';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -26,13 +26,13 @@ export class SocioService {
     return this.http.post<any>(`${this.socioUrl}/${socioId}`, bodyRequest);
   }
 
-  getSocioId(socioId: string): Observable<DetalleSocio>{
+  getSocioId(socioId: string): Observable<RespuestaSocio>{
     const url = `${environment.baseUrlAdministracion}/socios/${socioId}`;
-    return this.http.get<DetalleSocio>(url, { headers: this.headers });    
+    return this.http.get<RespuestaSocio>(url, { headers: this.headers });    
   }
 
-  getSocios(): Observable<DetalleSocio[]> {
+  getSocios(): Observable<RespuestaSocios> {
     const url = `${environment.baseUrlAdministracion}/socios`;
-    return this.http.get<DetalleSocio[]>(url, { headers: this.headers })
+    return this.http.get<RespuestaSocios>(url, { headers: this.headers })
   }
 }

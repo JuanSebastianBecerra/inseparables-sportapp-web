@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="search">
+        <input 
+            type="text"
+            id="socio-buscar"
+            class="form-control rounded-pill icon-rtl"
+            placeholder="Buscar socio de negocio ..." 
+            [(ngModel)]="socioBusqueda"
+            (input)="buscarSocio($event)"
+        />
+    </div>
+</div>

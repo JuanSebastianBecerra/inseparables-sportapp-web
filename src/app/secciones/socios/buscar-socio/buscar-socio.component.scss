@@ -1,0 +1,13 @@
+.search {
+    position: relative;
+    font-size: 16px;
+
+    input {
+        background-color: var(--BlueGreen-2);
+        border: 0;
+        border-radius: 5px;
+        height: 55px;
+        padding-left: 40px;
+        box-shadow: 6px 6px 10px #d2d6dd;
+    }
+}

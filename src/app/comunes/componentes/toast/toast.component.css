@@ -1,0 +1,13 @@
+.logo {
+    background: #fff;
+    text-align: center;
+    width: 2rem;
+    min-width: 2rem;
+    border-radius: 0.313rem;
+    padding: 0.313rem;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    border: 1px solid #dc3545;
+    margin-right: 0.5rem;
+}

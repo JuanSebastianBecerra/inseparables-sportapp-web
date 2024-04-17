@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PerfilDeportistaComponent } from './perfil-deportista.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {provideMockStore} from "@ngrx/store/testing";
 import {AppRoutingModule} from "../../../app-routing.module";
 
 describe('PerfilDeportistaComponent', () => {
@@ -13,7 +12,7 @@ describe('PerfilDeportistaComponent', () => {
     TestBed.configureTestingModule({
       imports: [PerfilDeportistaComponent, HttpClientTestingModule, AppRoutingModule],
       declarations: [],
-      providers: [provideMockStore({})],
+      providers: [],
     });
     fixture = TestBed.createComponent(PerfilDeportistaComponent);
     component = fixture.componentInstance;
