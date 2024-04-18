@@ -27,6 +27,10 @@ import { BuscarSocioComponent } from './secciones/socios/buscar-socio/buscar-soc
 import { MenuAgregarSocioComponent } from './secciones/socios/menu-agregar-socio/menu-agregar-socio.component';
 import { ToastComponent } from './comunes/componentes/toast/toast.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ConsultaServiciosComponent } from './secciones/servicios/consulta-servicios/consulta-servicios.component';
+import { BuscarServicioComponent } from './secciones/servicios/buscar-servicio/buscar-servicio.component';
+import { ListarServicioComponent } from './secciones/servicios/listar-servicio/listar-servicio.component';
+import { MenuAgregarServicioComponent } from './secciones/servicios/menu-agregar-servicio/menu-agregar-servicio.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -42,7 +46,11 @@ export function HttpLoaderFactory(http: HttpClient){
     SociosComponent,
     BodyComponent,
     BuscarSocioComponent,
-    MenuAgregarSocioComponent
+    MenuAgregarSocioComponent,
+    ConsultaServiciosComponent,
+    BuscarServicioComponent,
+    ListarServicioComponent,
+    MenuAgregarServicioComponent
   ],
   imports: [
     BrowserModule,

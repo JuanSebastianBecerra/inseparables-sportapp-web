@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row buscar-servicio-container">
+        <app-buscar-servicio (onBuscarServicio)="onChangeTextBuscarServicio($event)"></app-buscar-servicio>
+    </div>
+    <div class="row listar-servicio-container">
+        <app-listar-servicio [textoBuscar]="textoBuscarServicio"></app-listar-servicio>
+    </div>
+    <div class="row agregar-servicio-container">
+        <app-menu-agregar-servicio></app-menu-agregar-servicio>
+    </div>
+</div>

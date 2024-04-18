@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buscar-socio',
@@ -12,7 +11,7 @@ export class BuscarSocioComponent {
 
   socioBusqueda: string = '';
 
-  constructor(private router: Router){}
+  constructor(){}
 
   buscarSocio(event: any){
     this.onBuscarSocio.emit(this.socioBusqueda);

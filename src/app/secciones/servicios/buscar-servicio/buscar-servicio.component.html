@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="search">
+        <input 
+            type="text"
+            id="servicio-buscar"
+            class="form-control rounded-pill icon-rtl"
+            placeholder="Buscar servicio ..." 
+            [(ngModel)]="servicioBusqueda"
+            (input)="buscarServicio($event)"
+        />
+    </div>
+</div>

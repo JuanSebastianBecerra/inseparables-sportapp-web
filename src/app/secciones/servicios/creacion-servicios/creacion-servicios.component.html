@@ -1,4 +1,6 @@
+<app-toast mensajeError="{{responseMessage}}" [mostrarToast]=responseError class="d-flex justify-content-center"></app-toast>
 <div class="container contenedor-registro">
+    <h1>Producto o Servicio</h1>
     <form class="form-size size-form-register" [formGroup]="servicioForm" (ngSubmit)="!servicioForm.invalid && guardarServicio(servicioForm.value)">
         <div class="row">
             <div class="col-6">

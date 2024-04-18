@@ -21,8 +21,6 @@ export class ListaSociosComponent implements OnInit {
 
   socios: Array<DetalleSocio> = [];
   socios_inicial: Array<DetalleSocio> = [];
-  selected: boolean = false;
-  selectedSocio!: DetalleSocio;
   mostrarErrorGetSocios: boolean = false;
   errorGetSocios: string = ""
 
@@ -50,7 +48,7 @@ export class ListaSociosComponent implements OnInit {
           this.errorGetSocios = error.error.description
         else
           this.errorGetSocios = "Error al consultar la lista de socios, intente más tarde";
-        }
+      }
     });
   }
   

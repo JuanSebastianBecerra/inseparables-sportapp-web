@@ -1,5 +1,5 @@
 .contenedor-registro{
-    padding-top: 100px;
+    padding-top: 10px;
 }
 
 .row{
@@ -13,4 +13,9 @@ textarea {
 .alert-success{
     text-align: center;
     margin: 0;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 2rem;
 }

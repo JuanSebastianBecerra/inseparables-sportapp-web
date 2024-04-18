@@ -9,6 +9,7 @@ import { SPACE_ASCII_CHAR_NUMBERS, ZERO_ASCII_CHAR_NUMBERS, NINE_ASCII_CHAR_NUMB
 import { CookieService } from 'ngx-cookie-service';
 import { RespuestaSocios } from 'src/app/clases/detalle-socio';
 import { Router } from '@angular/router';
+import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { Router } from '@angular/router';
   templateUrl: './creacion-servicios.component.html',
   styleUrls: ['./creacion-servicios.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule]
+  imports: [ReactiveFormsModule, CommonModule, ToastComponent]
 })
 export class CreacionServiciosComponent implements OnInit {
 
@@ -88,8 +89,9 @@ export class CreacionServiciosComponent implements OnInit {
   guardarServicio(bodyRequest: any){
     this.servicioService.registrar_servicio(bodyRequest).subscribe(response => {
       this.exitoso = true
-      timer(5000).subscribe(x => { this.exitoso = false })
       this.servicioForm.reset()
+      timer(5000).subscribe(x => { this.router.navigate(["/servicios"]) })
+      
     },
       error => {
         this.exitoso = false
