@@ -1,5 +1,15 @@
 import { Authentication } from "./authentication";
 
+
+export class RespuestaServicio extends Authentication{
+    respuesta: DetalleServicio
+
+    constructor(respuesta: DetalleServicio, token: string){
+        super(token)
+        this.respuesta = respuesta
+    }
+}
+
 export class RespuestaServicios extends Authentication{
     respuesta: DetalleServicio[]
 

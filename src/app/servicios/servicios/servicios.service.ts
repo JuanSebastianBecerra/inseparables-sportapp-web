@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
-import { RespuestaServicios } from 'src/app/clases/servicios';
+import { RespuestaServicios, RespuestaServicio } from 'src/app/clases/servicios';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,9 @@ export class ServiciosService {
 
   obtener_servicios(): Observable<RespuestaServicios> {
     return this.http.get<RespuestaServicios>(this.serviciossUrl, {headers: this.headers})
+  }
+
+  obtener_servicio_por_id(idServicio: String): Observable<RespuestaServicio>{
+    return this.http.get<RespuestaServicio>(this.serviciossUrl+"/"+idServicio, {headers: this.headers})
   }
 }

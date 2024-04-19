@@ -31,6 +31,7 @@ import { ConsultaServiciosComponent } from './secciones/servicios/consulta-servi
 import { BuscarServicioComponent } from './secciones/servicios/buscar-servicio/buscar-servicio.component';
 import { ListarServicioComponent } from './secciones/servicios/listar-servicio/listar-servicio.component';
 import { MenuAgregarServicioComponent } from './secciones/servicios/menu-agregar-servicio/menu-agregar-servicio.component';
+import { DetalleServicioComponent } from './secciones/servicios/detalle-servicio/detalle-servicio.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -66,6 +67,7 @@ export function HttpLoaderFactory(http: HttpClient){
     DetalleSocioComponent,
     CreacionServiciosComponent,
     PerfilDeportistaComponent,
+    DetalleServicioComponent,
     ToastComponent,
     TranslateModule.forRoot({
       loader: {

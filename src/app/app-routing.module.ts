@@ -10,6 +10,7 @@ import { DetalleSocioComponent } from './secciones/socios/detalleSocio/detalleSo
 import { CreacionServiciosComponent } from './secciones/servicios/creacion-servicios/creacion-servicios.component';
 import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
 import { ConsultaServiciosComponent } from './secciones/servicios/consulta-servicios/consulta-servicios.component';
+import { DetalleServicioComponent } from './secciones/servicios/detalle-servicio/detalle-servicio.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'socio', component: SocioComponent },
   { path: 'socio/:idSocio', component: DetalleSocioComponent},
   { path: 'crear-servicio', component: CreacionServiciosComponent},
+  { path: 'servicios/:idServicio', component: DetalleServicioComponent},
   { path: 'servicios', component: ConsultaServiciosComponent},
   { path: 'perfil-deportista', component: PerfilDeportistaComponent},
   { path: '**', component: DesconocidoComponent }

@@ -9,9 +9,7 @@
     border-color: #CAC4D0;
     color: #49454F;
     background-color: var(--BlueGreen-1);
-    margin-bottom: 60px;
-    margin-top: 60px;
-    margin-left: 60px;
+    margin-left: 3rem;
     font-size: 16px;
     display: block;
 }
