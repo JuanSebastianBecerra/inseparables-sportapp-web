@@ -1,12 +1,12 @@
-import { CookieService } from "ngx-cookie-service";
+import { TOKEN_KEY } from "../utils/constants"
 
 export class Authentication{
     token: string
     constructor(token: string){
         this.token = token
     }
-    setNuevoToken(cookieService: CookieService): void{
-        cookieService.deleteAll()
-        cookieService.set("token", this.token)
+    setNuevoToken(): void{
+        localStorage.removeItem(TOKEN_KEY)
+        localStorage.setItem(TOKEN_KEY, this.token)
     }
 }

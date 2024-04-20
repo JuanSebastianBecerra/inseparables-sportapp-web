@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RespuestaServiciosRecomendados } from 'src/app/clases/detalle-servicio-recomendado';
+import { TOKEN_KEY } from 'src/app/utils/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,10 @@ import { RespuestaServiciosRecomendados } from 'src/app/clases/detalle-servicio-
 export class ServiciosRecomendadosService {
 
   headers = new HttpHeaders({
-    'Authorization': `Bearer ${this.cookieService.get("token")}`
+    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
   })
 
-  constructor(private http: HttpClient, private cookieService: CookieService) { }
+  constructor(private http: HttpClient) { }
 
   getServiciosRecomendadosPorEvento(idEvento: string): Observable<RespuestaServiciosRecomendados>{
     const url = `${environment.baseUrlAdministracion}/evento/${idEvento}/servicios`;

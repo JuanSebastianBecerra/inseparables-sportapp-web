@@ -5,7 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { DetalleSocio, RespuestaSocio } from 'src/app/clases/detalle-socio';
 import { ActivatedRoute } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 
 @Component({
@@ -26,7 +26,7 @@ export class DetalleSocioComponent implements OnInit, AfterViewInit{
 
 
   constructor(private formBuilder: FormBuilder, private socioService: SocioService, 
-    private router: Router,private route: ActivatedRoute, private cookieService: CookieService) {
+    private router: Router,private route: ActivatedRoute) {
    }
 
   ngOnInit(): void {
@@ -44,12 +44,12 @@ export class DetalleSocioComponent implements OnInit, AfterViewInit{
   getSocioId(): void{
     this.socioService.getSocioId(this.socioId).subscribe((respuesta) => {
       let respuestaSocio = new RespuestaSocio(respuesta.respuesta, respuesta.token)
-      respuestaSocio.setNuevoToken(this.cookieService)
+      respuestaSocio.setNuevoToken()
 
       this.detalleSocio = respuestaSocio.respuesta;
     }, error => { 
       if(error.status === 401){
-        this.cookieService.deleteAll()
+        localStorage.clear()
         this.router.navigate(['/'])
       }else{
         this.responseError = true

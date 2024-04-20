@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -83,7 +82,6 @@ export function HttpLoaderFactory(http: HttpClient){
       }
     })
   ],
-  providers: [CookieService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

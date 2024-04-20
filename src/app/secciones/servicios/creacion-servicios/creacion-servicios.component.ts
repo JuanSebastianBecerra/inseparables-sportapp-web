@@ -6,7 +6,7 @@ import { ServiciosService } from 'src/app/servicios/servicios/servicios.service'
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { timer } from 'rxjs';
 import { SPACE_ASCII_CHAR_NUMBERS, ZERO_ASCII_CHAR_NUMBERS, NINE_ASCII_CHAR_NUMBERS } from 'src/app/utils/constants';
-import { CookieService } from 'ngx-cookie-service';
+
 import { RespuestaSocios } from 'src/app/clases/detalle-socio';
 import { Router } from '@angular/router';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
@@ -29,7 +29,7 @@ export class CreacionServiciosComponent implements OnInit {
   exitoso: boolean = false
 
   constructor(private formBuilder: FormBuilder, private deportesService: DeportesService, 
-    private socioService: SocioService, private servicioService: ServiciosService, private cookieService: CookieService,
+    private socioService: SocioService, private servicioService: ServiciosService,
     private router: Router) {}
 
   get f(): { [key: string]: AbstractControl } {
@@ -58,13 +58,13 @@ export class CreacionServiciosComponent implements OnInit {
   obtenerSocios():void{
     this.socioService.getSocios().subscribe(respuesta => {
       let respuestaSocios = new RespuestaSocios(respuesta.respuesta, respuesta.token)
-      respuestaSocios.setNuevoToken(this.cookieService)
+      respuestaSocios.setNuevoToken()
       this.socios = respuestaSocios.respuesta
     },
     error => {
       this.responseError = true
       if(error.status === 401){
-        this.cookieService.deleteAll()
+        localStorage.clear()
         this.router.navigate(['/'])
       }else{
         if (error.error.description)
