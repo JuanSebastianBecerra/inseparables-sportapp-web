@@ -12,7 +12,7 @@ export class DeportesService {
 
   constructor(private http: HttpClient) { }
 
-  obtener_deportes(): Observable<any> {
+  obtenerDeportes(): Observable<any> {
     return this.http.get<any>(this.deportesUrl, {observe: 'response'});
   }
 }

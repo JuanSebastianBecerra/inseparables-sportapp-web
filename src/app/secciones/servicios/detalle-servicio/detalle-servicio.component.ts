@@ -43,7 +43,7 @@ export class DetalleServicioComponent implements OnInit {
 
   obtenerServicio() :void{
     let servicioSeleccionado = this.route.snapshot.paramMap.get("idServicio")
-    this.servicioService.obtener_servicio_por_id(servicioSeleccionado != null ? servicioSeleccionado : "").subscribe(respuesta => {
+    this.servicioService.obtenerServicioPorId(servicioSeleccionado != null ? servicioSeleccionado : "").subscribe(respuesta => {
       let respuestaServicio = new RespuestaServicio(respuesta.respuesta, respuesta.token)
       respuestaServicio.setNuevoToken(this.cookieService)
       let servicio = respuestaServicio.respuesta
@@ -52,8 +52,7 @@ export class DetalleServicioComponent implements OnInit {
     error => {
       this.responseError = true
       if(error.status === 401){
-        this.cookieService.delete("token")
-        this.cookieService.delete("rol")
+        this.cookieService.deleteAll()
         this.router.navigate(['/'])
       }else{
         if (error.error.description)
@@ -65,14 +64,13 @@ export class DetalleServicioComponent implements OnInit {
   }
 
   obtenerDeportes():void{
-    this.deportesService.obtener_deportes().subscribe(response => {
+    this.deportesService.obtenerDeportes().subscribe(response => {
       this.deportes = response.body;
     },
     error => {
       this.responseError = true
       if(error.status === 401){
-        this.cookieService.delete("token")
-        this.cookieService.delete("rol")
+        this.cookieService.deleteAll()
         this.router.navigate(['/'])
       }else{
         if (error.error.description)
@@ -92,8 +90,7 @@ export class DetalleServicioComponent implements OnInit {
     error => {
       this.responseError = true
       if(error.status === 401){
-        this.cookieService.delete("token")
-        this.cookieService.delete("rol")
+        this.cookieService.deleteAll()
         this.router.navigate(['/'])
       }else{
         if (error.error.description)

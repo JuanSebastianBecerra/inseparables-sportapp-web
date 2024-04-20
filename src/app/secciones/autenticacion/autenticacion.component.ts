@@ -23,8 +23,7 @@ export class AutenticacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.inicarFormulario();
-    this.cookieService.delete("token")
-    this.cookieService.delete("rol")
+    this.cookieService.deleteAll()
   }
 
   get f(): { [key: string]: AbstractControl } {

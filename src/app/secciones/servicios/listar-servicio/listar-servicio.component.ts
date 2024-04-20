@@ -22,7 +22,7 @@ export class ListarServicioComponent implements OnInit {
     private router: Router, private cookieService: CookieService) {}
 
     getServicios(): void {
-      this.serviciosService.obtener_servicios().subscribe((respuesta) => {
+      this.serviciosService.obtenerServicios().subscribe((respuesta) => {
         let respuestaServicios = new RespuestaServicios(respuesta.respuesta, respuesta.token)
         respuestaServicios.setNuevoToken(this.cookieService)
 
@@ -30,8 +30,7 @@ export class ListarServicioComponent implements OnInit {
         this.serviciosInicial = respuestaServicios.respuesta;
       }, error => {
         if(error.status === 401){
-          this.cookieService.delete("token")
-          this.cookieService.delete("rol")
+          this.cookieService.deleteAll()
           this.router.navigate(['/'])
         }else{
           this.mostrarErrorServicios = true

@@ -49,8 +49,7 @@ export class DetalleSocioComponent implements OnInit, AfterViewInit{
       this.detalleSocio = respuestaSocio.respuesta;
     }, error => { 
       if(error.status === 401){
-        this.cookieService.delete("token")
-        this.cookieService.delete("rol")
+        this.cookieService.deleteAll()
         this.router.navigate(['/'])
       }else{
         this.responseError = true

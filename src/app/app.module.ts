@@ -32,6 +32,9 @@ import { BuscarServicioComponent } from './secciones/servicios/buscar-servicio/b
 import { ListarServicioComponent } from './secciones/servicios/listar-servicio/listar-servicio.component';
 import { MenuAgregarServicioComponent } from './secciones/servicios/menu-agregar-servicio/menu-agregar-servicio.component';
 import { DetalleServicioComponent } from './secciones/servicios/detalle-servicio/detalle-servicio.component';
+import { RecomendadosComponent } from './secciones/eventos/servicios/recomendados/recomendados.component';
+import { BuscarRecomendadosComponent } from './secciones/eventos/servicios/recomendados/buscar-recomendados/buscar-recomendados.component';
+import { ListarRecomendadosComponent } from './secciones/eventos/servicios/recomendados/listar-recomendados/listar-recomendados.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -51,7 +54,9 @@ export function HttpLoaderFactory(http: HttpClient){
     ConsultaServiciosComponent,
     BuscarServicioComponent,
     ListarServicioComponent,
-    MenuAgregarServicioComponent
+    MenuAgregarServicioComponent,
+    RecomendadosComponent,
+    BuscarRecomendadosComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,7 @@ export function HttpLoaderFactory(http: HttpClient){
     CreacionServiciosComponent,
     PerfilDeportistaComponent,
     DetalleServicioComponent,
+    ListarRecomendadosComponent,
     ToastComponent,
     TranslateModule.forRoot({
       loader: {

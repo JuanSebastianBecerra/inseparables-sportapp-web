@@ -39,8 +39,7 @@ export class ListaSociosComponent implements OnInit {
       this.socios_inicial = respuestaSocios.respuesta;
     }, error => { 
       if(error.status === 401){
-        this.cookieService.delete("token")
-        this.cookieService.delete("rol")
+        this.cookieService.deleteAll()
         this.router.navigate(['/'])
       }else{
         this.mostrarErrorGetSocios = true

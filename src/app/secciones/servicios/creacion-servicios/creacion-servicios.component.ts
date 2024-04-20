@@ -43,7 +43,7 @@ export class CreacionServiciosComponent implements OnInit {
   }
 
   obtenerDeportes():void{
-    this.deportesService.obtener_deportes().subscribe(response => {
+    this.deportesService.obtenerDeportes().subscribe(response => {
       this.deportes = response.body;
     },
     error => {
@@ -64,8 +64,7 @@ export class CreacionServiciosComponent implements OnInit {
     error => {
       this.responseError = true
       if(error.status === 401){
-        this.cookieService.delete("token")
-        this.cookieService.delete("rol")
+        this.cookieService.deleteAll()
         this.router.navigate(['/'])
       }else{
         if (error.error.description)
@@ -87,7 +86,7 @@ export class CreacionServiciosComponent implements OnInit {
   }
 
   guardarServicio(bodyRequest: any){
-    this.servicioService.registrar_servicio(bodyRequest).subscribe(response => {
+    this.servicioService.registrarServicio(bodyRequest).subscribe(response => {
       this.exitoso = true
       this.servicioForm.reset()
       timer(5000).subscribe(x => { this.router.navigate(["/servicios"]) })

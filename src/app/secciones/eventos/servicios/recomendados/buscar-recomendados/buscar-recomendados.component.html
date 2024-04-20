@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="search">
+        <input 
+            type="text"
+            id="recomendado-buscar"
+            class="form-control rounded-pill icon-rtl"
+            placeholder="Buscar servicio recomendado para el evento ..." 
+            [(ngModel)]="recomendadoBusqueda"
+            (input)="buscarRecomendado($event)"
+        />
+    </div>
+</div>

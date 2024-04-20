@@ -11,6 +11,7 @@ import { CreacionServiciosComponent } from './secciones/servicios/creacion-servi
 import { PerfilDeportistaComponent } from './secciones/usuarios/perfil-deportista/perfil-deportista.component';
 import { ConsultaServiciosComponent } from './secciones/servicios/consulta-servicios/consulta-servicios.component';
 import { DetalleServicioComponent } from './secciones/servicios/detalle-servicio/detalle-servicio.component';
+import { RecomendadosComponent as ServiciosRecomendadosComponent } from './secciones/eventos/servicios/recomendados/recomendados.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -24,6 +25,9 @@ const routes: Routes = [
   { path: 'servicios/:idServicio', component: DetalleServicioComponent},
   { path: 'servicios', component: ConsultaServiciosComponent},
   { path: 'perfil-deportista', component: PerfilDeportistaComponent},
+  { path: 'eventos', component: DesconocidoComponent}, // TODO: asociar el componente correcto de la historia SPR-60 (lista de eventos)
+  { path: 'eventos/:idEvento', component: DesconocidoComponent},// TODO: asociar el componente correcto de la historia SPR-60 (detalle del evento)
+  { path: 'eventos/:idEvento/servicios', component: ServiciosRecomendadosComponent},
   { path: '**', component: DesconocidoComponent }
 ];
 
