@@ -9,7 +9,7 @@ export class PerfilDeportista{
     pais_residencia: string
     ciudad_residencia: string
     antiguedad_residencia: string
-    tipoSangre: string
+    tipo_sangre: string
     imc: string
     horas_semanal: string
     peso_objetivo: string
@@ -20,7 +20,7 @@ export class PerfilDeportista{
     url_historia_clinica: string
 
     constructor(id_usuario: string, genero: string, edad: string, peso: string, altura: string, pais_nacimiento: string, ciudad_nacimiento: string,
-        pais_residencia: string, ciudad_residencia: string, antiguedad_residencia: string, tipoSangre: string, imc: string, horas_semanal: string, 
+        pais_residencia: string, ciudad_residencia: string, antiguedad_residencia: string, tipo_sangre: string, imc: string, horas_semanal: string, 
         peso_objetivo: string, alergias: string, deporte: string, preferencia_alimenticia: string, plan_nutricional: string,
         url_historia_clinica: string){
         this.id_usuario = id_usuario;
@@ -33,7 +33,7 @@ export class PerfilDeportista{
         this.pais_residencia = pais_residencia;
         this.ciudad_residencia = ciudad_residencia;
         this.antiguedad_residencia = antiguedad_residencia;
-        this.tipoSangre = tipoSangre;
+        this.tipo_sangre = tipo_sangre;
         this.imc = imc;
         this.horas_semanal = horas_semanal;
         this.peso_objetivo = peso_objetivo;
