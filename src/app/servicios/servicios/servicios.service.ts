@@ -18,15 +18,15 @@ export class ServiciosService {
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
-  registrar_servicio(bodyRequest:any): Observable<any> {
+  registrarServicio(bodyRequest:any): Observable<any> {
     return this.http.post<any>(this.serviciossUrl, bodyRequest, {headers: this.headers});
   }
 
-  obtener_servicios(): Observable<RespuestaServicios> {
+  obtenerServicios(): Observable<RespuestaServicios> {
     return this.http.get<RespuestaServicios>(this.serviciossUrl, {headers: this.headers})
   }
 
-  obtener_servicio_por_id(idServicio: String): Observable<RespuestaServicio>{
+  obtenerServicioPorId(idServicio: String): Observable<RespuestaServicio>{
     return this.http.get<RespuestaServicio>(this.serviciossUrl+"/"+idServicio, {headers: this.headers})
   }
 }

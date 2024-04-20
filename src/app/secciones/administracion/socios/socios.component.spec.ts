@@ -15,7 +15,7 @@ describe('SociosComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[RouterTestingModule, ListaSociosComponent, HttpClientTestingModule, ListaSociosComponent, FormsModule],
+      imports:[RouterTestingModule, HttpClientTestingModule, ListaSociosComponent, FormsModule],
       declarations: [SociosComponent, MenuComponent, BuscarSocioComponent, MenuAgregarSocioComponent]
     });
     fixture = TestBed.createComponent(SociosComponent);

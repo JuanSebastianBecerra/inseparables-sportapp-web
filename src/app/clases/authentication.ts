@@ -6,7 +6,7 @@ export class Authentication{
         this.token = token
     }
     setNuevoToken(cookieService: CookieService): void{
-        cookieService.delete("token")
+        cookieService.deleteAll()
         cookieService.set("token", this.token)
     }
 }

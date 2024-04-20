@@ -3,11 +3,9 @@
 }
 
 .btn-circle.btn-xl {
-    width: 100px;
-    height: 100px;
-    padding: 13px 18px;
-    border-radius: 60px;
-    font-size: 15px;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
     text-align: center;
     background-color: var(--BlueGreen-7);
     color: var(--BlueGreen-1);
