@@ -6,7 +6,6 @@ import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.componen
 import { Servicio } from 'src/app/clases/servicio';
 import { ServiciosRecomendadosService } from 'src/app/servicios/eventos/servicios-recomendados.service';
 import { RespuestaServiciosRecomendados } from 'src/app/clases/detalle-servicio-recomendado';
-import { CookieService } from 'ngx-cookie-service';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 
 @Component({
@@ -26,7 +25,7 @@ export class ListarRecomendadosComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute, private serviciosRecomendadosService: ServiciosRecomendadosService,
-    private cookieService: CookieService, private router: Router, private socioService: SocioService
+    private router: Router, private socioService: SocioService
   ) { }
 
   getInformacionSocio(): void{
@@ -35,7 +34,7 @@ export class ListarRecomendadosComponent implements OnInit{
         servRecom.nombre_socio = respuesta.respuesta.nombre + " " + respuesta.respuesta.apellido
       }, error => { 
         if(error.status === 401){
-          this.cookieService.deleteAll()
+          localStorage.clear()
           this.router.navigate(['/'])
         }else{
           this.mostrarErrorGetServiciosRecomendados = true
@@ -51,14 +50,14 @@ export class ListarRecomendadosComponent implements OnInit{
   getServiciosRecomendadosPorEvento(idEvento: string): void{
     this.serviciosRecomendadosService.getServiciosRecomendadosPorEvento(idEvento).subscribe((respuesta) => {
       let respuestaServiciosRecomendados = new RespuestaServiciosRecomendados(respuesta.respuesta, respuesta.token)
-      respuestaServiciosRecomendados.setNuevoToken(this.cookieService)
+      respuestaServiciosRecomendados.setNuevoToken()
 
       this.serviciosRecomendados = respuestaServiciosRecomendados.respuesta;
       this.serviciosRecomendadosInicial = respuestaServiciosRecomendados.respuesta;
       this.getInformacionSocio()
     }, error => { 
       if(error.status === 401){
-        this.cookieService.deleteAll()
+        localStorage.clear()
         this.router.navigate(['/'])
       }else{
         this.mostrarErrorGetServiciosRecomendados = true

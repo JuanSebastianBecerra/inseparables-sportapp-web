@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RespuestaSocio, RespuestaSocios } from 'src/app/clases/detalle-socio';
-import { CookieService } from 'ngx-cookie-service';
+import { TOKEN_KEY } from 'src/app/utils/constants';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,12 @@ import { CookieService } from 'ngx-cookie-service';
 export class SocioService {
 
   headers = new HttpHeaders({
-    'Authorization': `Bearer ${this.cookieService.get("token")}`
+    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
   })
 
   private socioUrl = environment.baseUrlAdministracion + '/socio';
 
-  constructor(private http: HttpClient, private cookieService: CookieService) { }
+  constructor(private http: HttpClient) { }
 
   registrarSocio(bodyRequest:any): Observable<any> {
     return this.http.post<any>(this.socioUrl, bodyRequest, { headers: this.headers });

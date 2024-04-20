@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+
 import { DetalleServicio, RespuestaServicios } from 'src/app/clases/servicios';
 import { ServiciosService } from 'src/app/servicios/servicios/servicios.service';
 
@@ -19,18 +19,18 @@ export class ListarServicioComponent implements OnInit {
   errorServicios: string = ""
 
   constructor(private serviciosService: ServiciosService, 
-    private router: Router, private cookieService: CookieService) {}
+    private router: Router) {}
 
     getServicios(): void {
       this.serviciosService.obtenerServicios().subscribe((respuesta) => {
         let respuestaServicios = new RespuestaServicios(respuesta.respuesta, respuesta.token)
-        respuestaServicios.setNuevoToken(this.cookieService)
+        respuestaServicios.setNuevoToken()
 
         this.servicios = respuestaServicios.respuesta;
         this.serviciosInicial = respuestaServicios.respuesta;
       }, error => {
         if(error.status === 401){
-          this.cookieService.deleteAll()
+          localStorage.clear()
           this.router.navigate(['/'])
         }else{
           this.mostrarErrorServicios = true

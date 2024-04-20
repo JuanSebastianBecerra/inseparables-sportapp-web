@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+
 import { Router } from "@angular/router"
+import { ROL_KEY, TOKEN_KEY } from 'src/app/utils/constants';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,11 @@ export class HomeComponent implements OnInit{
   rol: String = "";
   token: String = "";
 
-  constructor(private router: Router, private cookieService: CookieService){}
+  constructor(private router: Router){}
 
   ngOnInit(): void {
-    this.token = this.cookieService.get("token")
-    this.rol = this.cookieService.get("rol")
+    this.token = localStorage.getItem(TOKEN_KEY)!
+    this.rol = localStorage.getItem(ROL_KEY)!
     // Si el usuario no está logueado, retorne a la pagina de login
     if (this.token == "" || this.rol == ""){
       this.router.navigate(['/'])
