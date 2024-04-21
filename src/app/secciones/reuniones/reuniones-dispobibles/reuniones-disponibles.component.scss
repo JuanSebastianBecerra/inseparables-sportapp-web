@@ -4,14 +4,14 @@
 }
 
 .card{
-    max-width: 305px;
-    min-height: 232px;
+    max-width: 18rem;
+    min-height: 15rem;
     border-color: #CAC4D0;
     color: #49454F;
     background-color: var(--BlueGreen-1);
-    margin-bottom: 60px;
-    margin-top: 60px;
-    margin-left: 60px;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    margin-left: 4rem;
     font-size: 16px;
     display: block;
 }
@@ -23,8 +23,9 @@
 .btn-details {
     background-color: var(--BlueGreen-7);
     color: var(--BlueGreen-1);
+    width: 8rem;
     float: right;
-    margin-right: 10px;
+    margin-right: 1rem;
 }
 
 .detail{
