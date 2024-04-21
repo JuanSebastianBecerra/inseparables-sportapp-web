@@ -7,6 +7,8 @@ import { Servicio } from 'src/app/clases/servicio';
 import { ServiciosRecomendadosService } from 'src/app/servicios/eventos/servicios-recomendados.service';
 import { RespuestaServiciosRecomendados } from 'src/app/clases/detalle-servicio-recomendado';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
+import { DeportistasService } from 'src/app/servicios/deportista/deportistas.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-listar-recomendados',
@@ -22,10 +24,11 @@ export class ListarRecomendadosComponent implements OnInit{
   serviciosRecomendadosInicial: Array<Servicio> = [];
   mostrarErrorGetServiciosRecomendados: boolean = false;
   errorGetServiciosRecomendados: string = ""
+  asignacionExitosa = false
 
   constructor(
     private route: ActivatedRoute, private serviciosRecomendadosService: ServiciosRecomendadosService,
-    private router: Router, private socioService: SocioService
+    private router: Router, private socioService: SocioService, private deportistasService: DeportistasService
   ) { }
 
   getInformacionSocio(): void{
@@ -73,8 +76,22 @@ export class ListarRecomendadosComponent implements OnInit{
     this.serviciosRecomendados = this.serviciosRecomendadosInicial.filter((recomendado) => recomendado.nombre.toLowerCase().includes(texto.toLowerCase()))
   }
 
-  solicitarEvento(): void{
-    // TODO la impementación de este método se hará en la historia SPR-59
+  solicitarEvento(idServicio: string): void{
+    this.deportistasService.asignarServicioADeportista(idServicio).subscribe((respuesta) => {
+      this.asignacionExitosa = true
+      timer(5000).subscribe(x => { this.asignacionExitosa = false })
+    }, error => { 
+      if(error.status === 401){
+        localStorage.clear()
+        this.router.navigate(['/'])
+      }else{
+        this.mostrarErrorGetServiciosRecomendados = true
+        if (error.error.description)
+          this.errorGetServiciosRecomendados = error.error.description
+        else
+          this.errorGetServiciosRecomendados = "Error al asignar el serivicio al deportista, intente más tarde";
+        }
+    })
   }
 
   ngOnInit() {
