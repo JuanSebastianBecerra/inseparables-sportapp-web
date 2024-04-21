@@ -6,8 +6,11 @@
       <div class="card-subtitle mb-2 text-muted detail">Socio: {{servRecomedado.nombre_socio}}</div>
       <p class="card-text">{{servRecomedado.detalle}}</p>
       <p class="position-absolute bottom-0 end-0">
-        <a href="#" class="btn btn-details mt-5 rounded-pill" (click)="solicitarEvento()">Solicitar</a>
+        <a class="btn btn-details mt-5 rounded-pill" (click)="solicitarEvento(servRecomedado.id)">Solicitar</a>
       </p>
     </div>
   </div> 
+</div>
+<div class="alert alert-success alert-dismissible fade show text-center" *ngIf="asignacionExitosa">
+  Servicio asociado exitosamente al deportista
 </div>
