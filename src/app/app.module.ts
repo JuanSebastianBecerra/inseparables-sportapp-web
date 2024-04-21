@@ -34,6 +34,9 @@ import { DetalleServicioComponent } from './secciones/servicios/detalle-servicio
 import { RecomendadosComponent } from './secciones/eventos/servicios/recomendados/recomendados.component';
 import { BuscarRecomendadosComponent } from './secciones/eventos/servicios/recomendados/buscar-recomendados/buscar-recomendados.component';
 import { ListarRecomendadosComponent } from './secciones/eventos/servicios/recomendados/listar-recomendados/listar-recomendados.component';
+import { ReunionesDisponiblesComponent } from './secciones/reuniones/reuniones-dispobibles/reuniones-disponibles.component';
+import { BuscarReunionesComponent } from './secciones/reuniones/buscar-reuniones/buscar-reuniones.component';
+import { ConsultarReunionesComponent } from './secciones/reuniones/consultar-reuniones/consultar-reuniones.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -56,6 +59,9 @@ export function HttpLoaderFactory(http: HttpClient){
     MenuAgregarServicioComponent,
     RecomendadosComponent,
     BuscarRecomendadosComponent,
+    ReunionesDisponiblesComponent,
+    ConsultarReunionesComponent,
+    BuscarReunionesComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,11 @@ export const menubarAdministracionData = [
         label: 'Servicios / Productos'
     },
     {
+        routeLink: 'reuniones/disponibles',
+        icon: 'fal fa-chalkboard-teacher',
+        label: 'Entrenadores'
+    },
+    {
         routeLink: 'eventos',
         icon: 'fal fa-calendar',
         label: 'Eventos'

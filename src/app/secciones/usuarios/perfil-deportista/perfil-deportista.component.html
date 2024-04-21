@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="row mb-3 mt-3">
-                <div class="col-6">
+                <div class="col">
                     <div class="form-floating">
                         <input
                                 type="text"
@@ -188,6 +188,25 @@
                 perfilForm.get('antiguedad_residencia')!.hasError('required') &&
                 perfilForm.get('antiguedad_residencia')!.touched">
                             Se requiere la antigüedad de residencia
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="direccion"
+                                placeholder="Dirección"
+                                formControlName="direccion"
+                        />
+                        <label for="direccion">Dirección</label>
+                        <div
+                                class="alert alert-danger alert-dismissible fade show"
+                                *ngIf="
+                perfilForm.get('direccion')!.hasError('required') &&
+                perfilForm.get('direccion')!.touched">
+                            Se requiere la direccion
                         </div>
                     </div>
                 </div>
