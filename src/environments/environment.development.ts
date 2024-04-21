@@ -1,4 +1,4 @@
 export const environment = {
-    baseUrlPersonas: 'http://localhost:8080/personas',
-    baseUrlAdministracion: 'http://localhost:8080/administracion'
+    baseUrlPersonas: 'https://personas-jdktocs5yq-ue.a.run.app/personas',
+    baseUrlAdministracion: 'http://localhost:5001/administracion'
 };
