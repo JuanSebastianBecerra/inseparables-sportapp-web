@@ -65,6 +65,7 @@ export class PerfilDeportistaComponent implements OnInit {
                 preferencia_alimenticia: oldPerfilDeportivo.preferencia_alimenticia,
                 plan_nutricional: oldPerfilDeportivo.plan_nutricional,
                 url_historia_clinica: oldPerfilDeportivo.url_historia_clinica,
+                direccion: oldPerfilDeportivo.direccion
             });
             
         }
@@ -90,7 +91,8 @@ export class PerfilDeportistaComponent implements OnInit {
             deporte: ["", Validators.required],
             preferencia_alimenticia: ["", Validators.required],
             plan_nutricional: ["", Validators.required],
-            url_historia_clinica: ["", Validators.required]
+            url_historia_clinica: ["", Validators.required],
+            direccion: ["", Validators.required]
         })
     }
 

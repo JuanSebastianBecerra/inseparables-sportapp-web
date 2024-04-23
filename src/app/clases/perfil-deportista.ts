@@ -18,11 +18,12 @@ export class PerfilDeportista{
     preferencia_alimenticia: string
     plan_nutricional: string
     url_historia_clinica: string
+    direccion: string
 
     constructor(id_usuario: string, genero: string, edad: string, peso: string, altura: string, pais_nacimiento: string, ciudad_nacimiento: string,
         pais_residencia: string, ciudad_residencia: string, antiguedad_residencia: string, tipo_sangre: string, imc: string, horas_semanal: string, 
         peso_objetivo: string, alergias: string, deporte: string, preferencia_alimenticia: string, plan_nutricional: string,
-        url_historia_clinica: string){
+        url_historia_clinica: string, direccion: string){
         this.id_usuario = id_usuario;
         this.genero = genero;
         this.edad = edad;
@@ -42,5 +43,6 @@ export class PerfilDeportista{
         this.preferencia_alimenticia = preferencia_alimenticia;
         this.plan_nutricional = plan_nutricional;
         this.url_historia_clinica = url_historia_clinica;
+        this.direccion = direccion
     }
 }
