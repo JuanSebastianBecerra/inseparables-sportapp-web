@@ -50,6 +50,7 @@ import {
 } from './secciones/entrenamientos/lista-entrenamientos/lista-entrenamientos.component';
 import { BuscarEntrenamientoComponent } from './secciones/entrenamientos/buscar-entrenamiento/buscar-entrenamiento.component';
 import { EntrenamientosComponent } from './secciones/entrenamientos/entrenamientos.component';
+import { CrearEntrenamientoComponent } from './secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -95,6 +96,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         DetalleServicioComponent,
         ListarRecomendadosComponent,
         ListaEntrenamientosComponent,
+        CrearEntrenamientoComponent,
         ToastComponent,
         TranslateModule.forRoot({
             loader: {
