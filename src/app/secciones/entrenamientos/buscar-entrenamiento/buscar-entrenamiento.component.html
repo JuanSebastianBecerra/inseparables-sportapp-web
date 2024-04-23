@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="search">
+        <input
+                type="text"
+                id="entrenamientos-buscar"
+                class="form-control rounded-pill icon-rtl"
+                placeholder="Buscar entrenamientos ..."
+                [(ngModel)]="entrenamientoBusqueda"
+                (input)="buscarEntrenamiento($event)"
+        />
+    </div>
+</div>
+

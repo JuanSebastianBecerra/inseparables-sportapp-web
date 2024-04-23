@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row buscar-entrenamiento-container">
+        <app-buscar-entrenamiento (onBuscarEntrenamiento)="onChangeTextoBuscarEntrenamiento($event)"></app-buscar-entrenamiento>
+    </div>
+    <div class="row lista-entrenamientos-container">
+        <app-lista-entrenamientos [textoBuscar]="textoBuscarEntrenamiento"></app-lista-entrenamientos>
+    </div>
+</div>
