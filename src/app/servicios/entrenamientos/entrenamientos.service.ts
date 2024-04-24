@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {environment} from "../../../environments/environment.development";
+import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
 import {TOKEN_KEY} from "../../utils/constants";
 import {RespuestaEntrenamientos} from "../../clases/entrenamientos";
@@ -25,7 +25,7 @@ export class EntrenamientosService{
   }
 
   guardarEntrenamiento(bodyRequest: any): Observable<any>{
-    return this.http.post<any>(this.guardarEntrenamientoUrl, bodyRequest, { headers: this.headers })
+    return this.http.post<any>(this.guardarEntrenamientoUrl, bodyRequest, { headers: this.headers });
   }
 
 }

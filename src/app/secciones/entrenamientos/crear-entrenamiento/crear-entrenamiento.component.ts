@@ -70,10 +70,9 @@ export class CrearEntrenamientoComponent implements OnInit {
 
     guardarEntrenamiento(bodyRequest: any) {
         this.entrenamientoService.guardarEntrenamiento(bodyRequest).subscribe(response => {
-                alert(response)
                 this.exitoso = true
                 this.entrenamientoForm.reset();
-                timer(5000).subscribe(x => {
+                timer(2000).subscribe(x => {
                     this.router.navigate(["/entrenamientos"])
                 })
             },
