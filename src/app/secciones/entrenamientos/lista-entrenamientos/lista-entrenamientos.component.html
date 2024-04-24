@@ -1,14 +1,18 @@
 <app-toast mensajeError="{{errorObtenerEntrenamientos}}" [mostrarToast]=mostrarErrorObtenerEntrenamientos
            class="d-flex justify-content-center"></app-toast>
-<div class="d-flex">
-    <div class="card" style="width: 18rem;" *ngFor="let entrenamiento of entrenamientos">
-        <div class="card-body">
-            <h6 class="card-title">{{entrenamiento.nombre}}</h6>
-            <div class="card-subtitle mb-2 text-muted detail">{{entrenamiento.lugar}}</div>
-            <p class="card-text">{{entrenamiento.detalle}}</p>
-            <p class="position-absolute bottom-0 end-0">
-                <a href="#" class="btn btn-details mt-5 rounded-pill">Ver detalle</a>
-            </p>
+<div class="container">
+    <div class="row mb-3 mt-3">
+        <div class="col-4" *ngFor="let entrenamiento of entrenamientos">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h6 class="card-title">{{entrenamiento.nombre}}</h6>
+                    <div class="card-subtitle mb-2 text-muted detail">{{entrenamiento.lugar}}</div>
+                    <p class="card-text">{{entrenamiento.detalle}}</p>
+                    <p class="position-absolute bottom-0 end-0">
+                        <a href="#" class="btn btn-details mt-5 rounded-pill">Ver detalle</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -23,3 +23,7 @@
 .agregar-entrenamiento-container{
     height: 20%;
 }
+
+.float-button-entrenamientos{
+    z-index: 999;
+}
