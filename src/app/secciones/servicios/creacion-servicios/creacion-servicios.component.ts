@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { DeportesService } from 'src/app/servicios/administracion/deportes.service';
+import { DeportesService } from 'src/app/servicios/deporte/deportes.service';
 import { ServiciosService } from 'src/app/servicios/servicios/servicios.service';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { timer } from 'rxjs';
