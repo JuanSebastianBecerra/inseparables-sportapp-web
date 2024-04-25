@@ -12,6 +12,10 @@ import { timer } from 'rxjs';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 
 
+function passwordMatcher(c: AbstractControl){
+    return c.get("password")?.value == c.get("confirm_password")?.value ? null : {'nomatch': true}
+}
+
 @Component({
     selector: 'app-registro',
     templateUrl: './registro.component.html',
@@ -50,7 +54,8 @@ export class RegistroComponent implements OnInit {
                 email: formulario.email,
                 tipo_identificacion: formulario.tipo_identificacion,
                 numero_identificacion: formulario.numero_identificacion,
-                password: formulario.password
+                password: formulario.password,
+                confirm_password: formulario.confirm_password
             });
         }
         
@@ -81,9 +86,10 @@ export class RegistroComponent implements OnInit {
             tipo_identificacion: ["", Validators.required],
             numero_identificacion: ["", Validators.required],
             username: ["", Validators.required],
-            password: ["", Validators.required],
+            password: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
+            confirm_password: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
             suscripcion: ["", Validators.required]
-        })
+        }, {validator: passwordMatcher})
     }
 
     registrarUsuario(bodyRequest: any) {

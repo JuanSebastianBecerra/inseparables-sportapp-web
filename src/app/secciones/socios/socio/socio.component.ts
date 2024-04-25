@@ -4,6 +4,10 @@ import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validator
 import { Router, RouterModule } from '@angular/router';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 
+function passwordMatcher(c: AbstractControl){
+  return c.get("password")?.value == c.get("confirmPwd")?.value ? null : {'nomatch': true}
+}
+
 @Component({
   selector: 'app-socio',
   templateUrl: './socio.component.html',
@@ -39,7 +43,7 @@ export class SocioComponent implements OnInit {
       password: ["", Validators.required],
       confirmPwd: ["", Validators.required],
       detalle: [""],
-    })
+    }, {validators: passwordMatcher})
   }
 
   registrarSocio(bodyRequest:any) {

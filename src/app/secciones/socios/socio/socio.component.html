@@ -164,7 +164,7 @@
                 socioForm.get('password')!.touched
               "
             >
-              Se requiere el password
+              Se requiere la contraseña
             </div>
           </div>
         </div>
@@ -185,10 +185,22 @@
                 socioForm.get('confirmPwd')!.touched
               "
             >
-              Se requiere el confirmar el password
+              Se requiere la confirmación de la contraseña
             </div>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                socioForm.hasError('nomatch') &&
+                socioForm.get('password')!.touched &&
+                socioForm.get('confirmPwd')!.touched
+              "
+            >
+              Las contraseñas no coinciden
+            </div>
       </div>
       <div class="row mb-3 mt-3">
         <div class="col">

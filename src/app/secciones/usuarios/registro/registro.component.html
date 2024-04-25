@@ -167,6 +167,15 @@
             >
               Se requiere la contraseña
             </div>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('password')!.hasError('minlength') &&
+                registroForm.get('password')!.touched
+              "
+            >
+              La contraseña debe tener mínimo 6 caracteres
+            </div>
           </div>
         </div>
         <div class="col">
@@ -176,19 +185,42 @@
               class="form-control"
               id="confirmPwd"
               placeholder="Confirmar contraseña"
+              formControlName="confirm_password"
+
             />
             <label for="confirmPwd">Confirmar contraseña</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
-                registroForm.get('password')!.hasError('required') &&
-                registroForm.get('password')!.touched
+                registroForm.get('confirm_password')!.hasError('required') &&
+                registroForm.get('confirm_password')!.touched
               "
             >
               Se requiere la confirmación de la contraseña
             </div>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.get('confirm_password')!.hasError('minlength') &&
+                registroForm.get('confirm_password')!.touched
+              "
+            >
+              La contraseña debe tener mínimo 6 caracteres
+          </div>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                registroForm.hasError('nomatch') &&
+                registroForm.get('password')!.touched &&
+                registroForm.get('confirm_password')!.touched
+              "
+            >
+              Las contraseñas no coinciden
+            </div>
       </div>
       <div class="row mb-3 mt-3">
         <div class="col">
