@@ -31,17 +31,3 @@
 .detail{
     font-size: 0.6rem;
 }
-
-.container{
-    height: 100%;
-}
-
-.btn-circle.btn-xl {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    text-align: center;
-    background-color: var(--BlueGreen-7);
-    color: var(--BlueGreen-1);
-    font-size: 50px;
-}

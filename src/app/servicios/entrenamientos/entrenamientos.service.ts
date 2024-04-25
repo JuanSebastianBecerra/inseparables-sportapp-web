@@ -11,6 +11,8 @@ import {RespuestaEntrenamientos} from "../../clases/entrenamientos";
 export class EntrenamientosService{
 
   private entrenamientosUrl = environment.baseUrlDeporte + '/entrenamientos';
+  private guardarEntrenamientoUrl = environment.baseUrlDeporte + '/entrenamiento';
+
 
   private headers = new HttpHeaders({
     'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
@@ -20,6 +22,10 @@ export class EntrenamientosService{
 
   obtenerEntrenamientos(): Observable<RespuestaEntrenamientos>{
     return this.http.get<RespuestaEntrenamientos>(this.entrenamientosUrl, { headers: this.headers });
+  }
+
+  guardarEntrenamiento(bodyRequest: any): Observable<any>{
+    return this.http.post<any>(this.guardarEntrenamientoUrl, bodyRequest, { headers: this.headers });
   }
 
 }
