@@ -3,7 +3,6 @@ import {DetalleEntrenamiento} from "../../../clases/entrenamientos";
 import {EntrenamientosService} from "../../../servicios/entrenamientos/entrenamientos.service";
 import {ToastComponent} from "../../../comunes/componentes/toast/toast.component";
 import {CommonModule} from "@angular/common";
-import {AppModule} from "../../../app.module";
 
 @Component({
   selector: 'app-lista-entrenamientos',
