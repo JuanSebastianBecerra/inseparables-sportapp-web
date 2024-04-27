@@ -6,7 +6,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DesconocidoComponent} from './comunes/componentes/desconocido/desconocido.component';
 import {CommonModule} from '@angular/common';
-import {HomeComponent} from './secciones/home/home.component';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -60,7 +59,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     declarations: [
         AppComponent,
         DesconocidoComponent,
-        HomeComponent,
         SuscripcionesComponent,
         MenuComponent,
         SociosComponent,

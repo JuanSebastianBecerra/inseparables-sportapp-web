@@ -4,7 +4,7 @@ import {CommonModule} from "@angular/common";
 import {ToastComponent} from "../../../comunes/componentes/toast/toast.component";
 import {DxDateBoxModule} from "devextreme-angular";
 import {EntrenamientosService} from "../../../servicios/entrenamientos/entrenamientos.service";
-import {Router} from "@angular/router";
+import {Router, RouterModule} from "@angular/router";
 import {timer} from "rxjs";
 
 @Component({
@@ -12,7 +12,7 @@ import {timer} from "rxjs";
     templateUrl: './crear-entrenamiento.component.html',
     styleUrls: ['./crear-entrenamiento.component.css'],
     standalone: true,
-    imports: [ReactiveFormsModule, CommonModule, ToastComponent, DxDateBoxModule]
+    imports: [ReactiveFormsModule, CommonModule, ToastComponent, DxDateBoxModule, RouterModule]
 })
 export class CrearEntrenamientoComponent implements OnInit {
 

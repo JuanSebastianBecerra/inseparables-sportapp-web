@@ -26,4 +26,13 @@ describe('SociosComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the content', () => {
+    let buscarSocioComponent = fixture.nativeElement.querySelector('app-buscar-socio');
+    let listarSocioComponent = fixture.nativeElement.querySelector('app-lista-socio');
+    let agregarSocioComponent = fixture.nativeElement.querySelector('app-menu-agregar-socio');
+    expect(buscarSocioComponent).toBeDefined();
+    expect(listarSocioComponent).toBeDefined();
+    expect(agregarSocioComponent).toBeDefined();
+  })
 });

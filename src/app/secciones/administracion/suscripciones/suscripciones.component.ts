@@ -9,7 +9,7 @@ import { AdministracionService } from 'src/app/servicios/administracion/administ
 })
 export class SuscripcionesComponent implements OnInit {
 
-  planes!: [];
+  planes!: { nombre: string; funciones: string; id: string; llave: string; valor_mensual: number }[];
   responseError: boolean = false;
   responseMessage: String = ""
 

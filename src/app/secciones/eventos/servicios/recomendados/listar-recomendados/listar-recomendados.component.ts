@@ -31,23 +31,22 @@ export class ListarRecomendadosComponent implements OnInit{
     private router: Router, private socioService: SocioService, private deportistasService: DeportistasService
   ) { }
 
-  getInformacionSocio(): void{
-    this.serviciosRecomendadosInicial.forEach((servRecom) => {
-      this.socioService.getSocioId(servRecom.id_socio).subscribe((respuesta) => {
-        servRecom.nombre_socio = respuesta.respuesta.nombre + " " + respuesta.respuesta.apellido
-      }, error => { 
-        if(error.status === 401){
-          localStorage.clear()
-          this.router.navigate(['/'])
-        }else{
-          this.mostrarErrorGetServiciosRecomendados = true
-          if (error.error.description)
-            this.errorGetServiciosRecomendados = error.error.description
-          else
-            this.errorGetServiciosRecomendados = "Error al consultar el detalle del socio, intente más tarde";
-          }
-      })
-    }); 
+  getInformacionSocio(servRecom: Servicio): void{
+    
+    this.socioService.getSocioId(servRecom.id_socio).subscribe((respuesta) => {
+      servRecom.nombre_socio = respuesta.respuesta.nombre + " " + respuesta.respuesta.apellido
+    }, error => { 
+      if(error.status === 401){
+        localStorage.clear()
+        this.router.navigate(['/'])
+      }else{
+        this.mostrarErrorGetServiciosRecomendados = true
+        if (error.error.description)
+          this.errorGetServiciosRecomendados = error.error.description
+        else
+          this.errorGetServiciosRecomendados = "Error al consultar el detalle del socio, intente más tarde";
+        }
+    })
   }
 
   getServiciosRecomendadosPorEvento(idEvento: string): void{
@@ -57,7 +56,11 @@ export class ListarRecomendadosComponent implements OnInit{
 
       this.serviciosRecomendados = respuestaServiciosRecomendados.respuesta;
       this.serviciosRecomendadosInicial = respuestaServiciosRecomendados.respuesta;
-      this.getInformacionSocio()
+
+      this.serviciosRecomendadosInicial.forEach((servRecom) => {
+        this.getInformacionSocio(servRecom)
+      });
+      
     }, error => { 
       if(error.status === 401){
         localStorage.clear()

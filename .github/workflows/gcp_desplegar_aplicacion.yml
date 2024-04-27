@@ -55,6 +55,7 @@
                 gcloud run deploy web \
                 --image=${{env.LOCATION}}-docker.pkg.dev/${{env.PROJECT_ID}}/${{env.REPOSITORY}}/${{env.IMAGE_NAME}}:latest \
                 --allow-unauthenticated \
+                --min-instances=1 \
                 --port=80 \
                 --region=${{env.LOCATION}} \
                 --project=${{env.PROJECT_ID}}
