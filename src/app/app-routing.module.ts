@@ -20,6 +20,7 @@ import {EntrenamientosComponent} from "./secciones/entrenamientos/entrenamientos
 import {
   CrearEntrenamientoComponent
 } from "./secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component";
+import { CrearPlanComponent } from './secciones/planes_entrenamiento/crear-plan/crear-plan.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'eventos/:idEvento', component: DesconocidoComponent},// TODO: asociar el componente correcto de la historia SPR-60 (detalle del evento)
   { path: 'eventos/:idEvento/servicios', component: ServiciosRecomendadosComponent},
   { path: 'reuniones/disponibles', component: ConsultarReunionesComponent },
+  { path: 'crear-plan', component: CrearPlanComponent},
   { path: '**', component: DesconocidoComponent }
 ];
 

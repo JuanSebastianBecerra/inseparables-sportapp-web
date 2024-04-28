@@ -1,0 +1,77 @@
+<app-toast mensajeError="{{responseMessage}}" [mostrarToast]=responseError class="d-flex justify-content-center"></app-toast>
+<div class="center-element">
+  <form
+    class="form-size size-form-register"
+    [formGroup]="planForm"
+    (ngSubmit)="!planForm.invalid && registrarPlan(planForm.value)"
+  >
+    <div class="container text-center">
+      <h1>Plan de entrenamiento</h1>
+      <div class="row mb-3 mt-5">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Nombres"
+              formControlName="nombre"
+            />
+            <label for="name">Nombre</label>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              *ngIf="
+                planForm.get('nombre')!.hasError('required') &&
+                planForm.get('nombre')!.touched
+              "
+            >
+              Se requiere el nombre
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <select class="form-select" formControlName="id_deporte">
+              <option selected value=>Seleccione el deporte...</option>
+              <option *ngFor="let deporte of deportes" [ngValue]="deporte.id">
+                  {{ deporte.nombre }}
+              </option>
+          </select>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="planForm.get('id_deporte')!.hasError('required') && planForm.get('id_deporte')!.touched">
+              Se requiere el deporte
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-5">
+        <div class="col">
+          <div class="form-floating">
+            <h5 class="entrenamientosplan">Entrenamientos</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 mt-5">
+        <div class="col">
+          <div class="form-floating">
+            <div class="entrenamientosplan" *ngFor="let entrenamiento of entrenamientos">
+              <input class="entrenamientosplan" (change)="onChange(entrenamiento.id)" type="checkbox" value="{{ entrenamiento.id }}" />{{entrenamiento.nombre}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
+        Plan de entrenamiento creado exitosamente
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit" [disabled]="!planForm.valid" class="btn btn-guardar mt-5">
+            Guardar
+          </button>
+        </div>
+        <div class="col">
+          <button type="button" routerLink="/planes" class="btn btn-cancelar mt-5">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

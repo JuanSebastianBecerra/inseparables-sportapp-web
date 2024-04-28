@@ -51,6 +51,7 @@ import {
 import { BuscarEntrenamientoComponent } from './secciones/entrenamientos/buscar-entrenamiento/buscar-entrenamiento.component';
 import { EntrenamientosComponent } from './secciones/entrenamientos/entrenamientos.component';
 import { CrearEntrenamientoComponent } from './secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component';
+import {CrearPlanComponent} from './secciones/planes_entrenamiento/crear-plan/crear-plan.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -98,6 +99,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ListaEntrenamientosComponent,
         CrearEntrenamientoComponent,
         ToastComponent,
+        CrearPlanComponent,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DeportesService {
 
-  private deportesUrl = environment.baseUrlAdministracion + '/deportes';
+  private deportesUrl = environment.baseUrlDeporte + '/deportes';
 
   constructor(private http: HttpClient) { }
 
