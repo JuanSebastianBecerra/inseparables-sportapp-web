@@ -13,13 +13,9 @@ import { ConsultaServiciosComponent } from './secciones/servicios/consulta-servi
 import { DetalleServicioComponent } from './secciones/servicios/detalle-servicio/detalle-servicio.component';
 import { RecomendadosComponent as ServiciosRecomendadosComponent } from './secciones/eventos/servicios/recomendados/recomendados.component';
 import { ConsultarReunionesComponent } from './secciones/reuniones/consultar-reuniones/consultar-reuniones.component';
-import {
-  ListaEntrenamientosComponent
-} from "./secciones/entrenamientos/lista-entrenamientos/lista-entrenamientos.component";
-import {EntrenamientosComponent} from "./secciones/entrenamientos/entrenamientos.component";
-import {
-  CrearEntrenamientoComponent
-} from "./secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component";
+import { EntrenamientosComponent} from "./secciones/entrenamientos/entrenamientos.component";
+import { CrearEntrenamientoComponent } from "./secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component";
+import { PlanesComponent } from './secciones/planes/planes.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -39,6 +35,7 @@ const routes: Routes = [
   { path: 'eventos/:idEvento', component: DesconocidoComponent},// TODO: asociar el componente correcto de la historia SPR-60 (detalle del evento)
   { path: 'eventos/:idEvento/servicios', component: ServiciosRecomendadosComponent},
   { path: 'reuniones/disponibles', component: ConsultarReunionesComponent },
+  { path: 'planes', component: PlanesComponent},
   { path: '**', component: DesconocidoComponent }
 ];
 

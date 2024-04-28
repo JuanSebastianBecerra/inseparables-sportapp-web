@@ -1,0 +1,96 @@
+.planes-container{
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+.form-check{
+    width: 50%;
+}
+
+.planes-todos-container{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: 2px solid var(--BlueGreen-8)
+}
+
+.plan{
+    cursor: pointer;
+}
+
+.plan-selected{
+    border: 1px solid var(--BlueGreen-8);
+    background-color: var(--BlueGreen-2);
+    font-weight: bold;
+}
+
+.plan-text{
+    padding: 0.5rem 1rem ;
+}
+
+.entrenamientos-container{
+    padding-top: 1rem;
+}
+
+.entrenamiento{
+    margin-bottom: 0.5rem;
+    background-color: var(--BlueGreen-2);
+    padding: 1rem 0;
+}
+
+.entrenamiento-text{
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.number-container{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: var(--BlueGreen-7);
+    color: var(--BlueGreen-1)
+}
+
+.index-text{
+    text-align: center;
+    margin: 25% 0;
+}
+
+.btn-details {
+    background-color: var(--BlueGreen-7);
+    color: var(--BlueGreen-1);
+    width: 8rem;
+    float: right;
+    margin-right: 1rem;
+}
+
+.button-container{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.planes-container-parent{
+    margin-left: 1.5rem;
+}
+
+.list-empty-container{
+    text-align: center;
+    color: lightgray;
+}
+
+.entrenamiento-empty-container{
+    margin-top: 14%;
+}
+
+.alerta-cambio-plan-deportista{
+    text-align: center;
+    margin-top: 2rem;
+}
