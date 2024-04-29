@@ -65,7 +65,7 @@ export class ReunionesDisponiblesComponent implements OnInit {
 
       this.exitoso = true
         setTimeout(() => {
-          window.parent.location = window.parent.location.href;
+          this.getReunionesDisponibles();
         }, 2000);
     },
     error => {
