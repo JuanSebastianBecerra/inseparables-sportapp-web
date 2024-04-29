@@ -6,7 +6,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DesconocidoComponent} from './comunes/componentes/desconocido/desconocido.component';
 import {CommonModule} from '@angular/common';
-import {HomeComponent} from './secciones/home/home.component';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -52,6 +51,7 @@ import { BuscarEntrenamientoComponent } from './secciones/entrenamientos/buscar-
 import { EntrenamientosComponent } from './secciones/entrenamientos/entrenamientos.component';
 import { CrearEntrenamientoComponent } from './secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component';
 import {CrearPlanComponent} from './secciones/planes_entrenamiento/crear-plan/crear-plan.component';
+import { PlanesComponent } from './secciones/planes/planes.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -61,7 +61,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     declarations: [
         AppComponent,
         DesconocidoComponent,
-        HomeComponent,
         SuscripcionesComponent,
         MenuComponent,
         SociosComponent,
@@ -78,7 +77,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         ConsultarReunionesComponent,
         BuscarReunionesComponent,
         BuscarEntrenamientoComponent,
-        EntrenamientosComponent
+        EntrenamientosComponent,
+        PlanesComponent
     ],
     imports: [
         BrowserModule,

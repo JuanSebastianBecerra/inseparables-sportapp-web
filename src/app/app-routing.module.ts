@@ -16,11 +16,12 @@ import { ConsultarReunionesComponent } from './secciones/reuniones/consultar-reu
 import {
   ListaEntrenamientosComponent
 } from "./secciones/entrenamientos/lista-entrenamientos/lista-entrenamientos.component";
-import {EntrenamientosComponent} from "./secciones/entrenamientos/entrenamientos.component";
-import {
-  CrearEntrenamientoComponent
-} from "./secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component";
+
+
 import { CrearPlanComponent } from './secciones/planes_entrenamiento/crear-plan/crear-plan.component';
+import { EntrenamientosComponent} from "./secciones/entrenamientos/entrenamientos.component";
+import { CrearEntrenamientoComponent } from "./secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component";
+import { PlanesComponent } from './secciones/planes/planes.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'eventos/:idEvento/servicios', component: ServiciosRecomendadosComponent},
   { path: 'reuniones/disponibles', component: ConsultarReunionesComponent },
   { path: 'crear-plan', component: CrearPlanComponent},
+  { path: 'planes', component: PlanesComponent},
   { path: '**', component: DesconocidoComponent }
 ];
 
