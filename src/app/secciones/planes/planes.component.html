@@ -1,0 +1,100 @@
+<app-toast mensajeError="{{errorDescription}}" [mostrarToast]=errorResponse
+           class="d-flex justify-content-center"></app-toast>
+<div class="row">
+    <div class="col-4 planes-container-parent">
+        <h3 class="text-center">Planes</h3>
+        <div class="row planes-container">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="planesListOption" id="todos" value="todos" [(ngModel)]="planElegido" (change)="cambiarTipoPlanAsignado()" checked>
+                <label class="form-check-label" for="todos">Todos</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="planesListOption" id="deportista" value="deportista" [(ngModel)]="planElegido" [disabled]="planes.length < 1">
+                <label class="form-check-label" for="deportista">Mis planes</label>
+            </div>
+        </div>
+        <div *ngIf="planElegido == 'todos'">
+            <div class="planes-todos-container" *ngIf="planes.length > 0">
+                <div class="row" class="plan" [ngClass]="{'plan-selected': plan.selected}" *ngFor="let plan of planes" (click)="cambiarPlanSeleccionado(plan.id, false)">
+                    <div class="plan-text">{{plan.nombre}}</div>
+                </div>
+            </div>
+            <div class="list-empty-container" *ngIf="planes.length < 1">
+                <p>No se encontraron planes</p>
+            </div>
+        </div>
+        <div *ngIf="planElegido == 'deportista'">
+            <div class="planes-todos-container" *ngIf="planesDeportista.length > 0">
+                <div class="row" class="plan" [ngClass]="{'plan-selected': plan.selected}" *ngFor="let plan of planesDeportista" (click)="cambiarPlanSeleccionado(plan.id, true)">
+                    <div class="plan-text">{{plan.nombre}}</div>
+                </div>
+            </div>
+            <div class="list-empty-container" *ngIf="planesDeportista.length < 1">
+                <p>No se encontraron planes del deportista</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-6">
+        <h3 class="text-center">Entrenamientos</h3>
+        <div *ngIf="planElegido == 'todos'">
+            <div class="list-empty-container entrenamiento-empty-container" *ngIf="!tienePlanSeleccionado(false)">
+                <p>No se ha seleccionado un plan</p>
+            </div>
+            <div class="list-empty-container entrenamiento-empty-container" *ngIf="tienePlanSeleccionado(false) && entrenamientos.length < 1">
+                <p>El plan no tiene entrenamientos asociados</p>
+            </div>
+            <div class="entrenamientos-container" *ngIf="tienePlanSeleccionado(false) && entrenamientos.length > 0">
+                <div class="row entrenamiento" *ngFor="let entrenamiento of entrenamientos; index as i">
+                    <div class="col-2 position-relative">
+                        <div class="number-container">
+                            <p class="index-text">{{i+1}}</p>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="entrenamiento-title">{{entrenamiento.nombre}}</div>
+                        <div class="entrenamiento-text">{{entrenamiento.detalle}}</div>
+                    </div>
+                </div>
+                <div class="row button-container">
+                    <button class="btn btn-details rounded-pill" *ngIf="tienePlanSeleccionado(false) && entrenamientos.length > 0" (click)="asignarPlanDeportista()" [disabled] ="botonDeshabilitado">Asignar</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="planElegido == 'deportista'">
+            <div class="list-empty-container entrenamiento-empty-container" *ngIf="!tienePlanSeleccionado(true)">
+                <p>No se ha seleccionado un plan</p>
+            </div>
+            <div class="list-empty-container entrenamiento-empty-container" *ngIf="tienePlanSeleccionado(true) && entrenamientosDeportista.length < 1">
+                <p>El plan no tiene entrenamientos asociados</p>
+            </div>
+            <div class="entrenamientos-container" *ngIf="tienePlanSeleccionado(true) && entrenamientosDeportista.length > 0">
+                <div class="row entrenamiento" *ngFor="let entrenamiento of entrenamientosDeportista; index as i">
+                    <div class="col-2 position-relative">
+                        <div class="number-container">
+                            <p class="index-text">{{i+1}}</p>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="entrenamiento-title">{{entrenamiento.nombre}}</div>
+                        <div class="entrenamiento-text">{{entrenamiento.detalle}}</div>
+                    </div>
+                </div>
+                <div class="row button-container">
+                    <button class="btn btn-details rounded-pill" *ngIf="tienePlanSeleccionado(true) && entrenamientosDeportista.length > 0" (click)="removerPlanDeportista()">Remover</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+<div class="row alerta-cambio-plan-deportista">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div class="alert alert-success alert-dismissible fade show" *ngIf="planAsociado">
+            Plan asignado exitosamente
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>

@@ -31,6 +31,11 @@ export const menubarDeporteData = [
         routeLink: 'entrenamientos',
         icon: 'fal fa-flag',
         label: 'Entrenamientos'
+    },
+    {
+        routeLink: 'planes',
+        icon: 'fal fa-flag',
+        label: 'Planes'
     }
 ]
 
