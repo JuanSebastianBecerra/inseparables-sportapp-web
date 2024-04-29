@@ -33,6 +33,11 @@ export const menubarDeporteData = [
         label: 'Entrenamientos'
     },
     {
+        routeLink: 'crear-plan',
+        icon: 'far fa-calendar-plus',
+        label: 'Crear Plan'
+    },
+    {
         routeLink: 'planes',
         icon: 'fal fa-flag',
         label: 'Planes'

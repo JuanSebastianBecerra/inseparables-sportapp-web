@@ -50,6 +50,7 @@ import {
 import { BuscarEntrenamientoComponent } from './secciones/entrenamientos/buscar-entrenamiento/buscar-entrenamiento.component';
 import { EntrenamientosComponent } from './secciones/entrenamientos/entrenamientos.component';
 import { CrearEntrenamientoComponent } from './secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component';
+import {CrearPlanComponent} from './secciones/planes_entrenamiento/crear-plan/crear-plan.component';
 import { PlanesComponent } from './secciones/planes/planes.component';
 import { EventosComponent } from './secciones/eventos/eventos.component';
 
@@ -100,6 +101,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ListaEntrenamientosComponent,
         CrearEntrenamientoComponent,
         ToastComponent,
+        CrearPlanComponent,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

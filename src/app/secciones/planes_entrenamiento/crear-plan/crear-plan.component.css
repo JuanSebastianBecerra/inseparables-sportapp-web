@@ -1,0 +1,14 @@
+.size-form-register{
+    min-width: 70%;
+    min-height: 80%;
+}
+
+
+.entrenamientosplan{
+    text-align: justify;
+    text-align-last: left;
+}
+
+input[type='checkbox'] {
+    accent-color: #6750A4;
+}
