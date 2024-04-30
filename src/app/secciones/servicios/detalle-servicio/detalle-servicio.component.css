@@ -1,0 +1,17 @@
+.row{
+    padding-bottom: 2rem;
+}
+
+textarea {
+    resize: none;
+}
+
+.alert-success{
+    text-align: center;
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 2rem;
+}

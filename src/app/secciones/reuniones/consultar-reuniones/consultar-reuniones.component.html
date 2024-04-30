@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row buscar-reunion-container">
+      <app-buscar-reuniones (onBuscarReunion)="onChangeTextBuscarReunion($event)"></app-buscar-reuniones>
+  </div>
+  <div class="row reuniones-disponibles-container">
+      <app-reuniones-disponibles [textoBuscar]="textoBuscarReunion"></app-reuniones-disponibles>
+  </div>
+</div>

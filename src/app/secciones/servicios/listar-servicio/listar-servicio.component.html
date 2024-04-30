@@ -1,0 +1,13 @@
+<app-toast mensajeError="{{errorServicios}}" [mostrarToast]=mostrarErrorServicios class="d-flex justify-content-center"></app-toast>
+<div class="d-flex">
+  <div class="card" style="width: 18rem;" *ngFor="let servicio of servicios">
+    <div class="card-body">
+      <h6 class="card-title">{{servicio.nombre}}</h6>
+      <div class="card-subtitle mb-2 text-muted detail">$ {{servicio.valor}}</div>
+      <p class="card-text">{{servicio.detalle}}</p>
+      <p class="position-absolute bottom-0 end-0">
+        <a href="#" class="btn btn-details mt-5 rounded-pill" routerLink="/servicios/{{servicio.id}}">Ver detalle</a>
+      </p>
+    </div>
+  </div> 
+</div>

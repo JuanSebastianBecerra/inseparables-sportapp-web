@@ -1,0 +1,29 @@
+.buscar-entrenamiento-container{
+    height: 20%;
+}
+
+.lista-entrenamientos-container{
+    height: 60%;
+}
+
+.container{
+    height: 100%;
+}
+
+.btn-circle.btn-xl {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    text-align: center;
+    background-color: var(--BlueGreen-7);
+    color: var(--BlueGreen-1);
+    font-size: 50px;
+}
+
+.agregar-entrenamiento-container{
+    height: 20%;
+}
+
+.float-button-entrenamientos{
+    z-index: 999;
+}

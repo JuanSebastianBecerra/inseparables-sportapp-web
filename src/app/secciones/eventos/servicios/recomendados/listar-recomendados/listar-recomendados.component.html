@@ -1,0 +1,16 @@
+<app-toast mensajeError="{{errorGetServiciosRecomendados}}" [mostrarToast]=mostrarErrorGetServiciosRecomendados class="d-flex justify-content-center"></app-toast>
+<div class="d-flex">
+  <div class="card" style="width: 18rem;" *ngFor="let servRecomedado of serviciosRecomendados">
+    <div class="card-body">
+      <h6 class="card-title">{{servRecomedado.nombre}}</h6>
+      <div class="card-subtitle mb-2 text-muted detail">Socio: {{servRecomedado.nombre_socio}}</div>
+      <p class="card-text">{{servRecomedado.detalle}}</p>
+      <p class="position-absolute bottom-0 end-0">
+        <a class="btn btn-details mt-5 rounded-pill" (click)="solicitarEvento(servRecomedado.id)">Solicitar</a>
+      </p>
+    </div>
+  </div> 
+</div>
+<div class="alert alert-success alert-dismissible fade show text-center" *ngIf="asignacionExitosa">
+  Servicio asociado exitosamente al deportista
+</div>

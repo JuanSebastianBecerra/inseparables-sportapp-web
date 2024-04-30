@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row mt-5" *ngFor="let plan of planes; index as i">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title titulo-suscripcion">{{ plan["nombre"] }}</h5>
+          <p class="card-text">{{ plan["funciones"] }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row centrar-boton">
+    <div class="col-4">
+      <button
+      routerLink="/registro"
+        type="submit"
+        class="btn btn-guardar mt-5"
+      >
+        Volver
+      </button>
+    </div>
+  </div>
+</div>

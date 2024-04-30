@@ -1,0 +1,45 @@
+<app-toast mensajeError="{{responseMessage}}" [mostrarToast]=responseError class="d-flex justify-content-center"></app-toast>
+<div class="container contenedor-registro">
+    <h1>Producto o Servicio</h1>
+    <form class="form-size size-form-register" [formGroup]="servicioForm">
+        <div class="row">
+            <div class="col-6">
+                <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="nombre" readonly/>
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control" id="valor" placeholder="Valor (USD)" formControlName="valor" readonly/>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <textarea class="form-control" placeholder="Detalles" id="detalle" rows="4" formControlName="detalle" readonly></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <textarea class="form-control" placeholder="Descripción" id="descripcion" rows="7" formControlName="descripcion" readonly></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <input type="text" class="form-control" id="socioNegocio" placeholder="Socio de Negocio" formControlName="socioNegocio" readonly/>
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control" id="deporte" placeholder="Deporte" formControlName="deporte" readonly/>
+            </div>
+            <div class="col-6"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <button type="button" class="btn btn-cancelar mt-5" (click)="cancelar()">
+                Cancelar
+              </button>
+            </div>
+            <div class="col-4"></div>
+          </div>
+    </form>
+</div>
+

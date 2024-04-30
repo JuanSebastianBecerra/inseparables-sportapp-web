@@ -1,0 +1,84 @@
+<app-toast mensajeError="{{responseMessage}}" [mostrarToast]=responseError class="d-flex justify-content-center"></app-toast>
+<div class="container contenedor-registro">
+    <h1>Producto o Servicio</h1>
+    <form class="form-size size-form-register" [formGroup]="servicioForm" (ngSubmit)="!servicioForm.invalid && guardarServicio(servicioForm.value)">
+        <div class="row">
+            <div class="col-6">
+                <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="nombre"/>
+                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('nombre')!.hasError('required') && servicioForm.get('nombre')!.touched">
+                    Se requiere el usuario
+                </div>
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control" id="valor" placeholder="Valor (USD)" formControlName="valor"
+                    (keypress)="numberOnly($event)"
+                />
+                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('valor')!.hasError('required') && servicioForm.get('valor')!.touched">
+                    Se requiere el valor
+                </div>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <textarea class="form-control" placeholder="Detalles" id="detalle" rows="4" formControlName="detalle"></textarea>
+                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('detalle')!.hasError('required') && servicioForm.get('detalle')!.touched">
+                    Se requieren los detalles del servicio
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <textarea class="form-control" placeholder="Descripción" id="descripcion" rows="7" formControlName="descripcion"></textarea>
+                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('descripcion')!.hasError('required') && servicioForm.get('descripcion')!.touched">
+                    Se requiere la descripción del servicio
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <select class="form-select" formControlName="id_socio">
+                    <option selected value=>Seleccione el socio de negocio ...</option>
+                    <option *ngFor="let socio of socios" [ngValue]="socio.id">
+                        {{ socio.nombre }} {{socio.apellido}}
+                    </option>
+                </select>
+                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('id_socio')!.hasError('required') && servicioForm.get('id_socio')!.touched">
+                    Se requiere el socio de negocio
+                </div>
+            </div>
+            <div class="col-6">
+                <select class="form-select" formControlName="id_deporte">
+                    <option selected value=>Seleccione el deporte ...</option>
+                    <option *ngFor="let deporte of deportes" [ngValue]="deporte.id">
+                        {{ deporte.nombre }}
+                    </option>
+                </select>
+                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('id_deporte')!.hasError('required') && servicioForm.get('id_deporte')!.touched">
+                    Se requiere el deporte
+                </div>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        
+        <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
+            Entrenamiento creado exitosamente
+        </div>
+        
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-3">
+              <button type="submit" class="btn btn-guardar mt-5" [disabled]="!servicioForm.valid">
+                Guardar
+              </button>
+            </div>
+            <div class="col-3">
+              <button type="button" routerLink="/" class="btn btn-cancelar mt-5">
+                Cancelar
+              </button>
+            </div>
+            <div class="col-3"></div>
+          </div>
+    </form>
+</div>
+

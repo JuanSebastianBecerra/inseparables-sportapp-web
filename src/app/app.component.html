@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<app-menu (onToggleMenuNav)="onToggleMenuNav($event)" *ngIf="!hideMenu"></app-menu>
+<app-body
+    [collapsed]="isMenuNavCollapsed"
+    [screenWidth]="screenWidth"
+    [hideMenu]="hideMenu"
+></app-body>

@@ -1,0 +1,33 @@
+.size-form-register{
+    min-width: 70%;
+    min-height: 80%;
+}
+
+.card{
+    max-width: 18rem;
+    min-height: 15rem;
+    border-color: #CAC4D0;
+    color: #49454F;
+    background-color: var(--BlueGreen-1);
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    margin-left: 4rem;
+    font-size: 16px;
+    display: block;
+}
+
+.card-text{
+    font-weight: 100;
+}
+
+.btn-details {
+    background-color: var(--BlueGreen-7);
+    color: var(--BlueGreen-1);
+    width: 8rem;
+    float: right;
+    margin-right: 1rem;
+}
+
+.detail{
+    font-size: 0.6rem;
+}

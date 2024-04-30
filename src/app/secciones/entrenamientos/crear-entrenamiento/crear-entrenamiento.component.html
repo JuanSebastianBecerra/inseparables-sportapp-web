@@ -1,0 +1,128 @@
+<div class="container">
+    <form class="form-size size-form-register" [formGroup]="entrenamientoForm"
+          (ngSubmit)="!entrenamientoForm.invalid && guardarEntrenamiento(entrenamientoForm.value)">
+        <div class="row mb-3 mt-3">
+            <div class="col-6">
+                <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="nombre"/>
+                <div class="alert alert-danger alert-dismissible fade show"
+                     *ngIf="entrenamientoForm.get('nombre')!.hasError('required') && entrenamientoForm.get('nombre')!.touched">
+                    Se requiere el nombre
+                </div>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <div class="row mb-3 mt-3">
+            <label for="datepickerHoraInicio">Hora inicio</label>
+            <div class="col-6">
+                <div>
+                    <dx-date-box
+                            id="datepickerHoraInicio"
+                            [(value)]="fechaInicio"
+                            formControlName="hora_inicio"
+                            type="datetime"
+                            pickerType="list"
+                            [interval]="20">
+                    </dx-date-box>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show"
+                     *ngIf="entrenamientoForm.get('hora_inicio')!.hasError('required') && entrenamientoForm.get('hora_inicio')!.touched">
+                    Se requiere la fecha de inicio
+                </div>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <div class="row mb-3 mt-3">
+            <label for="datepickerHoraFin">Hora fin</label>
+            <div class="col-6">
+                <div>
+                    <dx-date-box
+                            id="datepickerHoraFin"
+                            [(value)]="fechaFin"
+                            formControlName="hora_fin"
+                            type="datetime"
+                            pickerType="list"
+                            [interval]="20">
+                    </dx-date-box>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show"
+                     *ngIf="entrenamientoForm.get('hora_fin')!.hasError('required') && entrenamientoForm.get('hora_fin')!.touched">
+                    Se requiere la hora fin
+                </div>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <div class="row mb-3 mt-3">
+            <div class="col-12">
+                <input type="text" class="form-control" id="lugar" placeholder="Lugar" formControlName="lugar"/>
+                <div class="alert alert-danger alert-dismissible fade show"
+                     *ngIf="entrenamientoForm.get('lugar')!.hasError('required') && entrenamientoForm.get('lugar')!.touched">
+                    Se requiere el lugar
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 mt-3">
+            <div class="col-12">
+                <textarea
+                        class="form-control"
+                        placeholder="Detalle"
+                        id="detalle"
+                        formControlName="detalle"
+                ></textarea>
+                <div class="alert alert-danger alert-dismissible fade show"
+                     *ngIf="entrenamientoForm.get('detalle')!.hasError('required') && entrenamientoForm.get('detalle')!.touched">
+                    Se requiere el detalle
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 mt-3">
+            <div class="col-6">
+                <label>Frecuencia</label>
+                <div class="form-check" *ngFor="let frecuencia of frecuenciaOpciones; index as i">
+                    <input [value]="frecuencia['llave']" class="form-check-input" type="radio"
+                           id="flexRadio_{{frecuencia['llave']}}" formControlName="frecuencia" name="frecuencia"
+                           [checked]="i == 1">
+                    <label class="form-check-label" for="flexRadio_{{frecuencia['llave']}}">
+                        {{frecuencia["texto"]}}
+                    </label>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show"
+                     *ngIf="entrenamientoForm.get('frecuencia')!.hasError('required') && entrenamientoForm.get('frecuencia')!.touched">
+                    Se requiere la frecuencia
+                </div>
+            </div>
+            <div class="col-6">
+                <label for="deporte">Deporte</label>
+                <select
+                        id="deporte"
+                        class="form-control"
+                        formControlName="deporte"
+                >
+                    <option selected disabled>Seleccione...</option>
+                    <option>Ciclismo</option>
+                    <option>Atletismo</option>
+                </select>
+                <div class="alert alert-danger alert-dismissible fade show"
+                     *ngIf="entrenamientoForm.get('deporte')!.hasError('required') && entrenamientoForm.get('deporte')!.touched">
+                    Se requiere la frecuencia
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
+            Servicio creado exitosamente
+        </div>
+        <div class="row mb-3 mt-3">
+            <div class="col-3"></div>
+            <div class="col-3">
+                <button type="submit" [disabled]="!entrenamientoForm.valid" class="btn btn-guardar mt-5">
+                    Guardar
+                </button>
+            </div>
+            <div class="col-3">
+                <button type="button" routerLink="/entrenamientos" class="btn btn-cancelar mt-5">
+                    Cancelar
+                </button>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </form>
+</div>

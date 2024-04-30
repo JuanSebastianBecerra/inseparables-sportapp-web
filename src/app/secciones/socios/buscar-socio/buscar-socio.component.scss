@@ -1,0 +1,12 @@
+.search {
+    position: relative;
+    font-size: 16px;
+
+    input {
+        background-color: var(--BlueGreen-2);
+        border: 0;
+        height: 3.5rem;
+        padding-left: 4rem;
+        box-shadow: 0.5rem 0.5rem 1rem #d2d6dd
+    }
+}

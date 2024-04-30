@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row buscar-recomendado-container">
+        <app-buscar-recomendados (onBuscarRecomendado)="onChangeTextoBuscarRecomendado($event)"></app-buscar-recomendados>
+    </div>
+    <div class="row lista-recomendado-container">
+        <app-listar-recomendados [textoBuscar]="textoBuscarRecomendado"></app-listar-recomendados>
+    </div>
+  </div>
