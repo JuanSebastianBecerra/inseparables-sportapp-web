@@ -10,9 +10,9 @@
             runs-on: ubuntu-latest
             env:
                 IMAGE_NAME: web
-                PROJECT_ID: sportapp-grupo2
-                LOCATION: us-east1
-                REPOSITORY: sport-app
+                PROJECT_ID: sportapp-proyecto2
+                LOCATION: us-central1
+                REPOSITORY: sportapp-repo
             steps:
             - name: Checkout Repo
               uses: actions/checkout@v2
@@ -20,7 +20,7 @@
               id: auth
               uses: google-github-actions/auth@v2
               with:
-                credentials_json: '${{ secrets.GCP_SA_STORAGE_KEY }}'
+                credentials_json: '${{ secrets.GCP_KEY }}'
             - name: 'Configurar Cloud SDK'
               uses: 'google-github-actions/setup-gcloud@v2'
               with:
