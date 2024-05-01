@@ -4,7 +4,7 @@
     [formGroup]="ingresarForm"
     (ngSubmit)="!ingresarForm.invalid && validateUser(ingresarForm.value)"
   >
-    <h1>SportApp</h1>
+    <h1 >SportApp</h1>
     <div class="input-group mb-3 mt-5">
       <div class="form-floating">
         <input
@@ -13,6 +13,7 @@
           id="email-input"
           placeholder="Correo"
           formControlName="email"
+          i18n-placeholder="correo"
         />
         <div
           class="alert alert-danger alert-dismissible fade show"
@@ -21,15 +22,15 @@
             ingresarForm.get('email')!.touched
           "
         >
-          Se requiere el usuario
+          {{'usuario-requerido' | translate}}
         </div>
         <div
        class="alert alert-danger alert-dismissible fade show"
        *ngIf="f['email']?.errors?.['email']"
      >
-       Debe ser un correo
+          {{'validacion-correo' | translate}}
      </div>
-        <label for="email-input">Usuario</label>
+        <label for="email-input" >{{'usuario' | translate}}</label>
       </div>
     </div>
     <div class="input-group mb-3">
@@ -48,9 +49,9 @@
             ingresarForm.get('password')!.touched
           "
         >
-          Se requiere la contraseña
+          {{'contrasenia-requerida' | translate}}
         </div>
-        <label for="password-input">Contraseña</label>
+        <label for="password-input">{{'contrasenia' | translate}}</label>
       </div>
     </div>
     <div
@@ -59,10 +60,10 @@
         >
           {{responseMessage}}
       </div>
-    <button type="submit" [disabled]="!ingresarForm.valid" class="btn btn-ingresar mt-5" id="btn-submit">Ingresar</button>
+    <button type="submit" [disabled]="!ingresarForm.valid" class="btn btn-ingresar mt-5" id="btn-submit">{{'ingresar' | translate}}</button>
     <p class="mt-2">
-      ¿No tienes una cuenta?
-      <a class="link-color-sportapp" routerLink="/registro" href="#">Creala aquí</a>
+      {{'sin-cuenta' | translate}}
+      <a class="link-color-sportapp" routerLink="/registro" href="#">{{'creala' | translate}}</a>
     </p>
   </form>
 </div>

@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { BodyComponent } from './secciones/body/body.component';
+import {IdiomaComponent} from "./comunes/componentes/idioma/idioma.component";
 
 describe('AppComponent', () => {
 
@@ -10,7 +11,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
     imports: [RouterTestingModule,
       TranslateModule.forRoot()],
-    declarations: [AppComponent, BodyComponent]
+    declarations: [AppComponent, BodyComponent, IdiomaComponent]
   })});
 
   it('should create the app', () => {

@@ -12,5 +12,17 @@
     "socio.contrasenia": "Contraseña",
     "socio.confirmar.contrasenia": "Confirmar contraseña",
     "socio.save": "Guardar",
-    "socio.cancel": "Cancelar"
+    "socio.cancel": "Cancelar",
+
+    "seleccionar-idioma": "Seleccionar idioma ...",
+    "en": "Inglés",
+    "es": "Español",
+    "usuario": "Usuario",
+    "contrasenia": "Contraseña",
+    "ingresar": "Ingresar",
+    "sin-cuenta": "¿No tienes una cuenta?",
+    "creala": "Creala aquí",
+    "usuario-requerido": "Se requiere el usuario",
+    "validacion-correo": "Debe ser un correo",
+    "contrasenia-requerida": "Se requiere la contraseña"
 }
