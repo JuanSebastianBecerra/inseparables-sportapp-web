@@ -1,0 +1,11 @@
+<div class="posicion-selector">
+    <i class="far fa-language"></i>&nbsp;&nbsp;<label for="idioma">{{'seleccionar-idioma' | translate}}</label>
+    <select
+            id="idioma"
+            class="form-control"
+            (change)="seleccionarLenguage($any($event.target)?.value)"
+    >
+        <option selected disabled>Seleccione...</option>
+        <option *ngFor="let idioma of idiomas; index as i" [value]="idioma">{{idioma | translate}}</option>
+    </select>
+</div>

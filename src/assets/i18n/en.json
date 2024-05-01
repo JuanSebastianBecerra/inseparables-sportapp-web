@@ -12,5 +12,17 @@
     "socio.contrasenia": "Password",
     "socio.confirmar.contrasenia": "Confirm password",
     "socio.save": "Save",
-    "socio.cancel": "Cancel"
+    "socio.cancel": "Cancel",
+
+    "seleccionar-idioma": "Select language ...",
+    "en": "English",
+    "es": "Spanish",
+    "usuario": "User",
+    "contrasenia": "Password",
+    "ingresar": "Login",
+    "sin-cuenta": "Don't have an account??",
+    "creala": "Create it here",
+    "usuario-requerido": "User required",
+    "validacion-correo": "Must be an email",
+    "contrasenia-requerida": "Password required"
 }

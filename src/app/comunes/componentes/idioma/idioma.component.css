@@ -1,0 +1,8 @@
+.posicion-selector{
+    max-width: 15%;
+    min-width: 7rem;
+    margin-right: 3rem;
+    margin-top: 1rem;
+    position: absolute;
+    right: 0;
+}

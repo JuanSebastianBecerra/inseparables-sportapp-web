@@ -9,6 +9,7 @@ import { AutorizacionService } from 'src/app/servicios/autorizacion/autorizacion
 import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { ROL_KEY, TOKEN_KEY } from 'src/app/utils/constants';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('AutenticacionComponent', () => {
   let component: AutenticacionComponent;
@@ -23,7 +24,8 @@ describe('AutenticacionComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [AutenticacionComponent, HttpClientTestingModule, AppRoutingModule, RouterTestingModule, ReactiveFormsModule],
+      imports: [AutenticacionComponent, HttpClientTestingModule, AppRoutingModule, RouterTestingModule, ReactiveFormsModule,
+        TranslateModule.forRoot(),],
       declarations: []
     });
     fixture = TestBed.createComponent(AutenticacionComponent);

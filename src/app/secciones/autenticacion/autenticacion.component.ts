@@ -4,13 +4,14 @@ import { AutorizacionService } from '../../servicios/autorizacion/autorizacion.s
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { ROL_KEY, TOKEN_KEY } from 'src/app/utils/constants';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-autenticacion',
   templateUrl: './autenticacion.component.html',
   styleUrls: ['./autenticacion.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule]
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, TranslateModule]
 })
 export class AutenticacionComponent implements OnInit {
 

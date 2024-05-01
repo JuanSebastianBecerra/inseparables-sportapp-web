@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 
 interface MenuNavToggle{
   screenWidth: number;
@@ -14,11 +13,8 @@ interface MenuNavToggle{
 })
 export class AppComponent {
   title = 'inseparables-sportapp-web';
-  constructor(private translateService: TranslateService, private router: Router){
-    const userLanguage = navigator.language || 'es';
-    const languageCode = userLanguage.split('-')[0];
-    this.translateService.setDefaultLang(languageCode);
-    this.translateService.use(languageCode);
+  constructor(private router: Router){
+
 
     router.events.subscribe((val) => {
       this.hideMenu = this.router.url == "/" || 
