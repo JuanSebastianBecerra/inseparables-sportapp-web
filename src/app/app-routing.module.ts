@@ -23,6 +23,7 @@ import { EntrenamientosComponent} from "./secciones/entrenamientos/entrenamiento
 import { CrearEntrenamientoComponent } from "./secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component";
 import { PlanesComponent } from './secciones/planes/planes.component';
 import { EventosComponent } from './secciones/eventos/eventos.component';
+import { IndicadoresComponent } from './secciones/indicadores/indicadores.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'reuniones/disponibles', component: ConsultarReunionesComponent },
   { path: 'crear-plan', component: CrearPlanComponent},
   { path: 'planes', component: PlanesComponent},
+  { path: 'indicadores', component: IndicadoresComponent},
   { path: '**', component: DesconocidoComponent }
 ];
 

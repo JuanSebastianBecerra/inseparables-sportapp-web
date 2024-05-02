@@ -41,7 +41,12 @@ export const menubarDeporteData = [
         routeLink: 'planes',
         icon: 'fal fa-flag',
         label: 'Planes'
-    }
+    },
+    {
+        routeLink: 'indicadores',
+        icon: 'fal fa-chart-line',
+        label: 'Indicadores'
+    },
 ]
 
 export const menubarConfiguracionData = [
