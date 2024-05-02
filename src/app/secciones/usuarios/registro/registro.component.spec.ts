@@ -7,6 +7,8 @@ import { AdministracionService } from 'src/app/servicios/administracion/administ
 import { of, throwError } from 'rxjs';
 import { CacheService } from 'src/app/servicios/administracion/cache.service';
 import { PersonasService } from 'src/app/servicios/personas/personas.service';
+import { LocationService } from 'src/app/servicios/maps/location.service';
+import { UbicacionMaps } from 'src/app/clases/location';
 
 describe('RegistroComponent', () => {
   let component: RegistroComponent;
@@ -14,11 +16,16 @@ describe('RegistroComponent', () => {
   let administracionService : AdministracionService;
   let cacheService : CacheService
   let personasService : PersonasService
+  let locationService : LocationService
 
   const _PLANES = [
     {"nombre": "Plan básico", "funciones": "Funciones básicas", "id":"1", "llave":"BASICO", "valor_mensual": 100},
     {"nombre": "Plan intermedio", "funciones": "Funciones intermedias", "id":"2", "llave":"INTERMEDIO", "valor_mensual": 200},
     {"nombre": "Plan premium", "funciones": "Funciones premium", "id":"3", "llave":"PREMIUM", "valor_mensual": 300}
+  ]
+
+  const _PLACES = [
+    {"id": "1", "formattedAddress": "Calle 134", "location": {"latitude": "1", "longitude": "1"}, "displayName": {"text": "direccion"}}
   ]
 
   beforeEach(() => {
@@ -33,6 +40,7 @@ describe('RegistroComponent', () => {
     administracionService = TestBed.inject(AdministracionService);
     cacheService = TestBed.inject(CacheService);
     personasService = TestBed.inject(PersonasService)
+    locationService = TestBed.inject(LocationService)
   });
 
   it('should create', () => {
@@ -126,6 +134,15 @@ describe('RegistroComponent', () => {
     expect(component.mostrarErrorPerfilDeportivo).toBe(false);
     expect(component.responseError).toBe(true);
     expect(component.responseMessage).toBe('Ocurrió un error al guardar el perfil deportivo');
+  });
+
+  it('should fetch cargar direccion', () => {
+    let mockPlace = new UbicacionMaps("1", "Calle", "1", "1", "Calle")
+    component.seleccionarDireccion(mockPlace)
+    expect(component.places.length).toBe(0);
+    spyOn(locationService, 'obtenerUbicacionesPorNombre').and.returnValue(of({"places": _PLACES}))
+    component.buscarDireccion();
+    expect(component.places.length).toBeGreaterThan(0);
   });
 
 })

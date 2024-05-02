@@ -10,3 +10,7 @@ app-toast{
     z-index: 1;
     right: 0;
 }
+
+.span-location{
+    font-size: 10px;
+}
