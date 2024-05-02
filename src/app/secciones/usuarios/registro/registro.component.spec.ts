@@ -10,7 +10,7 @@ import { PersonasService } from 'src/app/servicios/personas/personas.service';
 import { LocationService } from 'src/app/servicios/maps/location.service';
 import { UbicacionMaps } from 'src/app/clases/location';
 
-fdescribe('RegistroComponent', () => {
+describe('RegistroComponent', () => {
   let component: RegistroComponent;
   let fixture: ComponentFixture<RegistroComponent>;
   let administracionService : AdministracionService;
