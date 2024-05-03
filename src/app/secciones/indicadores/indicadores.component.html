@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col">
+        <h3>Indicadores</h3>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">FTP</th>
+                    <th scope="col">VO2Max</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ind of indicadoresMostrar">
+                    <td>{{ind.fecha}}</td>
+                    <td>{{ind.ftp}}</td>
+                    <td>{{ind.vo2max}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation">    
+                <ul class="pagination justify-content-end">
+                  <li class="page-item" [ngClass]="paginaActiva == 1 ? 'disabled' : ''" (click)="retrocederPagina()">
+                    <a class="page-link" aria-label="Previous" >
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  
+                  <li class="page-item" *ngFor="let item of [].constructor(pages); let i = index"><a class="page-link" (click)="seleccionarPagina(i+1)">{{i + 1}}</a></li>
+                  <li class="page-item" [ngClass]="paginaActiva == pages ? 'disabled' : ''" (click)="siguientePagina()">
+                    <a class="page-link" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+    </div>
+</div>
