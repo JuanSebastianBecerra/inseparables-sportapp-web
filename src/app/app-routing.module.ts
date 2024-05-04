@@ -24,6 +24,7 @@ import { CrearEntrenamientoComponent } from "./secciones/entrenamientos/crear-en
 import { PlanesComponent } from './secciones/planes/planes.component';
 import { EventosComponent } from './secciones/eventos/eventos.component';
 import { IndicadoresComponent } from './secciones/indicadores/indicadores.component';
+import { CrearEventoComponent } from './secciones/eventos/crear-evento/crear-evento.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -46,7 +47,8 @@ const routes: Routes = [
   { path: 'crear-plan', component: CrearPlanComponent},
   { path: 'planes', component: PlanesComponent},
   { path: 'indicadores', component: IndicadoresComponent},
-  { path: '**', component: DesconocidoComponent }
+  { path: 'crear-evento', component: CrearEventoComponent},
+  { path: '**', component: DesconocidoComponent },
 ];
 
 @NgModule({

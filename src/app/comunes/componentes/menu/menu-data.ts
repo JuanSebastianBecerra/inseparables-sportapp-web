@@ -34,7 +34,7 @@ export const menubarDeporteData = [
     },
     {
         routeLink: 'crear-plan',
-        icon: 'far fa-calendar-plus',
+        icon: 'fal fa-calendar-plus',
         label: 'Crear Plan'
     },
     {
