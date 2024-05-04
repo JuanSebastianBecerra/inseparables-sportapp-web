@@ -55,6 +55,7 @@ import { PlanesComponent } from './secciones/planes/planes.component';
 import { EventosComponent } from './secciones/eventos/eventos.component';
 import { IdiomaComponent } from './comunes/componentes/idioma/idioma.component';
 import { IndicadoresComponent } from './secciones/indicadores/indicadores.component';
+import { CrearEventoComponent } from './secciones/eventos/crear-evento/crear-evento.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -106,6 +107,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         CrearEntrenamientoComponent,
         ToastComponent,
         CrearPlanComponent,
+        CrearEventoComponent,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
