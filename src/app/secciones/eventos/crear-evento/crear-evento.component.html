@@ -1,18 +1,18 @@
 <app-toast mensajeError="{{responseMessage}}" [mostrarToast]=responseError class="d-flex justify-content-center"></app-toast>
 <div class="container contenedor-registro">
-    <h1>Evento</h1>
+    <h1>{{'evento' | translate}}</h1>
     <form class="form-size size-form-register" [formGroup]="eventoForm" (ngSubmit)="!eventoForm.invalid && guardarEvento(eventoForm.value)">
         <div class="row">
             <div class="col-6">
-                <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="nombre"/>
+                <input type="text" class="form-control" id="name" placeholder="{{'name' | translate}}" formControlName="nombre"/>
                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('nombre')!.hasError('required') && eventoForm.get('nombre')!.touched">
-                    Se requiere el nombre
+                    {{'nombre-requerido' | translate}}
                 </div>
             </div>
             <div class="col-6"></div>
         </div>
         <div class="row mb-3 mt-3">
-          <label for="datepickerHoraInicio">Fecha inicio</label>
+          <label for="datepickerHoraInicio">{{'fecha-inicio' | translate}}</label>
           <div class="col-6">
               <div>
                   <dx-date-box
@@ -26,13 +26,13 @@
               </div>
               <div class="alert alert-danger alert-dismissible fade show"
                    *ngIf="eventoForm.get('fecha_inicio')!.hasError('required') && eventoForm.get('fecha_inicio')!.touched">
-                  Se requiere la fecha de inicio
+                   {{'fecha-requerida' | translate}}
               </div>
           </div>
           <div class="col-6"></div>
         </div>
         <div class="row mb-3 mt-3">
-            <label for="datepickerHoraFin">Fecha fin</label>
+            <label for="datepickerHoraFin">{{'fecha-fin' | translate}}</label>
             <div class="col-6">
                 <div>
                     <dx-date-box
@@ -46,7 +46,7 @@
                 </div>
                 <div class="alert alert-danger alert-dismissible fade show"
                     *ngIf="eventoForm.get('fecha_fin')!.hasError('required') && eventoForm.get('fecha_fin')!.touched">
-                    Se requiere la hora fin
+                    {{'fecha-requerida' | translate}}
                 </div>
             </div>
             <div class="col-6"></div>
@@ -54,50 +54,50 @@
         <div class="row">
             <div class="col-6">
                 <select class="form-select" formControlName="id_socio">
-                    <option selected value=>Seleccione el socio de negocio ...</option>
+                    <option selected value=>{{'seleccion-socio' | translate}}</option>
                     <option *ngFor="let socio of socios" [ngValue]="socio.id">
                         {{ socio.nombre }} {{socio.apellido}}
                     </option>
                 </select>
                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('id_socio')!.hasError('required') && eventoForm.get('id_socio')!.touched">
-                    Se requiere el socio de negocio
+                    {{'socio-requerido' | translate}}
                 </div>
             </div>
             <div class="col-6">
                 <select class="form-select" formControlName="id_deporte">
-                    <option selected value=>Seleccione el deporte ...</option>
+                    <option selected value=> {{'seleccion-deporte' | translate}}</option>
                     <option *ngFor="let deporte of deportes" [ngValue]="deporte.id">
                         {{ deporte.nombre }}
                     </option>
                 </select>
                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('id_deporte')!.hasError('required') && eventoForm.get('id_deporte')!.touched">
-                    Se requiere el deporte
+                    {{'deporte-requerido' | translate}}
                 </div>
             </div>
             <div class="col-6"></div>
         </div>
         <div class="row">
           <div class="col-12">
-              <textarea class="form-control" placeholder="Detalles" id="detalle" rows="4" formControlName="detalle"></textarea>
+              <textarea class="form-control" placeholder="{{'detalle' | translate}}" id="detalle" rows="4" formControlName="detalle"></textarea>
               <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('detalle')!.hasError('required') && eventoForm.get('detalle')!.touched">
-                  Se requieren los detalles del servicio
+                    {{'detalle-requerido' | translate}}
               </div>
           </div>
         </div>
         <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
-            Evento creado exitosamente
+            {{'evento-creado' | translate}}
         </div>
         
         <div class="row">
             <div class="col-3"></div>
             <div class="col-3">
               <button type="submit" class="btn btn-guardar mt-5" [disabled]="!eventoForm.valid">
-                Guardar
+                {{'save' | translate}}
               </button>
             </div>
             <div class="col-3">
               <button type="button" routerLink="/eventos" class="btn btn-cancelar mt-5">
-                Cancelar
+                {{'cancel' | translate}}
               </button>
             </div>
             <div class="col-3"></div>

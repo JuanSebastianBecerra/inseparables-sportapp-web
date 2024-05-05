@@ -14,14 +14,14 @@ import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.componen
 
 import {DxDateBoxModule} from "devextreme-angular";
 import { CrearEventoService } from 'src/app/servicios/eventos/crear-evento.service';
-
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-crear-evento',
   templateUrl: './crear-evento.component.html',
   styleUrls: ['./crear-evento.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ToastComponent, DxDateBoxModule, RouterModule]
+  imports: [ReactiveFormsModule, CommonModule, ToastComponent, DxDateBoxModule, RouterModule, TranslateModule]
 })
 export class CrearEventoComponent implements OnInit {
 

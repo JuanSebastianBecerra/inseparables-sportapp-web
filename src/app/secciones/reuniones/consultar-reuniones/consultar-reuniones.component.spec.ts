@@ -6,6 +6,7 @@ import { BuscarReunionesComponent } from '../buscar-reuniones/buscar-reuniones.c
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 import { FormsModule } from '@angular/forms';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('ConsultarReunionesComponent', () => {
   let component: ConsultarReunionesComponent;
@@ -14,7 +15,7 @@ describe('ConsultarReunionesComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ConsultarReunionesComponent, BuscarReunionesComponent, ReunionesDisponiblesComponent],
-      imports: [HttpClientTestingModule, ToastComponent, FormsModule]
+      imports: [HttpClientTestingModule, ToastComponent, FormsModule, TranslateModule.forRoot()]
     });
     fixture = TestBed.createComponent(ConsultarReunionesComponent);
     component = fixture.componentInstance;

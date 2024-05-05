@@ -5,6 +5,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {AppRoutingModule} from "../../../app-routing.module";
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { of, throwError } from 'rxjs';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('SocioComponent', () => {
   let component: SocioComponent;
@@ -13,7 +14,7 @@ describe('SocioComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SocioComponent, HttpClientTestingModule, AppRoutingModule],
+      imports: [SocioComponent, HttpClientTestingModule, AppRoutingModule, TranslateModule.forRoot()],
       declarations: []
     });
     fixture = TestBed.createComponent(SocioComponent);

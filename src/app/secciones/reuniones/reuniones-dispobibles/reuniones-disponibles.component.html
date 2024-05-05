@@ -1,16 +1,16 @@
 <app-toast mensajeError="{{errorGetReuniones}}" [mostrarToast]=mostrarErrorGetReuniones class="d-flex justify-content-center"></app-toast>
 <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
-  Sesión asignada correctamente
+  {{'sesion-asignada' | translate}}
 </div>
 <div class="d-flex">
   <div class="card" style="width: 18rem;" *ngFor="let reunion of reuniones">
     <div class="card-body">
       <h6 class="card-title">{{reunion.nombre_entrenador}}</h6>
-      <div class="card-text text-muted detail">Lugar: {{reunion.lugar}}</div>
-      <div class="card-text text-muted detail">Disponibilidad: {{reunion.fecha}}</div>
+      <div class="card-text text-muted detail">{{'lugar' | translate}}{{reunion.lugar}}</div>
+      <div class="card-text text-muted detail">{{'disponibilidad' | translate}}{{reunion.fecha}}</div>
       <p class="card-text">{{reunion.detalle_entrenador}}</p>
       <p class="position-absolute bottom-0 end-0">
-        <a type="submit" class="btn btn-details mt-5 rounded-pill" (click)='agendarSesion(reunion.id)'>Agendar sesión</a>
+        <a type="submit" class="btn btn-details mt-5 rounded-pill" (click)='agendarSesion(reunion.id)'>{{'agendar-sesion' | translate}}</a>
       </p>
     </div>
   </div> 

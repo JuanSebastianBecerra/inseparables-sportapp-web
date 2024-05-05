@@ -7,13 +7,14 @@ import { EntrenamientosService } from 'src/app/servicios/entrenamientos/entrenam
 import { PlanService } from 'src/app/servicios/planes_entrenamiento/plan.service';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 import { DetalleEntrenamiento, RespuestaEntrenamientos } from 'src/app/clases/entrenamientos';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-crear-plan',
   templateUrl: './crear-plan.component.html',
   styleUrls: ['./crear-plan.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent]
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent, TranslateModule]
 })
 export class CrearPlanComponent implements OnInit {
 

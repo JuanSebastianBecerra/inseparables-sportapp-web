@@ -8,6 +8,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import { BuscarSocioComponent } from '../../socios/buscar-socio/buscar-socio.component';
 import { MenuAgregarSocioComponent } from '../../socios/menu-agregar-socio/menu-agregar-socio.component';
 import { FormsModule } from '@angular/forms';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('SociosComponent', () => {
   let component: SociosComponent;
@@ -15,7 +16,7 @@ describe('SociosComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[RouterTestingModule, HttpClientTestingModule, ListaSociosComponent, FormsModule],
+      imports:[RouterTestingModule, HttpClientTestingModule, ListaSociosComponent, FormsModule, TranslateModule.forRoot()],
       declarations: [SociosComponent, MenuComponent, BuscarSocioComponent, MenuAgregarSocioComponent]
     });
     fixture = TestBed.createComponent(SociosComponent);

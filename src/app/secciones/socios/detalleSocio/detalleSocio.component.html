@@ -6,7 +6,7 @@
     (ngSubmit)="actualizarSocio(socioForm.value,socioId)"
   >
     <div class="container text-center">
-      <h1>Socio</h1>
+      <h1>{{'partner' | translate}}</h1>
       <div class="row mb-3 mt-5">
         <div class="col">
           <div class="form-floating">
@@ -18,7 +18,7 @@
               formControlName="nombre"
               value="{{ detalleSocio.nombre }}"
             />
-            <label for="name">Nombres</label>
+            <label for="name">{{'name' | translate}}</label>
           </div>
         </div>
         <div class="col">
@@ -31,7 +31,7 @@
               formControlName="apellido"
               value="{{ detalleSocio.apellido }}"
             />
-            <label for="lastname">Apellidos</label>
+            <label for="lastname">{{'apellidos' | translate}}</label>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
               formControlName="username"
               value="{{ detalleSocio.username }}"
             />
-            <label for="username">Username</label>
+            <label for="username">{{'username' | translate}}</label>
           </div>
         </div>
         <div class="col">
@@ -59,7 +59,7 @@
               formControlName="email"
               value="{{ detalleSocio.email }}"
             />
-            <label for="email">E-mail</label>
+            <label for="email">{{'email' | translate}}</label>
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@
               formControlName="password"
               value="{{ detalleSocio.password }}"
             />
-            <label for="password">Contraseña</label>
+            <label for="password">{{'password' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -174,7 +174,7 @@
               formControlName="detalle"
               value="{{ detalleSocio.detalle }}"
             />
-            <label for="name">Detalle</label>
+            <label for="name">{{'detalle' | translate}}</label>
           </div>
         </div>
       </div>
@@ -184,12 +184,12 @@
       <div class="row" >
         <div class="col" hidden>
           <button id="guardar" type="submit" [disabled]="!socioForm.valid" class="btn btn-guardar mt-5">
-            Guardar
+            {{'save' | translate}}
           </button>
         </div>
         <div class="col">
           <button type="button" routerLink="/socios" class="btn btn-cancelar mt-5">
-            Volver
+            {{'return' | translate}}
           </button>
         </div>
       </div>

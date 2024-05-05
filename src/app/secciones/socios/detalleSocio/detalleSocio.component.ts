@@ -5,7 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { DetalleSocio, RespuestaSocio } from 'src/app/clases/detalle-socio';
 import { ActivatedRoute } from '@angular/router';
-
+import {TranslateModule} from "@ngx-translate/core";
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 
 @Component({
@@ -13,7 +13,7 @@ import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.componen
   templateUrl: './detalleSocio.component.html',
   styleUrls: ['./detalleSocio.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent]
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent, TranslateModule]
 })
 export class DetalleSocioComponent implements OnInit, AfterViewInit{
 
