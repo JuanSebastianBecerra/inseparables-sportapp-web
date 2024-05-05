@@ -10,9 +10,9 @@ import { PerfilDeportista } from 'src/app/clases/perfil-deportista';
 import { v4 as uuidv4 } from 'uuid';
 import { timer } from 'rxjs';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
-import { LocationService } from 'src/app/servicios/maps/location.service';
 import { UbicacionMaps } from 'src/app/clases/location';
-
+import { UbicacionComponent } from 'src/app/comunes/componentes/ubicacion/ubicacion.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 function passwordMatcher(c: AbstractControl){
     return c.get("password")?.value == c.get("confirm_password")?.value ? null : {'nomatch': true}
@@ -23,7 +23,7 @@ function passwordMatcher(c: AbstractControl){
     templateUrl: './registro.component.html',
     styleUrls: ['./registro.component.css'],
     standalone: true,
-    imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent, CommonModule]
+    imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent, CommonModule, UbicacionComponent, TranslateModule]
 })
 export class RegistroComponent implements OnInit {
 
@@ -34,18 +34,12 @@ export class RegistroComponent implements OnInit {
     idRegistro: string = ""
     mostrarErrorPerfilDeportivo : boolean = false
     mostrarUsuarioRegistrado: boolean = false
-    places: UbicacionMaps[] = []
-    selectedPlace! : UbicacionMaps
-    mostrarDirecciones : boolean = false
-    mapsKey : string = ""
-
     planes!:any;
-    
-
+    selectedPlace! : UbicacionMaps
 
     constructor(private formBuilder: FormBuilder, private personasService: PersonasService,
-        private router: Router, private administracionService: AdministracionService, private cacheService: CacheService,
-        private locationService: LocationService) {
+        private router: Router, private administracionService: AdministracionService, private cacheService: CacheService
+        ) {
             if (this.router.getCurrentNavigation()?.extras.state){
                 this.idRegistro = this.router.getCurrentNavigation()?.extras.state!["idRegistro"];
             }else
@@ -64,14 +58,8 @@ export class RegistroComponent implements OnInit {
                 numero_identificacion: formulario.numero_identificacion,
                 password: formulario.password,
                 confirm_password: formulario.confirm_password,
-                direccion: formulario.direccion
             });
         }
-
-        this.locationService.obtenerKeyMaps().subscribe(response => {
-            this.mapsKey = response.key
-        })
-        
     }
 
     ngOnInit(): void {
@@ -100,8 +88,7 @@ export class RegistroComponent implements OnInit {
             username: ["", Validators.required],
             password: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
             confirm_password: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
-            suscripcion: ["", Validators.required],
-            direccion: ["", Validators.required]
+            suscripcion: ["", Validators.required]
         }, {validator: passwordMatcher})
     }
 
@@ -111,6 +98,7 @@ export class RegistroComponent implements OnInit {
             this.mostrarErrorPerfilDeportivo = true
         }
         else{
+            bodyRequest.direccion = this.selectedPlace
             this.personasService.registrarUsuario(bodyRequest).subscribe(response => {
                 let respuesta = response?.body;
                 let idUsuarioRegistrado = respuesta.id
@@ -157,32 +145,8 @@ export class RegistroComponent implements OnInit {
             });
     }
 
-    buscarDireccion(): void{
-        this.mostrarDirecciones = true
-        if(this.selectedPlace != undefined) this.selectedPlace.id = ""
-        let direccionTexto = this.registroForm.get("direccion")!.value
-        if(direccionTexto != ""){
-            this.locationService.obtenerUbicacionesPorNombre(direccionTexto, this.mapsKey).subscribe(response =>{
-                this.places = []
-                response.places.forEach((place: any) => {
-                    let locationPlace = new UbicacionMaps(place.id, place.formattedAddress, place.location.latitude, place.location.longitude, place.displayName.text)
-                    this.places.push(locationPlace)
-                })
-            })
-        }else{
-            if(this.selectedPlace != undefined) this.selectedPlace.id = ""
-            this.mostrarDirecciones = false
-        }
-        
+    onSeleccionarDireccion(direccion: UbicacionMaps){
+        this.selectedPlace = direccion
     }
-
-    seleccionarDireccion(place: UbicacionMaps): void{
-        this.selectedPlace = place
-        this.mostrarDirecciones = false
-        this.registroForm.patchValue({direccion: this.selectedPlace.nombre})
-        this.places = []
-    }
-
-
 }
 

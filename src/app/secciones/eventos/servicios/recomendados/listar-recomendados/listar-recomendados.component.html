@@ -11,6 +11,9 @@
     </div>
   </div> 
 </div>
+<div *ngIf="serviciosRecomendados.length < 1" class="servicios-recomendados-vacio-container">
+  <div>No hay servicios recomendados</div>
+</div>
 <div class="alert alert-success alert-dismissible fade show text-center" *ngIf="asignacionExitosa">
   Servicio asociado exitosamente al deportista
 </div>

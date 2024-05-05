@@ -6,7 +6,7 @@
     (ngSubmit)="!registroForm.invalid && registrarUsuario(registroForm.value)"
   >
     <div class="container text-center">
-      <h1>Registro</h1>
+      <h1>{{'registro' | translate}}</h1>
       <div class="row mb-3 mt-5">
         <div class="col">
           <div class="form-floating">
@@ -17,7 +17,7 @@
               placeholder="Nombres"
               formControlName="nombre"
             />
-            <label for="name">Nombres</label>
+            <label for="name">{{'nombre' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -25,7 +25,7 @@
                 registroForm.get('nombre')!.touched
               "
             >
-              Se requiere el nombre
+            {{'nombre-requeridos' | translate}}
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
               placeholder="Apellidos"
               formControlName="apellido"
             />
-            <label for="lastname">Apellidos</label>
+            <label for="lastname">{{'apellido' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -46,7 +46,7 @@
                 registroForm.get('apellido')!.touched
               "
             >
-              Se requiere el apellido
+            {{'apellido-requerido' | translate}}
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@
               placeholder="Usuario"
               formControlName="username"
             />
-            <label for="lastname">Usuario</label>
+            <label for="lastname">{{'usuario' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -69,7 +69,7 @@
                 registroForm.get('username')!.touched
               "
             >
-              Se requiere el usuario
+            {{'usuario-requerido' | translate}}
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
               placeholder="E-mail"
               formControlName="email"
             />
-            <label for="email">E-mail</label>
+            <label for="email">{{'email' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -90,13 +90,13 @@
                 registroForm.get('email')!.touched
               "
             >
-              Se requiere el correo electrónico
+              {{'email-requerido' | translate}}
             </div>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="f['email']?.errors?.['email']"
             >
-              Debe ser un correo
+            {{'email-formato' | translate}}
             </div>
           </div>
         </div>
@@ -104,13 +104,13 @@
       <div class="row mb-3 mt-3">
         <div class="col">
           <div class="form-group col">
-            <label for="documentType">Tipo de identificación</label>
+            <label for="documentType">{{'tipo-identificacion' | translate}}</label>
             <select
               id="documentType"
               class="form-control"
               formControlName="tipo_identificacion"
             >
-              <option selected disabled>Seleccione...</option>
+              <option selected disabled>{{'seleccionar' | translate}}.</option>
               <option>CC</option>
               <option>TI</option>
             </select>
@@ -121,7 +121,7 @@
                 registroForm.get('tipo_identificacion')!.touched
               "
             >
-              Se requiere el tipo de identificación
+            {{'tipo-identificacion-requerido' | translate}}
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@
               placeholder="Número de identificación"
               formControlName="numero_identificacion"
             />
-            <label for="identification">Número de identificación</label>
+            <label for="identification">{{'numero-identificacion' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -142,51 +142,12 @@
                 registroForm.get('numero_identificacion')!.touched
               "
             >
-              Se requiere el número de identificación
+            {{'numero-identificacion-requerido' | translate}}
             </div>
           </div>
         </div>
       </div>
-      <div class="row mb-3 mt-3">
-        <div class="col">
-          <div class="form-floating">
-            <input   
-              type="text"
-              class="form-control"
-              id="direccion"
-              placeholder="Direccion"
-              formControlName="direccion"
-              (input)="buscarDireccion()"
-            />
-            <label for="direccion">Dirección</label>
-            
-            <div
-              class="alert alert-danger alert-dismissible fade show"
-              *ngIf="
-                registroForm.get('direccion')!.hasError('required') &&
-                registroForm.get('direccion')!.touched
-              "
-            >
-              Se requiere la dirección
-            </div>
-            <div
-              class="alert alert-danger alert-dismissible fade show"
-              *ngIf="
-                !registroForm.get('direccion')!.hasError('required') && (selectedPlace == undefined || selectedPlace.id == '')
-              "
-            >
-             Se debe seleccionar una dirección de la lista
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="list-group" *ngIf="mostrarDirecciones">
-            <a class="list-group-item list-group-item-action" *ngFor="let place of places" (click)="seleccionarDireccion(place)">
-              <strong>{{place.nombre}}</strong> - <span class="span-location">{{place.direccion}}</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <app-ubicacion (onSeleccionarDireccion)="onSeleccionarDireccion($event)"></app-ubicacion>
       <div class="row mb-3 mt-3">
         <div class="col">
           <div class="form-floating">
@@ -197,7 +158,7 @@
               placeholder="Contraseña"
               formControlName="password"
             />
-            <label for="password">Contraseña</label>
+            <label for="password">{{'contrasenia' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -205,7 +166,7 @@
                 registroForm.get('password')!.touched
               "
             >
-              Se requiere la contraseña
+            {{'contrasenia-requerida' | translate}}
             </div>
             <div
               class="alert alert-danger alert-dismissible fade show"
@@ -214,7 +175,7 @@
                 registroForm.get('password')!.touched
               "
             >
-              La contraseña debe tener mínimo 6 caracteres
+            {{'contrasenia-formato' | translate}}
             </div>
           </div>
         </div>
@@ -228,7 +189,7 @@
               formControlName="confirm_password"
 
             />
-            <label for="confirmPwd">Confirmar contraseña</label>
+            <label for="confirmPwd">{{'confirmacion-contrasenia' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -236,7 +197,7 @@
                 registroForm.get('confirm_password')!.touched
               "
             >
-              Se requiere la confirmación de la contraseña
+            {{'confirmacion-contrasenia-requerida' | translate}}
             </div>
             <div
               class="alert alert-danger alert-dismissible fade show"
@@ -245,7 +206,7 @@
                 registroForm.get('confirm_password')!.touched
               "
             >
-              La contraseña debe tener mínimo 6 caracteres
+            {{'contrasenia-formato' | translate}}
           </div>
           </div>
         </div>
@@ -259,13 +220,13 @@
                 registroForm.get('confirm_password')!.touched
               "
             >
-              Las contraseñas no coinciden
+            {{'contrasenia-iguales' | translate}}
             </div>
       </div>
       <div class="row mb-3 mt-3">
         <div class="col">
           <div class="form-group col">
-            <label for="suscription">Suscripción</label>
+            <label for="suscription">{{'suscripcion' | translate}}</label>
             <select
               id="suscription"
               class="form-control"
@@ -281,20 +242,20 @@
                 registroForm.get('suscripcion')!.touched
               "
             >
-              Se requiere la suscripción
+            {{'suscripcion-requerida' | translate}}
             </div>
           </div>
         </div>
         <div class="col">
           <button type="button" class="btn btn-guardar mt-3" (click) = abrirPerfilDeportivo()>
-            Perfil deportivo
+            {{'perfil-deportivo' | translate}}
           </button>
         </div>
       </div>
       <div class="row">
         <div class="col-6">
           <a class="link-color-sportapp" href="#" routerLink="/suscripciones"
-            >Ver detalles y recomendaciones de suscripción
+            >{{'ver-detalles-suscripcion' | translate}}
           </a>
         </div>
       </div>
@@ -302,25 +263,25 @@
         <div class="alert alert-danger alert-dismissible fade show"
               *ngIf="mostrarErrorPerfilDeportivo"
             >
-              Falta completar el perfil deportivo
+              {{'perfil-deportivo-requerido' | translate}}
             </div>
       </div>
       <div class="row">
         <div class="alert alert-success alert-dismissible fade show"
               *ngIf="mostrarUsuarioRegistrado"
             >
-              Usuario registrado exitosamente
+            {{'usuario-registro-exitoso' | translate}}
             </div>
       </div>
       <div class="row">
         <div class="col">
           <button type="submit" [disabled]="!registroForm.valid || (selectedPlace == undefined || selectedPlace.id == '')" class="btn btn-guardar mt-5">
-            Crear cuenta
+            {{'crear-cuenta' | translate}}
           </button>
         </div>
         <div class="col">
           <button type="button" routerLink="/" class="btn btn-cancelar mt-5">
-            Cancelar
+            {{'cancelar' | translate}}
           </button>
         </div>
       </div>

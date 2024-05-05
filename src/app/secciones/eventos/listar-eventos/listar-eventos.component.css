@@ -10,7 +10,7 @@
     color: #49454F;
     background-color: var(--BlueGreen-1);
     margin-bottom: 4rem;
-    margin-top: 4rem;
+    margin-top: 1rem;
     margin-left: 4rem;
     font-size: 16px;
     display: block;
@@ -20,20 +20,36 @@
     font-weight: 100;
 }
 
+.btn{
+    font-size: 13px;
+    width: 8rem;
+    float: right;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
 .btn-details {
     background-color: var(--BlueGreen-7);
     color: var(--BlueGreen-1);
-    width: 8rem;
-    float: right;
-    margin-right: 1rem;
+}
+
+.btn-light {
+    border-color: #79747E;
+    background-color: var(--BlueGreen-1);
+    color: var(--BlueGreen-7);
 }
 
 .detail{
     font-size: 0.6rem;
 }
 
-.servicios-recomendados-vacio-container{
+.eventos-vacio-container{
     width: 100%;
     text-align: center;
     color: darkgray;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
 }

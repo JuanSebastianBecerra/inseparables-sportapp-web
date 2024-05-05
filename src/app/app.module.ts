@@ -52,10 +52,17 @@ import { EntrenamientosComponent } from './secciones/entrenamientos/entrenamient
 import { CrearEntrenamientoComponent } from './secciones/entrenamientos/crear-entrenamiento/crear-entrenamiento.component';
 import {CrearPlanComponent} from './secciones/planes_entrenamiento/crear-plan/crear-plan.component';
 import { PlanesComponent } from './secciones/planes/planes.component';
-import { EventosComponent } from './secciones/eventos/eventos.component';
 import { IdiomaComponent } from './comunes/componentes/idioma/idioma.component';
 import { IndicadoresComponent } from './secciones/indicadores/indicadores.component';
 import { CrearEventoComponent } from './secciones/eventos/crear-evento/crear-evento.component';
+import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ConsultaEventosComponent } from './secciones/eventos/consulta-eventos/consulta-eventos.component';
+import { BuscarEventosComponent } from './secciones/eventos/buscar-eventos/buscar-eventos.component';
+import { ListarEventosComponent } from './secciones/eventos/listar-eventos/listar-eventos.component';
+import { BotonCrearEventoComponent } from './secciones/eventos/boton-crear-evento/boton-crear-evento.component';
+import { UbicacionComponent } from './comunes/componentes/ubicacion/ubicacion.component';
+import { DetalleEventoComponent } from './secciones/eventos/detalle-evento/detalle-evento.component'
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -83,15 +90,18 @@ export function HttpLoaderFactory(http: HttpClient) {
         BuscarEntrenamientoComponent,
         EntrenamientosComponent,
         PlanesComponent,
-        EventosComponent,
         IdiomaComponent,
-        IndicadoresComponent
+        IndicadoresComponent,
+        ConsultaEventosComponent,
+        BotonCrearEventoComponent,
+        DetalleEventoComponent,
     ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         HttpClientModule,
         AutenticacionComponent,
@@ -108,6 +118,10 @@ export function HttpLoaderFactory(http: HttpClient) {
         ToastComponent,
         CrearPlanComponent,
         CrearEventoComponent,
+        NgxMaterialTimepickerModule,
+        BuscarEventosComponent,
+        ListarEventosComponent,
+        UbicacionComponent,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

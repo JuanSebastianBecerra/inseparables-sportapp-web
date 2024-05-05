@@ -2,7 +2,7 @@
 <div class="container contenedor-registro">
     <h1>{{'evento' | translate}}</h1>
     <form class="form-size size-form-register" [formGroup]="eventoForm" (ngSubmit)="!eventoForm.invalid && guardarEvento(eventoForm.value)">
-        <div class="row">
+        <div class="row row-form">
             <div class="col-6">
                 <input type="text" class="form-control" id="name" placeholder="{{'name' | translate}}" formControlName="nombre"/>
                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('nombre')!.hasError('required') && eventoForm.get('nombre')!.touched">
@@ -11,29 +11,27 @@
             </div>
             <div class="col-6"></div>
         </div>
-        <div class="row mb-3 mt-3">
-          <label for="datepickerHoraInicio">{{'fecha-inicio' | translate}}</label>
+        <app-ubicacion (onSeleccionarDireccion)="onSeleccionarDireccion($event)"></app-ubicacion>
+        <div class="row row-form mb-3 mt-3">
           <div class="col-6">
-              <div>
-                  <dx-date-box
-                          id="datepickerFechaInicio"
-                          [(value)]="fecha_inicio"
-                          formControlName="fecha_inicio"
-                          type="datetime"
-                          pickerType="list"
-                          [interval]="20">
-                  </dx-date-box>
-              </div>
-              <div class="alert alert-danger alert-dismissible fade show"
-                   *ngIf="eventoForm.get('fecha_inicio')!.hasError('required') && eventoForm.get('fecha_inicio')!.touched">
-                   {{'fecha-requerida' | translate}}
-              </div>
+                <label for="datepickerHoraInicio">{{'fecha-inicio' | translate}}</label>
+                <div>
+                    <dx-date-box
+                        id="datepickerFechaInicio"
+                        [(value)]="fecha_inicio"
+                        formControlName="fecha_inicio"
+                        type="datetime"
+                        pickerType="list"
+                        [interval]="20">
+                    </dx-date-box>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show"
+                    *ngIf="eventoForm.get('fecha_inicio')!.hasError('required') && eventoForm.get('fecha_inicio')!.touched">
+                    {{'fecha-inicio-requerida' | translate}}
+                </div>
           </div>
-          <div class="col-6"></div>
-        </div>
-        <div class="row mb-3 mt-3">
-            <label for="datepickerHoraFin">{{'fecha-fin' | translate}}</label>
-            <div class="col-6">
+          <div class="col-6">
+                <label for="datepickerHoraFin">{{'fecha-fin' | translate}}</label>
                 <div>
                     <dx-date-box
                             id="datepickerFechaFin"
@@ -46,26 +44,25 @@
                 </div>
                 <div class="alert alert-danger alert-dismissible fade show"
                     *ngIf="eventoForm.get('fecha_fin')!.hasError('required') && eventoForm.get('fecha_fin')!.touched">
-                    {{'fecha-requerida' | translate}}
+                    {{'fecha-fin-requerida' | translate}}
                 </div>
-            </div>
-            <div class="col-6"></div>
+          </div>
         </div>
-        <div class="row">
+        <div class="row row-form">
             <div class="col-6">
                 <select class="form-select" formControlName="id_socio">
-                    <option selected value=>{{'seleccion-socio' | translate}}</option>
+                    <option selected value=>{{'seleccione-socio-negocio' | translate}}</option>
                     <option *ngFor="let socio of socios" [ngValue]="socio.id">
                         {{ socio.nombre }} {{socio.apellido}}
                     </option>
                 </select>
                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('id_socio')!.hasError('required') && eventoForm.get('id_socio')!.touched">
-                    {{'socio-requerido' | translate}}
+                    {{'seleccione-socio-negocio-requerido' | translate}}
                 </div>
             </div>
             <div class="col-6">
                 <select class="form-select" formControlName="id_deporte">
-                    <option selected value=> {{'seleccion-deporte' | translate}}</option>
+                    <option selected value=>{{'seleccione-deporte' | translate}}</option>
                     <option *ngFor="let deporte of deportes" [ngValue]="deporte.id">
                         {{ deporte.nombre }}
                     </option>
@@ -78,9 +75,9 @@
         </div>
         <div class="row">
           <div class="col-12">
-              <textarea class="form-control" placeholder="{{'detalle' | translate}}" id="detalle" rows="4" formControlName="detalle"></textarea>
+              <textarea class="form-control" placeholder="{{'detalles' | translate}}" id="detalle" rows="4" formControlName="detalle"></textarea>
               <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('detalle')!.hasError('required') && eventoForm.get('detalle')!.touched">
-                    {{'detalle-requerido' | translate}}
+                  {{'detalles-evento-requerido' | translate}}
               </div>
           </div>
         </div>

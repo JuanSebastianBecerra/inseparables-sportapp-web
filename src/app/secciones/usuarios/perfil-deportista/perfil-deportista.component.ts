@@ -8,13 +8,14 @@ import {PerfilDeportista} from "../../../clases/perfil-deportista";
 import {AdministracionService} from "../../../servicios/administracion/administracion.service";
 import { CacheService } from 'src/app/servicios/administracion/cache.service';
 import { Observable } from 'rxjs';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-perfil-deportista',
     templateUrl: './perfil-deportista.component.html',
     styleUrls: ['./perfil-deportista.component.css'],
     standalone: true,
-    imports: [ReactiveFormsModule, CommonModule, RouterModule]
+    imports: [ReactiveFormsModule, CommonModule, RouterModule, TranslateModule]
 })
 export class PerfilDeportistaComponent implements OnInit {
 

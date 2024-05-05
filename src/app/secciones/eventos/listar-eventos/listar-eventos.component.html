@@ -1,0 +1,41 @@
+<app-toast mensajeError="{{errorMensaje}}" [mostrarToast]=mostrarError class="d-flex justify-content-center"></app-toast>
+<div>
+    <div *ngIf="tipoEvento == 'PROXIMOS' && eventosProximos.length > 0" class="grid-container">
+        <div class="card grid-item" style="width: 18rem;" *ngFor="let evento of eventosProximos">
+            <div class="card-body">
+            <h6 class="card-title">{{evento.nombre}}</h6>
+            <div class="card-subtitle mb-2 text-muted detail">{{evento.fecha_inicio}}</div>
+            <div class="card-subtitle mb-2 text-muted detail"><strong>{{evento.ubicacion.nombre}}</strong></div>
+            <p class="card-text">{{evento.detalle}}</p>
+            <div class="d-flex">
+                <button class="btn btn-light mt-5 rounded-pill" [disabled]="evento.inscrito">{{'inscribirme' | translate}}</button>
+                <button class="btn btn-details mt-5 rounded-pill" (click)="verDetalleEvento(evento.id)">{{'ver-detalles' | translate}}</button>
+            </div>
+            </div>
+        </div> 
+    </div>
+    <div *ngIf="tipoEvento == 'PROXIMOS' && eventosProximos.length < 1" class="eventos-vacio-container">
+      <div>No hay próximos eventos</div>
+    </div>
+    <div *ngIf="tipoEvento == 'CERCANOS' && eventosCercanos.length > 0" class="d-flex">
+        <div class="card" style="width: 18rem;" *ngFor="let evento of eventosCercanos">
+            <div class="card-body">
+              <h6 class="card-title">{{evento.nombre}}</h6>
+              <div class="card-subtitle mb-2 text-muted detail">{{evento.fecha_inicio}}</div>
+              <div class="card-subtitle mb-2 text-muted detail"><strong>{{evento.ubicacion.nombre}}</strong></div>
+              <p class="card-text">{{evento.detalle}}</p>
+              <div class="d-flex">
+                <button class="btn btn-light mt-5 rounded-pill" [disabled]="evento.inscrito">Inscribirme</button>
+                <button class="btn btn-details mt-5 rounded-pill" (click)="verDetalleEvento(evento.id)">Ver detalles</button>
+              </div>
+            </div>
+          </div> 
+    </div>  
+    <div *ngIf="tipoEvento == 'CERCANOS' && eventosCercanos.length < 1" class="eventos-vacio-container">
+      <div>No hay eventos cercanos</div>
+    </div>
+</div>
+<!-- TODO esto debe usarse en la historia SPR 69 -->
+<!--div class="alert alert-success alert-dismissible fade show text-center" *ngIf="asignacionExitosa">
+  Servicio asociado exitosamente al deportista
+</div-->

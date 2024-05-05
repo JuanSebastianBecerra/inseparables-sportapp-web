@@ -1,0 +1,45 @@
+<div class="container" *ngIf="eventoDetalle">
+    <div class="row">
+        <div class="row">
+            <h3>{{'evento' | translate}}: {{eventoDetalle.nombre}}</h3>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <table>
+                    <tr>
+                        <td><strong>{{'fecha-inicio' | translate}}: </strong></td>
+                        <td>{{eventoDetalle.fecha_inicio}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>{{'fecha-fin' | translate}}: </strong></td>
+                        <td>{{eventoDetalle.fecha_fin}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>{{'empresa-socio' | translate}}: </strong></td>
+                        <td>{{nombreSocio}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col">
+                    <button type="button" class="btn btn-guardar" (click)="verServiciosRecomendados(eventoDetalle.id)">{{'servicios-recomendados' | translate}}</button>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <textarea type="text" class="form-control" id="detalle" [(ngModel)]="eventoDetalle.detalle" disabled></textarea>
+                <label for="detalle">{{'detalles' | translate}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <button type="button" class="btn btn-cancelar" (click)="cancelar()">{{'cancelar' | translate}}</button>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
