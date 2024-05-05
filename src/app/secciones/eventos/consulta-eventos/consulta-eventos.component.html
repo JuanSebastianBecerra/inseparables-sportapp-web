@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row buscar-eventos-container">
+        <app-buscar-eventos (onBuscarEvento)="onChangeTextoBuscarEvento($event)" (onCambiarTipoEvento)="onChangeTipoEvento($event)"></app-buscar-eventos>
+    </div>
+    <div class="row listar-eventos-container">
+        <app-listar-eventos [textoBuscar]="textoBuscarEvento" [tipoEvento]="tipoEvento"></app-listar-eventos>
+    </div>
+    <div class="row agregar-servicio-container">
+        <app-boton-crear-evento></app-boton-crear-evento>
+    </div>
+</div>

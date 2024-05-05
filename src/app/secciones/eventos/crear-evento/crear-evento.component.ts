@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { DeportesService } from 'src/app/servicios/deporte/deportes.service';
-import { ServiciosService } from 'src/app/servicios/servicios/servicios.service';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { timer } from 'rxjs';
 import { SPACE_ASCII_CHAR_NUMBERS, ZERO_ASCII_CHAR_NUMBERS, NINE_ASCII_CHAR_NUMBERS } from 'src/app/utils/constants';
@@ -10,10 +9,12 @@ import { SPACE_ASCII_CHAR_NUMBERS, ZERO_ASCII_CHAR_NUMBERS, NINE_ASCII_CHAR_NUMB
 import { RespuestaSocios } from 'src/app/clases/detalle-socio';
 import { Router, RouterModule } from '@angular/router';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
-
+import {TranslateModule} from "@ngx-translate/core";
 
 import { CrearEventoService } from 'src/app/servicios/eventos/crear-evento.service';
 import {DxDateBoxModule} from "devextreme-angular";
+import { UbicacionComponent } from 'src/app/comunes/componentes/ubicacion/ubicacion.component';
+import { UbicacionMaps } from 'src/app/clases/location';
 
 
 @Component({
@@ -21,7 +22,7 @@ import {DxDateBoxModule} from "devextreme-angular";
   templateUrl: './crear-evento.component.html',
   styleUrls: ['./crear-evento.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ToastComponent, RouterModule, DxDateBoxModule]
+  imports: [ReactiveFormsModule, CommonModule, ToastComponent, RouterModule, DxDateBoxModule, UbicacionComponent, TranslateModule]
 })
 export class CrearEventoComponent implements OnInit {
 
@@ -33,6 +34,7 @@ export class CrearEventoComponent implements OnInit {
   exitoso: boolean = false
   fecha_inicio: any = new Date();
   fecha_fin: any = new Date();
+  selectedPlace! : UbicacionMaps
 
   constructor(private formBuilder: FormBuilder, private deportesService: DeportesService, 
     private socioService: SocioService, private eventoService: CrearEventoService,
@@ -93,6 +95,7 @@ export class CrearEventoComponent implements OnInit {
   }
 
   guardarEvento(bodyRequest: any){
+    bodyRequest.ubicacion = this.selectedPlace
     this.eventoService.registrarEvento(bodyRequest).subscribe(response => {
       this.exitoso = true
       this.eventoForm.reset()
@@ -116,6 +119,10 @@ export class CrearEventoComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  onSeleccionarDireccion(direccion: UbicacionMaps){
+    this.selectedPlace = direccion
   }
 
 }

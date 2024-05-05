@@ -1,0 +1,19 @@
+.row{
+    margin-bottom: 2rem;
+}
+
+.container{
+    margin-top: 1rem;
+}
+
+.title-container{
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+}
+
+tr{
+    height: 3rem;
+}

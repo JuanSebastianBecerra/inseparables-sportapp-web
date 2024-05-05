@@ -1,0 +1,45 @@
+<div class="row mb-3 mt-3">
+    <div class="col">
+        <form
+        class="form-size size-form-register"
+        [formGroup]="direccionForm"
+            >
+            <div class="form-floating">
+            <input   
+                type="text"
+                class="form-control"
+                id="direccion"
+                placeholder="Direccion"
+                formControlName="direccion"
+                (input)="buscarDireccion()"
+            />
+            <label for="direccion">{{'direccion' | translate}}</label>
+            
+            <div
+                class="alert alert-danger alert-dismissible fade show"
+                *ngIf="
+                direccionForm.get('direccion')!.hasError('required') &&
+                direccionForm.get('direccion')!.touched
+                "
+            >
+                {{'direccion-requerida' | translate}}
+            </div>
+            <div
+                class="alert alert-danger alert-dismissible fade show"
+                *ngIf="
+                !direccionForm.get('direccion')!.hasError('required') && (selectedPlace == undefined || selectedPlace.id == '')
+                "
+            >
+                {{'direccion-minima' | translate}}
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="col">
+        <div class="list-group" *ngIf="mostrarDirecciones">
+        <a class="list-group-item list-group-item-action" *ngFor="let place of places" (click)="seleccionarDireccion(place)">
+            <strong>{{place.nombre}}</strong> - <span class="span-location">{{place.direccion}}</span>
+        </a>
+        </div>
+    </div>
+  </div>

@@ -8,6 +8,7 @@ import { DetalleSocio, RespuestaSocios } from 'src/app/clases/detalle-socio';
 import { Router } from '@angular/router';
 import { CrearEventoService } from 'src/app/servicios/eventos/crear-evento.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('CrearEventoComponent', () => {
   let component: CrearEventoComponent;
@@ -23,7 +24,7 @@ describe('CrearEventoComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [CrearEventoComponent, HttpClientTestingModule, RouterTestingModule],
+      imports: [CrearEventoComponent, HttpClientTestingModule, RouterTestingModule, TranslateModule.forRoot()],
       declarations: []
     });
     fixture = TestBed.createComponent(CrearEventoComponent);

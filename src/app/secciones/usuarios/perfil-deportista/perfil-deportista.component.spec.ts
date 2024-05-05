@@ -5,6 +5,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {AppRoutingModule} from "../../../app-routing.module";
 import { AdministracionService } from 'src/app/servicios/administracion/administracion.service';
 import { of, throwError } from 'rxjs';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PerfilDeportistaComponent', () => {
   let component: PerfilDeportistaComponent;
@@ -16,7 +17,7 @@ describe('PerfilDeportistaComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PerfilDeportistaComponent, HttpClientTestingModule, AppRoutingModule],
+      imports: [PerfilDeportistaComponent, HttpClientTestingModule, AppRoutingModule, TranslateModule.forRoot()],
       declarations: [],
       providers: [],
     });
