@@ -1,0 +1,32 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RespuestaEventos, RespuestaEventosDeportista } from 'src/app/clases/evento';
+import { TOKEN_KEY } from 'src/app/utils/constants';
+import { environment } from 'src/environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EventosService {
+
+  headers = new HttpHeaders({
+    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
+  })
+
+  private eventosUrl = environment.baseUrlAdministracion + '/eventos';
+
+  constructor(private http: HttpClient) { }
+
+  getEventosProximos(): Observable<RespuestaEventos>{
+    return this.http.get<RespuestaEventos>(this.eventosUrl, { headers: this.headers })
+  }
+
+  getEventosCercanos(): Observable<RespuestaEventos>{
+    return this.http.get<RespuestaEventos>(this.eventosUrl+ "-cercanos", { headers: this.headers })
+  }
+
+  getEventosDeportista(): Observable<RespuestaEventosDeportista>{
+    return this.http.get<RespuestaEventosDeportista>(this.eventosUrl+ "-deportista", { headers: this.headers })
+  }
+}

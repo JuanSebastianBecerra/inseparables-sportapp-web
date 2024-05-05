@@ -24,5 +24,7 @@
     "creala": "Create it here",
     "usuario-requerido": "User required",
     "validacion-correo": "Must be an email",
-    "contrasenia-requerida": "Password required"
+    "contrasenia-requerida": "Password required",
+
+    "buscar.eventos": "Search events ..."
 }

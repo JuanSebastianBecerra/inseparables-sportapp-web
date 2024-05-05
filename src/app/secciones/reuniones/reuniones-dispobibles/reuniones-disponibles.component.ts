@@ -1,9 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ReunionesService } from 'src/app/servicios/reuniones/reuniones.service';
-import { ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterModule} from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
+import { Router } from '@angular/router';
 import { RespuestaReuniones, Reunion } from 'src/app/clases/reunion';
 
 @Component({

@@ -2,7 +2,7 @@
 <div class="container contenedor-registro">
     <h1>Evento</h1>
     <form class="form-size size-form-register" [formGroup]="eventoForm" (ngSubmit)="!eventoForm.invalid && guardarEvento(eventoForm.value)">
-        <div class="row">
+        <div class="row row-form">
             <div class="col-6">
                 <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="nombre"/>
                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('nombre')!.hasError('required') && eventoForm.get('nombre')!.touched">
@@ -11,29 +11,27 @@
             </div>
             <div class="col-6"></div>
         </div>
-        <div class="row mb-3 mt-3">
-          <label for="datepickerFechaInicio">Fecha inicio</label>
+        <app-ubicacion (onSeleccionarDireccion)="onSeleccionarDireccion($event)"></app-ubicacion>
+        <div class="row row-form mb-3 mt-3">
           <div class="col-6">
-              <div>
-                  <dx-date-box
-                          id="datepickerFechaInicio"
-                          [(value)]="fecha_inicio"
-                          formControlName="fecha_inicio"
-                          type="datetime"
-                          pickerType="list"
-                          [interval]="20">
-                  </dx-date-box>
-              </div>
-              <div class="alert alert-danger alert-dismissible fade show"
-                   *ngIf="eventoForm.get('fecha_inicio')!.hasError('required') && eventoForm.get('fecha_inicio')!.touched">
-                  Se requiere la fecha de inicio
-              </div>
+                <label for="datepickerHoraInicio">Fecha inicio</label>
+                <div>
+                    <dx-date-box
+                        id="datepickerFechaInicio"
+                        [(value)]="fecha_inicio"
+                        formControlName="fecha_inicio"
+                        type="datetime"
+                        pickerType="list"
+                        [interval]="20">
+                    </dx-date-box>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show"
+                    *ngIf="eventoForm.get('fecha_inicio')!.hasError('required') && eventoForm.get('fecha_inicio')!.touched">
+                    Se requiere la fecha de inicio
+                </div>
           </div>
-          <div class="col-6"></div>
-        </div>
-        <div class="row mb-3 mt-3">
-            <label for="datepickerFechaFin">Fecha fin</label>
-            <div class="col-6">
+          <div class="col-6">
+                <label for="datepickerHoraFin">Fecha fin</label>
                 <div>
                     <dx-date-box
                             id="datepickerFechaFin"
@@ -48,10 +46,9 @@
                     *ngIf="eventoForm.get('fecha_fin')!.hasError('required') && eventoForm.get('fecha_fin')!.touched">
                     Se requiere la hora fin
                 </div>
-            </div>
-            <div class="col-6"></div>
+          </div>
         </div>
-        <div class="row">
+        <div class="row row-form">
             <div class="col-6">
                 <select class="form-select" formControlName="id_socio">
                     <option selected value=>Seleccione el socio de negocio ...</option>
@@ -91,7 +88,7 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-3">
-              <button type="submit" class="btn btn-guardar mt-5" [disabled]="!eventoForm.valid">
+              <button type="submit" class="btn btn-guardar mt-5" [disabled]="!eventoForm.valid || (selectedPlace == undefined || selectedPlace.id == '')">
                 Guardar
               </button>
             </div>
