@@ -12,8 +12,8 @@ import { Router, RouterModule } from '@angular/router';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 
 
-import {DxDateBoxModule} from "devextreme-angular";
 import { CrearEventoService } from 'src/app/servicios/eventos/crear-evento.service';
+import {DxDateBoxModule} from "devextreme-angular";
 
 
 @Component({
@@ -21,7 +21,7 @@ import { CrearEventoService } from 'src/app/servicios/eventos/crear-evento.servi
   templateUrl: './crear-evento.component.html',
   styleUrls: ['./crear-evento.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ToastComponent, DxDateBoxModule, RouterModule]
+  imports: [ReactiveFormsModule, CommonModule, ToastComponent, RouterModule, DxDateBoxModule]
 })
 export class CrearEventoComponent implements OnInit {
 
