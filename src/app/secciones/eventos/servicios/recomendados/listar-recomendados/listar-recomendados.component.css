@@ -31,3 +31,9 @@
 .detail{
     font-size: 0.6rem;
 }
+
+.servicios-recomendados-vacio-container{
+    width: 100%;
+    text-align: center;
+    color: darkgray;
+}

@@ -13,7 +13,7 @@
                 formControlName="direccion"
                 (input)="buscarDireccion()"
             />
-            <label for="direccion">Dirección</label>
+            <label for="direccion">{{'direccion' | translate}}</label>
             
             <div
                 class="alert alert-danger alert-dismissible fade show"
@@ -22,7 +22,7 @@
                 direccionForm.get('direccion')!.touched
                 "
             >
-                Se requiere la dirección
+                {{'direccion-requerida' | translate}}
             </div>
             <div
                 class="alert alert-danger alert-dismissible fade show"
@@ -30,7 +30,7 @@
                 !direccionForm.get('direccion')!.hasError('required') && (selectedPlace == undefined || selectedPlace.id == '')
                 "
             >
-                Se debe seleccionar una dirección de la lista
+                {{'direccion-minima' | translate}}
             </div>
         </div>
         </form>

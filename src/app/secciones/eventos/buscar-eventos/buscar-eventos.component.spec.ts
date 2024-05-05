@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TranslateModule } from "@ngx-translate/core";
 import { BuscarEventosComponent } from './buscar-eventos.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('BuscarEventosComponent', () => {
   let component: BuscarEventosComponent;
@@ -8,7 +9,8 @@ describe('BuscarEventosComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BuscarEventosComponent]
+      declarations: [],
+      imports: [BuscarEventosComponent, ReactiveFormsModule, TranslateModule.forRoot()]
     });
     fixture = TestBed.createComponent(BuscarEventosComponent);
     component = fixture.componentInstance;

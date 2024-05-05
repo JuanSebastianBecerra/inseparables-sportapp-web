@@ -9,7 +9,7 @@ import { SPACE_ASCII_CHAR_NUMBERS, ZERO_ASCII_CHAR_NUMBERS, NINE_ASCII_CHAR_NUMB
 import { RespuestaSocios } from 'src/app/clases/detalle-socio';
 import { Router, RouterModule } from '@angular/router';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
-
+import {TranslateModule} from "@ngx-translate/core";
 
 import { CrearEventoService } from 'src/app/servicios/eventos/crear-evento.service';
 import {DxDateBoxModule} from "devextreme-angular";
@@ -22,7 +22,7 @@ import { UbicacionMaps } from 'src/app/clases/location';
   templateUrl: './crear-evento.component.html',
   styleUrls: ['./crear-evento.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ToastComponent, RouterModule, DxDateBoxModule, UbicacionComponent]
+  imports: [ReactiveFormsModule, CommonModule, ToastComponent, RouterModule, DxDateBoxModule, UbicacionComponent, TranslateModule]
 })
 export class CrearEventoComponent implements OnInit {
 

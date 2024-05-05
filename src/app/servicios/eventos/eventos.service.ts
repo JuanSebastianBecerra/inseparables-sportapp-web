@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RespuestaEventos, RespuestaEventosDeportista } from 'src/app/clases/evento';
+import { RespuestaEvento, RespuestaEventos, RespuestaEventosDeportista } from 'src/app/clases/evento';
 import { TOKEN_KEY } from 'src/app/utils/constants';
 import { environment } from 'src/environments/environment';
 
@@ -28,5 +28,9 @@ export class EventosService {
 
   getEventosDeportista(): Observable<RespuestaEventosDeportista>{
     return this.http.get<RespuestaEventosDeportista>(this.eventosUrl+ "-deportista", { headers: this.headers })
+  }
+
+  getDetalleEvento(idEvento: string): Observable<RespuestaEvento>{
+    return this.http.get<RespuestaEvento>(this.eventosUrl+"/"+idEvento, { headers: this.headers })
   }
 }

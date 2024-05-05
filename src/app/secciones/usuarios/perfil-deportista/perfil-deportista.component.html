@@ -3,27 +3,27 @@
           [formGroup]="perfilForm"
           (ngSubmit)="!perfilForm.invalid && guardarPerfil(perfilForm.value)">
         <div class="container text-center">
-            <h1>Perfil deportivo</h1>
+            <h1>{{'perfil-deportivo' | translate}}</h1>
             <div class="row mb-3 mt-5">
                 <div class="col-3">
                     <div class="form-group col">
-                        <label for="genero">Género</label>
+                        <label for="genero">{{'genero' | translate}}</label>
                         <select
                                 id="genero"
                                 class="form-control"
                                 formControlName="genero"
                         >
-                            <option selected disabled>Seleccione...</option>
-                            <option>Masculino</option>
-                            <option>Femenino</option>
-                            <option>Otro</option>
+                            <option selected disabled>{{'seleccionar' | translate}}</option>
+                            <option>{{'masculino' | translate}}</option>
+                            <option>{{'femenino' | translate}}</option>
+                            <option>{{'otro' | translate}}</option>
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('genero')!.hasError('required') &&
                 perfilForm.get('genero')!.touched">
-                            Se requiere el genero
+                            {{'genero-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -36,13 +36,13 @@
                                 placeholder="Edad"
                                 formControlName="edad"
                         />
-                        <label for="edad">Edad (años)</label>
+                        <label for="edad">{{'edad-anios' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('edad')!.hasError('required') &&
                 perfilForm.get('edad')!.touched">
-                            Se requiere la edad
+                            {{'edad-requerida' | translate}}
                         </div>
                     </div>
                 </div>
@@ -55,13 +55,13 @@
                                 placeholder="Peso"
                                 formControlName="peso"
                         />
-                        <label for="peso">Peso (kg)</label>
+                        <label for="peso">{{'peso-kg' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('peso')!.hasError('required') &&
                 perfilForm.get('peso')!.touched">
-                            Se requiere el peso
+                            {{'peso-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -74,13 +74,13 @@
                                 placeholder="Altura"
                                 formControlName="altura"
                         />
-                        <label for="altura">Altura (cm)</label>
+                        <label for="altura">{{'altura-cm' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('altura')!.hasError('required') &&
                 perfilForm.get('altura')!.touched">
-                            Se requiere la altura
+                            {{'altura-requerida' | translate}}
                         </div>
                     </div>
                 </div>
@@ -88,14 +88,14 @@
             <div class="row mb-3 mt-3">
                 <div class="col">
                     <div class="form-group col">
-                        <label for="paisNacimiento">País de nacimiento</label>
+                        <label for="paisNacimiento">{{'pais-nacimiento' | translate}}</label>
                         <select
                                 id="paisNacimiento"
                                 class="form-control"
                                 formControlName="pais_nacimiento"
                                 (change)="obtenerCiudadesNacimiento($any($event.target)?.value)"
                         >
-                            <option selected disabled>Seleccione...</option>
+                            <option selected disabled>{{'seleccionar' | translate}}</option>
                             <option *ngFor="let pais of paises; index as i" [value]="pais['codigo']">{{pais["nombre"]}}</option>
                         </select>
                         <div
@@ -103,13 +103,13 @@
                                 *ngIf="
                 perfilForm.get('pais_nacimiento')!.hasError('required') &&
                 perfilForm.get('pais_nacimiento')!.touched">
-                            Se requiere el país de nacimiento
+                            {{'pais-nacimiento-requerido' | translate}}
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group col">
-                        <label for="ciudadNacimiento">Ciudad de nacimiento</label>
+                        <label for="ciudadNacimiento">{{'ciudad-nacimiento' | translate}}</label>
                         <select
                                 id="ciudadNacimiento"
                                 class="form-control"
@@ -123,7 +123,7 @@
                                 *ngIf="
                 perfilForm.get('ciudad_nacimiento')!.hasError('required') &&
                 perfilForm.get('ciudad_nacimiento')!.touched">
-                            Se requiere la ciudad de nacimiento
+                            {{'ciudad-nacimiento-requerida' | translate}}
                         </div>
                     </div>
                 </div>
@@ -131,14 +131,14 @@
             <div class="row mb-3 mt-3">
                 <div class="col">
                     <div class="form-group col">
-                        <label for="paisResidencia">País de residencia</label>
+                        <label for="paisResidencia">{{'pais-residencia' | translate}}</label>
                         <select
                                 id="paisResidencia"
                                 class="form-control"
                                 formControlName="pais_residencia"
                                 (change)="obtenerCiudadesResidencia($any($event.target)?.value)"
                         >
-                            <option selected disabled>Seleccione...</option>
+                            <option selected disabled>{{'seleccionar' | translate}}</option>
                             <option *ngFor="let pais of paises; index as i" [value]="pais['codigo']">{{pais["nombre"]}}</option>
                         </select>
                         <div
@@ -146,19 +146,19 @@
                                 *ngIf="
                 perfilForm.get('pais_residencia')!.hasError('required') &&
                 perfilForm.get('pais_residencia')!.touched">
-                            Se requiere el país de residencia
+                            {{'pais-residencia-requerido' | translate}}
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group col">
-                        <label for="ciudadResidencia">Ciudad de residencia</label>
+                        <label for="ciudadResidencia">{{'ciudad-residencia' | translate}}</label>
                         <select
                                 id="ciudadResidencia"
                                 class="form-control"
                                 formControlName="ciudad_residencia"
                         >
-                            <option selected disabled>Seleccione...</option>
+                            <option selected disabled>{{'seleccionar' | translate}}.</option>
                             <option *ngFor="let ciudad of ciudadesResidencia; index as i" [value]="ciudad['codigo']">{{ciudad["nombre"]}}</option>
                         </select>
                         <div
@@ -166,7 +166,7 @@
                                 *ngIf="
                 perfilForm.get('ciudad_residencia')!.hasError('required') &&
                 perfilForm.get('ciudad_residencia')!.touched">
-                            Se requiere la ciudad de residencia
+                            {{'ciudad-residencia-requerida' | translate}}
                         </div>
                     </div>
                 </div>
@@ -181,13 +181,13 @@
                                 placeholder="Antigüedad"
                                 formControlName="antiguedad_residencia"
                         />
-                        <label for="antiguedad">Antigüedad de residencia</label>
+                        <label for="antiguedad">{{'antiguedad-residencia' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('antiguedad_residencia')!.hasError('required') &&
                 perfilForm.get('antiguedad_residencia')!.touched">
-                            Se requiere la antigüedad de residencia
+                            {{'antiguedad-residencia-requerida' | translate}}
                         </div>
                     </div>
                 </div>
@@ -200,13 +200,13 @@
                                 placeholder="Dirección"
                                 formControlName="direccion"
                         />
-                        <label for="direccion">Dirección</label>
+                        <label for="direccion">{{'direccion' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('direccion')!.hasError('required') &&
                 perfilForm.get('direccion')!.touched">
-                            Se requiere la direccion
+                            {{'direccion-requerida' | translate}}
                         </div>
                     </div>
                 </div>
@@ -214,13 +214,13 @@
             <div class="row mb-3 mt-5">
                 <div class="col-3">
                     <div class="form-group col">
-                        <label for="tipoSangre">Tipo de sangre</label>
+                        <label for="tipoSangre">{{'tipo-sangre' | translate}}</label>
                         <select
                                 id="tipoSangre"
                                 class="form-control"
                                 formControlName="tipo_sangre"
                         >
-                            <option selected disabled>Seleccione...</option>
+                            <option selected disabled>{{'seleccionar' | translate}}</option>
                             <option>O+</option>
                             <option>O-</option>
                             <option>A+</option>
@@ -233,7 +233,7 @@
                                 *ngIf="
                 perfilForm.get('tipo_sangre')!.hasError('required') &&
                 perfilForm.get('tipo_sangre')!.touched">
-                            Se requiere el tipo de sangre
+                            {{'tipo-sangre-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -246,13 +246,13 @@
                                 placeholder="IMC"
                                 formControlName="imc"
                         />
-                        <label for="imc">IMC</label>
+                        <label for="imc">{{'imc' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('imc')!.hasError('required') &&
                 perfilForm.get('imc')!.touched">
-                            Se requiere el IMC
+                            {{'imc-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -265,13 +265,13 @@
                                 placeholder="Horas ejercicio por semana"
                                 formControlName="horas_semanal"
                         />
-                        <label for="horasEjercicio">Ejercicio por semana (Horas)</label>
+                        <label for="horasEjercicio">{{'ejercicio-por-semana-horas' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('horas_semanal')!.hasError('required') &&
                 perfilForm.get('horas_semanal')!.touched">
-                            Se requiere las horas ejercitadas por semana
+                            {{'ejercicio-por-semana-horas-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -284,13 +284,13 @@
                                 placeholder="Peso objetivo"
                                 formControlName="peso_objetivo"
                         />
-                        <label for="pesoObjetivo">Peso objetivo</label>
+                        <label for="pesoObjetivo">{{'peso-objetivo' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('peso_objetivo')!.hasError('required') &&
                 perfilForm.get('peso_objetivo')!.touched">
-                            Se requiere el peso objetivo
+                            {{'peso-objetivo-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -305,25 +305,25 @@
                                 placeholder="Alergias"
                                 formControlName="alergias"
                         />
-                        <label for="alergias">Alergías</label>
+                        <label for="alergias">{{'alergias' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('alergias')!.hasError('required') &&
                 perfilForm.get('alergias')!.touched">
-                            Se requiere las alergias
+                            {{'alergias-requerido' | translate}}
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group col">
-                        <label for="deporte">Deporte</label>
+                        <label for="deporte">{{'deporte' | translate}}</label>
                         <select
                                 id="deporte"
                                 class="form-control"
                                 formControlName="deporte"
                         >
-                            <option selected disabled>Seleccione...</option>
+                            <option selected disabled>{{'seleccionar' | translate}}</option>
                             <option>Ciclismo</option>
                             <option>Atletismo</option>
                         </select>
@@ -332,7 +332,7 @@
                                 *ngIf="
                 perfilForm.get('deporte')!.hasError('required') &&
                 perfilForm.get('deporte')!.touched">
-                            Se requiere el deporte
+                            {{'deporte-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -346,13 +346,13 @@
                     id="preferenciaAlimenticia"
                     formControlName="preferencia_alimenticia"
             ></textarea>
-                        <label for="preferenciaAlimenticia">Preferencia alimenticia</label>
+                        <label for="preferenciaAlimenticia">{{'preferencia-alimentaria' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('preferencia_alimenticia')!.hasError('required') &&
                 perfilForm.get('preferencia_alimenticia')!.touched">
-                            Se requiere la preferencia alimenticia
+                            {{'preferencia-alimentaria-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -366,13 +366,13 @@
                     id="planNutricional"
                     formControlName="plan_nutricional"
             ></textarea>
-                        <label for="planNutricional">Plan nutricional</label>
+                        <label for="planNutricional">{{'plan-nutricional' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('plan_nutricional')!.hasError('required') &&
                 perfilForm.get('plan_nutricional')!.touched">
-                            Se requiere el plan nutricional
+                            {{'plan-nutricional-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -386,13 +386,13 @@
                     id="historiaClinica"
                     formControlName="url_historia_clinica"
             ></textarea>
-                        <label for="historiaClinica">Historia clínica deportiva</label>
+                        <label for="historiaClinica">{{'historia-clinica' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('url_historia_clinica')!.hasError('required') &&
                 perfilForm.get('url_historia_clinica')!.touched">
-                            Se requiere la historia clinica deportiva
+                            {{'historia-clinica-requerido' | translate}}
                         </div>
                     </div>
                 </div>
@@ -401,12 +401,12 @@
                 <div class="col-3"></div>
                 <div class="col-3">
                     <button type="submit" [disabled]="!perfilForm.valid" class="btn btn-guardar mt-5">
-                        Guardar
+                        {{'guardar' | translate}}
                     </button>
                 </div>
                 <div class="col-3">
                     <button type="button" (click)="cancelarPerfil()" class="btn btn-cancelar mt-5">
-                        Cancelar
+                        {{'cancelar' | translate}}
                     </button>
                 </div>
             </div>

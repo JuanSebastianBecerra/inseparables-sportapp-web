@@ -36,6 +36,16 @@ export class RespuestaEventos extends Authentication{
 
 }
 
+export class RespuestaEvento extends Authentication{
+    respuesta: Evento
+
+    constructor(respuesta: Evento, token: string){
+        super(token);
+        this.respuesta = respuesta
+    }
+
+}
+
 
 export class EventoDeportista{
     id: string;

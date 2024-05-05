@@ -3,13 +3,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UbicacionMaps } from 'src/app/clases/location';
 import { LocationService } from 'src/app/servicios/maps/location.service';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-ubicacion',
   templateUrl: './ubicacion.component.html',
   styleUrls: ['./ubicacion.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule]
+  imports: [ReactiveFormsModule, CommonModule, TranslateModule]
 })
 export class UbicacionComponent implements OnInit {
 

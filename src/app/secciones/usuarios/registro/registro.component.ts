@@ -12,6 +12,7 @@ import { timer } from 'rxjs';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 import { UbicacionMaps } from 'src/app/clases/location';
 import { UbicacionComponent } from 'src/app/comunes/componentes/ubicacion/ubicacion.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 function passwordMatcher(c: AbstractControl){
     return c.get("password")?.value == c.get("confirm_password")?.value ? null : {'nomatch': true}
@@ -22,7 +23,7 @@ function passwordMatcher(c: AbstractControl){
     templateUrl: './registro.component.html',
     styleUrls: ['./registro.component.css'],
     standalone: true,
-    imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent, CommonModule, UbicacionComponent]
+    imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent, CommonModule, UbicacionComponent, TranslateModule]
 })
 export class RegistroComponent implements OnInit {
 

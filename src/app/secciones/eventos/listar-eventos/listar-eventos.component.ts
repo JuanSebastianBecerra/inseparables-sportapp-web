@@ -1,17 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { Evento, EventoDeportista, RespuestaEventos, RespuestaEventosDeportista } from 'src/app/clases/evento';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 import { EventosService } from 'src/app/servicios/eventos/eventos.service';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-listar-eventos',
   templateUrl: './listar-eventos.component.html',
   styleUrls: ['./listar-eventos.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent]
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent, TranslateModule]
 })
 export class ListarEventosComponent {
 
@@ -133,6 +134,10 @@ export class ListarEventosComponent {
           this.errorMensaje = "Error al consultar la lista de eventos del deportista, intente más tarde";
         }
     })
+  }
+
+  verDetalleEvento(idEvento: string): void{
+    this.router.navigate(['/eventos/'+idEvento])
   }
 
 }
