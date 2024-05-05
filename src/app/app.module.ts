@@ -54,6 +54,8 @@ import {CrearPlanComponent} from './secciones/planes_entrenamiento/crear-plan/cr
 import { PlanesComponent } from './secciones/planes/planes.component';
 import { EventosComponent } from './secciones/eventos/eventos.component';
 import { IdiomaComponent } from './comunes/componentes/idioma/idioma.component';
+import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -89,6 +91,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         HttpClientModule,
         AutenticacionComponent,
@@ -104,6 +107,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         CrearEntrenamientoComponent,
         ToastComponent,
         CrearPlanComponent,
+        NgxMaterialTimepickerModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

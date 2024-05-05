@@ -12,17 +12,11 @@
             <div class="col-6"></div>
         </div>
         <div class="row mb-3 mt-3">
-            <label for="datepickerHoraInicio">Hora inicio</label>
+            <label for="timepickerInicio">Hora inicio</label>
             <div class="col-6">
                 <div>
-                    <dx-date-box
-                            id="datepickerHoraInicio"
-                            [(value)]="fechaInicio"
-                            formControlName="hora_inicio"
-                            type="datetime"
-                            pickerType="list"
-                            [interval]="20">
-                    </dx-date-box>
+                    <input placeholder="Time" formControlName="hora_inicio" [ngxTimepicker]="pickerInicio">
+                    <ngx-material-timepicker id="timepickerInicio" #pickerInicio></ngx-material-timepicker>
                 </div>
                 <div class="alert alert-danger alert-dismissible fade show"
                      *ngIf="entrenamientoForm.get('hora_inicio')!.hasError('required') && entrenamientoForm.get('hora_inicio')!.touched">
@@ -32,17 +26,13 @@
             <div class="col-6"></div>
         </div>
         <div class="row mb-3 mt-3">
-            <label for="datepickerHoraFin">Hora fin</label>
+            <label for="timepickerFin">Hora fin</label>
             <div class="col-6">
                 <div>
-                    <dx-date-box
-                            id="datepickerHoraFin"
-                            [(value)]="fechaFin"
-                            formControlName="hora_fin"
-                            type="datetime"
-                            pickerType="list"
-                            [interval]="20">
-                    </dx-date-box>
+                    <div>
+                        <input placeholder="Time" formControlName="hora_fin" [ngxTimepicker]="pickerFin">
+                        <ngx-material-timepicker id="timepickerFin" #pickerFin></ngx-material-timepicker>
+                    </div>
                 </div>
                 <div class="alert alert-danger alert-dismissible fade show"
                      *ngIf="entrenamientoForm.get('hora_fin')!.hasError('required') && entrenamientoForm.get('hora_fin')!.touched">

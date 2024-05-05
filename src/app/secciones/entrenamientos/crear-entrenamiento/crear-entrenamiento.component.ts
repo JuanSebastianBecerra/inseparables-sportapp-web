@@ -2,17 +2,18 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {ToastComponent} from "../../../comunes/componentes/toast/toast.component";
-import {DxDateBoxModule} from "devextreme-angular";
 import {EntrenamientosService} from "../../../servicios/entrenamientos/entrenamientos.service";
 import {Router, RouterModule} from "@angular/router";
 import {timer} from "rxjs";
+import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 
 @Component({
     selector: 'app-crear-entrenamiento',
     templateUrl: './crear-entrenamiento.component.html',
     styleUrls: ['./crear-entrenamiento.component.css'],
     standalone: true,
-    imports: [ReactiveFormsModule, CommonModule, ToastComponent, DxDateBoxModule, RouterModule]
+    imports: [ReactiveFormsModule, CommonModule, ToastComponent,
+        RouterModule, NgxMaterialTimepickerModule]
 })
 export class CrearEntrenamientoComponent implements OnInit {
 
