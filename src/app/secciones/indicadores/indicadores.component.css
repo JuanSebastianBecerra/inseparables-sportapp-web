@@ -1,0 +1,17 @@
+table{
+    width: 100%;
+    text-align: center;
+}
+
+th{
+    width: 33%;
+}
+
+h3{
+    text-align: center;
+    margin: 2rem;
+}
+
+.page-link{
+    color: black;
+}

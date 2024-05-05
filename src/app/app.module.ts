@@ -54,6 +54,8 @@ import {CrearPlanComponent} from './secciones/planes_entrenamiento/crear-plan/cr
 import { PlanesComponent } from './secciones/planes/planes.component';
 import { EventosComponent } from './secciones/eventos/eventos.component';
 import { IdiomaComponent } from './comunes/componentes/idioma/idioma.component';
+import { IndicadoresComponent } from './secciones/indicadores/indicadores.component';
+import { CrearEventoComponent } from './secciones/eventos/crear-evento/crear-evento.component';
 import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
@@ -84,7 +86,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         EntrenamientosComponent,
         PlanesComponent,
         EventosComponent,
-        IdiomaComponent
+        IdiomaComponent,
+        IndicadoresComponent
     ],
     imports: [
         BrowserModule,
@@ -107,6 +110,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         CrearEntrenamientoComponent,
         ToastComponent,
         CrearPlanComponent,
+        CrearEventoComponent,
         NgxMaterialTimepickerModule,
         TranslateModule.forRoot({
             loader: {

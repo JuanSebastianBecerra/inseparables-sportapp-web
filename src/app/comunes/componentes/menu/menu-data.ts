@@ -34,14 +34,19 @@ export const menubarDeporteData = [
     },
     {
         routeLink: 'crear-plan',
-        icon: 'far fa-calendar-plus',
+        icon: 'fal fa-calendar-plus',
         label: 'Crear Plan'
     },
     {
         routeLink: 'planes',
         icon: 'fal fa-flag',
         label: 'Planes'
-    }
+    },
+    {
+        routeLink: 'indicadores',
+        icon: 'fal fa-chart-line',
+        label: 'Indicadores'
+    },
 ]
 
 export const menubarConfiguracionData = [
