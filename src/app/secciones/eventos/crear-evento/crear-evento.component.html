@@ -4,9 +4,9 @@
     <form class="form-size size-form-register" [formGroup]="eventoForm" (ngSubmit)="!eventoForm.invalid && guardarEvento(eventoForm.value)">
         <div class="row row-form">
             <div class="col-6">
-                <input type="text" class="form-control" id="name" placeholder="{{'nombre' | translate}}" formControlName="nombre"/>
+                <input type="text" class="form-control" id="name" placeholder="{{'name' | translate}}" formControlName="nombre"/>
                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('nombre')!.hasError('required') && eventoForm.get('nombre')!.touched">
-                    {{'nombre-requeridos' | translate}}
+                    {{'nombre-requerido' | translate}}
                 </div>
             </div>
             <div class="col-6"></div>
@@ -82,19 +82,19 @@
           </div>
         </div>
         <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
-            {{'evento-creado-exitosamente' | translate}}
+            {{'evento-creado' | translate}}
         </div>
         
         <div class="row">
             <div class="col-3"></div>
             <div class="col-3">
-              <button type="submit" class="btn btn-guardar mt-5" [disabled]="!eventoForm.valid || (selectedPlace == undefined || selectedPlace.id == '')">
-                {{'guardar' | translate}}
+                <button type="submit" class="btn btn-guardar mt-5" [disabled]="!eventoForm.valid || (selectedPlace == undefined || selectedPlace.id == '')">
+                {{'save' | translate}}
               </button>
             </div>
             <div class="col-3">
               <button type="button" routerLink="/eventos" class="btn btn-cancelar mt-5">
-                {{'cancelar' | translate}}
+                {{'cancel' | translate}}
               </button>
             </div>
             <div class="col-3"></div>

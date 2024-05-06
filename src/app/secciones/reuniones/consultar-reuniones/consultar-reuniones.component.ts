@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-consultar-reuniones',
   templateUrl: './consultar-reuniones.component.html',
-  styleUrls: ['./consultar-reuniones.component.scss']
+  styleUrls: ['./consultar-reuniones.component.scss'],
+  providers: [TranslateModule]
 })
 export class ConsultarReunionesComponent {
 

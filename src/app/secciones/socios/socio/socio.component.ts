@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
+import {TranslateModule} from "@ngx-translate/core";
+import { BuscarReunionesComponent } from '../../reuniones/buscar-reuniones/buscar-reuniones.component';
 
 function passwordMatcher(c: AbstractControl){
   return c.get("password")?.value == c.get("confirmPwd")?.value ? null : {'nomatch': true}
@@ -13,7 +15,7 @@ function passwordMatcher(c: AbstractControl){
   templateUrl: './socio.component.html',
   styleUrls: ['./socio.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule]
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, TranslateModule]
 })
 export class SocioComponent implements OnInit {
 

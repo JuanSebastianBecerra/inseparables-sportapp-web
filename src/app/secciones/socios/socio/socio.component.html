@@ -5,7 +5,7 @@
     (ngSubmit)="!socioForm.invalid && registrarSocio(socioForm.value)"
   >
     <div class="container text-center">
-      <h1>Socio</h1>
+      <h1>{{'partner' | translate}}</h1>
       <div class="row mb-3 mt-5">
         <div class="col">
           <div class="form-floating">
@@ -16,7 +16,7 @@
               placeholder="Nombres"
               formControlName="nombre"
             />
-            <label for="name">Nombres</label>
+            <label for="name">{{'name' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -24,7 +24,7 @@
                 socioForm.get('nombre')!.touched
               "
             >
-              Se requiere el nombre
+            {{'nombre-requerido' | translate}}
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@
               placeholder="Apellidos"
               formControlName="apellido"
             />
-            <label for="lastname">Apellidos</label>
+            <label for="lastname">{{'apellidos' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -45,7 +45,7 @@
                 socioForm.get('apellido')!.touched
               "
             >
-              Se requiere el apellido
+              {{'apellido-requerido' | translate}}
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@
               placeholder="Usuario"
               formControlName="username"
             />
-            <label for="username">Username</label>
+            <label for="username">{{'username' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -68,7 +68,7 @@
                 socioForm.get('username')!.touched
               "
             >
-              Se requiere el username
+            {{'username-requerido' | translate}}
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@
               placeholder="E-mail"
               formControlName="email"
             />
-            <label for="email">E-mail</label>
+            <label for="email">{{'email' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -89,13 +89,13 @@
                 socioForm.get('email')!.touched
               "
             >
-              Se requiere el email
+            {{'email-requerido' | translate}}
             </div>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="f['email']?.errors?.['email']"
             >
-              Debe ser un correo
+            {{'email-formato' | translate}}
             </div>
           </div>
         </div>
@@ -103,13 +103,13 @@
       <div class="row mb-3 mt-3">
         <div class="col">
           <div class="form-group col">
-            <label for="documentType">Tipo de identificación</label>
+            <label for="documentType">{{'tipo-identificacion' | translate}}</label>
             <select
               id="documentType"
               class="form-control"
               formControlName="tipo_identificacion"
             >
-              <option selected disabled>Seleccione...</option>
+              <option selected disabled>{{'seleccione' | translate}}</option>
               <option>CC</option>
               <option>TI</option>
             </select>
@@ -120,7 +120,7 @@
                 socioForm.get('tipo_identificacion')!.touched
               "
             >
-              Se requiere el tipo de identificación
+              {{'id-requerido' | translate}}
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@
               placeholder="Número de identificación"
               formControlName="numero_identificacion"
             />
-            <label for="identification">Número de identificación</label>
+            <label for="identification">{{'id' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -141,7 +141,7 @@
                 socioForm.get('numero_identificacion')!.touched
               "
             >
-              Se requiere el número de identificación
+            {{'numero-id-requerido' | translate}}
             </div>
           </div>
         </div>
@@ -156,7 +156,7 @@
               placeholder="Contraseña"
               formControlName="password"
             />
-            <label for="password">Contraseña</label>
+            <label for="password">{{'password' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -164,7 +164,7 @@
                 socioForm.get('password')!.touched
               "
             >
-              Se requiere la contraseña
+            {{'contrasenia-requerida' | translate}}
             </div>
           </div>
         </div>
@@ -177,7 +177,7 @@
               placeholder="Confirmar contraseña"
               formControlName="confirmPwd"
             />
-            <label for="confirmPwd">Confirmar contraseña</label>
+            <label for="confirmPwd">{{'confirmar.contrasenia' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -185,7 +185,8 @@
                 socioForm.get('confirmPwd')!.touched
               "
             >
-              Se requiere la confirmación de la contraseña
+            
+            {{'contrasenia-requerida' | translate}}
             </div>
           </div>
         </div>
@@ -199,7 +200,7 @@
                 socioForm.get('confirmPwd')!.touched
               "
             >
-              Las contraseñas no coinciden
+            {{'contrasenia-no-coincide' | translate}}
             </div>
       </div>
       <div class="row mb-3 mt-3">
@@ -212,22 +213,22 @@
               placeholder="Detalle"
               formControlName="detalle"
             />
-            <label for="name">Detalle</label>
+            <label for="name">{{'detalle' | translate}}</label>
           </div>
         </div>
       </div>
       <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
-        Socio creado exitosamente
+        {{'socio-creado' | translate}}
       </div>
       <div class="row">
         <div class="col">
           <button type="submit" [disabled]="!socioForm.valid" class="btn btn-guardar mt-5">
-            Guardar
+            {{'save' | translate}}
           </button>
         </div>
         <div class="col">
           <button type="button" routerLink="/socios" class="btn btn-cancelar mt-5">
-            Cancelar
+            {{'cancel' | translate}}
           </button>
         </div>
       </div>

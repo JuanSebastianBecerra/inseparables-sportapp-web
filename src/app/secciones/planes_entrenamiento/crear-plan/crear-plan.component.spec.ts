@@ -9,6 +9,7 @@ import { PlanService } from 'src/app/servicios/planes_entrenamiento/plan.service
 import { EntrenamientosService } from 'src/app/servicios/entrenamientos/entrenamientos.service';
 import { CrearPlanComponent } from './crear-plan.component';
 import { DetalleEntrenamiento, RespuestaEntrenamientos } from 'src/app/clases/entrenamientos';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('CrearPlanComponent', () => {
   let component: CrearPlanComponent;
@@ -24,7 +25,7 @@ describe('CrearPlanComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [CrearPlanComponent, HttpClientTestingModule, RouterTestingModule],
+      imports: [CrearPlanComponent, HttpClientTestingModule, RouterTestingModule, TranslateModule.forRoot()],
       declarations: []
     });
     fixture = TestBed.createComponent(CrearPlanComponent);

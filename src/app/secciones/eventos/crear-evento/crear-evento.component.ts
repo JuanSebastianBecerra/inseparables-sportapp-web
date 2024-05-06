@@ -12,6 +12,7 @@ import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.componen
 import {TranslateModule} from "@ngx-translate/core";
 
 import { CrearEventoService } from 'src/app/servicios/eventos/crear-evento.service';
+
 import {DxDateBoxModule} from "devextreme-angular";
 import { UbicacionComponent } from 'src/app/comunes/componentes/ubicacion/ubicacion.component';
 import { UbicacionMaps } from 'src/app/clases/location';

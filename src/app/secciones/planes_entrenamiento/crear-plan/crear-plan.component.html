@@ -6,7 +6,7 @@
     (ngSubmit)="!planForm.invalid && registrarPlan(planForm.value)"
   >
     <div class="container text-center">
-      <h1>Plan de entrenamiento</h1>
+      <h1>{{'plan-entrenamiento' | translate}}</h1>
       <div class="row mb-3 mt-5">
         <div class="col">
           <div class="form-floating">
@@ -17,7 +17,7 @@
               placeholder="Nombres"
               formControlName="nombre"
             />
-            <label for="name">Nombre</label>
+            <label for="name">{{'name' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
               *ngIf="
@@ -25,26 +25,26 @@
                 planForm.get('nombre')!.touched
               "
             >
-              Se requiere el nombre
+            {{'nombre-requerido' | translate}}
             </div>
           </div>
         </div>
         <div class="col">
           <select class="form-select" formControlName="id_deporte">
-              <option selected value=>Seleccione el deporte...</option>
+              <option selected value=>{{'seleccion-deporte' | translate}}</option>
               <option *ngFor="let deporte of deportes" [ngValue]="deporte.id">
                   {{ deporte.nombre }}
               </option>
           </select>
           <div class="alert alert-danger alert-dismissible fade show" *ngIf="planForm.get('id_deporte')!.hasError('required') && planForm.get('id_deporte')!.touched">
-              Se requiere el deporte
+            {{'deporte-requerido' | translate}}
           </div>
         </div>
       </div>
       <div class="row mb-3 mt-5">
         <div class="col">
           <div class="form-floating">
-            <h5 class="entrenamientosplan">Entrenamientos</h5>
+            <h5 class="entrenamientosplan">{{'entrenamientos' | translate}}</h5>
           </div>
         </div>
       </div>
@@ -58,17 +58,17 @@
         </div>
       </div>
       <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
-        Plan de entrenamiento creado exitosamente
+        {{'plan-creado' | translate}}
       </div>
       <div class="row">
         <div class="col">
           <button type="submit" [disabled]="!planForm.valid" class="btn btn-guardar mt-5">
-            Guardar
+            {{'save' | translate}}
           </button>
         </div>
         <div class="col">
           <button type="button" routerLink="/planes" class="btn btn-cancelar mt-5">
-            Cancelar
+            {{'cancel' | translate}}
           </button>
         </div>
       </div>

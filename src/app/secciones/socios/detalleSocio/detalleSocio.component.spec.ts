@@ -7,6 +7,7 @@ import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { of, throwError } from 'rxjs';
 import { DetalleSocio, RespuestaSocio } from 'src/app/clases/detalle-socio';
 import { Router } from '@angular/router';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('SocioComponent', () => {
   let component: DetalleSocioComponent;
@@ -19,7 +20,7 @@ describe('SocioComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [DetalleSocioComponent, HttpClientTestingModule, AppRoutingModule],
+      imports: [DetalleSocioComponent, HttpClientTestingModule, AppRoutingModule, TranslateModule.forRoot()],
       declarations: []
     });
     fixture = TestBed.createComponent(DetalleSocioComponent);

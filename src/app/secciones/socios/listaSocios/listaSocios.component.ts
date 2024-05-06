@@ -5,14 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
-
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-lista-socios',
   templateUrl: './listaSocios.component.html',
   styleUrls: ['./listaSocios.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent]
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, ToastComponent, TranslateModule]
 })
 
 export class ListaSociosComponent implements OnInit {

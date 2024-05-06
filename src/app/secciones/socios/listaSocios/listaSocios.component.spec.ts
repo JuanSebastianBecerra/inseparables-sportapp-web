@@ -7,6 +7,7 @@ import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { DetalleSocio, RespuestaSocios } from 'src/app/clases/detalle-socio';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('ListaSociosComponent', () => {
   let component: ListaSociosComponent;
@@ -19,7 +20,7 @@ describe('ListaSociosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ListaSociosComponent, HttpClientTestingModule, AppRoutingModule],
+      imports: [ListaSociosComponent, HttpClientTestingModule, AppRoutingModule, TranslateModule.forRoot()],
       declarations: [  ]
     })
     .compileComponents();
