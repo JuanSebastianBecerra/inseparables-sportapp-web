@@ -8,7 +8,7 @@
             <div class="card-subtitle mb-2 text-muted detail"><strong>{{evento.ubicacion.nombre}}</strong></div>
             <p class="card-text">{{evento.detalle}}</p>
             <div class="d-flex">
-                <button class="btn btn-light mt-5 rounded-pill" [disabled]="evento.inscrito">{{'inscribirme' | translate}}</button>
+                <button class="btn btn-light mt-5 rounded-pill" [disabled]="evento.inscrito" (click)="registarEventoAgendaDeportista(evento.id)">{{'inscribirme' | translate}}</button>
                 <button class="btn btn-details mt-5 rounded-pill" (click)="verDetalleEvento(evento.id)">{{'ver-detalles' | translate}}</button>
             </div>
             </div>
@@ -35,7 +35,7 @@
       <div>No hay eventos cercanos</div>
     </div>
 </div>
-<!-- TODO esto debe usarse en la historia SPR 69 -->
-<!--div class="alert alert-success alert-dismissible fade show text-center" *ngIf="asignacionExitosa">
-  Servicio asociado exitosamente al deportista
-</div-->
+
+<div class="alert alert-success alert-dismissible fade show text-center" *ngIf="asignacionExitosa">
+  Evento asociado exitosamente al deportista
+</div>
