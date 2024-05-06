@@ -35,5 +35,24 @@ describe('DeportistasService', () => {
     expect(httpRequest.method).toEqual("POST");
 
     mockHttp.flush({"respuesta": "Servicio asignado correctamente al deportista", "token" : "1234567890"});
+  });
+
+  it('Should asign event to user from HTTP call', () => {
+    service.asignarEventoAgendaDeportista("idEvento").subscribe({
+      next: (response) => {
+        expect(response).toBeTruthy();
+        expect(response.respuesta).toBeTruthy()
+        expect(response.token).toBeTruthy()
+      }
+    })
+
+    const mockHttp = httpCtrl.expectOne(environment.baseUrlAdministracion + '/deportista/evento/idEvento');
+    const httpRequest = mockHttp.request;
+
+    expect(httpRequest.method).toEqual("POST");
+
+    mockHttp.flush({"respuesta": "Evento asignado correctamente al deportista", "token" : "1234567890"});
   })
+
+
 });

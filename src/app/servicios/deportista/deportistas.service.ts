@@ -20,4 +20,8 @@ export class DeportistasService {
   asignarServicioADeportista(idServicio: string): Observable<any> {
     return this.http.post<any>(this.serviciossUrl+"/servicio/"+idServicio, "", {headers: this.headers});
   }
+
+  asignarEventoAgendaDeportista(idEvento: string): Observable<any> {
+    return this.http.post<any>(this.serviciossUrl+"/evento/"+idEvento, "", {headers: this.headers});
+  }
 }

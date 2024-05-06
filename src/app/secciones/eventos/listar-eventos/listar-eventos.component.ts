@@ -6,6 +6,8 @@ import { Evento, EventoDeportista, RespuestaEventos, RespuestaEventosDeportista 
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 import { EventosService } from 'src/app/servicios/eventos/eventos.service';
 import {TranslateModule} from "@ngx-translate/core";
+import { DeportistasService } from 'src/app/servicios/deportista/deportistas.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-listar-eventos',
@@ -26,11 +28,12 @@ export class ListarEventosComponent {
   errorMensaje: string = ""
 
   tipoEventoAnterior: string = "PROXIMOS"
+  asignacionExitosa = false
 
   @Input() textoBuscar: string = "";
   @Input() tipoEvento: string = "";
 
-  constructor(private eventosServicio: EventosService, private router: Router){}
+  constructor(private eventosServicio: EventosService, private router: Router, private deportistasService:DeportistasService ){}
 
   ngOnChanges(changes: SimpleChanges) {
     if(this.tipoEvento == ""){
@@ -122,6 +125,24 @@ export class ListarEventosComponent {
       eventosDeportistaRespuesta.setNuevoToken()
 
       this.eventosDeportista = eventosDeportistaRespuesta.respuesta;
+
+      this.eventosProximos.forEach(ev => {
+        this.eventosDeportista.forEach(evDep => {
+          if(ev.id == evDep.id_evento){
+            ev.inscrito = true
+          }
+        })
+      });
+
+      this.eventosCercanos.forEach(ev => {
+        this.eventosDeportista.forEach(evDep => {
+          if(ev.id == evDep.id_evento){
+            ev.inscrito = true
+          }
+        })
+      });
+
+      
     }, error => { 
       if(error.status === 401){
         localStorage.clear()
@@ -138,6 +159,27 @@ export class ListarEventosComponent {
 
   verDetalleEvento(idEvento: string): void{
     this.router.navigate(['/eventos/'+idEvento])
+  }
+
+  registarEventoAgendaDeportista(idEvento: string): void{
+    this.deportistasService.asignarEventoAgendaDeportista(idEvento).subscribe((respuesta) => {
+      this.asignacionExitosa = true
+      timer(5000).subscribe(x => { this.asignacionExitosa = false })
+      this.getEventosDeportista()
+    }, error => { 
+      if(error.status === 401){
+        localStorage.clear()
+        this.router.navigate(['/'])
+      }else{
+        this.mostrarError = true
+        if (error.error.description)
+          this.errorMensaje = error.error.description
+        else
+          this.errorMensaje = "Error al asignar el evento a la agenda del deportista, intente más tarde";
+        }
+          
+        
+    })
   }
 
 }

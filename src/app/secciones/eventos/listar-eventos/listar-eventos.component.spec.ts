@@ -8,11 +8,13 @@ import { Evento, EventoDeportista, RespuestaEventos, RespuestaEventosDeportista 
 import { UbicacionMaps } from 'src/app/clases/location';
 import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { DeportistasService } from 'src/app/servicios/deportista/deportistas.service';
 
 describe('ListarEventosComponent', () => {
   let component: ListarEventosComponent;
   let fixture: ComponentFixture<ListarEventosComponent>;
   let eventosServicio: EventosService
+  let deportistasService : DeportistasService
   let router: Router
 
   const _UBICACION = new UbicacionMaps("1", "Calle", "1", "1", "Calle")
@@ -28,6 +30,7 @@ describe('ListarEventosComponent', () => {
     });
     fixture = TestBed.createComponent(ListarEventosComponent);
     eventosServicio = TestBed.inject(EventosService)
+    deportistasService = TestBed.inject(DeportistasService)
     component = fixture.componentInstance;
     fixture.detectChanges();
 
@@ -145,4 +148,22 @@ describe('ListarEventosComponent', () => {
 
     expect(navigateSpy).toHaveBeenCalledWith(['/']);
   });
+
+  it('should assign event to user', () =>{
+    spyOn(deportistasService, 'asignarEventoAgendaDeportista').and.returnValue(of({"body": "some"}))
+    component.registarEventoAgendaDeportista("idServicio");
+    expect(component.asignacionExitosa).toBeTrue()
+  });
+
+  it('should handle error from assign event to user', () => {
+    const mockError = { status: 404, error: { description: 'Error occurred' } };
+    spyOn(deportistasService, 'asignarEventoAgendaDeportista').and.returnValue(throwError(mockError))
+    component.registarEventoAgendaDeportista("idServicio");
+    expect(component.mostrarError).toBe(true);
+    expect(component.errorMensaje).toBe('Error occurred');
+  });
+
+
+
+
 });
