@@ -30,6 +30,7 @@ describe('ListarEventosComponent', () => {
     });
     fixture = TestBed.createComponent(ListarEventosComponent);
     eventosServicio = TestBed.inject(EventosService)
+    deportistasService = TestBed.inject(DeportistasService)
     component = fixture.componentInstance;
     fixture.detectChanges();
 
