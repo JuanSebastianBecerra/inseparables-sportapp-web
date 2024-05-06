@@ -40,9 +40,17 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('edad')!.hasError('required') &&
-                perfilForm.get('edad')!.touched">
+                                    perfilForm.get('edad')!.hasError('required') &&
+                                    perfilForm.get('edad')!.touched">
                             {{'edad-requerida' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('edad')!.hasError('min') && perfilForm.get('edad')!.touched">
+                            {{'edad-minima' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('edad')!.hasError('max') && perfilForm.get('edad')!.touched">
+                            {{'edad-maxima' | translate}}
                         </div>
                     </div>
                 </div>
@@ -59,9 +67,17 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('peso')!.hasError('required') &&
-                perfilForm.get('peso')!.touched">
+                                    perfilForm.get('peso')!.hasError('required') &&
+                                    perfilForm.get('peso')!.touched">
                             {{'peso-requerido' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('peso')!.hasError('min') && perfilForm.get('peso')!.touched">
+                            {{'peso-minimo' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('peso')!.hasError('max') && perfilForm.get('peso')!.touched">
+                            {{'peso-maximo' | translate}}
                         </div>
                     </div>
                 </div>
@@ -78,9 +94,17 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('altura')!.hasError('required') &&
-                perfilForm.get('altura')!.touched">
+                                    perfilForm.get('altura')!.hasError('required') &&
+                                    perfilForm.get('altura')!.touched">
                             {{'altura-requerida' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('altura')!.hasError('min') && perfilForm.get('altura')!.touched">
+                            {{'altura-minima' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('altura')!.hasError('max') && perfilForm.get('altura')!.touched">
+                            {{'altura-maxima' | translate}}
                         </div>
                     </div>
                 </div>
@@ -185,9 +209,17 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('antiguedad_residencia')!.hasError('required') &&
-                perfilForm.get('antiguedad_residencia')!.touched">
+                                    perfilForm.get('antiguedad_residencia')!.hasError('required') &&
+                                    perfilForm.get('antiguedad_residencia')!.touched">
                             {{'antiguedad-residencia-requerida' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('antiguedad_residencia')!.hasError('min') && perfilForm.get('antiguedad_residencia')!.touched">
+                            {{'antiguedad-residencia-minima' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('antiguedad_residencia')!.hasError('max') && perfilForm.get('antiguedad_residencia')!.touched">
+                            {{'antiguedad-residencia-maxima' | translate}}
                         </div>
                     </div>
                 </div>
@@ -250,9 +282,17 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('imc')!.hasError('required') &&
-                perfilForm.get('imc')!.touched">
+                                    perfilForm.get('imc')!.hasError('required') &&
+                                    perfilForm.get('imc')!.touched">
                             {{'imc-requerido' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('imc')!.hasError('min') && perfilForm.get('imc')!.touched">
+                            {{'imc-minimo' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('imc')!.hasError('max') && perfilForm.get('imc')!.touched">
+                            {{'imc-maximo' | translate}}
                         </div>
                     </div>
                 </div>
@@ -269,9 +309,17 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('horas_semanal')!.hasError('required') &&
-                perfilForm.get('horas_semanal')!.touched">
+                                    perfilForm.get('horas_semanal')!.hasError('required') &&
+                                    perfilForm.get('horas_semanal')!.touched">
                             {{'ejercicio-por-semana-horas-requerido' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('horas_semanal')!.hasError('min') && perfilForm.get('horas_semanal')!.touched">
+                            {{'horas-semanal-minimo' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('horas_semanal')!.hasError('max') && perfilForm.get('horas_semanal')!.touched">
+                            {{'horas-semanal-maximo' | translate}}
                         </div>
                     </div>
                 </div>
@@ -288,9 +336,17 @@
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
-                perfilForm.get('peso_objetivo')!.hasError('required') &&
-                perfilForm.get('peso_objetivo')!.touched">
+                                    perfilForm.get('peso_objetivo')!.hasError('required') &&
+                                    perfilForm.get('peso_objetivo')!.touched">
                             {{'peso-objetivo-requerido' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('peso_objetivo')!.hasError('min') && perfilForm.get('peso_objetivo')!.touched">
+                            {{'peso-objetivo-minimo' | translate}}
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            *ngIf="perfilForm.get('peso_objetivo')!.hasError('max') && perfilForm.get('peso_objetivo')!.touched">
+                            {{'peso-objetivo-maximo' | translate}}
                         </div>
                     </div>
                 </div>
