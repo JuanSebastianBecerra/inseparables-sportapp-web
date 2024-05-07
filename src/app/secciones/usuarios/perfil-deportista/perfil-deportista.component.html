@@ -196,7 +196,7 @@
                 </div>
             </div>
             <div class="row mb-3 mt-3">
-                <div class="col">
+                <div class="col-6">
                     <div class="form-floating">
                         <input
                                 type="text"
@@ -220,25 +220,6 @@
                         <div class="alert alert-danger alert-dismissible fade show"
                             *ngIf="perfilForm.get('antiguedad_residencia')!.hasError('max') && perfilForm.get('antiguedad_residencia')!.touched">
                             {{'antiguedad-residencia-maxima' | translate}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-floating">
-                        <input
-                                type="text"
-                                class="form-control"
-                                id="direccion"
-                                placeholder="Dirección"
-                                formControlName="direccion"
-                        />
-                        <label for="direccion">{{'direccion' | translate}}</label>
-                        <div
-                                class="alert alert-danger alert-dismissible fade show"
-                                *ngIf="
-                perfilForm.get('direccion')!.hasError('required') &&
-                perfilForm.get('direccion')!.touched">
-                            {{'direccion-requerida' | translate}}
                         </div>
                     </div>
                 </div>

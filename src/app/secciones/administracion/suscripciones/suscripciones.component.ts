@@ -17,6 +17,7 @@ export class SuscripcionesComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    localStorage.clear()
     this.obtenerPlanes();
   }
 

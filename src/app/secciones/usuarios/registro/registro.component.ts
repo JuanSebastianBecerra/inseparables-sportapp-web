@@ -63,6 +63,7 @@ export class RegistroComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        localStorage.clear()
         this.iniciarFormulario();
         this.obtenerPlanes();
         this.cargarInformacion()
