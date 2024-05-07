@@ -138,6 +138,7 @@
     "peso-objetivo-minimo": "El peso objetivo debe ser mayor a 20 kg",
     "peso-objetivo-maximo": "El peso objetivo ser menor a 180 kg",
 
+    "eventos-deportista": "Mis eventos",
     "eventos-proximos-fecha": "Eventos próximos (fecha)",
     "eventos-cercanos-ubicacion": "Eventos cercanos (ubicación)",
 
@@ -155,5 +156,11 @@
     "servicios-recomendados": "Servicios recomendados",
 
     "inscribirme":"Registrame",
-    "ver-detalles":"Ver detales"
+    "retirarme":"Retirarme",
+    "ver-detalles":"Ver detales",
+    "evento-asociado-deportista": "Evento asociado exitosamente al deportista",
+    "evento-eliminado-deportista": "Evento eliminado exitosamente de los eventos del deportista",
+    "no-eventos-registrados": "No hay eventos registrados",
+    "no-eventos-proximos": "No hay eventos próximos",
+    "no-eventos-cercanos": "No hay eventos cercanos"
 }

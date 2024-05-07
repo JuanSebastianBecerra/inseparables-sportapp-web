@@ -123,24 +123,26 @@ export class PlanesComponent implements OnInit {
 
   asignarPlanDeportista(): void{
     let idPlan = this.planes.filter((plan) => plan.selected)
-    this.planesService.asignarPlanDeportista(idPlan[0].id).subscribe((respuesta)=>{
-      this.consultarPlanesPorDeportista()
-      this.planAsociado = true;
-      timer(2000).subscribe(x => {
-        this.planAsociado = false;
-    })
-    }, error => { 
-      if(error.status === 401){
-        localStorage.clear()
-        this.router.navigate(['/'])
-      }else{
-        this.errorResponse = true
-        if (error.error.description)
-          this.errorDescription = error.error.description
-        else
-          this.errorDescription = "Error al asociar un plan al deportista, intente más tarde";
-        }
-    })
+    if(idPlan !== undefined){
+      this.planesService.asignarPlanDeportista(idPlan[0].id).subscribe((respuesta)=>{
+        this.consultarPlanesPorDeportista()
+        this.planAsociado = true;
+        timer(2000).subscribe(x => {
+          this.planAsociado = false;
+      })
+      }, error => { 
+        if(error.status === 401){
+          localStorage.clear()
+          this.router.navigate(['/'])
+        }else{
+          this.errorResponse = true
+          if (error.error.description)
+            this.errorDescription = error.error.description
+          else
+            this.errorDescription = "Error al asociar un plan al deportista, intente más tarde";
+          }
+      })
+    }
   }
 
   validarPlanAsignadoDeportista() : void{

@@ -24,7 +24,6 @@ import { DetalleEventoComponent } from './secciones/eventos/detalle-evento/detal
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
-  { path: 'autenticacion', component: AutenticacionComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'suscripciones', component: SuscripcionesComponent},
   { path: 'socios', component: SociosComponent},

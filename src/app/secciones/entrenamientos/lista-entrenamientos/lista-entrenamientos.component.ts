@@ -3,6 +3,7 @@ import {DetalleEntrenamiento} from "../../../clases/entrenamientos";
 import {EntrenamientosService} from "../../../servicios/entrenamientos/entrenamientos.service";
 import {ToastComponent} from "../../../comunes/componentes/toast/toast.component";
 import {CommonModule} from "@angular/common";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-entrenamientos',
@@ -20,7 +21,7 @@ export class ListaEntrenamientosComponent implements OnInit{
 
   @Input() textoBuscar: string = "";
 
-  constructor(private entrenamientosService: EntrenamientosService) {
+  constructor(private entrenamientosService: EntrenamientosService, private router: Router) {
   }
   ngOnInit(): void {
     this.obtenerEntrenamientos()
@@ -35,6 +36,7 @@ export class ListaEntrenamientosComponent implements OnInit{
         error => {
           if(error.status === 401){
             localStorage.clear()
+            this.router.navigate(['/'])
           }else{
             this.mostrarErrorObtenerEntrenamientos = true
             if (error.error.description)
