@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { ValidarTokenService } from 'src/app/servicios/autorizacion/validar-token.service';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 
 function passwordMatcher(c: AbstractControl){
@@ -22,14 +23,23 @@ export class SocioComponent implements OnInit {
   responseMessage: String = ""
   exitoso = false
 
-  constructor(private formBuilder: FormBuilder, private socioService: SocioService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private socioService: SocioService, private router: Router, private validarTokenService : ValidarTokenService) { }
 
   ngOnInit(): void {
     this.inicarFormulario()
+    this.validarToken()
   }
 
   get f(): { [key: string]: AbstractControl } {
     return this.socioForm.controls;
+  }
+
+  validarToken() : void {
+    const tokenValido = this.validarTokenService.validarToken()
+    if (!tokenValido){
+      localStorage.clear()
+      this.router.navigate(['/'])
+    }
   }
 
   inicarFormulario() {

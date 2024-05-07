@@ -56,7 +56,7 @@ export const menubarConfiguracionData = [
         label: 'Mi perfil'
     },
     {
-        routeLink: 'cerrar',
+        routeLink: '/',
         icon: 'fal fa-sign-out',
         label: 'Cerrar sesión'
     }

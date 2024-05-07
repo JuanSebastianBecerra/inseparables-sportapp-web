@@ -51,11 +51,16 @@ export class CrearPlanComponent implements OnInit {
       this.deportes = response.body;
     },
     error => {
-      this.responseError = true
-      if (error.error.description)
-        this.responseMessage = error.error.description
-      else
-        this.responseMessage = "Ocurrió un error al realizar la petición";
+      if(error.status === 401){
+        localStorage.clear()
+        this.router.navigate(['/'])
+      }else{
+        this.responseError = true
+        if (error.error.description)
+          this.responseMessage = error.error.description
+        else
+          this.responseMessage = "Ocurrió un error al realizar la petición";
+      }
     });
   }
 
@@ -69,11 +74,16 @@ export class CrearPlanComponent implements OnInit {
       this.entrenamientos = respuestaEntrenamientos.entrenamientos;
     },
     error => {
-      this.responseError = true
-      if (error.error.description)
-        this.responseMessage = error.error.description
-      else
-        this.responseMessage = "Ocurrió un error al realizar la petición";
+      if(error.status === 401){
+        localStorage.clear()
+        this.router.navigate(['/'])
+      }else{
+        this.responseError = true
+        if (error.error.description)
+          this.responseMessage = error.error.description
+        else
+          this.responseMessage = "Ocurrió un error al realizar la petición";
+      }
     });
   }
 
