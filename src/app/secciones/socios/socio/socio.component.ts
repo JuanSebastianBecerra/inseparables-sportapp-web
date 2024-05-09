@@ -5,7 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { ValidarTokenService } from 'src/app/servicios/autorizacion/validar-token.service';
 import { SocioService } from 'src/app/servicios/socios/socios.service';
 import {TranslateModule} from "@ngx-translate/core";
-import { BuscarReunionesComponent } from '../../reuniones/buscar-reuniones/buscar-reuniones.component';
+import { TOKEN_KEY } from 'src/app/utils/constants';
 
 function passwordMatcher(c: AbstractControl){
   return c.get("password")?.value == c.get("confirmPwd")?.value ? null : {'nomatch': true}
@@ -37,11 +37,18 @@ export class SocioComponent implements OnInit {
   }
 
   validarToken() : void {
-    const tokenValido = this.validarTokenService.validarToken()
-    if (!tokenValido){
+    const token = localStorage.getItem(TOKEN_KEY)
+    if(token != null && token != undefined && token != ""){
+      this.validarTokenService.validarToken(token).subscribe(resp => {},
+      error => {
+        localStorage.clear()
+        this.router.navigate(['/'])
+      });
+    }else{
       localStorage.clear()
       this.router.navigate(['/'])
     }
+    
   }
 
   inicarFormulario() {

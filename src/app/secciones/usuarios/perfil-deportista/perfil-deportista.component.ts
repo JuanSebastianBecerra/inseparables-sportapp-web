@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {PersonasService} from "../../../servicios/personas/personas.service";
 import {CommonModule} from "@angular/common";
 import {ActivatedRoute, Router, RouterModule} from "@angular/router";
-import { PREFIJO_PERFIL_DEPORTIVO } from 'src/app/utils/constants';
+import { NINE_ASCII_CHAR_NUMBERS, PREFIJO_PERFIL_DEPORTIVO, SPACE_ASCII_CHAR_NUMBERS, ZERO_ASCII_CHAR_NUMBERS } from 'src/app/utils/constants';
 import {PerfilDeportista} from "../../../clases/perfil-deportista";
 import {AdministracionService} from "../../../servicios/administracion/administracion.service";
 import { CacheService } from 'src/app/servicios/administracion/cache.service';
@@ -37,6 +37,14 @@ export class PerfilDeportistaComponent implements OnInit {
         else
             this.router.navigate(['/registro'])
     }
+
+    numberOnly(event: { which: any; keyCode: any; }): boolean {
+        const charCode = (event.which) ? event.which : event.keyCode;
+        if (charCode > SPACE_ASCII_CHAR_NUMBERS && (charCode < ZERO_ASCII_CHAR_NUMBERS || charCode > NINE_ASCII_CHAR_NUMBERS)) {
+          return false;
+        }
+        return true;
+      }
 
     ngOnInit(): void {
         localStorage.clear()
