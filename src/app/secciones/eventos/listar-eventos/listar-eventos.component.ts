@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { Evento, EventoDeportista, RespuestaEventos, RespuestaEventosDeportista } from 'src/app/clases/evento';
+import { Evento, EventoDeportista, RespuestaEvento, RespuestaEventos, RespuestaEventosDeportista } from 'src/app/clases/evento';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 import { EventosService } from 'src/app/servicios/eventos/eventos.service';
 import {TranslateModule} from "@ngx-translate/core";
@@ -23,12 +23,15 @@ export class ListarEventosComponent {
   eventosCercanos: Evento[] = []
   eventosCercanosInicial: Evento[] = []
   eventosDeportista: EventoDeportista[] = []
+  eventosDeportistaDetalle: Evento[] = []
+  eventosDeportistaDetalleInicial: Evento[] = []
 
   mostrarError: boolean = false
   errorMensaje: string = ""
 
-  tipoEventoAnterior: string = "PROXIMOS"
+  tipoEventoAnterior: string = "DEPORTISTA"
   asignacionExitosa = false
+  eliminacionExitosa = false
 
   @Input() textoBuscar: string = "";
   @Input() tipoEvento: string = "";
@@ -37,9 +40,9 @@ export class ListarEventosComponent {
 
   ngOnChanges(changes: SimpleChanges) {
     if(this.tipoEvento == ""){
-      this.tipoEvento = "PROXIMOS"
+      this.tipoEvento = "DEPORTISTA"
+      this.eventosDeportistaDetalle = []
       this.getEventosDeportista()
-      this.getEventosProximos()
     }
     if(this.textoBuscar != ""){
       this.filtrarEventos(this.textoBuscar)
@@ -47,18 +50,30 @@ export class ListarEventosComponent {
     if(this.tipoEventoAnterior != this.tipoEvento){
       this.mostrarError = false
       this.errorMensaje = ""
+      this.eventosDeportistaDetalle = []
       this.getEventosDeportista()
       this.tipoEventoAnterior = this.tipoEvento
+
       if(this.tipoEvento == "PROXIMOS"){
         this.getEventosProximos()
+      }else if(this.tipoEvento == "DEPORTISTA"){
+        this.eventosDeportistaDetalle = []
+        this.getEventosDeportista()
       }else{
         this.getEventosCercanos()
       }
     }
   }
 
-  ocultarInscripcion(eventos: Evento[]): void{
-    eventos.forEach(ev => {
+  ocultarInscripcion(): void{
+    this.eventosCercanos.forEach(ev => {
+      this.eventosDeportista.forEach(evDep => {
+        if(ev.id == evDep.id_evento){
+          ev.inscrito = true
+        }
+      })
+    });
+    this.eventosProximos.forEach(ev => {
       this.eventosDeportista.forEach(evDep => {
         if(ev.id == evDep.id_evento){
           ev.inscrito = true
@@ -70,6 +85,8 @@ export class ListarEventosComponent {
   filtrarEventos(texto: string): void {
     if(this.tipoEvento == "PROXIMOS"){
       this.eventosProximos = this.eventosProximosInicial.filter(evento => evento.nombre.toLowerCase().includes(texto.toLowerCase()))
+    }else if(this.tipoEvento == "DEPORTISTA"){
+      this.eventosDeportistaDetalle = this.eventosDeportistaDetalleInicial.filter(evento => evento.nombre.toLowerCase().includes(texto.toLowerCase()))
     }else{
       this.eventosCercanos = this.eventosCercanosInicial.filter(evento => evento.nombre.toLowerCase().includes(texto.toLowerCase()))
     }
@@ -82,7 +99,7 @@ export class ListarEventosComponent {
 
       this.eventosProximos = eventosRespuesta.respuesta;
       this.eventosProximosInicial = eventosRespuesta.respuesta;
-      this.ocultarInscripcion(this.eventosProximos)
+      this.ocultarInscripcion()
     }, error => { 
       if(error.status === 401){
         localStorage.clear()
@@ -104,7 +121,7 @@ export class ListarEventosComponent {
 
       this.eventosCercanos = eventosRespuesta.respuesta;
       this.eventosCercanosInicial = eventosRespuesta.respuesta;
-      this.ocultarInscripcion(this.eventosCercanos)
+      this.ocultarInscripcion()
     }, error => { 
       if(error.status === 401){
         localStorage.clear()
@@ -123,25 +140,23 @@ export class ListarEventosComponent {
     this.eventosServicio.getEventosDeportista().subscribe(respuesta => {
       let eventosDeportistaRespuesta = new RespuestaEventosDeportista(respuesta.respuesta, respuesta.token)
       eventosDeportistaRespuesta.setNuevoToken()
-
       this.eventosDeportista = eventosDeportistaRespuesta.respuesta;
 
-      this.eventosProximos.forEach(ev => {
-        this.eventosDeportista.forEach(evDep => {
-          if(ev.id == evDep.id_evento){
-            ev.inscrito = true
-          }
-        })
-      });
+      this.eventosDeportistaDetalle = []
 
-      this.eventosCercanos.forEach(ev => {
-        this.eventosDeportista.forEach(evDep => {
-          if(ev.id == evDep.id_evento){
-            ev.inscrito = true
-          }
-        })
+      this.eventosDeportista.forEach(evDep => {
+        if (this.eventosDeportistaDetalle.filter(ev => ev.id == evDep.id_evento).length < 1) {
+          this.eventosServicio.getDetalleEvento(evDep.id_evento).subscribe(respuesta => {
+            let respuestaDetalleEvento = new RespuestaEvento(respuesta.respuesta, respuesta.token)
+            respuestaDetalleEvento.setNuevoToken()
+            let ev = respuestaDetalleEvento.respuesta
+            if(this.eventosDeportistaDetalle.filter(ev => ev.id == evDep.id_evento).length < 1){
+              this.eventosDeportistaDetalle.push(new Evento(ev.id, ev.nombre, ev.fecha_inicio, ev.fecha_fin, ev.detalle, ev.id_socio, ev.id_deporte, ev.ubicacion))
+            }
+          })
+        }
       });
-
+      this.ocultarInscripcion()
       
     }, error => { 
       if(error.status === 401){
@@ -165,6 +180,7 @@ export class ListarEventosComponent {
     this.deportistasService.asignarEventoAgendaDeportista(idEvento).subscribe((respuesta) => {
       this.asignacionExitosa = true
       timer(5000).subscribe(x => { this.asignacionExitosa = false })
+      this.eventosDeportistaDetalle = []
       this.getEventosDeportista()
     }, error => { 
       if(error.status === 401){
@@ -176,6 +192,28 @@ export class ListarEventosComponent {
           this.errorMensaje = error.error.description
         else
           this.errorMensaje = "Error al asignar el evento a la agenda del deportista, intente más tarde";
+        }
+          
+        
+    })
+  }
+
+  eliminarEventoAgendaDeportista(idEvento: string): void{
+    this.deportistasService.eliminarEventoAgendaDeportista(idEvento).subscribe((respuesta) => {
+      this.eliminacionExitosa = true
+      timer(5000).subscribe(x => { this.eliminacionExitosa = false })
+      this.eventosDeportistaDetalle = []
+      this.getEventosDeportista()
+    }, error => { 
+      if(error.status === 401){
+        localStorage.clear()
+        this.router.navigate(['/'])
+      }else{
+        this.mostrarError = true
+        if (error.error.description)
+          this.errorMensaje = error.error.description
+        else
+          this.errorMensaje = "Error al eliminar el evento de la agenda del deportista, intente más tarde";
         }
           
         

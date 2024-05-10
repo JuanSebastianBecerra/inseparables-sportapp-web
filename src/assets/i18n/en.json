@@ -135,6 +135,7 @@
     "peso-objetivo-minimo": "The goal weight must be greater than 20 kg",
     "peso-objetivo-maximo": "The goal weight must be lower than 180 kg",
 
+    "eventos-deportista": "My events",
     "eventos-proximos-fecha": "Next events (date)",
     "eventos-cercanos-ubicacion": "Nearby events (location)",
 
@@ -152,5 +153,11 @@
     "servicios-recomendados": "Recomended services",
 
     "inscribirme":"Register",
-    "ver-detalles":"View details"
+    "retirarme":"Withdraw",
+    "ver-detalles":"View details",
+    "evento-asociado-deportista": "The evento was asigned to the athlete successfully",
+    "evento-eliminado-deportista": "The evento was removed for the athlete's events successfully",
+    "no-eventos-registrados": "There are not registered events",
+    "no-eventos-proximos": "There are not next events",
+    "no-eventos-cercanos": "There are not nearby events"
 }
