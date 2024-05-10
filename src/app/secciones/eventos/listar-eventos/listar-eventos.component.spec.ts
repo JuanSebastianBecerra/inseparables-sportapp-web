@@ -112,8 +112,6 @@ describe('ListarEventosComponent', () => {
     expect(navigateSpy).toHaveBeenCalledWith(['/']);
   });
 
-  //
-
   it('should get eventos deportista', () => {
     spyOn(eventosServicio, 'getEventosDeportista').and.returnValue(of(_RESPUESTA_EVENTOS_DEPORTISTA))
     component.getEventosDeportista();
@@ -163,7 +161,41 @@ describe('ListarEventosComponent', () => {
     expect(component.errorMensaje).toBe('Error occurred');
   });
 
+  //
 
+  it('should eliminar eventos agenda', () => {
+    spyOn(eventosServicio, 'getEventosDeportista').and.returnValue(of(_RESPUESTA_EVENTOS_DEPORTISTA))
+    spyOn(deportistasService, 'eliminarEventoAgendaDeportista').and.returnValue(of({}))
+    component.eliminarEventoAgendaDeportista("1");
+    expect(component.eventosDeportista).toEqual([_EVENTO_DEPORTISTA]);
+  });
 
+  it('should handle error from fetching eliminar eventos agenda', () => {
+    const mockError = { status: 404, error: { description: 'Error occurred' } };
+    spyOn(deportistasService, 'eliminarEventoAgendaDeportista').and.returnValue(throwError(mockError))
+    component.eliminarEventoAgendaDeportista("1");
 
+    expect(component.mostrarError).toBe(true);
+    expect(component.errorMensaje).toBe('Error occurred');
+  });
+
+  it('should handle error from fetching eventos deportista without description', () => {
+    const mockError = { status: 404, error: { error: 'Error occurred' } };
+    spyOn(deportistasService, 'eliminarEventoAgendaDeportista').and.returnValue(throwError(mockError))
+    component.eliminarEventoAgendaDeportista("1");
+
+    expect(component.mostrarError).toBe(true);
+    expect(component.errorMensaje).toBe('Error al eliminar el evento de la agenda del deportista, intente más tarde');
+  });
+
+  it('should handle authentication error from fetching eventos deportista', () => {
+    const mockError = { status: 401, error: { description: 'Error occurred' } };
+    spyOn(deportistasService, 'eliminarEventoAgendaDeportista').and.returnValue(throwError(mockError));
+
+    const navigateSpy = spyOn(router, 'navigate');
+
+    component.eliminarEventoAgendaDeportista("1");
+
+    expect(navigateSpy).toHaveBeenCalledWith(['/']);
+  });
 });
