@@ -17,6 +17,7 @@
             
             <div
                 class="alert alert-danger alert-dismissible fade show"
+                data-testid="alerta-direccion"
                 *ngIf="
                 direccionForm.get('direccion')!.hasError('required') &&
                 direccionForm.get('direccion')!.touched
@@ -26,6 +27,7 @@
             </div>
             <div
                 class="alert alert-danger alert-dismissible fade show"
+                data-testid="alerta-direccion-lista"
                 *ngIf="
                 !direccionForm.get('direccion')!.hasError('required') && (selectedPlace == undefined || selectedPlace.id == '')
                 "
@@ -37,7 +39,7 @@
     </div>
     <div class="col">
         <div class="list-group" *ngIf="mostrarDirecciones">
-        <a class="list-group-item list-group-item-action" *ngFor="let place of places" (click)="seleccionarDireccion(place)">
+        <a class="list-group-item list-group-item-action" *ngFor="let place of places; index as i" (click)="seleccionarDireccion(place)" [attr.data-testid]="'direccion-' + (i + 1)">
             <strong>{{place.nombre}}</strong> - <span class="span-location">{{place.direccion}}</span>
         </a>
         </div>

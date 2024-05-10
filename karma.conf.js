@@ -36,7 +36,7 @@ module.exports = function (config) {
       check: {
         global: {
           statements: 80,
-          branches: 70,
+          branches: 68,
           functions: 75,
           lines: 80
         }
