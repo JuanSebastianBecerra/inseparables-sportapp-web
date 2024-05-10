@@ -58,6 +58,8 @@ export class RegistroComponent implements OnInit {
                 numero_identificacion: formulario.numero_identificacion,
                 password: formulario.password,
                 confirm_password: formulario.confirm_password,
+                strava_client_id: formulario.strava_client_id,
+                strava_client_secret: formulario.strava_client_secret
             });
         }
     }
@@ -89,7 +91,9 @@ export class RegistroComponent implements OnInit {
             username: ["", Validators.required],
             password: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
             confirm_password: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
-            suscripcion: ["", Validators.required]
+            suscripcion: ["", Validators.required],
+            strava_client_id: [""],
+            strava_client_secret: [""]
         }, {validator: passwordMatcher})
     }
 
