@@ -14,7 +14,7 @@ describe('RecomendadosComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[RouterTestingModule, ListarRecomendadosComponent, HttpClientTestingModule, ListarRecomendadosComponent, FormsModule],
+      imports:[RouterTestingModule, ListarRecomendadosComponent, HttpClientTestingModule, FormsModule],
       declarations: [RecomendadosComponent, MenuComponent, BuscarRecomendadosComponent]
     });
     fixture = TestBed.createComponent(RecomendadosComponent);

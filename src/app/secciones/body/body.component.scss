@@ -18,3 +18,12 @@
     width: calc(100% - 5rem);
     margin-left: 5rem;
 }
+
+.container{
+    max-width: 15%;
+    min-width: 7rem;
+    margin-top: 1rem;
+    position: absolute;
+    right: 0;
+    align-items: center;
+}

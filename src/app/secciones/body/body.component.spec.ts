@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BodyComponent } from './body.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { NotificacionesComponent } from 'src/app/comunes/componentes/notificaciones/notificaciones.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { IdiomaComponent } from 'src/app/comunes/componentes/idioma/idioma.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('BodyComponent', () => {
   let component: BodyComponent;
@@ -8,8 +12,8 @@ describe('BodyComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BodyComponent],
-      imports: [AppRoutingModule]
+      declarations: [BodyComponent, NotificacionesComponent, IdiomaComponent],
+      imports: [AppRoutingModule, HttpClientTestingModule, TranslateModule.forRoot()],
     });
     fixture = TestBed.createComponent(BodyComponent);
     component = fixture.componentInstance;
