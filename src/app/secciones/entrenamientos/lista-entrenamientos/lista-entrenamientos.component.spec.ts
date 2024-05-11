@@ -127,6 +127,7 @@ describe('ListaEntrenamientosComponent', () => {
 
   it('should handle auth error from fetching stravaToken', () => {
     const mockError = { status: 401, error: { description: 'Error occurred' } };
+    localStorage.clear()
     spyOn(entrenamientosService, 'getId').and.returnValue(of(ID_RESPONSE));
     spyOn(entrenamientosService, 'getStravaInfo').and.callFake((idUsuarioParam: string) => {
       return of(STRAVA_RESPONSE);
@@ -138,6 +139,7 @@ describe('ListaEntrenamientosComponent', () => {
   });
 
   it('should handle error from fetching stravaToken', () => {
+    localStorage.clear()
     const mockError = { status: 404, error: { error: 'Error occurred' } };
     spyOn(entrenamientosService, 'getId').and.returnValue(of(ID_RESPONSE));
     spyOn(entrenamientosService, 'getStravaInfo').and.callFake((idUsuarioParam: string) => {
