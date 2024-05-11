@@ -4,5 +4,6 @@ export const environment = {
     baseUrlAdministracion: 'https://administracion-5dvgbemkya-uc.a.run.app/administracion',
     baseUrlDeporte: 'https://deporte-5dvgbemkya-uc.a.run.app/deporte',
     baseUrlMaps: 'https://places.googleapis.com/v1',
+    baseUrlStrava: 'https://www.strava.com',
     eventoId: "bdf0d500-69eb-4af0-9e32-63a4116e694a" //TODO quitar en la historia SPR-60
 };

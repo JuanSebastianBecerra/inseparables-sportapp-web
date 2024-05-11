@@ -12,6 +12,7 @@ export class EntrenamientosService{
 
   private entrenamientosUrl = environment.baseUrlDeporte + '/entrenamientos';
   private guardarEntrenamientoUrl = environment.baseUrlDeporte + '/entrenamiento';
+  private tokenStravaUrl = environment.baseUrlStrava;
 
 
   private headers = new HttpHeaders({
@@ -26,6 +27,29 @@ export class EntrenamientosService{
 
   guardarEntrenamiento(bodyRequest: any): Observable<any>{
     return this.http.post<any>(this.guardarEntrenamientoUrl, bodyRequest, { headers: this.headers });
+  }
+
+  getTokenStrava(bodyRequest: any): Observable<any>{
+    return (this.http.post<any>(this.tokenStravaUrl+"/oauth/token", bodyRequest));
+  }
+
+  getId(): Observable<any>{
+    let autorizacionUrl = environment.baseUrlPersonas + '/validar-token';
+    const token = localStorage.getItem(TOKEN_KEY)
+    return (this.http.post<any>(autorizacionUrl, {"token": token}));
+  }
+
+  getStravaInfo(idUsuario: String): Observable<any>{
+    let autorizacionUrl = environment.baseUrlPersonas + '/'+ idUsuario;
+    return (this.http.get<any>(autorizacionUrl, { headers: this.headers }));
+  }
+
+  syncStrava(access_token: any): Observable<any>{
+    return this.http.post<any>(environment.baseUrlDeporte+"/get_strava/"+access_token, null , { headers: this.headers });
+  }
+
+  addActivityStrava(bodyRequest: any): Observable<any>{
+    return this.http.post<any>(environment.baseUrlDeporte+"/add_activity_strava", bodyRequest , { headers: this.headers });
   }
 
 }
