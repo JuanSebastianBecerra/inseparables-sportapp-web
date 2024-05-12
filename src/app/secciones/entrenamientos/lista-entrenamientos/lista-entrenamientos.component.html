@@ -1,5 +1,14 @@
 <app-toast mensajeError="{{errorObtenerEntrenamientos}}" [mostrarToast]=mostrarErrorObtenerEntrenamientos
            class="d-flex justify-content-center"></app-toast>
+<div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
+    {{mensajeExitoso}}
+</div>
+<div class="d-flex flex-row-reverse">   
+    <button class="btn btn-strava mt-5 rounded" [disabled]="!authorized" (click)="stravaSync()" >Sync Strava</button>
+    <a  type="button" (click)="stravaAuth()" href={{stravaLinkAuth}} class="btn btn-strava mt-5 rounded">Auth Strava</a>
+</div>
+
+
 <div class="container">
     <div class="row mb-3 mt-3">
         <div class="col-4" *ngFor="let entrenamiento of entrenamientos">
@@ -8,9 +17,10 @@
                     <h6 class="card-title">{{entrenamiento.nombre}}</h6>
                     <div class="card-subtitle mb-2 text-muted detail">{{entrenamiento.lugar}}</div>
                     <p class="card-text">{{entrenamiento.detalle}}</p>
-                    <p class="position-absolute bottom-0 end-0">
-                        <a href="#" class="btn btn-details mt-5 rounded-pill">Ver detalle</a>
-                    </p>
+                    <div class="d-flex">
+                        <button class="btn btn-strava-details mt-5 rounded-pill fab fa-strava" [disabled]="!authorized" (click)="stravaEntrenamiento(entrenamiento.id)"></button>
+                        <button class="btn btn-details mt-5 rounded-pill" [disabled]="true" >Ver detalles</button>
+                    </div>
                 </div>
             </div>
         </div>

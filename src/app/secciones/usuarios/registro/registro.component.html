@@ -20,6 +20,7 @@
             <label for="name">{{'nombre' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-nombre"
               *ngIf="
                 registroForm.get('nombre')!.hasError('required') &&
                 registroForm.get('nombre')!.touched
@@ -41,6 +42,7 @@
             <label for="lastname">{{'apellido' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-apellido"
               *ngIf="
                 registroForm.get('apellido')!.hasError('required') &&
                 registroForm.get('apellido')!.touched
@@ -64,6 +66,7 @@
             <label for="lastname">{{'usuario' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-username"
               *ngIf="
                 registroForm.get('username')!.hasError('required') &&
                 registroForm.get('username')!.touched
@@ -85,6 +88,7 @@
             <label for="email">{{'email' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-email"
               *ngIf="
                 registroForm.get('email')!.hasError('required') &&
                 registroForm.get('email')!.touched
@@ -94,6 +98,7 @@
             </div>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-email-formato"
               *ngIf="f['email']?.errors?.['email']"
             >
             {{'email-formato' | translate}}
@@ -109,6 +114,7 @@
               id="documentType"
               class="form-control"
               formControlName="tipo_identificacion"
+              data-testid="tipoIdenficacion"
             >
               <option selected disabled>{{'seleccionar' | translate}}.</option>
               <option>CC</option>
@@ -116,6 +122,7 @@
             </select>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-tipo-identificacion"
               *ngIf="
                 registroForm.get('tipo_identificacion')!.hasError('required') &&
                 registroForm.get('tipo_identificacion')!.touched
@@ -137,6 +144,7 @@
             <label for="identification">{{'numero-identificacion' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-numero-identificacion"
               *ngIf="
                 registroForm.get('numero_identificacion')!.hasError('required') &&
                 registroForm.get('numero_identificacion')!.touched
@@ -161,6 +169,7 @@
             <label for="password">{{'contrasenia' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-password"
               *ngIf="
                 registroForm.get('password')!.hasError('required') &&
                 registroForm.get('password')!.touched
@@ -170,6 +179,7 @@
             </div>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-password-min"
               *ngIf="
                 registroForm.get('password')!.hasError('minlength') &&
                 registroForm.get('password')!.touched
@@ -192,6 +202,7 @@
             <label for="confirmPwd">{{'confirmacion-contrasenia' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-confirmar-password"
               *ngIf="
                 registroForm.get('confirm_password')!.hasError('required') &&
                 registroForm.get('confirm_password')!.touched
@@ -201,6 +212,7 @@
             </div>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-confirmar-password-min"
               *ngIf="
                 registroForm.get('confirm_password')!.hasError('minlength') &&
                 registroForm.get('confirm_password')!.touched
@@ -211,9 +223,36 @@
           </div>
         </div>
       </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="strava_client_id"
+              placeholder="Strava Id"
+              formControlName="strava_client_id"
+            />
+            <label for="stravaId">Strava Id</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="strava_client_secret"
+              placeholder="Strava Secret"
+              formControlName="strava_client_secret"
+            />
+            <label for="stravaId">Strava Secret</label>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-password-match"
               *ngIf="
                 registroForm.hasError('nomatch') &&
                 registroForm.get('password')!.touched &&
@@ -231,12 +270,14 @@
               id="suscription"
               class="form-control"
               formControlName="suscripcion"
+              data-testid="suscripcion"
             >
               <option selected disabled>Seleccione...</option>
               <option *ngFor="let plan of planes; index as i" [value] = "plan['id']">{{plan['nombre']}}</option>
             </select>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-suscripcion"
               *ngIf="
                 registroForm.get('suscripcion')!.hasError('required') &&
                 registroForm.get('suscripcion')!.touched
@@ -269,6 +310,7 @@
       <div class="row">
         <div class="alert alert-success alert-dismissible fade show"
               *ngIf="mostrarUsuarioRegistrado"
+              data-testid="exitoRegistro"
             >
             {{'usuario-registro-exitoso' | translate}}
             </div>

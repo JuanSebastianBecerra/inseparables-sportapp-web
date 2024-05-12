@@ -20,14 +20,59 @@
     font-weight: 100;
 }
 
-.btn-details {
-    background-color: var(--BlueGreen-7);
-    color: var(--BlueGreen-1);
-    width: 8rem;
+.btn{  
     float: right;
     margin-right: 1rem;
 }
 
+.btn-details {
+    background-color: var(--BlueGreen-7);
+    color: var(--BlueGreen-1);
+    width: 12rem;
+}
+
+.btn-strava-details {
+    background-color: #FC4C01; 
+    color: var(--BlueGreen-1);
+    width: 4rem;
+}
+
+.btn-strava {
+    background-color: #FC4C01; 
+    color: var(--BlueGreen-1);
+    width: 8rem;
+}
+
 .detail{
     font-size: 0.6rem;
+}
+
+.buscar-entrenamiento-container{
+    height: 20%;
+}
+
+.lista-entrenamientos-container{
+    height: 60%;
+}
+
+.container{
+    height: 100%;
+}
+
+.btn-circle.btn-xl {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 10%;
+    text-align: center;
+    background-color: var(--BlueGreen-7);
+    color: var(--BlueGreen-1);
+    font-size: 12px;
+}
+
+.agregar-entrenamiento-container{
+    height: 20%;
+}
+
+.float-button-entrenamientos{
+    z-index: 999;
 }

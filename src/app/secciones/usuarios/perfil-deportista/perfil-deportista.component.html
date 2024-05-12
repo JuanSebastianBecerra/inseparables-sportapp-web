@@ -12,6 +12,7 @@
                                 id="genero"
                                 class="form-control"
                                 formControlName="genero"
+                                data-testid="genero"
                         >
                             <option selected disabled>{{'seleccionar' | translate}}</option>
                             <option>{{'masculino' | translate}}</option>
@@ -19,6 +20,7 @@
                             <option>{{'otro' | translate}}</option>
                         </select>
                         <div
+                                data-testid="alerta-genero"
                                 class="alert alert-danger alert-dismissible fade show"
                                 *ngIf="
                 perfilForm.get('genero')!.hasError('required') &&
@@ -35,20 +37,22 @@
                                 id="edad"
                                 placeholder="Edad"
                                 formControlName="edad"
+                                (keypress)="numberOnly($event)"
                         />
                         <label for="edad">{{'edad-anios' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-edad"
                                 *ngIf="
                                     perfilForm.get('edad')!.hasError('required') &&
                                     perfilForm.get('edad')!.touched">
                             {{'edad-requerida' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-edad-min"
                             *ngIf="perfilForm.get('edad')!.hasError('min') && perfilForm.get('edad')!.touched">
                             {{'edad-minima' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-edad-max"
                             *ngIf="perfilForm.get('edad')!.hasError('max') && perfilForm.get('edad')!.touched">
                             {{'edad-maxima' | translate}}
                         </div>
@@ -62,20 +66,22 @@
                                 id="peso"
                                 placeholder="Peso"
                                 formControlName="peso"
+                                (keypress)="numberOnly($event)"
                         />
                         <label for="peso">{{'peso-kg' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-peso"
                                 *ngIf="
                                     perfilForm.get('peso')!.hasError('required') &&
                                     perfilForm.get('peso')!.touched">
                             {{'peso-requerido' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-peso-min"
                             *ngIf="perfilForm.get('peso')!.hasError('min') && perfilForm.get('peso')!.touched">
                             {{'peso-minimo' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-peso-max"
                             *ngIf="perfilForm.get('peso')!.hasError('max') && perfilForm.get('peso')!.touched">
                             {{'peso-maximo' | translate}}
                         </div>
@@ -89,20 +95,22 @@
                                 id="altura"
                                 placeholder="Altura"
                                 formControlName="altura"
+                                (keypress)="numberOnly($event)"
                         />
                         <label for="altura">{{'altura-cm' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-altura"
                                 *ngIf="
                                     perfilForm.get('altura')!.hasError('required') &&
                                     perfilForm.get('altura')!.touched">
                             {{'altura-requerida' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-altura-min"
                             *ngIf="perfilForm.get('altura')!.hasError('min') && perfilForm.get('altura')!.touched">
                             {{'altura-minima' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-altura-max"
                             *ngIf="perfilForm.get('altura')!.hasError('max') && perfilForm.get('altura')!.touched">
                             {{'altura-maxima' | translate}}
                         </div>
@@ -117,6 +125,7 @@
                                 id="paisNacimiento"
                                 class="form-control"
                                 formControlName="pais_nacimiento"
+                                data-testid="paisNacimiento"
                                 (change)="obtenerCiudadesNacimiento($any($event.target)?.value)"
                         >
                             <option selected disabled>{{'seleccionar' | translate}}</option>
@@ -124,6 +133,7 @@
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-pais-nacimiento"
                                 *ngIf="
                 perfilForm.get('pais_nacimiento')!.hasError('required') &&
                 perfilForm.get('pais_nacimiento')!.touched">
@@ -138,12 +148,14 @@
                                 id="ciudadNacimiento"
                                 class="form-control"
                                 formControlName="ciudad_nacimiento"
+                                data-testid="ciudadNacimiento"
                         >
                             <option selected disabled>Seleccione...</option>
                             <option *ngFor="let ciudad of ciudadesNacimiento; index as i" [value]="ciudad['codigo']">{{ciudad["nombre"]}}</option>
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-ciudad-nacimiento"
                                 *ngIf="
                 perfilForm.get('ciudad_nacimiento')!.hasError('required') &&
                 perfilForm.get('ciudad_nacimiento')!.touched">
@@ -160,6 +172,7 @@
                                 id="paisResidencia"
                                 class="form-control"
                                 formControlName="pais_residencia"
+                                data-testid="paisResidencia"
                                 (change)="obtenerCiudadesResidencia($any($event.target)?.value)"
                         >
                             <option selected disabled>{{'seleccionar' | translate}}</option>
@@ -167,6 +180,7 @@
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-pais-residencia"
                                 *ngIf="
                 perfilForm.get('pais_residencia')!.hasError('required') &&
                 perfilForm.get('pais_residencia')!.touched">
@@ -181,12 +195,14 @@
                                 id="ciudadResidencia"
                                 class="form-control"
                                 formControlName="ciudad_residencia"
+                                data-testid="ciudadResidencia"
                         >
                             <option selected disabled>{{'seleccionar' | translate}}.</option>
                             <option *ngFor="let ciudad of ciudadesResidencia; index as i" [value]="ciudad['codigo']">{{ciudad["nombre"]}}</option>
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-ciudad-residencia"
                                 *ngIf="
                 perfilForm.get('ciudad_residencia')!.hasError('required') &&
                 perfilForm.get('ciudad_residencia')!.touched">
@@ -204,20 +220,22 @@
                                 id="antiguedad"
                                 placeholder="Antigüedad"
                                 formControlName="antiguedad_residencia"
+                                (keypress)="numberOnly($event)"
                         />
                         <label for="antiguedad">{{'antiguedad-residencia' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-antiguedad"
                                 *ngIf="
                                     perfilForm.get('antiguedad_residencia')!.hasError('required') &&
                                     perfilForm.get('antiguedad_residencia')!.touched">
                             {{'antiguedad-residencia-requerida' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-antiguedad-min"
                             *ngIf="perfilForm.get('antiguedad_residencia')!.hasError('min') && perfilForm.get('antiguedad_residencia')!.touched">
                             {{'antiguedad-residencia-minima' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-antiguedad-max"
                             *ngIf="perfilForm.get('antiguedad_residencia')!.hasError('max') && perfilForm.get('antiguedad_residencia')!.touched">
                             {{'antiguedad-residencia-maxima' | translate}}
                         </div>
@@ -232,6 +250,7 @@
                                 id="tipoSangre"
                                 class="form-control"
                                 formControlName="tipo_sangre"
+                                data-testid="tipoSangre"
                         >
                             <option selected disabled>{{'seleccionar' | translate}}</option>
                             <option>O+</option>
@@ -243,6 +262,7 @@
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-tipo-sangre"
                                 *ngIf="
                 perfilForm.get('tipo_sangre')!.hasError('required') &&
                 perfilForm.get('tipo_sangre')!.touched">
@@ -258,20 +278,22 @@
                                 id="imc"
                                 placeholder="IMC"
                                 formControlName="imc"
+                                (keypress)="numberOnly($event)"
                         />
                         <label for="imc">{{'imc' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-imc"
                                 *ngIf="
                                     perfilForm.get('imc')!.hasError('required') &&
                                     perfilForm.get('imc')!.touched">
                             {{'imc-requerido' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-imc-min"
                             *ngIf="perfilForm.get('imc')!.hasError('min') && perfilForm.get('imc')!.touched">
                             {{'imc-minimo' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-imc-max"
                             *ngIf="perfilForm.get('imc')!.hasError('max') && perfilForm.get('imc')!.touched">
                             {{'imc-maximo' | translate}}
                         </div>
@@ -285,20 +307,22 @@
                                 id="horasEjercicio"
                                 placeholder="Horas ejercicio por semana"
                                 formControlName="horas_semanal"
+                                (keypress)="numberOnly($event)"
                         />
                         <label for="horasEjercicio">{{'ejercicio-por-semana-horas' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-horas-semanal"
                                 *ngIf="
                                     perfilForm.get('horas_semanal')!.hasError('required') &&
                                     perfilForm.get('horas_semanal')!.touched">
                             {{'ejercicio-por-semana-horas-requerido' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-horas-semanal-min"
                             *ngIf="perfilForm.get('horas_semanal')!.hasError('min') && perfilForm.get('horas_semanal')!.touched">
                             {{'horas-semanal-minimo' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-horas-semanal-max"
                             *ngIf="perfilForm.get('horas_semanal')!.hasError('max') && perfilForm.get('horas_semanal')!.touched">
                             {{'horas-semanal-maximo' | translate}}
                         </div>
@@ -312,20 +336,22 @@
                                 id="pesoObjetivo"
                                 placeholder="Peso objetivo"
                                 formControlName="peso_objetivo"
+                                (keypress)="numberOnly($event)"
                         />
                         <label for="pesoObjetivo">{{'peso-objetivo' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-peso-objetivo"
                                 *ngIf="
                                     perfilForm.get('peso_objetivo')!.hasError('required') &&
                                     perfilForm.get('peso_objetivo')!.touched">
                             {{'peso-objetivo-requerido' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-peso-objetivo-min"
                             *ngIf="perfilForm.get('peso_objetivo')!.hasError('min') && perfilForm.get('peso_objetivo')!.touched">
                             {{'peso-objetivo-minimo' | translate}}
                         </div>
-                        <div class="alert alert-danger alert-dismissible fade show"
+                        <div class="alert alert-danger alert-dismissible fade show" data-testid="alerta-peso-objetivo-max"
                             *ngIf="perfilForm.get('peso_objetivo')!.hasError('max') && perfilForm.get('peso_objetivo')!.touched">
                             {{'peso-objetivo-maximo' | translate}}
                         </div>
@@ -345,6 +371,7 @@
                         <label for="alergias">{{'alergias' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-alergias"
                                 *ngIf="
                 perfilForm.get('alergias')!.hasError('required') &&
                 perfilForm.get('alergias')!.touched">
@@ -359,6 +386,7 @@
                                 id="deporte"
                                 class="form-control"
                                 formControlName="deporte"
+                                data-testid="deporte"
                         >
                             <option selected disabled>{{'seleccionar' | translate}}</option>
                             <option>Ciclismo</option>
@@ -366,6 +394,7 @@
                         </select>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-deporte"
                                 *ngIf="
                 perfilForm.get('deporte')!.hasError('required') &&
                 perfilForm.get('deporte')!.touched">
@@ -379,13 +408,14 @@
                     <div class="form-floating">
             <textarea
                     class="form-control"
-                    placeholder="Leave a comment here"
+                    placeholder="Preferencia Alimentaria"
                     id="preferenciaAlimenticia"
                     formControlName="preferencia_alimenticia"
             ></textarea>
                         <label for="preferenciaAlimenticia">{{'preferencia-alimentaria' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-preferencia-alimentaria"
                                 *ngIf="
                 perfilForm.get('preferencia_alimenticia')!.hasError('required') &&
                 perfilForm.get('preferencia_alimenticia')!.touched">
@@ -399,13 +429,14 @@
                     <div class="form-floating">
             <textarea
                     class="form-control"
-                    placeholder="Leave a comment here"
+                    placeholder="Plan Nutricional"
                     id="planNutricional"
                     formControlName="plan_nutricional"
             ></textarea>
                         <label for="planNutricional">{{'plan-nutricional' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-plan-nutricional"
                                 *ngIf="
                 perfilForm.get('plan_nutricional')!.hasError('required') &&
                 perfilForm.get('plan_nutricional')!.touched">
@@ -419,13 +450,14 @@
                     <div class="form-floating">
             <textarea
                     class="form-control"
-                    placeholder="Leave a comment here"
+                    placeholder="Historia Clinica"
                     id="historiaClinica"
                     formControlName="url_historia_clinica"
             ></textarea>
                         <label for="historiaClinica">{{'historia-clinica' | translate}}</label>
                         <div
                                 class="alert alert-danger alert-dismissible fade show"
+                                data-testid="alerta-historia-clinica"
                                 *ngIf="
                 perfilForm.get('url_historia_clinica')!.hasError('required') &&
                 perfilForm.get('url_historia_clinica')!.touched">
