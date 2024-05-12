@@ -21,4 +21,8 @@ export class CrearEventoService {
     return this.http.post<any>(this.serviciossUrl, bodyRequest, {headers: this.headers});
   }
 
+  actualizarEvento(bodyRequest:any): Observable<any> {
+    return this.http.put<any>(this.serviciossUrl, bodyRequest, {headers: this.headers});
+  }
+
 }

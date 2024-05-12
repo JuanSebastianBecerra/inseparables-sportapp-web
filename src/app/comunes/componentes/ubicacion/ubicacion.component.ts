@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, Directive, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UbicacionMaps } from 'src/app/clases/location';
 import { LocationService } from 'src/app/servicios/maps/location.service';
 import {TranslateModule} from "@ngx-translate/core";
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-ubicacion',
@@ -13,10 +14,24 @@ import {TranslateModule} from "@ngx-translate/core";
   imports: [ReactiveFormsModule, CommonModule, TranslateModule]
 })
 export class UbicacionComponent implements OnInit {
+  private _disabled = false;
+  private _value :UbicacionMaps | undefined;
+
+  @Input()
+  set disabled(param: any) {  
+    this._disabled = param;
+
+  }
+  
+  @Input()
+  set value(param: any) {  
+      this._value = param;
+    }
 
   constructor(private formBuilder: FormBuilder, private locationService: LocationService){}
 
   @Output() onSeleccionarDireccion: EventEmitter<UbicacionMaps> = new EventEmitter();
+  
 
   ngOnInit(): void {
     this.iniciarFormulario()
@@ -32,10 +47,15 @@ export class UbicacionComponent implements OnInit {
   mapsKey : string = ""
 
   iniciarFormulario() {
-    this.direccionForm = this.formBuilder.group({
-        direccion: ["", Validators.required]
-  })
-}
+     this.direccionForm = this.formBuilder.group({
+        direccion: [{value:this._value, disabled:this._disabled},Validators.required]
+        })
+     if(this._value != undefined)  {
+        this.seleccionarDireccion(this._value )
+  
+  
+        }      
+  }
 
   buscarDireccion(): void{
     this.mostrarDirecciones = true
@@ -67,3 +87,5 @@ export class UbicacionComponent implements OnInit {
   }
 
 }
+
+

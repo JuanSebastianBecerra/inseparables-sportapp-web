@@ -7,7 +7,7 @@ import { timer } from 'rxjs';
 import { SPACE_ASCII_CHAR_NUMBERS, ZERO_ASCII_CHAR_NUMBERS, NINE_ASCII_CHAR_NUMBERS } from 'src/app/utils/constants';
 
 import { RespuestaSocios } from 'src/app/clases/detalle-socio';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
 import {TranslateModule} from "@ngx-translate/core";
 
@@ -16,6 +16,8 @@ import { CrearEventoService } from 'src/app/servicios/eventos/crear-evento.servi
 import {DxDateBoxModule} from "devextreme-angular";
 import { UbicacionComponent } from 'src/app/comunes/componentes/ubicacion/ubicacion.component';
 import { UbicacionMaps } from 'src/app/clases/location';
+import { EventosService } from 'src/app/servicios/eventos/eventos.service';
+import { Evento, RespuestaEvento } from 'src/app/clases/evento';
 
 
 @Component({
@@ -36,16 +38,21 @@ export class CrearEventoComponent implements OnInit {
   fecha_inicio: any = new Date();
   fecha_fin: any = new Date();
   selectedPlace! : UbicacionMaps
+  eventoId: string = ""
+  modificar: boolean = false
+  eventoDetalle!: Evento
+
 
   constructor(private formBuilder: FormBuilder, private deportesService: DeportesService, 
     private socioService: SocioService, private eventoService: CrearEventoService,
-    private router: Router) {}
+    private router: Router,private route: ActivatedRoute, private eventosService: EventosService ) {}
 
   get f(): { [key: string]: AbstractControl } {
     return this.eventoForm.controls;
   }
 
   ngOnInit(): void {
+    this.eventoId = this.route.snapshot.paramMap.get('idEvento')!;
     this.iniciarFormulario()
     this.obtenerDeportes()
     this.obtenerSocios()
@@ -85,32 +92,59 @@ export class CrearEventoComponent implements OnInit {
   }
 
   iniciarFormulario() {
-    this.eventoForm = this.formBuilder.group({
-      nombre: ["", Validators.required],
-      fecha_inicio: ["", Validators.required],
-      fecha_fin: ["", Validators.required],
-      detalle: ["", Validators.required],
-      id_socio: ["", Validators.required],
-      id_deporte: ["", Validators.required]
-    })
+    if (this.eventoId ===null){
+      this.modificar = false
+      this.eventoForm = this.formBuilder.group({
+        nombre: ["", Validators.required],
+        fecha_inicio: ["", Validators.required],
+        fecha_fin: ["", Validators.required],
+        detalle: ["", Validators.required],
+        id_socio: ["", Validators.required],
+        id_deporte: ["", Validators.required]
+      })
+    }else{
+      this.modificar = true
+      this.obtenerDetalleEvento()
+     
+    }
   }
 
   guardarEvento(bodyRequest: any){
     bodyRequest.ubicacion = this.selectedPlace
-    this.eventoService.registrarEvento(bodyRequest).subscribe(response => {
-      this.exitoso = true
-      this.eventoForm.reset()
-      timer(5000).subscribe(x => { this.router.navigate(["/eventos"]) })
-      
-    },
-      error => {
-        this.exitoso = false
-        this.responseError = true
-        if (error.error.description)
-          this.responseMessage = error.error.description
-        else
-          this.responseMessage = "Ocurrió un error al realizar la petición";
-      });
+
+    if(this.eventoId ===null) {
+      this.eventoService.registrarEvento(bodyRequest).subscribe(response => {
+        this.exitoso = true
+        this.eventoForm.reset()
+        timer(5000).subscribe(x => { this.router.navigate(["/eventos"]) })
+        
+      },
+        error => {
+          this.exitoso = false
+          this.responseError = true
+          if (error.error.description)
+            this.responseMessage = error.error.description
+          else
+            this.responseMessage = "Ocurrió un error al realizar la petición";
+        });
+    }else {
+      bodyRequest.id = this.eventoId
+      this.eventoService.actualizarEvento(bodyRequest).subscribe(response => {
+        this.exitoso = true
+        this.eventoForm.reset()
+        timer(5000).subscribe(x => { this.router.navigate(["/eventos"]) })
+        
+      },
+        error => {
+          this.exitoso = false
+          this.responseError = true
+          if (error.error.description)
+            this.responseMessage = error.error.description
+          else
+            this.responseMessage = "Ocurrió un error al realizar la petición";
+        });
+
+    }
 
   }
 
@@ -124,6 +158,41 @@ export class CrearEventoComponent implements OnInit {
 
   onSeleccionarDireccion(direccion: UbicacionMaps){
     this.selectedPlace = direccion
+  }
+
+  obtenerDetalleEvento(): void{
+    this.eventosService.getDetalleEvento(this.eventoId).subscribe(respuesta => {
+      let respuestaEvento = new RespuestaEvento(respuesta.respuesta, respuesta.token);
+      respuestaEvento.setNuevoToken()
+      this.eventoDetalle = respuestaEvento.respuesta
+      this.eventoForm = this.formBuilder.group({
+        nombre: [{value: this.eventoDetalle.nombre, disabled: true} , Validators.required],
+        fecha_inicio: [this.eventoDetalle.fecha_inicio, Validators.required],
+        fecha_fin: [this.eventoDetalle.fecha_fin, Validators.required],
+        detalle: [{value: this.eventoDetalle.detalle, disabled: true}, Validators.required],
+        id_socio: [{value: this.eventoDetalle.id_socio, disabled: true}, Validators.required],
+        id_deporte: [{value: this.eventoDetalle.id_deporte, disabled: true}, Validators.required]        
+      })
+
+      this.fecha_inicio = new Date(this.eventoDetalle.fecha_inicio)
+      this.fecha_fin = new Date(this.eventoDetalle.fecha_fin)
+
+      
+      this.selectedPlace =this.eventoDetalle.ubicacion
+  
+
+    }, error => { 
+      if(error.status === 401){
+        localStorage.clear()
+        this.router.navigate(['/'])
+      }else{
+        this.responseError = true
+        if (error.error.description)
+          this.responseMessage = error.error.description
+        else
+          this.responseMessage = "Error al consultar el detalle del evento, intente más tarde";
+        }
+    })
   }
 
 }
