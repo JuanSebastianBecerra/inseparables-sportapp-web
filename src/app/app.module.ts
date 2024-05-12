@@ -62,7 +62,8 @@ import { BuscarEventosComponent } from './secciones/eventos/buscar-eventos/busca
 import { ListarEventosComponent } from './secciones/eventos/listar-eventos/listar-eventos.component';
 import { BotonCrearEventoComponent } from './secciones/eventos/boton-crear-evento/boton-crear-evento.component';
 import { UbicacionComponent } from './comunes/componentes/ubicacion/ubicacion.component';
-import { DetalleEventoComponent } from './secciones/eventos/detalle-evento/detalle-evento.component'
+import { DetalleEventoComponent } from './secciones/eventos/detalle-evento/detalle-evento.component';
+import { NotificacionesComponent } from './comunes/componentes/notificaciones/notificaciones.component'
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -95,6 +96,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ConsultaEventosComponent,
         BotonCrearEventoComponent,
         DetalleEventoComponent,
+        NotificacionesComponent,
     ],
     imports: [
         BrowserModule,

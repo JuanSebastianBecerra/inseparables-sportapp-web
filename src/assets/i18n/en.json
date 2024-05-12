@@ -56,7 +56,10 @@
     "socio-reqeuerido": "Partner is required",
     "detalle-requerido": "Detail is required",
     "evento-creado": "Event created succesfully",
+
+    "notificacion-eventos-cercanos": "There are new events nearby",
     "buscar.eventos": "Search events ...",
+
     "direccion": "Address",
     "direccion-requerida": "The address is required",
     "direccion-minima": "One address of the list must be selected",

@@ -145,7 +145,6 @@ export class ListaEntrenamientosComponent implements OnInit{
   }
 
   stravaAuth(): boolean{
-    console.log(localStorage.getItem(TOKEN_KEY))
     if (localStorage.getItem(CLIENT_ID_STRAVA)=="null"){
       this.mostrarErrorObtenerEntrenamientos = true
       this.errorObtenerEntrenamientos = "El usuario no cuenta con configuración Strava"

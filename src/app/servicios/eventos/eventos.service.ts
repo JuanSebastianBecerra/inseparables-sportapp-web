@@ -33,4 +33,8 @@ export class EventosService {
   getDetalleEvento(idEvento: string): Observable<RespuestaEvento>{
     return this.http.get<RespuestaEvento>(this.eventosUrl+"/"+idEvento, { headers: this.headers })
   }
+
+  getNuevosEventosCercanos(ultimaConexion: number): Observable<RespuestaEventos>{
+    return this.http.get<RespuestaEventos>(this.eventosUrl+ "-nuevos/" + ultimaConexion, { headers: this.headers })
+  }
 }

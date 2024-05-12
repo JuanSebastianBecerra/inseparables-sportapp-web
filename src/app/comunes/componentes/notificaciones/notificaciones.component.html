@@ -1,0 +1,9 @@
+<div class="posicion-selector" *ngIf="!ocultarNotificaciones">
+    <i class="far fa-bell" [ngClass]="notificaciones < 1 ? 'disabled' : ''"></i>
+    <div class="notificacion" *ngIf="notificaciones > 0">
+        <div class="not-tooltip">
+            {{notificaciones}}
+            <span class="not-tooltiptext">{{'notificacion-eventos-cercanos' | translate}}</span>
+        </div>
+    </div>
+</div>

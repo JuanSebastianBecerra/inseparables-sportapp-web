@@ -3,7 +3,7 @@ import { Router, RouterModule } from "@angular/router"
 import { AutorizacionService } from '../../servicios/autorizacion/autorizacion.service';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from '@angular/common';
-import { ROL_KEY, TOKEN_KEY } from 'src/app/utils/constants';
+import { ROL_KEY, TOKEN_KEY, ULTIMA_CONEXION_KEY } from 'src/app/utils/constants';
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
@@ -43,6 +43,7 @@ export class AutenticacionComponent implements OnInit {
       this.validacion = response
       localStorage.setItem(TOKEN_KEY, response.token)
       localStorage.setItem(ROL_KEY, response.rol)
+      localStorage.setItem(ULTIMA_CONEXION_KEY, response.ultima_conexion)
       this.router.navigate(['/socios'])
     },
     error => {

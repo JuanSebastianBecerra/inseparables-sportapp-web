@@ -4,14 +4,16 @@ import { AppComponent } from './app.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { BodyComponent } from './secciones/body/body.component';
 import {IdiomaComponent} from "./comunes/componentes/idioma/idioma.component";
+import { NotificacionesComponent } from './comunes/componentes/notificaciones/notificaciones.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [RouterTestingModule,
+    imports: [RouterTestingModule, HttpClientTestingModule,
       TranslateModule.forRoot()],
-    declarations: [AppComponent, BodyComponent, IdiomaComponent]
+    declarations: [AppComponent, BodyComponent, IdiomaComponent, NotificacionesComponent]
   })});
 
   it('should create the app', () => {
