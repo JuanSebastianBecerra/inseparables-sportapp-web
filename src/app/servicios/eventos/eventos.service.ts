@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RespuestaEvento, RespuestaEventos, RespuestaEventosDeportista } from 'src/app/clases/evento';
+import { RespuestaEvento, RespuestaEventos } from 'src/app/clases/evento';
 import { TOKEN_KEY } from 'src/app/utils/constants';
 import { environment } from 'src/environments/environment';
 
@@ -26,8 +26,8 @@ export class EventosService {
     return this.http.get<RespuestaEventos>(this.eventosUrl+ "-cercanos", { headers: this.headers })
   }
 
-  getEventosDeportista(): Observable<RespuestaEventosDeportista>{
-    return this.http.get<RespuestaEventosDeportista>(this.eventosUrl+ "-deportista", { headers: this.headers })
+  getEventosDeportista(): Observable<RespuestaEventos>{
+    return this.http.get<RespuestaEventos>(this.eventosUrl+ "-deportista", { headers: this.headers })
   }
 
   getDetalleEvento(idEvento: string): Observable<RespuestaEvento>{
@@ -35,6 +35,6 @@ export class EventosService {
   }
 
   getNuevosEventosCercanos(ultimaConexion: number): Observable<RespuestaEventos>{
-    return this.http.get<RespuestaEventos>(this.eventosUrl+ "-nuevos/" + ultimaConexion, { headers: this.headers })
+    return this.http.get<RespuestaEventos>(this.eventosUrl+ "-nuevos/"+ultimaConexion, { headers: this.headers })
   }
 }

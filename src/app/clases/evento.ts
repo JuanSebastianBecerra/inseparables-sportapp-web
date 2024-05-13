@@ -45,26 +45,3 @@ export class RespuestaEvento extends Authentication{
     }
 
 }
-
-
-export class EventoDeportista{
-    id: string;
-    id_deportista: string;
-    id_evento: string;
-
-    constructor(id: string, id_deportista: string, id_evento: string){
-        this.id = id;
-        this.id_deportista = id_deportista;
-        this.id_evento = id_evento;
-    }
-}
-
-export class RespuestaEventosDeportista extends Authentication{
-    respuesta: EventoDeportista[]
-
-    constructor(respuesta: EventoDeportista[], token: string){
-        super(token);
-        this.respuesta = respuesta
-    }
-
-}

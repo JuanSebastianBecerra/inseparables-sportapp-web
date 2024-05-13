@@ -6,7 +6,10 @@ export class Authentication{
         this.token = token
     }
     setNuevoToken(): void{
-        localStorage.removeItem(TOKEN_KEY)
-        localStorage.setItem(TOKEN_KEY, this.token)
+        if(this.token != undefined && this.token != null && this.token != ""){
+            localStorage.removeItem(TOKEN_KEY)
+            localStorage.setItem(TOKEN_KEY, this.token)
+        }
+        
     }
 }
