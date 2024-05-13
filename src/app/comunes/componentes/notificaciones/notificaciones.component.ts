@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RespuestaEventos } from 'src/app/clases/evento';
 import { EventosService } from 'src/app/servicios/eventos/eventos.service';
-import { ULTIMA_CONEXION_KEY } from 'src/app/utils/constants';
+import { TOKEN_KEY, ULTIMA_CONEXION_KEY } from 'src/app/utils/constants';
 
 @Component({
   selector: 'app-notificaciones',
@@ -27,7 +27,9 @@ export class NotificacionesComponent {
       
       if(this.router.url == "/socios"){
         const ultima_conexion = localStorage.getItem(ULTIMA_CONEXION_KEY)
-        if(ultima_conexion != undefined && ultima_conexion != null && ultima_conexion != "" && this.consultado == false){
+        const token = localStorage.getItem(TOKEN_KEY)
+        if(ultima_conexion != undefined && ultima_conexion != null && ultima_conexion != "" && !this.consultado
+            && token != undefined && token != null && token != "" ){
           eventosService.getNuevosEventosCercanos(parseFloat(ultima_conexion)).subscribe(respuesta => {
             this.consultado = true
             let respuestaEventos = new RespuestaEventos(respuesta.respuesta, respuesta.token)

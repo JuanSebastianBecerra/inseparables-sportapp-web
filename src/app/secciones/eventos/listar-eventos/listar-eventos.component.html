@@ -1,7 +1,7 @@
 <app-toast mensajeError="{{errorMensaje}}" [mostrarToast]=mostrarError class="d-flex justify-content-center"></app-toast>
 <div>
-  <div *ngIf="tipoEvento == 'DEPORTISTA' && eventosDeportistaDetalle.length > 0" class="grid-container">
-    <div class="card grid-item" style="width: 18rem;" *ngFor="let evento of eventosDeportistaDetalle">
+  <div *ngIf="tipoEvento == 'DEPORTISTA' && eventosDeportista.length > 0" class="grid-container">
+    <div class="card grid-item" style="width: 18rem;" *ngFor="let evento of eventosDeportista">
         <div class="card-body">
         <h6 class="card-title">{{evento.nombre}}</h6>
         <div class="card-subtitle mb-2 text-muted detail">{{evento.fecha_inicio}}</div>
@@ -14,7 +14,7 @@
         </div>
     </div> 
   </div>
-  <div *ngIf="tipoEvento == 'DEPORTISTA' && eventosDeportistaDetalle.length < 1" class="eventos-vacio-container">
+  <div *ngIf="tipoEvento == 'DEPORTISTA' && eventosDeportista.length < 1" class="eventos-vacio-container">
     <div>{{'no-eventos-registrados' | translate}}</div>
   </div>
     <div *ngIf="tipoEvento == 'PROXIMOS' && eventosProximos.length > 0" class="grid-container">
