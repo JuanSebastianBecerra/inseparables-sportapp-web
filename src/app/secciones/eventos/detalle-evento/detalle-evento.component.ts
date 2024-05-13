@@ -72,4 +72,8 @@ export class DetalleEventoComponent implements OnInit{
     this.router.navigate(['/eventos'])
   }
 
+  modificarEvento(){
+    this.router.navigate(["/modificar-evento/"+this.eventoId ]) 
+  }
+
 }

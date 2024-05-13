@@ -6,7 +6,7 @@
         <div class="col-6">
             <div class="row">
                 <table>
-                    <tr>
+                   <tr>
                         <td><strong>{{'fecha-inicio' | translate}}: </strong></td>
                         <td>{{eventoDetalle.fecha_inicio}}</td>
                     </tr>
@@ -37,6 +37,11 @@
     </div>
     <div class="row">
         <div class="col-4"></div>
+        <div class="col-3">
+                <button type="submit" class="btn btn-guardar" (click)="modificarEvento()">
+                {{'Modificar' | translate}}
+              </button>
+            </div>
         <div class="col-4">
             <button type="button" class="btn btn-cancelar" (click)="cancelar()">{{'cancelar' | translate}}</button>
         </div>

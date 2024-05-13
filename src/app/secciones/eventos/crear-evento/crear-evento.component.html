@@ -2,16 +2,17 @@
 <div class="container contenedor-registro">
     <h1>{{'evento' | translate}}</h1>
     <form class="form-size size-form-register" [formGroup]="eventoForm" (ngSubmit)="!eventoForm.invalid && guardarEvento(eventoForm.value)">
+    
         <div class="row row-form">
             <div class="col-6">
-                <input type="text" class="form-control" id="name" placeholder="{{'name' | translate}}" formControlName="nombre"/>
+                <input type="text" class="form-control" id="name" placeholder="{{'name' | translate}}" formControlName="nombre" [value]="eventoForm.get('nombre')"  />
                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('nombre')!.hasError('required') && eventoForm.get('nombre')!.touched">
                     {{'nombre-requerido' | translate}}
                 </div>
             </div>
             <div class="col-6"></div>
-        </div>
-        <app-ubicacion (onSeleccionarDireccion)="onSeleccionarDireccion($event)"></app-ubicacion>
+        </div>       
+        <app-ubicacion (onSeleccionarDireccion)="onSeleccionarDireccion($event)" [disabled]="eventoId ==null?false:true" [value]="selectedPlace"></app-ubicacion>
         <div class="row row-form mb-3 mt-3">
           <div class="col-6">
                 <label for="datepickerHoraInicio">{{'fecha-inicio' | translate}}</label>
@@ -48,6 +49,7 @@
                 </div>
           </div>
         </div>
+       
         <div class="row row-form">
             <div class="col-6">
                 <select class="form-select" formControlName="id_socio">
@@ -75,7 +77,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-              <textarea class="form-control" placeholder="{{'detalles' | translate}}" id="detalle" rows="4" formControlName="detalle"></textarea>
+              <textarea class="form-control" placeholder="{{'detalles' | translate}}" id="detalle" rows="4" formControlName="detalle"  [disabled]="true"></textarea>
               <div class="alert alert-danger alert-dismissible fade show" *ngIf="eventoForm.get('detalle')!.hasError('required') && eventoForm.get('detalle')!.touched">
                   {{'detalles-evento-requerido' | translate}}
               </div>

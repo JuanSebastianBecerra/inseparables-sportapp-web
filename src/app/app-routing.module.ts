@@ -43,6 +43,7 @@ const routes: Routes = [
   { path: 'planes', component: PlanesComponent},
   { path: 'indicadores', component: IndicadoresComponent},
   { path: 'crear-evento', component: CrearEventoComponent},
+  { path: 'modificar-evento/:idEvento', component: CrearEventoComponent},
   { path: '**', component: DesconocidoComponent },
 ];
 
