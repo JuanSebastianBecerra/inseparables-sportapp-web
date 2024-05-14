@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="col-3">
-            <select class="form-control" (change)="cambiarTipoEvento($event)">
+            <select class="form-control" (change)="cambiarTipoEvento($event)" data-testid="select-eventos">
                 <option value="DEPORTISTA">{{'eventos-deportista' | translate}}</option>
                 <option value="PROXIMOS">{{'eventos-proximos-fecha' | translate}}</option>
                 <option value="CERCANOS">{{'eventos-cercanos-ubicacion' | translate}}</option>

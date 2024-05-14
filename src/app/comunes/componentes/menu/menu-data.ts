@@ -2,22 +2,22 @@ export const menubarAdministracionData = [
     {
         routeLink: 'socios',
         icon: 'fal fa-suitcase',
-        label: 'Socios de negocio'
+        label: 'socios-negocio'
     },
     {
         routeLink: 'servicios',
         icon: 'fal fa-arrows',
-        label: 'Servicios / Productos'
+        label: 'servicio-producto'
     },
     {
         routeLink: 'reuniones/disponibles',
         icon: 'fal fa-chalkboard-teacher',
-        label: 'Entrenadores'
+        label: 'entrenadores'
     },
     {
         routeLink: 'eventos',
         icon: 'fal fa-calendar',
-        label: 'Eventos'
+        label: 'eventos'
     }
 ];
 
@@ -25,27 +25,27 @@ export const menubarDeporteData = [
     {
         routeLink: 'deportistas',
         icon: 'fal fa-users',
-        label: 'Deportistas'
+        label: 'deportistas'
     },
     {
         routeLink: 'entrenamientos',
         icon: 'fal fa-flag',
-        label: 'Entrenamientos'
+        label: 'entrenamientos'
     },
     {
         routeLink: 'crear-plan',
         icon: 'fal fa-calendar-plus',
-        label: 'Crear Plan'
+        label: 'crear-plan'
     },
     {
         routeLink: 'planes',
         icon: 'fal fa-flag',
-        label: 'Planes'
+        label: 'planes'
     },
     {
         routeLink: 'indicadores',
         icon: 'fal fa-chart-line',
-        label: 'Indicadores'
+        label: 'indicadores'
     },
 ]
 
@@ -53,11 +53,11 @@ export const menubarConfiguracionData = [
     {
         routeLink: 'perfil',
         icon: 'fal fa-user',
-        label: 'Mi perfil'
+        label: 'mi-perfil'
     },
     {
         routeLink: '/',
         icon: 'fal fa-sign-out',
-        label: 'Cerrar sesión'
+        label: 'cerrar-sesion'
     }
 ]

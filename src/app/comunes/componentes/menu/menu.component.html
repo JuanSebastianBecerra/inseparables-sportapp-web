@@ -11,15 +11,16 @@
     <!-- Sección Administración -->
     <li class="sidenav-nav-item sidenav-subtitle">
       <span class="sidenav-link-text link-collapsed" *ngIf="!collapsed">A</span>
-      <span class="sidenav-link-text" *ngIf="collapsed">Administración</span>
+      <span class="sidenav-link-text" *ngIf="collapsed">{{'administracion' | translate}}</span>
     </li>
     <li class="sidenav-nav-item" *ngFor="let data of menubarAdministracionData">
       <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}"
+        [attr.data-testid]="'menu-' + data.label"
       >
         <i class="sidenav-link-icon" [class]="data.icon"></i>
-        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label | translate}}</span>
       </a>
     </li>
     <li class="sidenav-nav-item sidenav-section">
@@ -28,15 +29,16 @@
     <!-- Sección deporte -->
     <li class="sidenav-nav-item sidenav-subtitle">
       <span class="sidenav-link-text link-collapsed" *ngIf="!collapsed">D</span>
-      <span class="sidenav-link-text" *ngIf="collapsed">Deporte</span>
+      <span class="sidenav-link-text" *ngIf="collapsed">{{'deporte' | translate}}</span>
     </li>
     <li class="sidenav-nav-item" *ngFor="let data of menubarDeporteData">
       <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}"
+        [attr.data-testid]="'menu-' + data.label"
       >
         <i class="sidenav-link-icon" [class]="data.icon"></i>
-        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label | translate}}</span>
       </a>
     </li>
     <li class="sidenav-nav-item sidenav-section">
@@ -45,15 +47,16 @@
     <!-- Sección Configuración -->
     <li class="sidenav-nav-item sidenav-subtitle">
       <span class="sidenav-link-text link-collapsed" *ngIf="!collapsed">C</span>
-      <span class="sidenav-link-text" *ngIf="collapsed">Configuración</span>
+      <span class="sidenav-link-text" *ngIf="collapsed">{{'configuracion' | translate}}</span>
     </li>
     <li class="sidenav-nav-item" *ngFor="let data of menubarConfiguracionData">
       <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}"
+        [attr.data-testid]="'menu-' + data.label"
       >
         <i class="sidenav-link-icon" [class]="data.icon"></i>
-        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label | translate}}</span>
       </a>
     </li>
   </ul>

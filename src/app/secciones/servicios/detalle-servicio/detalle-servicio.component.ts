@@ -34,9 +34,9 @@ export class DetalleServicioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.obtenerServicio()
     this.obtenerDeportes()
     this.obtenerSocios()
+    this.obtenerServicio()
     this.iniciarFormulario()
       
   }

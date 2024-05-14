@@ -162,5 +162,25 @@
     "evento-eliminado-deportista": "The evento was removed for the athlete's events successfully",
     "no-eventos-registrados": "There are not registered events",
     "no-eventos-proximos": "There are not next events",
-    "no-eventos-cercanos": "There are not nearby events"
+    "no-eventos-cercanos": "There are not nearby events",
+
+    "valor-usd": "Value (USD)",
+    "descripcion": "Description",
+    "valor-requerido": "The value is required",
+    "descripcion-requerido": "The descripcion is required",
+    "servicio-creado-exitosamente": "Service created successfully",
+    "buscar-reunion": "Search available meeting ...",
+
+    "administracion": "Management",
+    "configuracion": "Configuración",
+    "socios-negocio": "Bussiness Partners",
+    "servicio-producto": "Services / Products",
+    "entrenadores": "Trainers",
+    "eventos": "Events",
+    "deportistas": "Athletes",
+    "crear-plan": "Create plan",
+    "planes": "Plans",
+    "indicadores": "Indicators",
+    "mi-perfil": "My account",
+    "cerrar-sesion": "Sign out"
 }

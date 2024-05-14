@@ -64,7 +64,6 @@
     "direccion-requerida": "La dirección es requerida",
     "direccion-minima": "Se debe seleccionar una dirección de la lista",
 
-
     "registro": "Registro",
     "nombre": "Nombre(s)",
     "nombre-requeridos": "El nombre es requerido",
@@ -164,5 +163,25 @@
     "evento-eliminado-deportista": "Evento eliminado exitosamente de los eventos del deportista",
     "no-eventos-registrados": "No hay eventos registrados",
     "no-eventos-proximos": "No hay eventos próximos",
-    "no-eventos-cercanos": "No hay eventos cercanos"
+    "no-eventos-cercanos": "No hay eventos cercanos",
+
+    "valor-usd": "Valor (USD)",
+    "descripcion": "Descripción",
+    "valor-requerido": "Se requiere el valor",
+    "descripcion-requerido": "Se requiere la descripción",
+    "servicio-creado-exitosamente": "Servicio creado exitosamente",
+    "buscar-reunion": "Buscar reunión disponible ...",
+
+    "administracion": "Administración",
+    "configuracion": "Configuración",
+    "socios-negocio": "Socios de negocio",
+    "servicio-producto": "Servicios / Productos",
+    "entrenadores": "Entrenadores",
+    "eventos": "Eventos",
+    "deportistas": "Deportistas",
+    "crear-plan": "Crear Plan",
+    "planes": "Planes",
+    "indicadores": "Indicadores",
+    "mi-perfil": "Mi perfil",
+    "cerrar-sesion": "Cerrar sesión"
 }

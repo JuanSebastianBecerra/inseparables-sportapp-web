@@ -147,6 +147,7 @@ export class ListarEventosComponent {
       let eventosDeportistaRespuesta = new RespuestaEventos(respuesta.respuesta, respuesta.token)
       eventosDeportistaRespuesta.setNuevoToken()
       this.eventosDeportista = eventosDeportistaRespuesta.respuesta;
+      this.eventosDeportistaInicial = eventosDeportistaRespuesta.respuesta;
       this.ocultarInscripcion()
       
     }, error => { 

@@ -4,77 +4,89 @@
     <form class="form-size size-form-register" [formGroup]="servicioForm" (ngSubmit)="!servicioForm.invalid && guardarServicio(servicioForm.value)">
         <div class="row">
             <div class="col-6">
-                <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="nombre"/>
-                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('nombre')!.hasError('required') && servicioForm.get('nombre')!.touched">
-                    Se requiere el usuario
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="nombre"/>
+                    <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('nombre')!.hasError('required') && servicioForm.get('nombre')!.touched" data-testid="alerta-nombre">
+                        {{'nombre-requerido' | translate}}
+                    </div>
+                    <label for="name">{{'nombre' | translate}}</label>
                 </div>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control" id="valor" placeholder="Valor (USD)" formControlName="valor"
-                    (keypress)="numberOnly($event)"
-                />
-                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('valor')!.hasError('required') && servicioForm.get('valor')!.touched">
-                    Se requiere el valor
-                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="valor" placeholder="Valor (USD)" formControlName="valor"
+                        (keypress)="numberOnly($event)"
+                    />
+                    <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('valor')!.hasError('required') && servicioForm.get('valor')!.touched" data-testid="alerta-valor">
+                        {{'valor-requerido' | translate}}
+                    </div>
+                    <label for="valor">{{'valor-usd' | translate}}</label>
+            </div>
             </div>
             <div class="col-6"></div>
         </div>
         <div class="row">
             <div class="col-12">
-                <textarea class="form-control" placeholder="Detalles" id="detalle" rows="4" formControlName="detalle"></textarea>
-                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('detalle')!.hasError('required') && servicioForm.get('detalle')!.touched">
-                    Se requieren los detalles del servicio
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Detalles" id="detalle" rows="4" formControlName="detalle"></textarea>
+                    <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('detalle')!.hasError('required') && servicioForm.get('detalle')!.touched" data-testid="alerta-detalle">
+                        {{'detalle-requerido' | translate}}
+                    </div>
+                    <label for="detalle">{{'detalles' | translate}}</label>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <textarea class="form-control" placeholder="Descripción" id="descripcion" rows="7" formControlName="descripcion"></textarea>
-                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('descripcion')!.hasError('required') && servicioForm.get('descripcion')!.touched">
-                    Se requiere la descripción del servicio
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Descripción" id="descripcion" rows="7" formControlName="descripcion"></textarea>
+                    <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('descripcion')!.hasError('required') && servicioForm.get('descripcion')!.touched" data-testid="alerta-descripcion">
+                        {{'descripcion-requerido' | translate}}
+                    </div>
+                    <label for="descripcion">{{'descripcion' | translate}}</label>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-6">
-                <select class="form-select" formControlName="id_socio">
-                    <option selected value=>Seleccione el socio de negocio ...</option>
+                <select class="form-select" formControlName="id_socio" data-testid="socio-negocio">
+                    <option selected value=>{{'seleccion-socio' | translate}}</option>
                     <option *ngFor="let socio of socios" [ngValue]="socio.id">
                         {{ socio.nombre }} {{socio.apellido}}
                     </option>
                 </select>
-                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('id_socio')!.hasError('required') && servicioForm.get('id_socio')!.touched">
-                    Se requiere el socio de negocio
+                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('id_socio')!.hasError('required') && servicioForm.get('id_socio')!.touched" data-testid="alerta-socio">
+                    {{'socio-reqeuerido' | translate}}
                 </div>
             </div>
             <div class="col-6">
-                <select class="form-select" formControlName="id_deporte">
-                    <option selected value=>Seleccione el deporte ...</option>
+                <select class="form-select" formControlName="id_deporte" data-testid="deporte">
+                    <option selected value=>{{'seleccion-deporte' | translate}}</option>
                     <option *ngFor="let deporte of deportes" [ngValue]="deporte.id">
                         {{ deporte.nombre }}
                     </option>
                 </select>
-                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('id_deporte')!.hasError('required') && servicioForm.get('id_deporte')!.touched">
-                    Se requiere el deporte
+                <div class="alert alert-danger alert-dismissible fade show" *ngIf="servicioForm.get('id_deporte')!.hasError('required') && servicioForm.get('id_deporte')!.touched" data-testid="alerta-deporte">
+                    {{'deporte-requerido' | translate}}
                 </div>
             </div>
             <div class="col-6"></div>
         </div>
         
-        <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
-            Entrenamiento creado exitosamente
+        <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso" data-testid="exitoCreacion">
+            {{'servicio-creado-exitosamente' | translate}}
         </div>
         
         <div class="row">
             <div class="col-3"></div>
             <div class="col-3">
               <button type="submit" class="btn btn-guardar mt-5" [disabled]="!servicioForm.valid">
-                Guardar
+                {{'save' | translate}}
               </button>
             </div>
             <div class="col-3">
-              <button type="button" routerLink="/" class="btn btn-cancelar mt-5">
-                Cancelar
+              <button type="button" (click)="cancelar()" class="btn btn-cancelar mt-5">
+                {{'cancel' | translate}}
               </button>
             </div>
             <div class="col-3"></div>
