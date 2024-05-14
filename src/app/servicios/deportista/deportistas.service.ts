@@ -11,21 +11,23 @@ export class DeportistasService {
 
   private serviciossUrl = environment.baseUrlAdministracion + '/deportista';
 
-  private headers = new HttpHeaders({
-    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
-  })
+  _buildHeaders(){
+    return new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
+    })
+  }
 
   constructor(private http: HttpClient) { }
 
   asignarServicioADeportista(idServicio: string): Observable<any> {
-    return this.http.post<any>(this.serviciossUrl+"/servicio/"+idServicio, "", {headers: this.headers});
+    return this.http.post<any>(this.serviciossUrl+"/servicio/"+idServicio, "", {headers: this._buildHeaders()});
   }
 
   asignarEventoAgendaDeportista(idEvento: string): Observable<any> {
-    return this.http.post<any>(this.serviciossUrl+"/evento/"+idEvento, "", {headers: this.headers});
+    return this.http.post<any>(this.serviciossUrl+"/evento/"+idEvento, "", {headers: this._buildHeaders()});
   }
 
   eliminarEventoAgendaDeportista(idEvento: string): Observable<any> {
-    return this.http.delete<any>(this.serviciossUrl+"/evento/"+idEvento, {headers: this.headers});
+    return this.http.delete<any>(this.serviciossUrl+"/evento/"+idEvento, {headers: this._buildHeaders()});
   }
 }

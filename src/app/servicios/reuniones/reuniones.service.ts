@@ -10,20 +10,22 @@ import { TOKEN_KEY } from 'src/app/utils/constants';
 })
 export class ReunionesService {
 
-  headers = new HttpHeaders({
-    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
-  })
+  _buildHeaders(){
+    return new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
+    })
+  }
 
   constructor(private http: HttpClient) { }
 
   getReunionesDisponibles(): Observable<RespuestaReuniones> {
     const url = `${environment.baseUrlAdministracion}/reuniones/disponibles`;
-    return this.http.get<RespuestaReuniones>(url, { headers: this.headers })
+    return this.http.get<RespuestaReuniones>(url, { headers: this._buildHeaders() })
   }
 
   agendarSesion(id: string): Observable<any> {
     const url = `${environment.baseUrlAdministracion}/reunion/`+id;
-    return this.http.post<any>(url, "",{ headers: this.headers});
+    return this.http.post<any>(url, "",{ headers: this._buildHeaders()});
   }
 }
 

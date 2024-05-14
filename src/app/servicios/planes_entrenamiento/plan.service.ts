@@ -10,16 +10,18 @@ import { TOKEN_KEY } from 'src/app/utils/constants';
 })
 export class PlanService {
 
-  headers = new HttpHeaders({
-    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
-  })
+  _buildHeaders(){
+    return new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
+    })
+  }
 
   private planUrl = environment.baseUrlDeporte + '/plan-entrenamiento';
 
   constructor(private http: HttpClient) { }
 
   registrarPlan(bodyRequest:any): Observable<any> {
-    return this.http.post<any>(this.planUrl, bodyRequest, { headers: this.headers });
+    return this.http.post<any>(this.planUrl, bodyRequest, { headers: this._buildHeaders() });
   }
 
 }

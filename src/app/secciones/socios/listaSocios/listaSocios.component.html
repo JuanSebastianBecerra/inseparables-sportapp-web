@@ -1,6 +1,6 @@
 <app-toast mensajeError="{{errorGetSocios}}" [mostrarToast]=mostrarErrorGetSocios class="d-flex justify-content-center"></app-toast>
 <div class="d-flex">
-  <div class="card" style="width: 18rem;" *ngFor="let socio of socios">
+  <div class="card" style="width: 18rem;" *ngFor="let socio of socios" data-testid="socio-card">
     <div class="card-body">
       <h6 class="card-title">{{socio.nombre}} {{socio.apellido}}</h6>
       <div class="card-subtitle mb-2 text-muted detail">{{socio.email}}</div>
