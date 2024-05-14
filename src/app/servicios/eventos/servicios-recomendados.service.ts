@@ -11,14 +11,16 @@ import { TOKEN_KEY } from 'src/app/utils/constants';
 })
 export class ServiciosRecomendadosService {
 
-  headers = new HttpHeaders({
-    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
-  })
+  _buildHeaders(){
+    return new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
+    })
+  }
 
   constructor(private http: HttpClient) { }
 
   getServiciosRecomendadosPorEvento(idEvento: string): Observable<RespuestaServiciosRecomendados>{
     const url = `${environment.baseUrlAdministracion}/evento/${idEvento}/servicios`;
-    return this.http.get<RespuestaServiciosRecomendados>(url, { headers: this.headers });
+    return this.http.get<RespuestaServiciosRecomendados>(url, { headers: this._buildHeaders() });
   }
 }

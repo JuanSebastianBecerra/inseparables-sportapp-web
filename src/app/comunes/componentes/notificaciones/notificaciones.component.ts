@@ -27,9 +27,7 @@ export class NotificacionesComponent {
       
       if(this.router.url == "/socios"){
         const ultima_conexion = localStorage.getItem(ULTIMA_CONEXION_KEY)
-        const token = localStorage.getItem(TOKEN_KEY)
-        if(ultima_conexion != undefined && ultima_conexion != null && ultima_conexion != "" && !this.consultado
-            && token != undefined && token != null && token != "" ){
+        if(ultima_conexion != undefined && ultima_conexion != null && ultima_conexion != "" && !this.consultado){
           eventosService.getNuevosEventosCercanos(parseFloat(ultima_conexion)).subscribe(respuesta => {
             this.consultado = true
             let respuestaEventos = new RespuestaEventos(respuesta.respuesta, respuesta.token)

@@ -19,6 +19,7 @@
             <label for="name">{{'name' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-nombre"
               *ngIf="
                 socioForm.get('nombre')!.hasError('required') &&
                 socioForm.get('nombre')!.touched
@@ -40,6 +41,7 @@
             <label for="lastname">{{'apellidos' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-apellido"
               *ngIf="
                 socioForm.get('apellido')!.hasError('required') &&
                 socioForm.get('apellido')!.touched
@@ -63,6 +65,7 @@
             <label for="username">{{'username' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-username"
               *ngIf="
                 socioForm.get('username')!.hasError('required') &&
                 socioForm.get('username')!.touched
@@ -84,6 +87,7 @@
             <label for="email">{{'email' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-email"
               *ngIf="
                 socioForm.get('email')!.hasError('required') &&
                 socioForm.get('email')!.touched
@@ -108,6 +112,7 @@
               id="documentType"
               class="form-control"
               formControlName="tipo_identificacion"
+              data-testid="tipo-identificacion"
             >
               <option selected disabled>{{'seleccione' | translate}}</option>
               <option>CC</option>
@@ -115,6 +120,7 @@
             </select>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-tipo-identificacion"
               *ngIf="
                 socioForm.get('tipo_identificacion')!.hasError('required') &&
                 socioForm.get('tipo_identificacion')!.touched
@@ -136,6 +142,7 @@
             <label for="identification">{{'id' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-num-identificacion"
               *ngIf="
                 socioForm.get('numero_identificacion')!.hasError('required') &&
                 socioForm.get('numero_identificacion')!.touched
@@ -159,6 +166,7 @@
             <label for="password">{{'password' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-password"
               *ngIf="
                 socioForm.get('password')!.hasError('required') &&
                 socioForm.get('password')!.touched
@@ -180,6 +188,7 @@
             <label for="confirmPwd">{{'confirmar.contrasenia' | translate}}</label>
             <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-confirmacion-password"
               *ngIf="
                 socioForm.get('confirmPwd')!.hasError('required') &&
                 socioForm.get('confirmPwd')!.touched
@@ -194,6 +203,7 @@
       <div class="row">
         <div
               class="alert alert-danger alert-dismissible fade show"
+              data-testid="alerta-password-match"
               *ngIf="
                 socioForm.hasError('nomatch') &&
                 socioForm.get('password')!.touched &&
@@ -217,7 +227,7 @@
           </div>
         </div>
       </div>
-      <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
+      <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso" data-testid="exitoCreacion">
         {{'socio-creado' | translate}}
       </div>
       <div class="row">

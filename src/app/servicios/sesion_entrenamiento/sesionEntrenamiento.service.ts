@@ -13,13 +13,15 @@ export class SesionEntrenamientoService {
   private indicadoresUrl = environment.baseUrlDeporte + '/indicadores';
 
 
-  private headers = new HttpHeaders({
-    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
-  })
+  _buildHeaders(){
+    return new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
+    })
+  }
 
   constructor(private http:HttpClient) { }
 
   calcularIndicadores(): Observable<IndicadorRespuesta>{
-    return this.http.get<IndicadorRespuesta>(this.indicadoresUrl, { headers: this.headers });
+    return this.http.get<IndicadorRespuesta>(this.indicadoresUrl, { headers: this._buildHeaders() });
   }
 }

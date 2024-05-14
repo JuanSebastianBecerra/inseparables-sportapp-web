@@ -11,18 +11,20 @@ export class CrearEventoService {
 
   private serviciossUrl = environment.baseUrlAdministracion + '/evento';
 
-  private headers = new HttpHeaders({
-    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
-  })
+  _buildHeaders(){
+    return new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
+    })
+  }
 
   constructor(private http: HttpClient) { }
 
   registrarEvento(bodyRequest:any): Observable<any> {
-    return this.http.post<any>(this.serviciossUrl, bodyRequest, {headers: this.headers});
+    return this.http.post<any>(this.serviciossUrl, bodyRequest, {headers: this._buildHeaders()});
   }
 
   actualizarEvento(bodyRequest:any): Observable<any> {
-    return this.http.put<any>(this.serviciossUrl, bodyRequest, {headers: this.headers});
+    return this.http.put<any>(this.serviciossUrl, bodyRequest, {headers: this._buildHeaders()});
   }
 
 }

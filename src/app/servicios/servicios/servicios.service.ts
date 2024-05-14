@@ -13,21 +13,23 @@ export class ServiciosService {
 
   private serviciossUrl = environment.baseUrlAdministracion + '/producto_servicio';
 
-  private headers = new HttpHeaders({
-    'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
-  })
+  _buildHeaders(){
+    return new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`
+    })
+  }
 
   constructor(private http: HttpClient) { }
 
   registrarServicio(bodyRequest:any): Observable<any> {
-    return this.http.post<any>(this.serviciossUrl, bodyRequest, {headers: this.headers});
+    return this.http.post<any>(this.serviciossUrl, bodyRequest, {headers: this._buildHeaders()});
   }
 
   obtenerServicios(): Observable<RespuestaServicios> {
-    return this.http.get<RespuestaServicios>(this.serviciossUrl, {headers: this.headers})
+    return this.http.get<RespuestaServicios>(this.serviciossUrl, {headers: this._buildHeaders()})
   }
 
   obtenerServicioPorId(idServicio: String): Observable<RespuestaServicio>{
-    return this.http.get<RespuestaServicio>(this.serviciossUrl+"/"+idServicio, {headers: this.headers})
+    return this.http.get<RespuestaServicio>(this.serviciossUrl+"/"+idServicio, {headers: this._buildHeaders()})
   }
 }
