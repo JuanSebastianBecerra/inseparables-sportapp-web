@@ -8,6 +8,7 @@ import { EventosService } from 'src/app/servicios/eventos/eventos.service';
 import {TranslateModule} from "@ngx-translate/core";
 import { DeportistasService } from 'src/app/servicios/deportista/deportistas.service';
 import { timer } from 'rxjs';
+import { PersonasService } from 'src/app/servicios/personas/personas.service';
 
 @Component({
   selector: 'app-listar-eventos',
@@ -35,7 +36,7 @@ export class ListarEventosComponent {
   @Input() textoBuscar: string = "";
   @Input() tipoEvento: string = "";
 
-  constructor(private eventosServicio: EventosService, private router: Router, private deportistasService:DeportistasService ){}
+  constructor(private eventosServicio: EventosService, private router: Router, private deportistasService:DeportistasService, private personasService: PersonasService){}
 
   ngOnChanges(changes: SimpleChanges) {
     if(this.tipoEvento == ""){
@@ -117,25 +118,28 @@ export class ListarEventosComponent {
   }
 
   getEventosCercanos(): void{
-    this.eventosServicio.getEventosCercanos().subscribe(respuesta => {
-      let eventosRespuesta = new RespuestaEventos(respuesta.respuesta, respuesta.token)
-      eventosRespuesta.setNuevoToken()
-
-      this.eventosCercanos = eventosRespuesta.respuesta;
-      this.eventosCercanosInicial = eventosRespuesta.respuesta;
-      this.ocultarInscripcion()
-    }, error => { 
-      if(error.status === 401){
-        localStorage.clear()
-        this.router.navigate(['/'])
-      }else{
-        this.mostrarError = true
-        if (error.error.description)
-          this.errorMensaje = error.error.description
-        else
-          this.errorMensaje = "Error al consultar la lista de eventos cercanos, intente más tarde";
-        }
-    })
+    this.personasService.getDireccionUsuario().subscribe(respuestaDir => {
+      this.eventosServicio.getEventosCercanos(respuestaDir.ubicacion_latitud, respuestaDir.ubicacion_longitud).subscribe(respuesta => {
+        let eventosRespuesta = new RespuestaEventos(respuesta.respuesta, respuesta.token)
+        eventosRespuesta.setNuevoToken()
+  
+        this.eventosCercanos = eventosRespuesta.respuesta;
+        this.eventosCercanosInicial = eventosRespuesta.respuesta;
+        this.ocultarInscripcion()
+      }, error => { 
+        if(error.status === 401){
+          localStorage.clear()
+          this.router.navigate(['/'])
+        }else{
+          this.mostrarError = true
+          if (error.error.description)
+            this.errorMensaje = error.error.description
+          else
+            this.errorMensaje = "Error al consultar la lista de eventos cercanos, intente más tarde";
+          }
+      })
+    });
+    
   }
 
   getEventosDeportista(): void{

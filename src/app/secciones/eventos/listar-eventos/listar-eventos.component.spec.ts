@@ -5,19 +5,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { EventosService } from 'src/app/servicios/eventos/eventos.service';
 import { Evento, RespuestaEventos } from 'src/app/clases/evento';
-import { UbicacionMaps } from 'src/app/clases/location';
+import { UbicacionMaps, DireccionDeportista } from 'src/app/clases/location';
 import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { DeportistasService } from 'src/app/servicios/deportista/deportistas.service';
+import { PersonasService } from 'src/app/servicios/personas/personas.service';
 
 describe('ListarEventosComponent', () => {
   let component: ListarEventosComponent;
   let fixture: ComponentFixture<ListarEventosComponent>;
   let eventosServicio: EventosService
   let deportistasService : DeportistasService
+  let personasService: PersonasService
   let router: Router
 
   const _UBICACION = new UbicacionMaps("1", "Calle", "1", "1", "Calle")
+  const _UBICACIONES = new DireccionDeportista("1", "Calle", "1", "1", "Calle")
   const _EVENTO = new Evento("1", "evento", "2025-02-01", "3035-03-01", "Detalle eventos", "1", "1", _UBICACION)
   const _RESPUESTA_EVENTOS = new RespuestaEventos([_EVENTO], "1234567890")
 
@@ -29,6 +32,7 @@ describe('ListarEventosComponent', () => {
     fixture = TestBed.createComponent(ListarEventosComponent);
     eventosServicio = TestBed.inject(EventosService)
     deportistasService = TestBed.inject(DeportistasService)
+    personasService = TestBed.inject(PersonasService)
     component = fixture.componentInstance;
     fixture.detectChanges();
 
@@ -76,6 +80,7 @@ describe('ListarEventosComponent', () => {
   });
 
   it('should get eventos cercanos', () => {
+    spyOn(personasService, 'getDireccionUsuario').and.returnValue(of(_UBICACIONES))
     spyOn(eventosServicio, 'getEventosCercanos').and.returnValue(of(_RESPUESTA_EVENTOS))
     component.getEventosCercanos();
     expect(component.eventosCercanos).toEqual([_EVENTO]);
@@ -83,6 +88,7 @@ describe('ListarEventosComponent', () => {
 
   it('should handle error from fetching eventos cercanos', () => {
     const mockError = { status: 404, error: { description: 'Error occurred' } };
+    spyOn(personasService, 'getDireccionUsuario').and.returnValue(of(_UBICACIONES))
     spyOn(eventosServicio, 'getEventosCercanos').and.returnValue(throwError(mockError))
     component.getEventosCercanos();
 
@@ -92,6 +98,7 @@ describe('ListarEventosComponent', () => {
 
   it('should handle error from fetching eventos cercanos without description', () => {
     const mockError = { status: 404, error: { error: 'Error occurred' } };
+    spyOn(personasService, 'getDireccionUsuario').and.returnValue(of(_UBICACIONES))
     spyOn(eventosServicio, 'getEventosCercanos').and.returnValue(throwError(mockError))
     component.getEventosCercanos();
 
@@ -101,6 +108,7 @@ describe('ListarEventosComponent', () => {
 
   it('should handle authentication error from fetching eventos cercanos', () => {
     const mockError = { status: 401, error: { description: 'Error occurred' } };
+    spyOn(personasService, 'getDireccionUsuario').and.returnValue(of(_UBICACIONES))
     spyOn(eventosServicio, 'getEventosCercanos').and.returnValue(throwError(mockError));
 
     const navigateSpy = spyOn(router, 'navigate');

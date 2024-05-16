@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RespuestaEvento, RespuestaEventos } from 'src/app/clases/evento';
@@ -24,8 +24,8 @@ export class EventosService {
     return this.http.get<RespuestaEventos>(this.eventosUrl, { headers: this._buildHeaders() })
   }
 
-  getEventosCercanos(): Observable<RespuestaEventos>{
-    return this.http.get<RespuestaEventos>(this.eventosUrl+ "-cercanos", { headers: this._buildHeaders() })
+  getEventosCercanos(latitud: string, longitud: string): Observable<RespuestaEventos>{
+    return this.http.get<RespuestaEventos>(this.eventosUrl+ "-cercanos", { headers: this._buildHeaders(), params: {"latitud": latitud, "longitud": longitud} })
   }
 
   getEventosDeportista(): Observable<RespuestaEventos>{
@@ -36,7 +36,7 @@ export class EventosService {
     return this.http.get<RespuestaEvento>(this.eventosUrl+"/"+idEvento, { headers: this._buildHeaders() })
   }
 
-  getNuevosEventosCercanos(ultimaConexion: number): Observable<RespuestaEventos>{
-    return this.http.get<RespuestaEventos>(this.eventosUrl+ "-nuevos/"+ultimaConexion, { headers: this._buildHeaders()})
+  getNuevosEventosCercanos(ultimaConexion: number, latitud: string, longitud: string): Observable<RespuestaEventos>{
+    return this.http.get<RespuestaEventos>(this.eventosUrl+ "-nuevos/"+ultimaConexion, { headers: this._buildHeaders(), params: {"latitud": latitud, "longitud": longitud}})
   }
 }
