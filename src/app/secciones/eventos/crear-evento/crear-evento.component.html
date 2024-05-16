@@ -52,7 +52,7 @@
        
         <div class="row row-form">
             <div class="col-6">
-                <select class="form-select" formControlName="id_socio">
+                <select class="form-select" formControlName="id_socio" data-testid="socio-negocio">
                     <option selected value=>{{'seleccione-socio-negocio' | translate}}</option>
                     <option *ngFor="let socio of socios" [ngValue]="socio.id">
                         {{ socio.nombre }} {{socio.apellido}}
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="col-6">
-                <select class="form-select" formControlName="id_deporte">
+                <select class="form-select" formControlName="id_deporte"  data-testid="deporte">
                     <option selected value=>{{'seleccione-deporte' | translate}}</option>
                     <option *ngFor="let deporte of deportes" [ngValue]="deporte.id">
                         {{ deporte.nombre }}
@@ -83,14 +83,14 @@
               </div>
           </div>
         </div>
-        <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso">
+        <div class="alert alert-success alert-dismissible fade show" *ngIf="exitoso" data-testid="guardo-exitoso">
             {{'evento-creado' | translate}}
         </div>
         
         <div class="row">
             <div class="col-3"></div>
             <div class="col-3">
-                <button type="submit" class="btn btn-guardar mt-5" [disabled]="!eventoForm.valid || (selectedPlace == undefined || selectedPlace.id == '')">
+                <button type="submit" class="btn btn-guardar mt-5" [disabled]="!eventoForm.valid || (selectedPlace == undefined || selectedPlace.id == '')" data-testid="guardar-evento">
                 {{'save' | translate}}
               </button>
             </div>

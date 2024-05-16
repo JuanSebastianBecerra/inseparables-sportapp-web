@@ -8,6 +8,7 @@ import { SocioService } from 'src/app/servicios/socios/socios.service';
 import { DetalleSocio, RespuestaSocios } from 'src/app/clases/detalle-socio';
 import { Router } from '@angular/router';
 import { ServiciosService } from 'src/app/servicios/servicios/servicios.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('CreacionServiciosComponent', () => {
   let component: CreacionServiciosComponent;
@@ -23,7 +24,7 @@ describe('CreacionServiciosComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [CreacionServiciosComponent, HttpClientTestingModule],
+      imports: [CreacionServiciosComponent, HttpClientTestingModule, TranslateModule.forRoot()],
       declarations: []
     });
     fixture = TestBed.createComponent(CreacionServiciosComponent);

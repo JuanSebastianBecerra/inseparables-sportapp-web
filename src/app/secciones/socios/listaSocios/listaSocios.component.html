@@ -6,7 +6,7 @@
       <div class="card-subtitle mb-2 text-muted detail">{{socio.email}}</div>
       <p class="card-text">{{socio.detalle}}</p>
       <p class="position-absolute bottom-0 end-0">
-        <a href="#" class="btn btn-details mt-5 rounded-pill" routerLink="/socio/{{socio.id}}">{{'view.details' | translate}}</a>
+        <a href="#" class="btn btn-details mt-5 rounded-pill" routerLink="/socio/{{socio.id}}" data-testid="ver-detalle" [attr.socio-id]=socio.id>{{'view.details' | translate}}</a>
       </p>
     </div>
   </div> 

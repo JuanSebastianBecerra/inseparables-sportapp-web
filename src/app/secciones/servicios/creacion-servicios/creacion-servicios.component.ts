@@ -10,6 +10,7 @@ import { SPACE_ASCII_CHAR_NUMBERS, ZERO_ASCII_CHAR_NUMBERS, NINE_ASCII_CHAR_NUMB
 import { RespuestaSocios } from 'src/app/clases/detalle-socio';
 import { Router } from '@angular/router';
 import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { ToastComponent } from 'src/app/comunes/componentes/toast/toast.componen
   templateUrl: './creacion-servicios.component.html',
   styleUrls: ['./creacion-servicios.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ToastComponent]
+  imports: [ReactiveFormsModule, CommonModule, ToastComponent, TranslateModule]
 })
 export class CreacionServiciosComponent implements OnInit {
 
@@ -109,6 +110,10 @@ export class CreacionServiciosComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  cancelar(){
+    this.router.navigate(['/servicios'])
   }
 
 }
