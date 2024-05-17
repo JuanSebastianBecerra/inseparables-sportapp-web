@@ -21,6 +21,7 @@ import { IndicadoresComponent } from './secciones/indicadores/indicadores.compon
 import { CrearEventoComponent } from './secciones/eventos/crear-evento/crear-evento.component';
 import { ConsultaEventosComponent } from './secciones/eventos/consulta-eventos/consulta-eventos.component';
 import { DetalleEventoComponent } from './secciones/eventos/detalle-evento/detalle-evento.component';
+import { AgendaComponent } from './secciones/agenda/agenda.component';
 
 const routes: Routes = [
   { path: '', component: AutenticacionComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'indicadores', component: IndicadoresComponent},
   { path: 'crear-evento', component: CrearEventoComponent},
   { path: 'modificar-evento/:idEvento', component: CrearEventoComponent},
+  { path: 'agenda', component: AgendaComponent},
   { path: '**', component: DesconocidoComponent },
 ];
 
