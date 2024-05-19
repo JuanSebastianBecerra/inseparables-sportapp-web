@@ -68,7 +68,7 @@ const getRandomElement = (arr: any[]) =>
   ],
   templateUrl: 'agenda.component.html',
 })
-export class AgendaComponent  implements OnInit {
+export class AgendaComponent  {
 
 
   
@@ -108,9 +108,6 @@ export class AgendaComponent  implements OnInit {
     this.getEventosDeportista()
   }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
