@@ -7,7 +7,7 @@ import { UbicacionMaps } from 'src/app/clases/location';
 import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 //import { CalendarDatePipe } from 'angular-calendar/modules/common/calendar-date/calendar-date.pipe';
-import { CalendarCommonModule, CalendarMomentDateFormatter, DateAdapter } from 'angular-calendar';
+import { CalendarCommonModule } from 'angular-calendar';
 
 describe('AgendaComponent', () => {
   let component: AgendaComponent;
@@ -21,7 +21,7 @@ describe('AgendaComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [AgendaComponent],
-      imports: [HttpClientTestingModule,CalendarCommonModule,DateAdapter,CalendarMomentDateFormatter]
+      imports: [HttpClientTestingModule,CalendarCommonModule]
     });
     eventosServicio = TestBed.inject(EventosService)
     fixture = TestBed.createComponent(AgendaComponent);
