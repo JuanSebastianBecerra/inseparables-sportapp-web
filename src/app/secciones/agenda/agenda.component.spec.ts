@@ -5,6 +5,7 @@ import { EventosService } from 'src/app/servicios/eventos/eventos.service';
 import { Evento, RespuestaEventos } from 'src/app/clases/evento';
 import { UbicacionMaps } from 'src/app/clases/location';
 import { of } from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AgendaComponent', () => {
   let component: AgendaComponent;
@@ -17,8 +18,9 @@ describe('AgendaComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AgendaComponent]
+      declarations: [AgendaComponent,HttpClientTestingModule]
     });
+    eventosServicio = TestBed.inject(EventosService)
     fixture = TestBed.createComponent(AgendaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
