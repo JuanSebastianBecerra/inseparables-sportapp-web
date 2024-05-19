@@ -6,7 +6,7 @@ import { Evento, RespuestaEventos } from 'src/app/clases/evento';
 import { UbicacionMaps } from 'src/app/clases/location';
 import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CalendarCommonModule, CalendarDateFormatter,  CalendarDayViewComponent,  CalendarMonthViewComponent,  CalendarWeekViewComponent,  DateAdapter } from 'angular-calendar';
+import { CalendarCommonModule, CalendarDateFormatter,  CalendarDayViewComponent,  CalendarMonthViewComponent,  CalendarWeekViewComponent,  DateAdapter ,CalendarUtils} from 'angular-calendar';
 
 describe('AgendaComponent', () => {
   let component: AgendaComponent;
@@ -21,7 +21,7 @@ describe('AgendaComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AgendaComponent, CalendarDayViewComponent,  CalendarMonthViewComponent,  CalendarWeekViewComponent],
       imports: [HttpClientTestingModule,CalendarCommonModule],
-      providers: [ DateAdapter,  CalendarDateFormatter ]
+      providers: [ DateAdapter,  CalendarDateFormatter,CalendarUtils ]
     });
     eventosServicio = TestBed.inject(EventosService)
     fixture = TestBed.createComponent(AgendaComponent);
