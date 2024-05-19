@@ -20,7 +20,7 @@ describe('AgendaComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [AgendaComponent],
-      imports: [HttpClientTestingModule,CalendarCommonModule, CalendarDateFormatter,  CalendarDayViewComponent,  CalendarMonthViewComponent,  CalendarWeekViewComponent,  DateAdapter],
+      imports: [HttpClientTestingModule,CalendarCommonModule, CalendarDayViewComponent,  CalendarMonthViewComponent,  CalendarWeekViewComponent],
       providers: [ DateAdapter,  CalendarDateFormatter ]
     });
     eventosServicio = TestBed.inject(EventosService)
