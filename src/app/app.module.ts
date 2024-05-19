@@ -63,7 +63,11 @@ import { ListarEventosComponent } from './secciones/eventos/listar-eventos/lista
 import { BotonCrearEventoComponent } from './secciones/eventos/boton-crear-evento/boton-crear-evento.component';
 import { UbicacionComponent } from './comunes/componentes/ubicacion/ubicacion.component';
 import { DetalleEventoComponent } from './secciones/eventos/detalle-evento/detalle-evento.component';
-import { NotificacionesComponent } from './comunes/componentes/notificaciones/notificaciones.component'
+import { NotificacionesComponent } from './comunes/componentes/notificaciones/notificaciones.component';
+import { AgendaComponent } from './secciones/agenda/agenda.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -97,6 +101,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         BotonCrearEventoComponent,
         DetalleEventoComponent,
         NotificacionesComponent,
+        AgendaComponent
     ],
     imports: [
         BrowserModule,
@@ -130,7 +135,9 @@ export function HttpLoaderFactory(http: HttpClient) {
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+        NgbModule
     ],
     bootstrap: [AppComponent],
     exports: [
